@@ -56,3 +56,8 @@
 	@import 'layout/footer';
 	@import 'layout/sidebar';
 	@import 'layout/intro';
+
+
+	.technologiesSum {
+		grid-row: auto auto auto auto;
+	}
