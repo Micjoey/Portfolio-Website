@@ -59,9 +59,14 @@
 
 
 	.technologiesSum {
+		display: grid;
 		grid-row: auto auto auto auto;
 	}
 
 	#three {
 		background-color: green;
+	}
+
+	.links {
+		display: flex;
 	}
