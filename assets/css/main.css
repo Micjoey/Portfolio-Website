@@ -3912,3 +3912,12 @@ input, select, textarea {
 			}
 
 		}
+
+#trial {
+	background-color: rgb(87, 33, 33);
+}
+
+.feature-icons {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+}
