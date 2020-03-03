@@ -3915,6 +3915,7 @@ input, select, textarea {
 
 #trial {
 	background-color: rgb(87, 33, 33);
+	width: 100%;
 }
 
 .feature-icons {
