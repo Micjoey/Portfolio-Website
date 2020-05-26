@@ -27,7 +27,9 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;
+	object-position: -180px;
+}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -2576,7 +2578,7 @@ input, select, textarea {
 
 		.image img {
 			border-radius: 0.25em;
-			display: block;
+			display: inline-block;
 		}
 
 		.image.left, .image.right {
@@ -2631,7 +2633,7 @@ input, select, textarea {
 			border-radius: 0.25em;
 			display: block;
 			object-fit: cover;
-			object-position: 20%;
+			/* object-position:  */
 		}
 
 		.imageTwo.left, .imageTwo.right {
@@ -3110,7 +3112,7 @@ input, select, textarea {
 			-webkit-justify-content: center;
 			-ms-justify-content: center;
 			justify-content: center;
-			width: 50em;
+			width: 36em;
 			-ms-flex: 1;
 		}
 
