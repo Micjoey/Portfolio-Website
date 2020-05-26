@@ -2619,6 +2619,63 @@ input, select, textarea {
 				width: 100%;
 			}
 
+			/* Image-two */
+.imageTwo {
+		border-radius: 0.25em;
+		border: 0;
+		display: inline-block;
+		position: relative;
+	}
+
+		.imageTwo img {
+			border-radius: 0.25em;
+			display: block;
+			object-fit: cover;
+			object-position: 20%;
+		}
+
+		.imageTwo.left, .imageTwo.right {
+			max-width: 40%;
+		}
+
+			.imageTwo.left img, .imageTwo.right img {
+				width: 100%;
+			}
+
+		.imageTwo.left {
+			float: left;
+			margin: 0 1.5em 1em 0;
+			top: 0.25em;
+		}
+
+		.imageTwo.right {
+			float: right;
+			margin: 0 0 1em 1.5em;
+			top: 0.25em;
+		}
+
+		.imageTwo.fit {
+			display: block;
+			margin: 0 0 2em 0;
+			width: 100%;
+
+		}
+
+			.imageTwo.fit img {
+				width: 100%;
+			}
+
+		.imageTwo.main {
+			display: block;
+			margin: 0 0 3em 0;
+			width: 100%;
+		}
+
+			.imageTwo.main img {
+				width: 100%;
+			}
+
+			/* Image-two */
 /* List */
 
 	ol {
