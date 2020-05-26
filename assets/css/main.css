@@ -3973,7 +3973,7 @@ input, select, textarea {
 
 		}
 
-#trial {
+#technologies {
 	background-color: rgb(87, 33, 33);
 	width: 100%;
 }
@@ -3982,3 +3982,10 @@ input, select, textarea {
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
 }
+
+.education-div p{
+	margin: 0;
+	padding: 0;
+}
+
+
