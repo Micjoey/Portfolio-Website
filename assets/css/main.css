@@ -3989,3 +3989,6 @@ input, select, textarea {
 }
 
 
+.project-links:hover {
+	color: cadetblue;
+}
