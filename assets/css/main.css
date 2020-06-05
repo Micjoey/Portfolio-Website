@@ -2566,6 +2566,13 @@ input, select, textarea {
 				.wrapper.style3-alt .icon.major:before {
 					color: #953d75;
 				}
+				.wrapper.style4 .icon.major:before {
+					color: #215706;
+				}
+
+				.wrapper.style4-alt .icon.major:before {
+					color: #215706;
+				}
 
 /* Image */
 
@@ -3983,9 +3990,17 @@ input, select, textarea {
 	grid-template-columns: auto auto auto auto auto;
 }
 
+#Education {
+	background-color: rgb(4, 79, 21);
+}
+
 .education-div p{
 	margin: 0;
 	padding: 0;
+}
+
+#about-me {
+	background-color: rgb(57, 56, 56)
 }
 
 
