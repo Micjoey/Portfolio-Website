@@ -3992,6 +3992,7 @@ input, select, textarea {
 
 #Education {
 	background-color: rgb(4, 79, 21);
+	width: 100%;
 }
 
 .education-div p{
@@ -4006,4 +4007,14 @@ input, select, textarea {
 
 .project-links:hover {
 	color: cadetblue;
+}
+
+.project-img {
+	padding: 0px;
+    margin: 0px;
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    height: inherit;
+    object-position: 0;
 }
