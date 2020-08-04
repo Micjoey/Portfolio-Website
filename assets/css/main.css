@@ -4019,6 +4019,42 @@ input, select, textarea {
     object-position: 0;
 }
 
+
+.modal-child-left:hover{
+      position: absolute;
+      /* bottom: 50%;
+      left: 50%; */
+      transform: translate(-15%, -50%);
+      border: black solid 1px;
+      box-shadow: 5px 5px 15px black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      border-radius: 10px;
+      height: auto;
+      width: 90vh;
+	  color: white;
+	  z-index: 100;
+    }
+.modal-child-right:hover{
+      position: absolute;
+      /* bottom: 50%;
+      left: 50%; */
+      transform: translate(-50%, -50%);
+      border: black solid 1px;
+      box-shadow: 5px 5px 15px black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      border-radius: 10px;
+      height: auto;
+      width: 90vh;
+	  color: white;
+	  z-index: 100;
+    }
+
 .email-me-at {
 	margin: 0;
 	padding: 0;
