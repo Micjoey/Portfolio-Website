@@ -4059,3 +4059,13 @@ input, select, textarea {
 	margin: 0;
 	padding: 0;
 }
+
+#about-me-button:hover {
+	background-color: gray;
+}
+#projects-button:hover {
+	background-color: blue;
+}
+#get-in-touch-button:hover {
+	background-color: teal;
+}
