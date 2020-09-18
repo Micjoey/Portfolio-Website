@@ -2002,9 +2002,10 @@ input, select, textarea {
 
 		.features section {
 			padding: 3.5em 3em 1em 7em ;
-			width: 50%;
+			width: 70%;
 			border: solid 1px rgba(255, 255, 255, 0.15);
 			position: relative;
+			height: fit-content;
 		}
 
 			.features section:nth-child(-n + 2) {
@@ -3950,6 +3951,7 @@ input, select, textarea {
 		background-position: top right;
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
+		display: block;
 	}
 
 		#intro p {
@@ -4068,4 +4070,30 @@ input, select, textarea {
 }
 #get-in-touch-button:hover {
 	background-color: #024f39;
+}
+
+.sf-date-information, .dungeons-management-info, .fun-reads-info{
+		display: none;
+	}
+
+	.sf-date-image:hover + .sf-date-information {
+		display: block;
+	}
+	.dungeons-management-image:hover + .dungeons-management-info {
+		display: block;
+	}
+	.fun-reads-image:hover + .fun-reads-info {
+		display: block;
+	}
+
+.resume-email {
+	display: flex;
+}
+
+.resume-email div {
+	padding: 1em;
+}
+
+.resume-email a {
+	size: 1.5em;
 }
