@@ -4098,6 +4098,14 @@ input, select, textarea {
 	size: 1.5em;
 }
 
-.intro-info-resume {
+.resume-info {
 	display: flex;
+}
+
+#intro-email {
+	margin-top: 1px;
+}
+
+#intro-email {
+	padding-top: 8px;
 }
