@@ -4097,3 +4097,7 @@ input, select, textarea {
 .resume-email a {
 	size: 1.5em;
 }
+
+.intro-info-resume {
+	display: flex;
+}
