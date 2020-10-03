@@ -4091,7 +4091,8 @@ input, select, textarea {
 }
 
 .resume-email div {
-	padding: 1em;
+	padding-right: 1em;
+
 }
 
 .resume-email a {
@@ -4108,4 +4109,8 @@ input, select, textarea {
 
 #intro-email {
 	padding-top: 7px;
+}
+
+#intro-info-resume {
+	margin-right: 1em;
 }
