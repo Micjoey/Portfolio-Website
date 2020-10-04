@@ -43,7 +43,7 @@ Tracking Links:
 			ga('send', 'pageview');
 		</script>
 		<script async src="https://www.google-analytics.com/analytics.js"></script>
-		<script async src="/autotrack.js"></script>
+		<script async src="./autotrack.js"></script>
 		<!--Google autotrack-->
 		<title>Macallan Savett's Profile</title>
 		<meta charset="utf-8" />
@@ -59,11 +59,16 @@ Tracking Links:
 					<nav>
 						<ul>
 							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#one">About Me</a></li>
-							<li><a href="#two">Projects</a></li>
-							<li><a href="#three">Education</a></li>
-							<li><a href="#four">Technologies</a></li>
-							<li><a href="#five">Get in touch/Resume</a></li>
+							<li data-event-category="User"
+  data-event-action="About-me"><a href="#one">About Me</a></li>
+							<lidata-event-category="User"
+  data-event-action="Projects"><a href="#two">Projects</a></li>
+							<lidata-event-category="User"
+  data-event-action="Education"><a href="#three">Education</a></li>
+							<lidata-event-category="User"
+  data-event-action="Technologies"><a href="#four">Technologies</a></li>
+							<lidata-event-category="User"
+  data-event-action="Get in Touch"><a href="#five">Get in touch/Resume</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -83,27 +88,32 @@ Tracking Links:
 							<p>Passionate about helping others and continually trying to improve myself.</h2>
 							
 							<ul class="actions">
-								<li><a href="#one" class="button scrolly" id="about-me-button">About Me</a></li>
-								<li><a href="#two" class="button scrolly" id="projects-button">Projects</a></li>
-								<li><a href="#five" class="button scrolly" id="get-in-touch-button">Get in Touch</a></li>
+								<li><a href="#one" class="button scrolly" id="about-me-button" data-event-category="User"
+  data-event-action="About Me">About Me</a></li>
+								<li><a href="#two" class="button scrolly" id="projects-button"data-event-category="User"
+  data-event-action="Projects">Projects</a></li>
+								<li><a href="#five" class="button scrolly" id="get-in-touch-button" data-event-category="User"
+  data-event-action="Get in Touch">Get in Touch</a></li>
 							</ul>
 							<p>
 							<div class="links">
-								<a href="https://bit.ly/3iswu25" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a>
-								<a href="https://www.instagram.com/Peoples.reality/" class="icon brands fa-instagram" target="_blank"><span
+								<a href="https://bit.ly/3iswu25" class="icon brands fa-github" target="_blank" data-event-category="User"
+									data-event-action="Github"><span class="label">GitHub</span></a>
+								<a href="https://www.instagram.com/Peoples.reality/" class="icon brands fa-instagram" target="_blank" data-event-category="User"
+									data-event-action="Instagram"><span
 										class="label">Instagram</span></a>
-								<a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="_blank"><span
-										class="label">LinkedIn</span></a>
+								<a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="_blank" data-event-category="User"
+  data-event-action="LinkedIn"><span class="label">LinkedIn</span></a>
 							</div>
 							</br>
 							<div class="inner" id="intro-info-resume">
 								<div class="resume-email">
 									<div>
 										<h3>Resume</h3>
-										<a href="https://bit.ly/2SnRZGK" target="_blank">
+										<a href="https://bit.ly/2SnRZGK" target="_blank" data-event-category="User" data-event-action="Resume-pdf">
 											<p>Link to PDF Resume</p>
 										</a>
-										<a href="https://bit.ly/3d0s8Ot" target="_blank">
+										<a href="https://bit.ly/3d0s8Ot" target="_blank" data-event-category="User" data-event-action="Resume-Word">
 											<p>Link to Word Resume</p>
 										</a>
 									</div>
@@ -338,10 +348,10 @@ Tracking Links:
 									<ul class="contact">
 										<div class="inner" id="Resume">
 											<h3>Resume</h3>
-											<a href="https://bit.ly/2SnRZGK" target="_blank">
+											<a href="https://bit.ly/2SnRZGK" target="_blank"   data-event-action="LinkedIn" data-event-action="Resume-pdf">
 												<p>Link to PDF Resume</p>
 											</a>
-											<a href="https://bit.ly/3d0s8Ot" target="_blank">
+											<a href="https://bit.ly/3d0s8Ot" target="_blank" data-event-category="User" data-event-action="Resume-Word">
 												<p>Link to Word Resume</p>
 											</a>
 										</div>
