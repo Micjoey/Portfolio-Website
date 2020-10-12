@@ -28,7 +28,8 @@ section, summary, time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	object-position: -180px;
+	/* object-position: 90px; */
+	/* vertical-align: 50%; */
 }
 
 article, aside, details, figcaption, figure,
@@ -94,6 +95,8 @@ input, select, textarea {
 			min-width: 320px;
 		}
 
+		
+
 	}
 
 	html {
@@ -141,6 +144,11 @@ input, select, textarea {
 
 			body, input, select, textarea {
 				font-size: 12pt;
+			}
+
+			.logo-image {
+				height: 100%;
+				padding: 10px;
 			}
 
 		}
@@ -4116,5 +4124,9 @@ input, select, textarea {
 }
 
 .logo-image {
-	
+	margin: auto;
+}
+
+.image-padding {
+	padding: 1em;
 }
