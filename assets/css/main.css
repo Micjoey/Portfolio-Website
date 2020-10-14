@@ -151,6 +151,7 @@ input, select, textarea {
 				padding: 10px;
 			}
 
+
 			/* .logo {
 				display: block;
 				background-color: purple;
@@ -164,6 +165,9 @@ input, select, textarea {
 				font-size: 11pt;
 			}
 
+			.logo-image {
+				height: 8em;
+			}	
 		}
 
 	a {
@@ -255,7 +259,7 @@ input, select, textarea {
 	}
 
 	@media screen and (max-width: 736px) {
-
+	
 		h1 {
 			font-size: 2em;
 		}
@@ -280,6 +284,9 @@ input, select, textarea {
 			font-size: 0.6em;
 		}
 
+		.logo-image {
+			height: 6em;
+		}
 	}
 
 	sub {
