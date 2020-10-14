@@ -151,6 +151,11 @@ input, select, textarea {
 				padding: 10px;
 			}
 
+			/* .logo {
+				display: block;
+				background-color: purple;
+			} */
+
 		}
 
 		@media screen and (max-width: 360px) {
@@ -4129,4 +4134,17 @@ input, select, textarea {
 
 .image-padding {
 	padding: 1em;
+}
+
+
+.logo {
+	display: flex;
+	padding: 1em;
+	width: 100%;
+	margin: auto;
+	background-color: #255245;
+}
+
+.logo > a {
+	margin: auto;
 }
