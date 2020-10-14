@@ -159,6 +159,7 @@ input, select, textarea {
 
 		}
 
+
 		@media screen and (max-width: 360px) {
 
 			body, input, select, textarea {
@@ -167,7 +168,7 @@ input, select, textarea {
 
 			.logo-image {
 				height: 8em;
-			}	
+			}
 		}
 
 	a {
@@ -2205,6 +2206,16 @@ input, select, textarea {
 
 		@media screen and (max-width: 980px) {
 
+			.sf-date-image + .sf-date-information {
+				display: block;
+			}
+			.dungeons-management-image + .dungeons-management-info {
+				display: block;
+			}
+			.fun-reads-image + .fun-reads-info {
+				display: block;
+			}
+
 			.features {
 				display: block;
 			}
@@ -4105,6 +4116,7 @@ input, select, textarea {
 	.fun-reads-image:hover + .fun-reads-info {
 		display: block;
 	}
+
 
 .resume-email {
 	display: flex;
