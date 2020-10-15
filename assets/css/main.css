@@ -2613,6 +2613,7 @@ input, select, textarea {
 		border: 0;
 		display: inline-block;
 		position: relative;
+		object-fit: cover;
 	}
 
 		.image img {
@@ -3113,7 +3114,7 @@ input, select, textarea {
 			border-radius: 0;
 			display: block;
 			position: relative;
-			width: 25em;
+			width: 32em;
 		}
 
 			.spotlights > section > .image img {
@@ -4166,4 +4167,9 @@ input, select, textarea {
 
 .logo > a {
 	margin: auto;
+}
+
+.self-image {
+	max-width: 100%;
+	height: auto;
 }
