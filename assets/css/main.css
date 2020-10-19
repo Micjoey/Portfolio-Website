@@ -4173,3 +4173,7 @@ input, select, textarea {
 	max-width: 100%;
 	height: auto;
 }
+
+.a-no-underline:hover {
+	cursor: pointer;
+}
