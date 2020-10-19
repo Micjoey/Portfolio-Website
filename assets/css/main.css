@@ -141,7 +141,7 @@ input, select, textarea {
 		}
 
 		@media screen and (min-width: 1281px) {
-			#a-no-underline {
+			#personal-logo-container {
 				margin: auto;
 			}
 		}
@@ -177,7 +177,7 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		-ms-transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		transition: color 0.2s ease, border-bottom-color 0.2s ease;
-		border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
+		/* border-bottom: dotted 1px rgba(255, 255, 255, 0.35); */
 		color: inherit;
 		text-decoration: none;
 	}
@@ -4174,10 +4174,15 @@ input, select, textarea {
 	height: auto;
 }
 
-#a-no-underline:hover {
+#personal-logo-container:hover {
 	cursor: pointer;
+	
 }
 
+#personal-logo-container {
+	text-decoration: none;
+}
 .logo-image {
 	margin: auto;
+	text-decoration: underline;
 }
