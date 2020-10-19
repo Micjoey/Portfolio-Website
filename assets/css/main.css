@@ -152,11 +152,14 @@ input, select, textarea {
 			}
 
 
-			/* .logo {
-				display: block;
-				background-color: purple;
+			/* #a-no-underline {
+				margin: none;
 			} */
 
+			.logo-image {
+				margin: none;
+				margin-right: 1em;
+			}
 		}
 
 
@@ -288,6 +291,8 @@ input, select, textarea {
 		.logo-image {
 			height: 6em;
 		}
+
+		
 	}
 
 	sub {
@@ -4148,9 +4153,6 @@ input, select, textarea {
 	margin-right: 1em;
 }
 
-.logo-image {
-	margin-right: 1em;
-}
 
 .image-padding {
 	padding: 1em;
@@ -4177,5 +4179,4 @@ input, select, textarea {
 #a-no-underline:hover {
 	cursor: pointer;
 }
-
 
