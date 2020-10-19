@@ -4149,7 +4149,7 @@ input, select, textarea {
 }
 
 .logo-image {
-	margin: auto;
+	margin-right: 1em;
 }
 
 .image-padding {
@@ -4174,6 +4174,8 @@ input, select, textarea {
 	height: auto;
 }
 
-.a-no-underline:hover {
+#a-no-underline:hover {
 	cursor: pointer;
 }
+
+
