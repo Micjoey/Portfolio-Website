@@ -140,6 +140,12 @@ input, select, textarea {
 
 		}
 
+		@media screen and (min-width: 1281px) {
+			#a-no-underline {
+				margin: auto;
+			}
+		}
+
 		@media screen and (max-width: 1280px) {
 
 			body, input, select, textarea {
@@ -152,14 +158,6 @@ input, select, textarea {
 			}
 
 
-			/* #a-no-underline {
-				margin: none;
-			} */
-
-			.logo-image {
-				margin: none;
-				margin-right: 1em;
-			}
 		}
 
 
@@ -4180,3 +4178,6 @@ input, select, textarea {
 	cursor: pointer;
 }
 
+.logo-image {
+	margin: auto;
+}
