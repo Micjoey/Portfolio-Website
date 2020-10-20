@@ -2030,6 +2030,7 @@ input, select, textarea {
 			border: solid 1px rgba(255, 255, 255, 0.15);
 			position: relative;
 			height: fit-content;
+			margin: auto;
 		}
 
 			.features section:nth-child(-n + 2) {
@@ -4185,4 +4186,8 @@ input, select, textarea {
 .logo-image {
 	margin: auto;
 	text-decoration: underline;
+}
+
+.project-links > li{
+	margin-right: 2em;
 }
