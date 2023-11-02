@@ -21,19 +21,16 @@ Tracking Links:
 	<head>		
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<!-- Google autotrack-->
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157870805-3"></script>
 		<script>
-			window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-			ga('create', 'UA-157870805-3', 'auto');
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-			// Replace the following lines with the plugins you want to use.
-			ga('require', 'maxScrollTracker');
-			ga('require', 'outboundLinkTracker');
-			ga('require', 'pageVisibilityTracker');
-			ga('require', 'eventTracker');
-			// ...
-
-			ga('send', 'pageview');
+		gtag('config', 'UA-157870805-3');
 		</script>
+
 		<script async src="https://www.google-analytics.com/analytics.js"></script>
 		<script async src="./autotrack.js"></script>
 		<!--Google autotrack-->
