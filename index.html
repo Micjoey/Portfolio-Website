@@ -15,8 +15,1006 @@
 		<script src="assets/js/autoCalculateTime.js"></script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Macallan Savett - Software Engineer specializing in Python, Django, React, AWS, and AI/ML solutions" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* ============================================
+			   MODERN PORTFOLIO DESIGN SYSTEM
+			   ============================================ */
+			
+			:root {
+				--primary: #3b82f6;
+				--primary-dark: #2563eb;
+				--secondary: #8b5cf6;
+				--accent: #06b6d4;
+				--text-primary: #ffffff;
+				--text-secondary: rgba(255, 255, 255, 0.8);
+				--text-muted: rgba(255, 255, 255, 0.6);
+				--bg-dark: #0a0e27;
+				--bg-card: rgba(15, 23, 42, 0.6);
+				--border: rgba(148, 163, 184, 0.2);
+				--shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+				--shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+				line-height: 1.6;
+				color: var(--text-primary);
+				background: var(--bg-dark);
+			}
+
+			/* Modern Enhancements */
+			@keyframes gradient-shift {
+				0% { background-position: 0% 50%; }
+				50% { background-position: 100% 50%; }
+				100% { background-position: 0% 50%; }
+			}
+
+			@keyframes float {
+				0%, 100% { transform: translateY(0px); }
+				50% { transform: translateY(-10px); }
+			}
+
+			@keyframes pulse {
+				0%, 100% { opacity: 1; }
+				50% { opacity: 0.7; }
+			}
+
+			@keyframes slideInUp {
+				from {
+					opacity: 0;
+					transform: translateY(30px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* Modern Intro/Hero Section */
+			#intro {
+				background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+				position: relative;
+				overflow: hidden;
+			}
+
+			#intro::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: 
+					radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+					radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+				pointer-events: none;
+			}
+
+			#intro .inner {
+				position: relative;
+				z-index: 1;
+				text-align: center;
+			}
+
+			#intro h1 {
+				font-size: clamp(2.5rem, 5vw, 4rem);
+				font-weight: 800;
+				letter-spacing: -0.03em;
+				margin-bottom: 1.5rem;
+				color: var(--text-primary);
+				line-height: 1.1;
+			}
+
+			#intro p {
+				font-size: clamp(1.1rem, 2vw, 1.25rem);
+				line-height: 1.8;
+				color: var(--text-secondary);
+				max-width: 700px;
+				margin: 0 auto 2rem;
+			}
+
+			#intro .actions {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 1rem;
+				list-style: none;
+				padding: 0;
+				margin: 2rem auto;
+			}
+
+			#intro .links {
+				display: flex;
+				justify-content: center;
+				gap: 1.5rem;
+				margin: 2rem auto;
+			}
+
+			#intro-info-resume {
+				text-align: center;
+				margin: 2rem auto;
+			}
+
+			#intro-info-resume .resume-email {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 2rem;
+				margin: 0 auto;
+			}
+
+			#intro-info-resume .resume-email > div {
+				text-align: center;
+			}
+
+			/* Accessibility Improvements */
+			*:focus {
+				outline: 2px solid #a8d8ff;
+				outline-offset: 2px;
+			}
+
+			.button:focus,
+			a:focus {
+				outline: 2px solid #a8d8ff;
+				outline-offset: 3px;
+			}
+
+			/* Improved Readability */
+			p {
+				color: rgba(255, 255, 255, 0.9);
+				line-height: 1.8;
+			}
+
+			section p {
+				font-size: 1.05em;
+			}
+
+			/* Better contrast for text */
+			.project-card p {
+				color: rgba(255, 255, 255, 0.85);
+			}
+
+			/* Skip to main content link for screen readers */
+			.skip-link {
+				position: absolute;
+				top: -40px;
+				left: 0;
+				background: #533483;
+				color: white;
+				padding: 8px;
+				text-decoration: none;
+				z-index: 100;
+			}
+
+			.skip-link:focus {
+				top: 0;
+			}
+
+			/* Project Cards Enhancements */
+			.project-card {
+				position: relative;
+				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				border-radius: 12px;
+				overflow: hidden;
+			}
+
+			.project-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(135deg, rgba(83, 52, 131, 0.1) 0%, rgba(15, 52, 96, 0.1) 100%);
+				opacity: 0;
+				transition: opacity 0.4s ease;
+				pointer-events: none;
+			}
+
+			.project-card:hover {
+				transform: translateY(-8px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+			}
+
+			.project-card:hover::before {
+				opacity: 1;
+			}
+
+			.project-card .icon {
+				transition: all 0.4s ease;
+				animation: float 3s ease-in-out infinite;
+			}
+
+			.project-card:hover .icon {
+				transform: scale(1.1) rotate(5deg);
+				animation: none;
+			}
+
+			.project-card h3 {
+				transition: color 0.3s ease;
+			}
+
+			.project-card:hover h3 {
+				color: #a8d8ff;
+			}
+
+			.project-tech {
+				list-style: none;
+				padding: 0;
+				margin: 1em 0;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5em;
+			}
+
+			.project-tech li {
+				display: inline-block;
+				padding: 0.4em 0.9em;
+				background: linear-gradient(135deg, rgba(168, 216, 255, 0.15) 0%, rgba(83, 52, 131, 0.15) 100%);
+				border: 1px solid rgba(168, 216, 255, 0.3);
+				border-radius: 20px;
+				font-size: 0.85em;
+				color: inherit;
+				transition: all 0.3s ease;
+				backdrop-filter: blur(10px);
+			}
+
+			.project-card:hover .project-tech li {
+				background: linear-gradient(135deg, rgba(168, 216, 255, 0.25) 0%, rgba(83, 52, 131, 0.25) 100%);
+				border-color: rgba(168, 216, 255, 0.5);
+				transform: translateY(-2px);
+			}
+
+			.project-card .actions {
+				margin-top: 1.5em;
+			}
+
+			.project-card .button {
+				transition: all 0.3s ease;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.project-card .button::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0;
+				height: 0;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.2);
+				transform: translate(-50%, -50%);
+				transition: width 0.6s, height 0.6s;
+			}
+
+			.project-card .button:hover::before {
+				width: 300px;
+				height: 300px;
+			}
+
+			.project-card .button:hover {
+				transform: scale(1.05);
+				box-shadow: 0 10px 25px rgba(168, 216, 255, 0.4);
+			}
+
+			/* Work Experience Enhancements */
+			#six {
+				background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1419 100%) !important;
+			}
+
+			#work-experience {
+				background: rgba(10, 14, 39, 0.8);
+			}
+
+			#work-experience .content {
+				background: rgba(15, 20, 35, 0.6);
+				padding: 2em;
+				border-radius: 12px;
+			}
+
+			#work-experience h2 {
+				background: rgba(20, 25, 45, 0.9);
+				padding: 0.5em 1em;
+				border-radius: 8px;
+				display: inline-block;
+				border: 1px solid rgba(100, 120, 150, 0.3);
+			}
+
+			.work-experience-container {
+				position: relative;
+				padding-left: 1.5em;
+				margin-bottom: 1em;
+			}
+
+			.work-experience-container::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0.5em;
+				width: 4px;
+				height: calc(100% - 0.5em);
+				background: linear-gradient(180deg, #2d4a6b 0%, #1a2f4a 100%);
+				border-radius: 2px;
+			}
+
+			.work-experience-container h3 {
+				color: #e8f0f8;
+				margin-bottom: 0.3em;
+				font-weight: 600;
+			}
+
+			.work-experience-container h4 {
+				color: rgba(200, 210, 220, 0.8);
+				font-weight: 400;
+			}
+
+			#work-experience ul {
+				list-style: none;
+				padding-left: 0;
+			}
+
+			#work-experience .modern-card ul li {
+				position: relative;
+				padding-left: 1.75rem;
+				color: var(--text-secondary);
+				line-height: 1.7;
+			}
+
+			#work-experience .modern-card ul li::before {
+				content: '→';
+				position: absolute;
+				left: 0;
+				color: var(--primary);
+				font-weight: bold;
+			}
+
+			/* Technologies Section - Enhanced */
+			#four {
+				position: relative;
+				overflow: hidden;
+			}
+
+			#four::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: 
+					radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+					radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+				pointer-events: none;
+				z-index: 0;
+			}
+
+			#technologies {
+				position: relative;
+				z-index: 1;
+			}
+
+			#technologies .modern-card {
+				background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(30, 41, 59, 0.4) 100%);
+				border: 1px solid rgba(59, 130, 246, 0.2);
+				backdrop-filter: blur(20px);
+				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				position: relative;
+				overflow: hidden;
+			}
+
+			#technologies .modern-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+				transition: left 0.5s ease;
+			}
+
+			#technologies .modern-card:hover::before {
+				left: 100%;
+			}
+
+			#technologies .modern-card:hover {
+				border-color: rgba(59, 130, 246, 0.5);
+				transform: translateY(-6px) scale(1.02);
+				box-shadow: 
+					0 20px 40px rgba(0, 0, 0, 0.3),
+					0 0 0 1px rgba(59, 130, 246, 0.1),
+					0 0 60px rgba(59, 130, 246, 0.15);
+				background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
+			}
+
+			#technologies .tech-badge {
+				display: inline-block;
+				padding: 0.6rem 1.2rem;
+				background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+				border: 1px solid rgba(59, 130, 246, 0.25);
+				border-radius: 10px;
+				font-size: 0.875rem;
+				color: var(--primary);
+				transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				font-weight: 500;
+				position: relative;
+				overflow: hidden;
+				cursor: default;
+			}
+
+			#technologies .tech-badge::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0;
+				height: 0;
+				border-radius: 50%;
+				background: rgba(59, 130, 246, 0.2);
+				transform: translate(-50%, -50%);
+				transition: width 0.4s ease, height 0.4s ease;
+			}
+
+			#technologies .tech-badge:hover::before {
+				width: 200px;
+				height: 200px;
+			}
+
+			#technologies .tech-badge:hover {
+				background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+				border-color: rgba(59, 130, 246, 0.5);
+				transform: translateY(-3px) scale(1.05);
+				box-shadow: 
+					0 8px 20px rgba(59, 130, 246, 0.3),
+					0 0 0 2px rgba(59, 130, 246, 0.1);
+				color: #60a5fa;
+			}
+
+			#technologies .tech-badge span {
+				position: relative;
+				z-index: 1;
+			}
+
+			#technologies .tech-category-header {
+				position: relative;
+				padding-bottom: 1rem;
+				margin-bottom: 1.5rem;
+				border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+			}
+
+			#technologies .modern-card:hover .tech-category-header {
+				border-bottom-color: rgba(59, 130, 246, 0.4);
+			}
+
+			#technologies .tech-icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 48px;
+				height: 48px;
+				border-radius: 12px;
+				background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
+				border: 1px solid rgba(59, 130, 246, 0.2);
+				transition: all 0.3s ease;
+			}
+
+			#technologies .modern-card:hover .tech-icon {
+				background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.15) 100%);
+				border-color: rgba(59, 130, 246, 0.4);
+				transform: rotate(5deg) scale(1.1);
+				box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+			}
+
+			#technologies .modern-card h3 {
+				color: var(--primary);
+				border-bottom-color: rgba(59, 130, 246, 0.3);
+			}
+
+			#technologies .modern-card ul li {
+				position: relative;
+				padding-left: 1.5rem;
+				transition: all 0.3s ease;
+			}
+
+			#technologies .modern-card ul li::before {
+				content: '▹';
+				position: absolute;
+				left: 0;
+				color: var(--primary);
+				opacity: 0.5;
+				transition: all 0.3s ease;
+			}
+
+			#technologies .modern-card ul li:hover {
+				background: rgba(59, 130, 246, 0.1);
+				color: var(--primary);
+				transform: translateX(5px);
+				padding-left: 1.75rem;
+			}
+
+			#technologies .modern-card ul li:hover::before {
+				opacity: 1;
+				transform: translateX(3px);
+			}
+
+			/* About Me Section */
+			#about-me {
+				display: flex !important;
+				align-items: center;
+				gap: 3em;
+				padding: 3em 2em;
+			}
+
+			#about-me .image {
+				flex: 0 0 350px;
+				position: relative;
+				min-width: 350px;
+				display: block !important;
+				visibility: visible !important;
+			}
+
+			#about-me .image::before {
+				content: '';
+				position: absolute;
+				top: -10px;
+				left: -10px;
+				right: -10px;
+				bottom: -10px;
+				background: linear-gradient(135deg, rgba(45, 74, 107, 0.6) 0%, rgba(26, 47, 74, 0.6) 100%);
+				border-radius: 50%;
+				z-index: -1;
+				opacity: 0.5;
+			}
+
+			#about-me .image img {
+				width: 350px !important;
+				height: 350px !important;
+				object-fit: cover;
+				border-radius: 50%;
+				border: 4px solid rgba(90, 127, 163, 0.4);
+				box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 
+							0 0 0 8px rgba(15, 20, 35, 0.3),
+							0 0 60px rgba(90, 127, 163, 0.2);
+				transition: all 0.5s ease;
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
+			}
+
+			#about-me:hover .image img {
+				transform: scale(1.02);
+				border-color: rgba(122, 163, 199, 0.6);
+				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+							0 0 0 8px rgba(15, 20, 35, 0.4),
+							0 0 80px rgba(122, 163, 199, 0.3);
+			}
+
+			#about-me .content {
+				flex: 1;
+			}
+
+			#about-me .content .inner {
+				padding-left: 2em;
+			}
+
+			#about-me h2 {
+				text-align: left;
+				margin-bottom: 1.5em;
+			}
+
+			#about-me h3 {
+				color: #b8d4f0;
+				margin-top: 1.5em;
+				margin-bottom: 0.5em;
+				font-size: 1.3em;
+				font-weight: 600;
+			}
+
+			#about-me p {
+				color: rgba(220, 230, 240, 0.9);
+				line-height: 1.8;
+				margin-bottom: 1em;
+			}
+
+			@media (max-width: 968px) {
+				#about-me {
+					flex-direction: column;
+					text-align: center;
+				}
+
+				#about-me .image {
+					flex: 0 0 auto;
+					max-width: 280px;
+					margin: 0 auto;
+				}
+
+				#about-me .content .inner {
+					padding-left: 0;
+				}
+
+				#about-me h2 {
+					text-align: center;
+				}
+			}
+
+			/* Social Icons */
+			.links a,
+			.icons a {
+				transition: all 0.3s ease;
+				display: inline-block;
+			}
+
+			.links a:hover,
+			.icons a:hover {
+				transform: translateY(-5px) scale(1.1);
+				color: #a8d8ff;
+			}
+
+			/* Modern Buttons */
+			.button {
+				position: relative;
+				overflow: hidden;
+				transition: all 0.3s ease;
+			}
+
+			.button:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+			}
+
+			.button[style*="background: var(--primary)"]:hover {
+				background: var(--primary-dark) !important;
+			}
+
+			.button[style*="border: 2px solid"]:hover {
+				background: var(--primary) !important;
+				color: white !important;
+			}
+
+			/* Sidebar Enhancements */
+			#sidebar {
+				backdrop-filter: blur(10px);
+				background: rgba(26, 26, 46, 0.9);
+			}
+
+			#sidebar + #wrapper {
+				margin-left: 0;
+			}
+
+			#sidebar nav ul li a {
+				transition: all 0.3s ease;
+				position: relative;
+			}
+
+			#sidebar nav ul li a::before {
+				content: '';
+				position: absolute;
+				left: -10px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 0;
+				height: 2px;
+				background: linear-gradient(90deg, #533483 0%, #a8d8ff 100%);
+				transition: width 0.3s ease;
+			}
+
+			#sidebar nav ul li a:hover::before {
+				width: 8px;
+			}
+
+			#sidebar nav ul li a:hover {
+				padding-left: 1.2em;
+				color: #a8d8ff;
+			}
+
+			/* Education Section */
+			.education-div {
+				background: rgba(255, 255, 255, 0.05);
+				padding: 1.5em;
+				border-radius: 12px;
+				margin-bottom: 1.5em;
+				border-left: 4px solid #533483;
+				transition: all 0.3s ease;
+			}
+
+			.education-div:hover {
+				background: rgba(255, 255, 255, 0.08);
+				transform: translateX(5px);
+				border-left-color: #a8d8ff;
+			}
+
+			/* Smooth Scroll */
+			html {
+				scroll-behavior: smooth;
+			}
+
+			/* Section Transitions */
+			section {
+				animation: fadeIn 0.8s ease-out;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+
+			/* Contact Section */
+			#five {
+				background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+			}
+
+			/* Footer */
+			#footer {
+				background: rgba(26, 26, 46, 0.95);
+				backdrop-filter: blur(10px);
+			}
+
+			/* AI Section Styling */
+			#ai .features {
+				margin-top: 2em;
+				gap: 3em;
+			}
+
+			#ai .project-card {
+				background: rgba(255, 255, 255, 0.03);
+				border: 1px solid rgba(168, 216, 255, 0.1);
+				margin-bottom: 2em;
+			}
+
+			#ai .project-card:first-child {
+				margin-top: 2em;
+			}
+
+			#ai .project-card:hover {
+				background: rgba(255, 255, 255, 0.06);
+				border-color: rgba(168, 216, 255, 0.3);
+			}
+
+			/* Projects Section - First Tile Margin */
+			#two .features .project-card:first-child {
+				margin-top: 2em;
+			}
+
+
+			/* Improved text readability */
+			h2, h3 {
+				line-height: 1.3;
+			}
+
+			/* Ensure all headings are readable */
+			h2 {
+				color: #ffffff !important;
+				text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 216, 255, 0.3);
+				font-weight: 600;
+			}
+
+			h2[style*="color: #a8d8ff"] {
+				color: #ffffff !important;
+			}
+
+			/* Override gradient text for better readability */
+			h2[style*="background-clip"] {
+				-webkit-text-fill-color: #ffffff !important;
+				color: #ffffff !important;
+				background: none !important;
+			}
+
+			section p {
+				max-width: 70ch;
+			}
+
+			/* Better contrast for links */
+			a {
+				color: #a8d8ff;
+				text-decoration: underline;
+				text-decoration-color: rgba(168, 216, 255, 0.5);
+				transition: all 0.3s ease;
+			}
+
+			a:hover {
+				color: #ffffff;
+				text-decoration-color: #a8d8ff;
+			}
+
+			/* Reduce motion for users who prefer it */
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+					transition-duration: 0.01ms !important;
+				}
+			}
+
+			/* Modern Header Navigation */
+			#modern-header nav a:hover {
+				color: var(--primary) !important;
+			}
+
+			#modern-header nav a[style*="background"]:hover {
+				background: var(--primary-dark) !important;
+				transform: translateY(-2px);
+			}
+
+			/* Modern Section Styling */
+			section {
+				padding: 5rem 2rem;
+				max-width: 1400px;
+				margin: 0 auto;
+			}
+
+			section h2 {
+				font-size: 3rem;
+				font-weight: 700;
+				margin-bottom: 3rem;
+				text-align: center;
+				letter-spacing: -0.02em;
+			}
+
+			/* Modern Card Design */
+			.modern-card {
+				background: var(--bg-card);
+				border: 1px solid var(--border);
+				border-radius: 16px;
+				padding: 2rem;
+				backdrop-filter: blur(10px);
+				transition: all 0.3s ease;
+			}
+
+			.modern-card:hover {
+				transform: translateY(-4px);
+				box-shadow: var(--shadow-lg);
+				border-color: var(--primary);
+			}
+
+			/* Align buttons at bottom of project cards */
+			.modern-card.project-card {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+			}
+
+			.modern-card.project-card > a.button {
+				margin-top: auto;
+				align-self: flex-start;
+			}
+
+
+			/* Contact section icon hover */
+			#five .icon:hover {
+				color: var(--primary) !important;
+				transform: scale(1.2) translateY(-3px);
+			}
+
+			/* Previous Experience Collapsible */
+			#previous-exp-toggle {
+				background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.8) 100%) !important;
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(59, 130, 246, 0.3) !important;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+			}
+
+			#previous-exp-toggle:hover {
+				background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%) !important;
+				border-color: var(--primary) !important;
+				box-shadow: 0 6px 30px rgba(59, 130, 246, 0.2), 0 4px 20px rgba(0, 0, 0, 0.4);
+				transform: translateY(-2px);
+			}
+
+			#previous-exp-toggle:active {
+				transform: translateY(0);
+			}
+
+			#previous-exp-toggle:focus {
+				outline: 2px solid var(--primary);
+				outline-offset: 2px;
+			}
+
+			#previous-exp-toggle h2 {
+				text-transform: none !important;
+				letter-spacing: 0.02em;
+			}
+
+			#previous-exp-icon {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 32px;
+				height: 32px;
+				border-radius: 50%;
+				background: rgba(59, 130, 246, 0.15);
+				transition: all 0.3s ease;
+			}
+
+			#previous-exp-toggle:hover #previous-exp-icon {
+				background: rgba(59, 130, 246, 0.25);
+				transform: scale(1.1);
+			}
+
+			#previous-exp-icon.expanded {
+				transform: rotate(180deg);
+			}
+
+			#previous-exp-content {
+				animation: slideDown 0.3s ease-out;
+			}
+
+			@keyframes slideDown {
+				from {
+					opacity: 0;
+					transform: translateY(-10px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			#previous-exp-icon.expanded {
+				transform: rotate(180deg);
+			}
+
+			/* Responsive Enhancements */
+			@media (max-width: 968px) {
+				#modern-header nav ul {
+					gap: 1rem;
+					font-size: 0.9rem;
+				}
+
+				#modern-header nav ul li:last-child a {
+					padding: 0.4rem 1rem;
+				}
+			}
+
+			@media (max-width: 768px) {
+				#modern-header {
+					padding: 1rem;
+				}
+
+				#modern-header nav {
+					flex-direction: column;
+					gap: 1rem;
+				}
+
+				#modern-header nav ul {
+					flex-wrap: wrap;
+					justify-content: center;
+				}
+
+				#intro h1 {
+					font-size: 2.5em;
+				}
+
+				.project-card:hover {
+					transform: translateY(-4px);
+				}
+
+				#technologies [style*="grid-template-columns"] {
+					grid-template-columns: 1fr !important;
+				}
+
+				section {
+					padding: 3rem 1rem;
+				}
+
+				section h2 {
+					font-size: 2rem;
+				}
+			}
+		</style>
 		<link rel="apple-touch-icon" sizes="57x57" href="images/Favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="images/Favicon/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="images/Favicon/apple-icon-72x72.png">
@@ -36,12 +1034,31 @@
 		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body class="is-preload">
+		<a href="#main-content" class="skip-link">Skip to main content</a>
 
-		<!-- Sidebar -->
-			<section id="sidebar">
+		<!-- Modern Sticky Header -->
+		<header id="modern-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 14, 39, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; transition: all 0.3s ease;">
+			<nav style="display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto;">
+				<a href="#intro" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+					<img src="images/transparent email.png" alt="Logo" style="height: 40px; width: auto;" />
+					<span>Macallan Savett</span>
+				</a>
+				<ul style="display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; align-items: center;">
+					<li><a href="#intro" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">Home</a></li>
+					<li><a href="#one" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">About</a></li>
+					<li><a href="#six" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">Experience</a></li>
+					<li><a href="#ai" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">AI/ML</a></li>
+					<li><a href="#two" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">Projects</a></li>
+					<li><a href="#five" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500; padding: 0.5rem 1.5rem; background: var(--primary); border-radius: 8px; color: white !important;">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Sidebar (Hidden, keeping for compatibility) -->
+			<section id="sidebar" style="display: none;">
 				<div class="inner">
-					<a class="" id="personal-logo-container" href="#intro">
-						<img src="images/transparent email.png" class="logo-image" alt="Logo" />
+					<a class="" id="personal-logo-container" href="#intro" aria-label="Return to top of page">
+						<img src="images/transparent email.png" class="logo-image" alt="Macallan Savett Logo" />
 					</a>
 					<nav>
 						<ul>
@@ -55,6 +1072,10 @@
 							<li>
 								<a href="#six" data-event-category="Work Experience"
 								  data-event-action="click">Work Experience</a>
+							</li>
+							<li>
+								<a href="#ai" data-event-category="AI"
+								data-event-action="click">AI & Machine Learning</a>
 							</li>
 							<li>
 								<a href="#two" data-event-category="Projects"
@@ -78,28 +1099,30 @@
 			</section>
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+			<div id="wrapper" style="padding-top: 80px;">
+				<main id="main-content">
 				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>Joseph Macallan Savett's Portfolio</h1>
-							<p>🚀 Dynamic Software Engineer | Expertise in Python, Django, React, and AWS</p>
-							<p>🌟 Merging a diverse background with cutting-edge tech skills to craft seamless digital solutions.</p>
-							<p>🔍 Driven by innovation, fueled by a passion to uplift others and an insatiable quest for self-improvement.</p>
+					<section id="intro" class="wrapper style1 fullscreen fade-up" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem;">
+						<div class="inner" style="text-align: center;">
+							<h1 style="text-align: center;">Macallan Savett</h1>
+							<p style="font-size: 1.5em; font-weight: 300; margin-bottom: 1em; color: rgba(255, 255, 255, 0.9); text-align: center;">
+								<span style="color: #a8d8ff;">Software Engineer</span> | Building scalable solutions with modern technologies.
+							</p>
+							<p style="font-size: 1.1em; line-height: 1.8; color: rgba(255, 255, 255, 0.8); max-width: 800px; margin: 0 auto 2em; text-align: center;">
+								Expertise in <strong style="color: #a8d8ff;">Python</strong>, <strong style="color: #a8d8ff;">Django</strong>, <strong style="color: #a8d8ff;">React</strong>, and <strong style="color: #a8d8ff;">AWS</strong>. 
+								Merging diverse experience with cutting-edge tech to craft seamless digital solutions. 
+								Driven by innovation and a passion for continuous learning.
+							</p>
 
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly" id="about-me-button" data-event-category="About Me"
-									data-event-action="click">About Me</a></li>
-								<li><a href="#six" class="button scrolly" id="about-me-button" data-event-category="Work Experience"
-									data-event-action="click">Work Experience</a></li>
-								<li><a href="#two" class="button scrolly" id="projects-button"data-event-category="Projects"
-									data-event-action="click">Projects</a></li>
-								<li><a href="#five" class="button scrolly" id="get-in-touch-button" data-event-category="Get In Touch"
-									data-event-action="click">Get in Touch</a></li>
-							</ul>
+							<div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0;">
+								<a href="#one" class="button scrolly" style="background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; display: inline-block; border: none;">About Me</a>
+								<a href="#six" class="button scrolly" style="background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; display: inline-block; border: none;">Work Experience</a>
+								<a href="#two" class="button scrolly" style="background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; display: inline-block; border: none;">Projects</a>
+								<a href="#five" class="button scrolly" style="background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; display: inline-block; border: none;">Get in Touch</a>
+							</div>
 							<p>
 							<div class="links">
-								<a href="https://github.com/MacallanSavett" class="icon brands fa-github" target="_blank" data-event-category="Work-Github"
+								<a href="https://github.com/micjoey" class="icon brands fa-github" target="_blank" data-event-category="Work-Github"
 									data-event-action="click" ><span class="label">Work GitHub</span></a>
 								<a href="https://www.instagram.com/Peoples.reality/" class="icon brands fa-instagram" target="_blank" data-event-category="Instagram"
 									data-event-action="click"><span
@@ -136,53 +1159,57 @@
 					</section>
 
 				<!-- One -->
-				<section id="one" class="wrapper style2 spotlights">
-					<section id="about-me">
-						<div class="image">
-							<img src="images/portrait.jpeg" alt="Picture of Macallan Savett" data-position="center center" margin-left="5" class="self-image"/>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h2>About Me</h2>
+				<section id="one" style="background: var(--bg-dark);">
+					<div style="max-width: 1200px; margin: 0 auto;">
+						<h2>About Me</h2>
+						<div id="about-me" style="display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: start; margin-top: 3rem;">
+							<div class="image" style="position: sticky; top: 100px;">
+								<img src="images/portrait.jpeg" alt="Portrait of Macallan Savett, Software Engineer" style="width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow-lg); border: 3px solid var(--border);"/>
+							</div>
+							<div class="content">
+								<div class="inner">
 								<div>
 									<p>
-										👋 Greetings! I am Macallan Savett, a Software Engineer with a rich history in customer service, analytics, and the real estate sector, currently innovating at Skilljar. The realm of software engineering fascinates me with its promise of continuous learning and an optimal work-life balance.
+										I'm a Software Engineer at Skilljar, building scalable applications with Python, Django, React, and AWS. I focus on full-stack development, system architecture, and integrating AI/ML capabilities into production systems.
 									</p>
-									<h3>📊 Professional Journey:</h3>
+									<h3>Background</h3>
 									<p>
-										Transitioning from real estate, where I managed extensive databases and engaged in high-stakes negotiations, I found my true calling in technology. The shift was driven by a desire to blend analytical acumen with creative problem-solving, steering impactful projects from conception to deployment.
+										I transitioned to software engineering from real estate, where I managed databases and complex negotiations. That experience taught me to balance analytical thinking with practical problem-solving. I bring that same approach to engineering: understanding requirements, designing robust solutions, and delivering reliable systems.
 									</p>
-									<h3>⚽ Beyond Coding:</h3>
+									<h3>Engineering Focus</h3>
 									<p>
-										Beyond the keyboard, I serve as an assistant coach for a youth soccer club, fostering team spirit and athletic excellence. This role has honed my leadership skills and enriched my understanding of teamwork and strategy.
+										I specialize in building maintainable, scalable systems. This includes architecting frontend applications, designing RESTful APIs, implementing CI/CD pipelines, and integrating AI capabilities. I'm particularly interested in how AI can enhance developer productivity and improve code quality through automated analysis and feedback.
 									</p>
-									<h3>🏃‍♂️ Pursuits & Ambitions:</h3>
+									<h3>Outside of Work</h3>
 									<p>
-										My personal endeavors span from the thrill of skiing to the art of gastronomy, with the discipline of soccer at their core. Embarking on a thrilling sprint through the 10k circuit, I've recently triumphed in a half marathon. Charged with adrenaline and ambition, I'm lacing up for another. As for the full marathon, I tip my hat to the long-distance runners while contentedly cheering from the sidelines – that odyssey is a marathon in itself!
+										I coach youth soccer, which has strengthened my leadership and communication skills. I'm also a runner—recently completed a half marathon and training for another. These activities help me maintain balance and bring fresh perspectives to technical challenges.
 									</p>
-									<h3>☕ Connect With Me:</h3>
+									<h3>Connect</h3>
 									<p>
-										Building connections and sharing insights over a virtual coffee or direct message is always welcome. You can reach out to me at <a href="mailto:jsavett@gmail.com">jsavett@gmail.com</a> or network with me on <a href="https://www.linkedin.com/in/macallan-savett/" target="_blank">LinkedIn</a>.
+										I'm always open to discussing engineering challenges, AI/ML applications, or potential collaborations. Reach out at <a href="mailto:jsavett@gmail.com">jsavett@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/macallan-savett/" target="_blank">LinkedIn</a>.
 									</p>
 								</div>
 							</div>
 						</div>
-					</section>                  
+					</div>
 				</section>				
 
 				<!-- Six -->
-				<section id="six" class="wrapper style2 spotlights">
-					<section id="work-experience">
-					  <div class="content">
-						<div class="inner">
-						  <h2>Work Experience</h2>
-						  <div>
+				<section id="six" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+					<div style="max-width: 1000px; margin: 0 auto;">
+						<h2>Work Experience</h2>
+						<div id="work-experience" style="display: flex; flex-direction: column; gap: 3rem; margin-top: 3rem;">
 							<!-- Software Engineer II - Skilljar -->
-							<div class='work-experience-container'>
-							  <h3>Software Engineer II - Skilljar powered by Gainsight, Seattle, WA</h3>
-							  <h4>August 2022 – Present</h4>
-							</div>
-							<ul>
+							<div class="modern-card">
+								<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+									<div>
+										<h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Software Engineer II</h3>
+										<p style="color: var(--primary); font-weight: 600; margin: 0;">Skilljar powered by Gainsight</p>
+										<p style="color: var(--text-muted); margin: 0.25rem 0 0 0;">Seattle, WA</p>
+									</div>
+									<span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;">August 2022 – Present</span>
+								</div>
+								<ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem;">
 							  <li>Led development of scalable frontend architecture, streamlining development and deployment, resulting in 40% faster feature releases.</li>
 							  <li>Spearheaded QA improvements by implementing Cypress, reducing production issues by 30% and increasing code reliability.</li>
 							  <li>Optimized AWS architecture (S3, CloudFront, Lambda), decreasing latency by 30%.</li>
@@ -192,14 +1219,20 @@
 							  <li>Developed a churn analysis tool using AWS Lambda, reducing data processing times by 20%.</li>
 							  <li>Implemented logging and monitoring solutions that improved response times by 20%.</li>
 							  <li>Redesigned accessibility features to meet WCAG 2.1 standards, boosting customer satisfaction by 25%.</li>
-							</ul>
+								</ul>
+							</div>
 							
 							<!-- Software Engineer I - Skilljar -->
-							<div class='work-experience-container'>
-							  <h3>Software Engineer I - Skilljar powered by Gainsight, Seattle, WA</h3>
-							  <h4>January 2021 – August 2022</h4>
-							</div>
-							<ul>
+							<div class="modern-card">
+								<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+									<div>
+										<h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Software Engineer I</h3>
+										<p style="color: var(--primary); font-weight: 600; margin: 0;">Skilljar powered by Gainsight</p>
+										<p style="color: var(--text-muted); margin: 0.25rem 0 0 0;">Seattle, WA</p>
+									</div>
+									<span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;">January 2021 – August 2022</span>
+								</div>
+								<ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem;">
 							  <li>Built and maintained scalable frontends in JavaScript, Vue.js, and HTML, improving page load times by 15%.</li>
 							  <li>Integrated APIs and enhanced client authentication systems.</li>
 							  <li>Led AWS migrations, reducing latency by 30% and operational costs by 20%.</li>
@@ -207,127 +1240,418 @@
 							  <li>Developed PII compliance tools, automating data processing and reducing manual compliance efforts by 50%.</li>
 							  <li>Led automation tools for employee onboarding/offboarding, cutting manual work by 50%.</li>
 							</ul>
-						  </div>
+							</div>
 						</div>
-					  </div>
-					</section>
-				  </section>
+					</div>
+				</section>
+
+				<!-- Previous Experience (Collapsible) -->
+				<section id="previous-experience" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+					<div style="max-width: 1000px; margin: 0 auto; padding: 4rem 2rem;">
+						<button id="previous-exp-toggle" style="width: 100%; border-radius: 16px; padding: 1.75rem 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; margin-bottom: 0;">
+							<h2 style="margin: 0; color: var(--text-primary); font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em;">Previous Experience</h2>
+							<span id="previous-exp-icon" style="font-size: 1.25rem; color: var(--primary); font-weight: bold;">▼</span>
+						</button>
+						<div id="previous-exp-content" style="display: none; padding-top: 2rem;">
+							<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+								
+								<!-- Colliers International -->
+								<div class="modern-card">
+									<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Research Analyst</h3>
+									<p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Colliers International</p>
+									<p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">San Francisco, CA | Jan 2018 - Aug 2019</p>
+									<ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem; list-style-type: disc;">
+										<li>Customized and migrated a Salesforce-based database containing over 70,000 informational points for a team earning over $100 Million in 2018 through RPA and backend Salesforce APIs</li>
+										<li>Generated $100,000 within the first three months by analyzing 94 properties owned by one of the largest Multifamily clients in San Francisco</li>
+										<li>Created and managed multiple offering memorandums and buyer Opinion of Values for 12 brokers, leading to the team earning over $100 Million</li>
+									</ul>
+								</div>
+
+								<!-- Aspen Skiing Company -->
+								<div class="modern-card">
+									<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Product Sales and Services</h3>
+									<p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Aspen Skiing Company</p>
+									<p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Aspen, CO | Oct 2016 - Dec 2017</p>
+									<ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem; list-style-type: disc;">
+										<li>Drove cross-selling of products per client specifications to better streamline operations</li>
+										<li>Resolved conflicts and negotiated mutually beneficial agreements between parties</li>
+										<li>Communicated with team members and management to obtain current information on venue attractions and related logistics</li>
+									</ul>
+								</div>
+
+								<!-- Ritz Carlton -->
+								<div class="modern-card">
+									<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Bartender</h3>
+									<p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Ritz Carlton</p>
+									<p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Santa Barbara, CA | May 2016 - Sep 2016</p>
+									<ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem; list-style-type: disc;">
+										<li>Worked in a high-paced environment while serving over 100+ people</li>
+										<li>Kept alcoholic beverages well-stocked and organized to meet expected demands</li>
+										<li>Organized bar inventory and storage procedures to keep stock within optimal levels and meet expected customer demands</li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- Previous Experience -->
+
+				<!-- AI Section -->
+				<section id="ai" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+					<div style="max-width: 1400px; margin: 0 auto;">
+						<h2>AI & Machine Learning</h2>
+						<p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 4rem; text-align: center; line-height: 1.8;">
+							Technical capabilities in AI/ML engineering and implementation
+						</p>
+						
+						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+							<div class="modern-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">🧠</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">LLM Integration & API Development</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Production experience integrating OpenAI GPT and Anthropic Claude APIs. Built RESTful services with structured output parsing, error handling, and rate limiting. Implemented prompt engineering patterns for consistent, reliable responses.</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">OpenAI API</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Anthropic Claude</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Structured Outputs</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Rate Limiting</span>
+								</div>
+							</div>
+
+							<div class="modern-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">💻</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Multi-Agent Code Review Systems</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Architected and implemented a multi-agent system for automated code review. Five specialized agents analyze code for correctness, architecture, readability, performance, and educational value. Built with FastAPI, async processing, and structured JSON output parsing.</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Multi-Agent Architecture</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">FastAPI</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Async Processing</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">JSON Schema</span>
+								</div>
+							</div>
+
+							<div class="modern-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">🎤</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Speech-to-Text & NLP Pipelines</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Developed end-to-end voice processing pipeline: audio transcription, text extraction, NLP analysis, and summarization. Integrated with Django backend, implemented batch processing for audio files, and built data models for storing transcriptions and insights.</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Speech-to-Text</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">NLP Processing</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Text Summarization</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Batch Processing</span>
+								</div>
+							</div>
+
+							<div class="modern-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">📝</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Content Generation & Document Processing</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Built automated content generation systems using LLMs with context injection and template management. Implemented document parsing, text extraction, and structured data generation. Designed systems for generating personalized content at scale.</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Template Systems</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Document Parsing</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Context Injection</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Batch Generation</span>
+								</div>
+							</div>
+
+							<div class="modern-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">📊</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Data Processing & Analysis</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Built data analysis tools using AWS Lambda for processing and aggregating customer data. Developed churn analysis tool that processes large datasets efficiently, reducing processing times by 20%. Implemented data transformation pipelines and automated reporting workflows.</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">AWS Lambda</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Data Processing</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Data Aggregation</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Automated Reporting</span>
+								</div>
+							</div>
+
+							<div class="modern-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">🔐</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">API Security & Configuration</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Implemented secure API key management for AI services using AWS Secrets Manager. Built configuration systems for managing LLM API credentials and settings. Designed error handling and retry logic for API integrations to ensure reliability.</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">AWS Secrets Manager</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">API Configuration</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Error Handling</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Retry Logic</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- AI Section -->
 				  
 				
 				<!-- Two -->
-				<section id="two" class="wrapper style3 fade-up">
-					<div class="inner">
-						<h2>Professional Development</h2>
-						<p>Currently, I'm enriching my software engineering expertise by delving into industry literature and dissecting the technical design aspects of building robust software solutions.</p>
-					</div>
-					<div class="inner">
-						<h2>Personal Projects</h2>
-						<p>Currently, I am working on an innovative app called DailyVoice-Log. This app sends daily emails prompting users to record audio logs. The app then analyzes these logs using AI to compile daily activities into summaries, which can be reviewed periodically for productivity insights.</p>
-						<p>Key features of DailyVoice-Log include:</p>
-						<ul>
-							<li>Daily email prompts for recording audio logs</li>
-							<li>AI analysis of audio logs to compile daily activity summaries</li>
-							<li>Periodic review of summaries for productivity insights</li>
-						</ul>
-						<p>Interested in discussing the latest in tech? Let's connect!</p>
+				<section id="two" style="background: var(--bg-dark);">
+					<div style="max-width: 1400px; margin: 0 auto;">
+						<h2>Projects</h2>
+						<p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 4rem; text-align: center; line-height: 1.8;">
+							A collection of full-stack applications, tools, and platforms I've built. Each project demonstrates different aspects of software engineering, from real-time systems to AI-powered solutions.
+						</p>
+						
+						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+							<!-- DailyVoice-Log -->
+							<div class="modern-card project-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">🎤</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">DailyVoice-Log</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">AI-powered productivity app that sends daily email prompts for audio logs, then analyzes and compiles them into actionable summaries. Built with React, Django, and AI integration for voice-to-text processing.</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Django</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">AI/ML</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Email Automation</span>
+								</div>
+								<a href="https://github.com/micjoey/DailyVoiceLog" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+							</div>
+
+							<!-- TavernMaster -->
+							<div class="modern-card project-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">🎲</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">TavernMaster</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Full-stack campaign management platform for tabletop RPGs. Features real-time chat via WebSocket, character management, campaign dashboards, and role-based access for DMs and players.</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Django REST</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">WebSocket</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">JWT Auth</span>
+								</div>
+								<a href="https://github.com/micjoey/TavernMaster" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+							</div>
+
+							<!-- AI Review -->
+							<div class="modern-card project-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">🤖</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">AI Review</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Personal learning tool that reviews code with five specialized AI agents (correctness, architecture, readability, performance, teaching). Built with FastAPI, designed to improve engineering reasoning through structured feedback.</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">FastAPI</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Next.js</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">LLM Integration</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">AWS Secrets</span>
+								</div>
+								<a href="https://github.com/micjoey/AI_Review" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+							</div>
+
+							<!-- Workout App -->
+							<div class="modern-card project-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">💪</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Adaptive Workout App</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Full-stack fitness tracking application with adaptive workout planning. Features workout logging, plan generation, and analytics. Built with Next.js and FastAPI, following accessibility standards (WCAG AA).</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Next.js</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">FastAPI</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">SQLModel</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Tailwind CSS</span>
+								</div>
+								<a href="https://github.com/micjoey/workout-app" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+							</div>
+
+							<!-- Cover Letter Helper -->
+							<div class="modern-card project-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">📄</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Unique Cover Letter Helper</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">AI-powered tool that generates personalized cover letters tailored to specific job applications. Combines Django backend with React frontend for seamless user experience.</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Django</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">AI Integration</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Heroku</span>
+								</div>
+								<a href="https://github.com/micjoey/Unique-Cover-Letter-Helper" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+							</div>
+
+							<!-- Soccer Website -->
+							<div class="modern-card project-card">
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">⚽</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Soccer Team Management</h3>
+								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Team management platform for soccer clubs. Features availability tracking, scheduling, and team coordination. Built with React/TypeScript frontend and Node.js backend.</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">TypeScript</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Node.js</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Google OAuth</span>
+								</div>
+								<a href="https://github.com/micjoey/soccer-website" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+							</div>
+						</div>
 					</div>
 				</section>
   
-				<!-- three -->
-				<section id="three" class="wrapper style4 fade-up" style="background-color:  rgb(0, 40, 9);">
-					<div class="inner " id="Education">
-						<h2>Education</h2>
-						<div class="education-div">
-							<p><h3>App Academy - Class of Feb 2020</h3></p>
-							<p>Immersive software development course with focus on full-stack web development | Winter 2019</p> 
-								<!-- <br> -->
+				<!-- Four -->
+				<section id="four" style="background: var(--bg-dark);">
+					<div style="max-width: 1400px; margin: 0 auto; padding: 4rem 2rem;" id='technologies'>
+						<h2 style="text-align: center; margin-bottom: 1rem;">Technologies</h2>
+						<p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; text-align: center; line-height: 1.7;">
+							Technologies and tools I use to build scalable, modern applications
+						</p>
+						
+						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+							<!-- Frontend -->
+							<div class="modern-card" style="padding: 2rem;">
+								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+									<div style="font-size: 2rem; color: var(--primary);">🎨</div>
+									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">Frontend</h3>
+								</div>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+									<span class="tech-badge">JavaScript</span>
+									<span class="tech-badge">React</span>
+									<span class="tech-badge">TypeScript</span>
+									<span class="tech-badge">Next.js</span>
+									<span class="tech-badge">Vue.js</span>
+									<span class="tech-badge">Redux</span>
+									<span class="tech-badge">HTML5 / CSS3</span>
+									<span class="tech-badge">Tailwind CSS</span>
+									<span class="tech-badge">Webpack / Babel</span>
+								</div>
+							</div>
+							
+							<!-- Backend -->
+							<div class="modern-card" style="padding: 2rem;">
+								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+									<div style="font-size: 2rem; color: var(--primary);">⚙️</div>
+									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">Backend</h3>
+								</div>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+									<span class="tech-badge">Python</span>
+									<span class="tech-badge">Django</span>
+									<span class="tech-badge">FastAPI</span>
+									<span class="tech-badge">Node.js</span>
+									<span class="tech-badge">Ruby on Rails</span>
+									<span class="tech-badge">PostgreSQL</span>
+									<span class="tech-badge">MySQL</span>
+									<span class="tech-badge">MongoDB</span>
+									<span class="tech-badge">SQLModel</span>
+									<span class="tech-badge">RESTful APIs</span>
+									<span class="tech-badge">GraphQL</span>
+									<span class="tech-badge">WebSocket</span>
+								</div>
+							</div>
+							
+							<!-- Cloud & DevOps -->
+							<div class="modern-card" style="padding: 2rem;">
+								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+									<div style="font-size: 2rem; color: var(--primary);">☁️</div>
+									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">Cloud & DevOps</h3>
+								</div>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+									<span class="tech-badge">AWS</span>
+									<span class="tech-badge">S3 / CloudFront</span>
+									<span class="tech-badge">Lambda</span>
+									<span class="tech-badge">Secrets Manager</span>
+									<span class="tech-badge">Azure</span>
+									<span class="tech-badge">Docker</span>
+									<span class="tech-badge">Kubernetes</span>
+									<span class="tech-badge">Terraform</span>
+									<span class="tech-badge">CI/CD Pipelines</span>
+									<span class="tech-badge">Git / GitHub</span>
+								</div>
+							</div>
+							
+							<!-- AI & Integration -->
+							<div class="modern-card" style="padding: 2rem;">
+								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+									<div style="font-size: 2rem; color: var(--primary);">🤖</div>
+									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">AI & Integration</h3>
+								</div>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+									<span class="tech-badge">OpenAI API</span>
+									<span class="tech-badge">Anthropic Claude</span>
+									<span class="tech-badge">LLM Integration</span>
+									<span class="tech-badge">Speech-to-Text</span>
+									<span class="tech-badge">NLP Processing</span>
+									<span class="tech-badge">Structured Outputs</span>
+								</div>
+							</div>
+							
+							<!-- Testing & Tools -->
+							<div class="modern-card" style="padding: 2rem;">
+								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+									<div style="font-size: 2rem; color: var(--primary);">🧪</div>
+									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">Testing & Tools</h3>
+								</div>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+									<span class="tech-badge">PyTest</span>
+									<span class="tech-badge">Cypress</span>
+									<span class="tech-badge">Selenium</span>
+									<span class="tech-badge">Jest</span>
+									<span class="tech-badge">Jira</span>
+									<span class="tech-badge">Figma</span>
+								</div>
+							</div>
+							
+							<!-- Security & Standards -->
+							<div class="modern-card" style="padding: 2rem;">
+								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+									<div style="font-size: 2rem; color: var(--primary);">🔐</div>
+									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">Security & Standards</h3>
+								</div>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+									<span class="tech-badge">OAuth</span>
+									<span class="tech-badge">SAML</span>
+									<span class="tech-badge">SSO</span>
+									<span class="tech-badge">JWT Auth</span>
+									<span class="tech-badge">WCAG 2.1</span>
+								</div>
+							</div>
 						</div>
-						<br>
-						<div class="education-div">
-							<p><h3>Oberlin College - Class of 2016</h3></p>
-							<p>Bachelor's in Economics with a focus on Real Estate</p>
-						</div>
+					</div>					  
 				</section>
-				<!-- three -->
+				<!-- Four -->
 
-				<!-- Four -->
-				<section id="four" class="wrapper style3 fade-up" style="background-color: rgb(128, 15, 15);">
-					<div class="inner" id='technologies'>
-						<h3>Technologies</h3>
-						<ul class="feature-icons">
-						  <li class="icon"><i class="bi bi-code-slash"></i> JavaScript</li>
-						  <li class="icon"><i class="bi bi-puzzle"></i> React</li>
-						  <li class="icon"><i class="bi bi-filetype-tsx"></i> TypeScript</li>
-						  <li class="icon"><i class="bi bi-filetype-html"></i> HTML</li>
-						  <li class="icon"><i class="bi bi-filetype-css"></i> CSS</li>
-						  <li class="icon"><i class="bi bi-braces"></i> Vue.js</li>
-						  <li class="icon"><i class="bi bi-file-earmark-code"></i> Python</li>
-						  <li class="icon"><i class="bi bi-server"></i> Django</li>
-						  <li class="icon"><i class="bi bi-git"></i> Git</li>
-						  <li class="icon"><i class="bi bi-filetype-node"></i> Node.js</li>
-						  <li class="icon"><i class="bi bi-filetype-sql"></i> SQL (MySQL/PostgreSQL)</li>
-						  <li class="icon"><i class="bi bi-cloud"></i> AWS</li>
-						  <li class="icon"><i class="bi bi-box-seam"></i> Docker</li>
-						  <li class="icon"><i class="bi bi-diagram-3"></i> Kubernetes</li>
-						  <li class="icon"><i class="bi bi-diagram-2-fill"></i> Terraform</li>
-						  <li class="icon"><i class="bi bi-cloud-arrow-down"></i> Azure</li>
-						  <li class="icon"><i class="bi bi-database"></i> MongoDB</li>
-						  <li class="icon"><i class="bi bi-check-circle"></i> PyTest</li>
-						  <li class="icon"><i class="bi bi-check2-circle"></i> Cypress</li>
-						  <li class="icon"><i class="bi bi-check2-square"></i> Selenium</li>
-						  <li class="icon"><i class="bi bi-check2-all"></i> Jest</li>
-						  <li class="icon"><i class="bi bi-github"></i> GitHub</li>
-						  <li class="icon"><i class="bi bi-kanban"></i> Jira</li>
-						  <li class="icon"><i class="bi bi-cpu"></i> Webpack</li>
-						  <li class="icon"><i class="bi bi-cpu"></i> Babel</li>
-						  <li class="icon"><i class="bi bi-layout-sidebar"></i> Figma</li>
-						  <li class="icon"><i class="bi bi-plug"></i> API Development/Integration</li>
-						  <li class="icon"><i class="bi bi-lock"></i> OAuth</li>
-						  <li class="icon"><i class="bi bi-diagram-3-fill"></i> RESTful API</li>
-						  <li class="icon"><i class="bi bi-lock-fill"></i> Single Sign-On (SSO)</li>
-						  <li class="icon"><i class="bi bi-arrows-fullscreen"></i> Responsive Design</li>
-						  <li class="icon"><i class="bi bi-card-checklist"></i> Accessibility Standards</li>
-						  <li class="icon"><i class="bi bi-graph-up-arrow"></i> Data-Driven Optimization</li>
-						</ul>
-					  </div>					  
+				<!-- three -->
+				<section id="three" style="background: var(--bg-dark);">
+					<div style="max-width: 1000px; margin: 0 auto;">
+						<h2>Education</h2>
+						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-top: 3rem;">
+							<div class="modern-card">
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">App Academy</h3>
+								<p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Class of Feb 2020</p>
+								<p style="color: var(--text-secondary); line-height: 1.7;">Immersive software development course with focus on full-stack web development | Winter 2019</p>
+							</div>
+							<div class="modern-card">
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Oberlin College</h3>
+								<p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Class of 2016</p>
+								<p style="color: var(--text-secondary); line-height: 1.7;">Bachelor's in Economics with a focus on Real Estate</p>
+							</div>
+						</div>
+					</div>
 				</section>
-				<!-- Four -->
+				<!-- three -->
 
 				<!-- five -->
-				<section id="five" class="wrapper style1 fade-up">
-					<div class="inner">
-						<h2>Get in touch</h2>
-						<p>Please feel free to add me on <a href="https://bit.ly/3izBUZc" target="_blank" data-event-category="LinkedIn" data-event-action="click"><span class="label-2 defined-font">LinkedIn.</span>
-						</a>
+				<section id="five" style="background: var(--bg-dark);">
+					<div style="max-width: 1000px; margin: 0 auto;">
+						<h2>Get in Touch</h2>
+						<p style="font-size: 1.2rem; color: var(--text-secondary); text-align: center; margin-bottom: 3rem;">
+							Let's connect and discuss opportunities
 						</p>
-							<section>
-								<ul class="contact">
-									<div class="inner" id="Resume">
-										<h3>Resume</h3>
-										<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" data-event-category="Resume" data-event-action="click">
-											<p class='defined-font'>Link to PDF Resume</p>
-										</a>
-									</div>
-									<li>
-										<h3 class="email-me-at">Email me at:</h3>
-										<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" class='defined-font'>Jsavett@gmail.com</a>
-									</li>
-									<li>
-										<h3>Social</h3>
-										<ul class="icons">
-											<li><a href="https://github.com/MacallanSavett" class="icon brands fa-github" target="_blank" data-event-category="Work-Github"
-												data-event-action="click" ><span class="label">GitHub</span></a></li>
-											<li><a href="https://www.instagram.com/Peoples.reality/" class="icon brands fa-instagram" target="
-												_blank" data-event-category="Instagram" data-event-action="click"><span class="label">Instagram</span></a></li>
-											<li><a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="
-												_blank" data-event-category="LinkedIn" data-event-action="click"><span class="label">LinkedIn</span></a></li>
-										</ul>
-									</li>
-								</ul>
-							</section>
+						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+							<div class="modern-card" style="text-align: center;">
+								<div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
+								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Email</h3>
+								<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" style="color: var(--primary); text-decoration: none; font-size: 1.1rem; font-weight: 600;">jsavett@gmail.com</a>
+							</div>
+							<div class="modern-card" style="text-align: center;">
+								<div style="font-size: 3rem; margin-bottom: 1rem;">📄</div>
+								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Resume</h3>
+								<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 1.1rem; font-weight: 600;">View PDF Resume</a>
+							</div>
+							<div class="modern-card" style="text-align: center;">
+								<div style="font-size: 3rem; margin-bottom: 1rem;">🔗</div>
+								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Connect</h3>
+								<div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;">
+									<a href="https://github.com/micjoey" class="icon brands fa-github" target="_blank" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">GitHub</span></a>
+									<a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="_blank" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">LinkedIn</span></a>
+									<a href="https://www.instagram.com/Peoples.reality/" class="icon brands fa-instagram" target="_blank" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">Instagram</span></a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</section>
 				<!-- five -->
+				</main>
 			</div>
 		<!-- Footer -->
 		
@@ -348,6 +1672,36 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<!-- Previous Experience Collapse Script -->
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					const toggle = document.getElementById('previous-exp-toggle');
+					const content = document.getElementById('previous-exp-content');
+					const icon = document.getElementById('previous-exp-icon');
+					
+					if (toggle && content && icon) {
+						toggle.addEventListener('click', function() {
+							const isExpanded = content.style.display === 'block';
+							
+							if (isExpanded) {
+								content.style.display = 'none';
+								icon.classList.remove('expanded');
+								toggle.setAttribute('aria-expanded', 'false');
+							} else {
+								content.style.display = 'block';
+								icon.classList.add('expanded');
+								toggle.setAttribute('aria-expanded', 'true');
+							}
+						});
+						
+						// Set initial aria state
+						toggle.setAttribute('aria-expanded', 'false');
+						toggle.setAttribute('role', 'button');
+						toggle.setAttribute('aria-label', 'Toggle previous experience section');
+					}
+				});
+			</script>
 
 	</body>
 </html>
