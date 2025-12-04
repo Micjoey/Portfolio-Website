@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 	<head>		
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157870805-3"></script>
@@ -29,8 +29,8 @@
 				--secondary: #8b5cf6;
 				--accent: #06b6d4;
 				--text-primary: #ffffff;
-				--text-secondary: rgba(255, 255, 255, 0.8);
-				--text-muted: rgba(255, 255, 255, 0.6);
+			--text-secondary: rgba(255, 255, 255, 0.9);
+			--text-muted: rgba(255, 255, 255, 0.75);
 				--bg-dark: #0a0e27;
 				--bg-card: rgba(15, 23, 42, 0.6);
 				--border: rgba(148, 163, 184, 0.2);
@@ -161,14 +161,22 @@
 			}
 
 			.button:focus,
-			a:focus {
+			a:focus,
+			button:focus {
 				outline: 2px solid #a8d8ff;
 				outline-offset: 3px;
 			}
 
+			/* Ensure focus is visible */
+			.skip-link:focus {
+				top: 0;
+				background: #533483;
+				color: white;
+			}
+
 			/* Improved Readability */
 			p {
-				color: rgba(255, 255, 255, 0.9);
+				color: rgba(255, 255, 255, 0.95);
 				line-height: 1.8;
 			}
 
@@ -178,7 +186,7 @@
 
 			/* Better contrast for text */
 			.project-card p {
-				color: rgba(255, 255, 255, 0.85);
+				color: rgba(255, 255, 255, 0.9);
 			}
 
 			/* Skip to main content link for screen readers */
@@ -823,7 +831,8 @@
 				transition: all 0.3s ease;
 			}
 
-			a:hover {
+			a:hover,
+			a:focus {
 				color: #ffffff;
 				text-decoration-color: #a8d8ff;
 			}
@@ -1039,11 +1048,11 @@
 		<!-- Modern Sticky Header -->
 		<header id="modern-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 14, 39, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; transition: all 0.3s ease;">
 			<nav style="display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto;">
-				<a href="#intro" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-					<img src="images/transparent email.png" alt="Logo" style="height: 40px; width: auto;" />
+				<a href="#intro" aria-label="Return to top of page" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+					<img src="images/transparent email.png" alt="Macallan Savett logo" style="height: 40px; width: auto;" />
 					<span>Macallan Savett</span>
 				</a>
-				<ul style="display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; align-items: center;">
+				<ul role="list" style="display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; align-items: center;">
 					<li><a href="#intro" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">Home</a></li>
 					<li><a href="#one" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">About</a></li>
 					<li><a href="#six" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">Experience</a></li>
@@ -1106,12 +1115,7 @@
 						<div class="inner" style="text-align: center;">
 							<h1 style="text-align: center;">Macallan Savett</h1>
 							<p style="font-size: 1.5em; font-weight: 300; margin-bottom: 1em; color: rgba(255, 255, 255, 0.9); text-align: center;">
-								<span style="color: #a8d8ff;">Software Engineer</span> | Building scalable solutions with modern technologies.
-							</p>
-							<p style="font-size: 1.1em; line-height: 1.8; color: rgba(255, 255, 255, 0.8); max-width: 800px; margin: 0 auto 2em; text-align: center;">
-								Expertise in <strong style="color: #a8d8ff;">Python</strong>, <strong style="color: #a8d8ff;">Django</strong>, <strong style="color: #a8d8ff;">React</strong>, and <strong style="color: #a8d8ff;">AWS</strong>. 
-								Merging diverse experience with cutting-edge tech to craft seamless digital solutions. 
-								Driven by innovation and a passion for continuous learning.
+								<span style="color: #a8d8ff;">Software Engineer</span> | Building scalable applications with <strong style="color: #a8d8ff;">Python</strong>, <strong style="color: #a8d8ff;">Django</strong>, <strong style="color: #a8d8ff;">React</strong>, and <strong style="color: #a8d8ff;">AWS</strong>.
 							</p>
 
 							<div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0;">
@@ -1121,13 +1125,13 @@
 								<a href="#five" class="button scrolly" style="background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; display: inline-block; border: none;">Get in Touch</a>
 							</div>
 							<p>
-							<div class="links">
-								<a href="https://github.com/micjoey" class="icon brands fa-github" target="_blank" data-event-category="Work-Github"
+							<div class="links" role="list">
+								<a href="https://github.com/micjoey" class="icon brands fa-github" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's GitHub profile (opens in new tab)" data-event-category="Work-Github"
 									data-event-action="click" ><span class="label">Work GitHub</span></a>
-								<a href="https://www.instagram.com/Peoples.reality/" class="icon brands fa-instagram" target="_blank" data-event-category="Instagram"
+								<a href="https://www.instagram.com/Peoples.reality/" class="icon brands fa-instagram" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's Instagram profile (opens in new tab)" data-event-category="Instagram"
 									data-event-action="click"><span
 										class="label">Instagram</span></a>
-								<a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="_blank" data-event-category="LinkedIn"
+								<a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's LinkedIn profile (opens in new tab)" data-event-category="LinkedIn"
   data-event-action="click"><span class="label">LinkedIn</span></a>
 							</div>
 							</br>
@@ -1135,7 +1139,7 @@
 								<div class="resume-email">
 									<div>
 										<h3>Resume</h3>
-										<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" data-event-category="Resume" data-event-action="click">
+										<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View Macallan Savett's resume PDF (opens in new tab)" data-event-category="Resume" data-event-action="click">
 											<p class='defined-font'>Link to PDF Resume</p>
 										</a>
 									</div>
@@ -1147,7 +1151,7 @@
 									</div>
 									<div>
 										<h3>Get in touch</h3>
-										<p>Please feel free to add me on <a href="https://bit.ly/3izBUZc" target="_blank" data-event-category="LinkedIn" data-event-action="click"><span class="label-2 defined-font">LinkedIn.</span>
+										<p>Please feel free to add me on <a href="https://bit.ly/3izBUZc" target="_blank" rel="noopener noreferrer" aria-label="Connect with Macallan Savett on LinkedIn (opens in new tab)" data-event-category="LinkedIn" data-event-action="click"><span class="label-2 defined-font">LinkedIn.</span>
 											</a>
 										</p>
 									</div>
@@ -1170,23 +1174,23 @@
 								<div class="inner">
 								<div>
 									<p>
-										I'm a Software Engineer at Skilljar, building scalable applications with Python, Django, React, and AWS. I focus on full-stack development, system architecture, and integrating AI/ML capabilities into production systems.
+										Software Engineer at Skilljar. I build scalable applications with Python, Django, React, and AWS. Focus on full-stack development, system architecture, and AI/ML integration.
 									</p>
 									<h3>Background</h3>
 									<p>
-										I transitioned to software engineering from real estate, where I managed databases and complex negotiations. That experience taught me to balance analytical thinking with practical problem-solving. I bring that same approach to engineering: understanding requirements, designing robust solutions, and delivering reliable systems.
+										Transitioned to software engineering from real estate, where I managed databases and complex negotiations. That experience taught me to balance analytical thinking with practical problem-solving. I apply the same approach to engineering: understand requirements, design robust solutions, deliver reliable systems.
 									</p>
 									<h3>Engineering Focus</h3>
 									<p>
-										I specialize in building maintainable, scalable systems. This includes architecting frontend applications, designing RESTful APIs, implementing CI/CD pipelines, and integrating AI capabilities. I'm particularly interested in how AI can enhance developer productivity and improve code quality through automated analysis and feedback.
+										I build maintainable, scalable systems. This includes frontend architecture, RESTful API design, CI/CD pipelines, and AI integration. I'm interested in how AI can enhance developer productivity through automated analysis and feedback.
 									</p>
 									<h3>Outside of Work</h3>
 									<p>
-										I coach youth soccer, which has strengthened my leadership and communication skills. I'm also a runner—recently completed a half marathon and training for another. These activities help me maintain balance and bring fresh perspectives to technical challenges.
+										I coach youth soccer and run. Recently completed a half marathon and training for another. These activities help maintain balance and bring fresh perspectives to technical challenges.
 									</p>
 									<h3>Connect</h3>
 									<p>
-										I'm always open to discussing engineering challenges, AI/ML applications, or potential collaborations. Reach out at <a href="mailto:jsavett@gmail.com">jsavett@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/macallan-savett/" target="_blank">LinkedIn</a>.
+										Open to discussing engineering challenges, AI/ML applications, or collaborations. Reach out at <a href="mailto:jsavett@gmail.com">jsavett@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/macallan-savett/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Macallan Savett on LinkedIn (opens in new tab)">LinkedIn</a>.
 									</p>
 								</div>
 							</div>
@@ -1246,13 +1250,13 @@
 				</section>
 
 				<!-- Previous Experience (Collapsible) -->
-				<section id="previous-experience" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+				<section id="previous-experience" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding-top: 0;">
 					<div style="max-width: 1000px; margin: 0 auto; padding: 4rem 2rem;">
-						<button id="previous-exp-toggle" style="width: 100%; border-radius: 16px; padding: 1.75rem 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; margin-bottom: 0;">
+						<button id="previous-exp-toggle" type="button" aria-expanded="false" aria-controls="previous-exp-content" style="width: 100%; border-radius: 16px; padding: 1.75rem 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; margin-bottom: 0;">
 							<h2 style="margin: 0; color: var(--text-primary); font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em;">Previous Experience</h2>
-							<span id="previous-exp-icon" style="font-size: 1.25rem; color: var(--primary); font-weight: bold;">▼</span>
+							<span id="previous-exp-icon" aria-hidden="true" style="font-size: 1.25rem; color: var(--primary); font-weight: bold;">▼</span>
 						</button>
-						<div id="previous-exp-content" style="display: none; padding-top: 2rem;">
+						<div id="previous-exp-content" role="region" aria-labelledby="previous-exp-toggle" style="display: none; padding-top: 2rem;">
 							<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
 								
 								<!-- Colliers International -->
@@ -1307,7 +1311,7 @@
 						
 						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">🧠</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Brain icon representing AI and machine learning">🧠</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">LLM Integration & API Development</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Production experience integrating OpenAI GPT and Anthropic Claude APIs. Built RESTful services with structured output parsing, error handling, and rate limiting. Implemented prompt engineering patterns for consistent, reliable responses.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1319,7 +1323,7 @@
 							</div>
 
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">💻</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Computer icon representing code and development">💻</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Multi-Agent Code Review Systems</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Architected and implemented a multi-agent system for automated code review. Five specialized agents analyze code for correctness, architecture, readability, performance, and educational value. Built with FastAPI, async processing, and structured JSON output parsing.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1331,7 +1335,7 @@
 							</div>
 
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">🎤</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Microphone icon representing speech and audio processing">🎤</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Speech-to-Text & NLP Pipelines</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Developed end-to-end voice processing pipeline: audio transcription, text extraction, NLP analysis, and summarization. Integrated with Django backend, implemented batch processing for audio files, and built data models for storing transcriptions and insights.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1343,7 +1347,7 @@
 							</div>
 
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">📝</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Document icon representing content and document processing">📝</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Content Generation & Document Processing</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Built automated content generation systems using LLMs with context injection and template management. Implemented document parsing, text extraction, and structured data generation. Designed systems for generating personalized content at scale.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1355,7 +1359,7 @@
 							</div>
 
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">📊</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Chart icon representing data analysis">📊</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Data Processing & Analysis</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Built data analysis tools using AWS Lambda for processing and aggregating customer data. Developed churn analysis tool that processes large datasets efficiently, reducing processing times by 20%. Implemented data transformation pipelines and automated reporting workflows.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1367,7 +1371,7 @@
 							</div>
 
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);">🔐</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Lock icon representing security">🔐</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">API Security & Configuration</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Implemented secure API key management for AI services using AWS Secrets Manager. Built configuration systems for managing LLM API credentials and settings. Designed error handling and retry logic for API integrations to ensure reliability.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1394,7 +1398,7 @@
 						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
 							<!-- DailyVoice-Log -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">🎤</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Microphone icon representing voice logging">🎤</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">DailyVoice-Log</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">AI-powered productivity app that sends daily email prompts for audio logs, then analyzes and compiles them into actionable summaries. Built with React, Django, and AI integration for voice-to-text processing.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1403,12 +1407,12 @@
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">AI/ML</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Email Automation</span>
 								</div>
-								<a href="https://github.com/micjoey/DailyVoiceLog" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+								<a href="https://github.com/micjoey/DailyVoiceLog" class="button" target="_blank" rel="noopener noreferrer" aria-label="View DailyVoice-Log project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
 							</div>
 
 							<!-- TavernMaster -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">🎲</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Dice icon representing tabletop gaming">🎲</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">TavernMaster</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Full-stack campaign management platform for tabletop RPGs. Features real-time chat via WebSocket, character management, campaign dashboards, and role-based access for DMs and players.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1417,12 +1421,12 @@
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">WebSocket</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">JWT Auth</span>
 								</div>
-								<a href="https://github.com/micjoey/TavernMaster" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+								<a href="https://github.com/micjoey/TavernMaster" class="button" target="_blank" rel="noopener noreferrer" aria-label="View TavernMaster project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
 							</div>
 
 							<!-- AI Review -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">🤖</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Robot icon representing AI">🤖</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">AI Review</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Personal learning tool that reviews code with five specialized AI agents (correctness, architecture, readability, performance, teaching). Built with FastAPI, designed to improve engineering reasoning through structured feedback.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1431,12 +1435,12 @@
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">LLM Integration</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">AWS Secrets</span>
 								</div>
-								<a href="https://github.com/micjoey/AI_Review" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+								<a href="https://github.com/micjoey/AI_Review" class="button" target="_blank" rel="noopener noreferrer" aria-label="View AI Review project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
 							</div>
 
 							<!-- Workout App -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">💪</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Flexed bicep icon representing fitness">💪</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Adaptive Workout App</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Full-stack fitness tracking application with adaptive workout planning. Features workout logging, plan generation, and analytics. Built with Next.js and FastAPI, following accessibility standards (WCAG AA).</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1445,12 +1449,12 @@
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">SQLModel</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Tailwind CSS</span>
 								</div>
-								<a href="https://github.com/micjoey/workout-app" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+								<a href="https://github.com/micjoey/workout-app" class="button" target="_blank" rel="noopener noreferrer" aria-label="View Adaptive Workout App project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
 							</div>
 
 							<!-- Cover Letter Helper -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">📄</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Document icon representing cover letters">📄</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Unique Cover Letter Helper</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">AI-powered tool that generates personalized cover letters tailored to specific job applications. Combines Django backend with React frontend for seamless user experience.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1459,12 +1463,12 @@
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">AI Integration</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Heroku</span>
 								</div>
-								<a href="https://github.com/micjoey/Unique-Cover-Letter-Helper" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+								<a href="https://github.com/micjoey/Unique-Cover-Letter-Helper" class="button" target="_blank" rel="noopener noreferrer" aria-label="View Unique Cover Letter Helper project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
 							</div>
 
 							<!-- Soccer Website -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">⚽</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Soccer ball icon representing team management">⚽</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Soccer Team Management</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Team management platform for soccer clubs. Features availability tracking, scheduling, and team coordination. Built with React/TypeScript frontend and Node.js backend.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1473,7 +1477,7 @@
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Node.js</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Google OAuth</span>
 								</div>
-								<a href="https://github.com/micjoey/soccer-website" class="button" target="_blank" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
+								<a href="https://github.com/micjoey/soccer-website" class="button" target="_blank" rel="noopener noreferrer" aria-label="View Soccer Team Management project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
 							</div>
 						</div>
 					</div>
@@ -1481,118 +1485,132 @@
   
 				<!-- Four -->
 				<section id="four" style="background: var(--bg-dark);">
-					<div style="max-width: 1400px; margin: 0 auto; padding: 4rem 2rem;" id='technologies'>
-						<h2 style="text-align: center; margin-bottom: 1rem;">Technologies</h2>
-						<p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; text-align: center; line-height: 1.7;">
-							Technologies and tools I use to build scalable, modern applications
-						</p>
+					<div style="max-width: 1400px; margin: 0 auto; padding: 5rem 2rem;" id='technologies'>
+						<div style="text-align: center; margin-bottom: 4rem;">
+							<h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Technologies</h2>
+							<p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.8;">
+								Technologies and tools I use to build scalable, modern applications
+							</p>
+						</div>
 						
-						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
 							<!-- Frontend -->
-							<div class="modern-card" style="padding: 2rem;">
-								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-									<div style="font-size: 2rem; color: var(--primary);">🎨</div>
-									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">Frontend</h3>
+							<div class="modern-card" style="padding: 2.5rem;">
+								<div class="tech-category-header">
+									<div style="display: flex; align-items: center; gap: 1.25rem;">
+										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Palette icon representing frontend design">🎨</div>
+										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">Frontend</h3>
+									</div>
 								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-									<span class="tech-badge">JavaScript</span>
-									<span class="tech-badge">React</span>
-									<span class="tech-badge">TypeScript</span>
-									<span class="tech-badge">Next.js</span>
-									<span class="tech-badge">Vue.js</span>
-									<span class="tech-badge">Redux</span>
-									<span class="tech-badge">HTML5 / CSS3</span>
-									<span class="tech-badge">Tailwind CSS</span>
-									<span class="tech-badge">Webpack / Babel</span>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+									<span class="tech-badge"><span>JavaScript</span></span>
+									<span class="tech-badge"><span>React</span></span>
+									<span class="tech-badge"><span>TypeScript</span></span>
+									<span class="tech-badge"><span>Next.js</span></span>
+									<span class="tech-badge"><span>Vue.js</span></span>
+									<span class="tech-badge"><span>Redux</span></span>
+									<span class="tech-badge"><span>HTML5 / CSS3</span></span>
+									<span class="tech-badge"><span>Tailwind CSS</span></span>
+									<span class="tech-badge"><span>Webpack / Babel</span></span>
 								</div>
 							</div>
 							
 							<!-- Backend -->
-							<div class="modern-card" style="padding: 2rem;">
-								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-									<div style="font-size: 2rem; color: var(--primary);">⚙️</div>
-									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">Backend</h3>
+							<div class="modern-card" style="padding: 2.5rem;">
+								<div class="tech-category-header">
+									<div style="display: flex; align-items: center; gap: 1.25rem;">
+										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Gear icon representing backend systems">⚙️</div>
+										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">Backend</h3>
+									</div>
 								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-									<span class="tech-badge">Python</span>
-									<span class="tech-badge">Django</span>
-									<span class="tech-badge">FastAPI</span>
-									<span class="tech-badge">Node.js</span>
-									<span class="tech-badge">Ruby on Rails</span>
-									<span class="tech-badge">PostgreSQL</span>
-									<span class="tech-badge">MySQL</span>
-									<span class="tech-badge">MongoDB</span>
-									<span class="tech-badge">SQLModel</span>
-									<span class="tech-badge">RESTful APIs</span>
-									<span class="tech-badge">GraphQL</span>
-									<span class="tech-badge">WebSocket</span>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+									<span class="tech-badge"><span>Python</span></span>
+									<span class="tech-badge"><span>Django</span></span>
+									<span class="tech-badge"><span>FastAPI</span></span>
+									<span class="tech-badge"><span>Node.js</span></span>
+									<span class="tech-badge"><span>Ruby on Rails</span></span>
+									<span class="tech-badge"><span>PostgreSQL</span></span>
+									<span class="tech-badge"><span>MySQL</span></span>
+									<span class="tech-badge"><span>MongoDB</span></span>
+									<span class="tech-badge"><span>SQLModel</span></span>
+									<span class="tech-badge"><span>RESTful APIs</span></span>
+									<span class="tech-badge"><span>GraphQL</span></span>
+									<span class="tech-badge"><span>WebSocket</span></span>
 								</div>
 							</div>
 							
 							<!-- Cloud & DevOps -->
-							<div class="modern-card" style="padding: 2rem;">
-								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-									<div style="font-size: 2rem; color: var(--primary);">☁️</div>
-									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">Cloud & DevOps</h3>
+							<div class="modern-card" style="padding: 2.5rem;">
+								<div class="tech-category-header">
+									<div style="display: flex; align-items: center; gap: 1.25rem;">
+										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Cloud icon representing cloud computing">☁️</div>
+										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">Cloud & DevOps</h3>
+									</div>
 								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-									<span class="tech-badge">AWS</span>
-									<span class="tech-badge">S3 / CloudFront</span>
-									<span class="tech-badge">Lambda</span>
-									<span class="tech-badge">Secrets Manager</span>
-									<span class="tech-badge">Azure</span>
-									<span class="tech-badge">Docker</span>
-									<span class="tech-badge">Kubernetes</span>
-									<span class="tech-badge">Terraform</span>
-									<span class="tech-badge">CI/CD Pipelines</span>
-									<span class="tech-badge">Git / GitHub</span>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+									<span class="tech-badge"><span>AWS</span></span>
+									<span class="tech-badge"><span>S3 / CloudFront</span></span>
+									<span class="tech-badge"><span>Lambda</span></span>
+									<span class="tech-badge"><span>Secrets Manager</span></span>
+									<span class="tech-badge"><span>Azure</span></span>
+									<span class="tech-badge"><span>Docker</span></span>
+									<span class="tech-badge"><span>Kubernetes</span></span>
+									<span class="tech-badge"><span>Terraform</span></span>
+									<span class="tech-badge"><span>CI/CD Pipelines</span></span>
+									<span class="tech-badge"><span>Git / GitHub</span></span>
 								</div>
 							</div>
 							
 							<!-- AI & Integration -->
-							<div class="modern-card" style="padding: 2rem;">
-								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-									<div style="font-size: 2rem; color: var(--primary);">🤖</div>
-									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">AI & Integration</h3>
+							<div class="modern-card" style="padding: 2.5rem;">
+								<div class="tech-category-header">
+									<div style="display: flex; align-items: center; gap: 1.25rem;">
+										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Robot icon representing AI">🤖</div>
+										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">AI & Integration</h3>
+									</div>
 								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-									<span class="tech-badge">OpenAI API</span>
-									<span class="tech-badge">Anthropic Claude</span>
-									<span class="tech-badge">LLM Integration</span>
-									<span class="tech-badge">Speech-to-Text</span>
-									<span class="tech-badge">NLP Processing</span>
-									<span class="tech-badge">Structured Outputs</span>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+									<span class="tech-badge"><span>OpenAI API</span></span>
+									<span class="tech-badge"><span>Anthropic Claude</span></span>
+									<span class="tech-badge"><span>LLM Integration</span></span>
+									<span class="tech-badge"><span>Speech-to-Text</span></span>
+									<span class="tech-badge"><span>NLP Processing</span></span>
+									<span class="tech-badge"><span>Structured Outputs</span></span>
 								</div>
 							</div>
 							
 							<!-- Testing & Tools -->
-							<div class="modern-card" style="padding: 2rem;">
-								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-									<div style="font-size: 2rem; color: var(--primary);">🧪</div>
-									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">Testing & Tools</h3>
+							<div class="modern-card" style="padding: 2.5rem;">
+								<div class="tech-category-header">
+									<div style="display: flex; align-items: center; gap: 1.25rem;">
+										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Test tube icon representing testing">🧪</div>
+										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">Testing & Tools</h3>
+									</div>
 								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-									<span class="tech-badge">PyTest</span>
-									<span class="tech-badge">Cypress</span>
-									<span class="tech-badge">Selenium</span>
-									<span class="tech-badge">Jest</span>
-									<span class="tech-badge">Jira</span>
-									<span class="tech-badge">Figma</span>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+									<span class="tech-badge"><span>PyTest</span></span>
+									<span class="tech-badge"><span>Cypress</span></span>
+									<span class="tech-badge"><span>Selenium</span></span>
+									<span class="tech-badge"><span>Jest</span></span>
+									<span class="tech-badge"><span>Jira</span></span>
+									<span class="tech-badge"><span>Figma</span></span>
 								</div>
 							</div>
 							
 							<!-- Security & Standards -->
-							<div class="modern-card" style="padding: 2rem;">
-								<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-									<div style="font-size: 2rem; color: var(--primary);">🔐</div>
-									<h3 style="font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--text-primary);">Security & Standards</h3>
+							<div class="modern-card" style="padding: 2.5rem;">
+								<div class="tech-category-header">
+									<div style="display: flex; align-items: center; gap: 1.25rem;">
+										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Lock icon representing security">🔐</div>
+										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">Security & Standards</h3>
+									</div>
 								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-									<span class="tech-badge">OAuth</span>
-									<span class="tech-badge">SAML</span>
-									<span class="tech-badge">SSO</span>
-									<span class="tech-badge">JWT Auth</span>
-									<span class="tech-badge">WCAG 2.1</span>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+									<span class="tech-badge"><span>OAuth</span></span>
+									<span class="tech-badge"><span>SAML</span></span>
+									<span class="tech-badge"><span>SSO</span></span>
+									<span class="tech-badge"><span>JWT Auth</span></span>
+									<span class="tech-badge"><span>WCAG 2.1</span></span>
 								</div>
 							</div>
 						</div>
@@ -1629,22 +1647,22 @@
 						</p>
 						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
 							<div class="modern-card" style="text-align: center;">
-								<div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem;" role="img" aria-label="Email icon">📧</div>
 								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Email</h3>
 								<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" style="color: var(--primary); text-decoration: none; font-size: 1.1rem; font-weight: 600;">jsavett@gmail.com</a>
 							</div>
 							<div class="modern-card" style="text-align: center;">
-								<div style="font-size: 3rem; margin-bottom: 1rem;">📄</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem;" role="img" aria-label="Document icon">📄</div>
 								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Resume</h3>
-								<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 1.1rem; font-weight: 600;">View PDF Resume</a>
+								<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View Macallan Savett's resume PDF (opens in new tab)" style="color: var(--primary); text-decoration: none; font-size: 1.1rem; font-weight: 600;">View PDF Resume</a>
 							</div>
 							<div class="modern-card" style="text-align: center;">
-								<div style="font-size: 3rem; margin-bottom: 1rem;">🔗</div>
+								<div style="font-size: 3rem; margin-bottom: 1rem;" role="img" aria-label="Link icon">🔗</div>
 								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Connect</h3>
-								<div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;">
-									<a href="https://github.com/micjoey" class="icon brands fa-github" target="_blank" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">GitHub</span></a>
-									<a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="_blank" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">LinkedIn</span></a>
-									<a href="https://www.instagram.com/Peoples.reality/" class="icon brands fa-instagram" target="_blank" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">Instagram</span></a>
+								<div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;" role="list">
+									<a href="https://github.com/micjoey" class="icon brands fa-github" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's GitHub profile (opens in new tab)" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">GitHub</span></a>
+									<a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's LinkedIn profile (opens in new tab)" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">LinkedIn</span></a>
+									<a href="https://www.instagram.com/Peoples.reality/" class="icon brands fa-instagram" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's Instagram profile (opens in new tab)" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">Instagram</span></a>
 								</div>
 							</div>
 						</div>
@@ -1658,8 +1676,9 @@
 			<footer id="footer" class="wrapper style1-alt">
 				<div class="logo">
 					<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website"
+						aria-label="Email Macallan Savett"
 						data-event-category="Email" data-event-action="click">
-						<img src="images/transparent email.png" alt="Logo" class="logo-image">
+						<img src="images/transparent email.png" alt="Macallan Savett logo" class="logo-image">
 					</a>
 				</div>
 			</footer>
@@ -1682,7 +1701,7 @@
 					
 					if (toggle && content && icon) {
 						toggle.addEventListener('click', function() {
-							const isExpanded = content.style.display === 'block';
+							const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 							
 							if (isExpanded) {
 								content.style.display = 'none';
@@ -1695,10 +1714,13 @@
 							}
 						});
 						
-						// Set initial aria state
-						toggle.setAttribute('aria-expanded', 'false');
-						toggle.setAttribute('role', 'button');
-						toggle.setAttribute('aria-label', 'Toggle previous experience section');
+						// Keyboard support
+						toggle.addEventListener('keydown', function(e) {
+							if (e.key === 'Enter' || e.key === ' ') {
+								e.preventDefault();
+								toggle.click();
+							}
+						});
 					}
 				});
 			</script>
