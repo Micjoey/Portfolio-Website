@@ -17,11 +17,14 @@
 				href = $this.attr('href'),
 				target = $this.attr('target');
 
+			var targetAttr = (target && target !== '') ? ' target="' + target + '"' : '';
+			var hrefAttr = (href && href !== '') ? ' href="' + href + '"' : '';
+			
 			b.push(
 				'<a ' +
 					'class="link depth-' + indent + '"' +
-					( (typeof target !== 'undefined' && target != '') ? ' target="' + target + '"' : '') +
-					( (typeof href !== 'undefined' && href != '') ? ' href="' + href + '"' : '') +
+					targetAttr +
+					hrefAttr +
 				'>' +
 					'<span class="indent-' + indent + '"></span>' +
 					$this.text() +
@@ -42,18 +45,17 @@
 	$.fn.panel = function(userConfig) {
 
 		// No elements?
-			if (this.length == 0)
-				return $this;
+		if (this.length === 0) {
+			return $(this);
+		}
 
 		// Multiple elements?
-			if (this.length > 1) {
-
-				for (var i=0; i < this.length; i++)
-					$(this[i]).panel(userConfig);
-
-				return $this;
-
+		if (this.length > 1) {
+			for (var i = 0; i < this.length; i++) {
+				$(this[i]).panel(userConfig);
 			}
+			return $(this);
+		}
 
 		// Vars.
 			var	$this = $(this),
@@ -94,9 +96,10 @@
 
 			}, userConfig);
 
-			// Expand "target" if it's not a jQuery object already.
-				if (typeof config.target != 'jQuery')
-					config.target = $(config.target);
+		// Expand "target" if it's not a jQuery object already.
+		if (typeof config.target !== 'jQuery') {
+			config.target = $(config.target);
+		}
 
 		// Panel.
 
@@ -149,12 +152,13 @@
 					$this
 						.on('click', 'a', function(event) {
 
-							var $a = $(this),
-								href = $a.attr('href'),
-								target = $a.attr('target');
+							var $a = $(this);
+							var href = $a.attr('href');
+							var target = $a.attr('target');
 
-							if (!href || href == '#' || href == '' || href == '#' + id)
+							if (!href || href === '#' || href === '' || href === '#' + id) {
 								return;
+							}
 
 							// Cancel original event.
 								event.preventDefault();
@@ -164,14 +168,13 @@
 								$this._hide();
 
 							// Redirect to href.
-								window.setTimeout(function() {
-
-									if (target == '_blank')
-										window.open(href);
-									else
-										window.location.href = href;
-
-								}, config.delay + 10);
+							window.setTimeout(function() {
+								if (target === '_blank') {
+									window.open(href);
+								} else {
+									window.location.href = href;
+								}
+							}, config.delay + 10);
 
 						});
 
@@ -283,14 +286,14 @@
 
 		// Window.
 
-			// Event: Hide on ESC.
-				if (config.hideOnEscape)
-					$window.on('keydown', function(event) {
-
-						if (event.keyCode == 27)
-							$this._hide(event);
-
-					});
+		// Event: Hide on ESC.
+		if (config.hideOnEscape) {
+			$window.on('keydown', function(event) {
+				if (event.keyCode === 27) {
+					$this._hide(event);
+				}
+			});
+		}
 
 		return $this;
 
@@ -303,12 +306,14 @@
 	$.fn.placeholder = function() {
 
 		// Browser natively supports placeholders? Bail.
-			if (typeof (document.createElement('input')).placeholder != 'undefined')
-				return $(this);
+	if (typeof (document.createElement('input')).placeholder !== 'undefined') {
+		return $(this);
+	}
 
-		// No elements?
-			if (this.length == 0)
-				return $this;
+	// No elements?
+	if (this.length === 0) {
+		return $(this);
+	}
 
 		// Multiple elements?
 			if (this.length > 1) {
@@ -323,45 +328,49 @@
 		// Vars.
 			var $this = $(this);
 
-		// Text, TextArea.
-			$this.find('input[type=text],textarea')
-				.each(function() {
+	// Text, TextArea.
+	$this.find('input[type=text],textarea')
+		.each(function() {
+			var i = $(this);
+			var value = i.val();
+			var placeholder = i.attr('placeholder');
 
-					var i = $(this);
+			if (value === '' || value === placeholder) {
+				i
+					.addClass('polyfill-placeholder')
+					.val(placeholder);
+			}
+		})
+		.on('blur', function() {
+			var i = $(this);
+			var name = i.attr('name');
 
-					if (i.val() == ''
-					||  i.val() == i.attr('placeholder'))
-						i
-							.addClass('polyfill-placeholder')
-							.val(i.attr('placeholder'));
+			if (name && name.match(/-polyfill-field$/)) {
+				return;
+			}
 
-				})
-				.on('blur', function() {
+			if (i.val() === '') {
+				i
+					.addClass('polyfill-placeholder')
+					.val(i.attr('placeholder'));
+			}
+		})
+		.on('focus', function() {
+			var i = $(this);
+			var name = i.attr('name');
+			var value = i.val();
+			var placeholder = i.attr('placeholder');
 
-					var i = $(this);
+			if (name && name.match(/-polyfill-field$/)) {
+				return;
+			}
 
-					if (i.attr('name').match(/-polyfill-field$/))
-						return;
-
-					if (i.val() == '')
-						i
-							.addClass('polyfill-placeholder')
-							.val(i.attr('placeholder'));
-
-				})
-				.on('focus', function() {
-
-					var i = $(this);
-
-					if (i.attr('name').match(/-polyfill-field$/))
-						return;
-
-					if (i.val() == i.attr('placeholder'))
-						i
-							.removeClass('polyfill-placeholder')
-							.val('');
-
-				});
+			if (value === placeholder) {
+				i
+					.removeClass('polyfill-placeholder')
+					.val('');
+			}
+		});
 
 		// Password.
 			$this.find('input[type=password]')
@@ -377,19 +386,25 @@
 									.replace(/type=password/i, 'type=text')
 					);
 
-					if (i.attr('id') != '')
-						x.attr('id', i.attr('id') + '-polyfill-field');
+					var id = i.attr('id');
+					var name = i.attr('name');
 
-					if (i.attr('name') != '')
-						x.attr('name', i.attr('name') + '-polyfill-field');
+					if (id && id !== '') {
+						x.attr('id', id + '-polyfill-field');
+					}
+
+					if (name && name !== '') {
+						x.attr('name', name + '-polyfill-field');
+					}
 
 					x.addClass('polyfill-placeholder')
 						.val(x.attr('placeholder')).insertAfter(i);
 
-					if (i.val() == '')
+					if (i.val() === '') {
 						i.hide();
-					else
+					} else {
 						x.hide();
+					}
 
 					i
 						.on('blur', function(event) {
@@ -398,11 +413,9 @@
 
 							var x = i.parent().find('input[name=' + i.attr('name') + '-polyfill-field]');
 
-							if (i.val() == '') {
-
+							if (i.val() === '') {
 								i.hide();
 								x.show();
-
 							}
 
 						});
@@ -442,11 +455,9 @@
 							if (i.attr('name').match(/-polyfill-field$/))
 								i.attr('name', '');
 
-							if (i.val() == i.attr('placeholder')) {
-
+							if (i.val() === i.attr('placeholder')) {
 								i.removeClass('polyfill-placeholder');
 								i.val('');
-
 							}
 
 						});
@@ -478,11 +489,10 @@
 
 									x = i.parent().find('input[name=' + i.attr('name') + '-polyfill-field]');
 
-									if (i.val() == '') {
+									if (i.val() === '') {
 										i.hide();
 										x.show();
-									}
-									else {
+									} else {
 										i.show();
 										x.hide();
 									}
@@ -498,7 +508,7 @@
 								case 'textarea':
 									i.val(i.attr('defaultValue'));
 
-									if (i.val() == '') {
+									if (i.val() === '') {
 										i.addClass('polyfill-placeholder');
 										i.val(i.attr('placeholder'));
 									}
@@ -537,9 +547,10 @@
 				var	$e = $(this), $p,
 					$parent = $e.parent();
 
-				// No parent? Bail.
-					if ($parent.length == 0)
-						return;
+			// No parent? Bail.
+			if ($parent.length === 0) {
+				return;
+			}
 
 				// Not moved? Move it.
 					if (!$e.data(key)) {
@@ -549,11 +560,12 @@
 								return;
 
 						// Get placeholder (which will serve as our point of reference for when this element needs to move back).
-							$p = $e.prev();
+						$p = $e.prev();
 
-							// Couldn't find anything? Means this element's already at the top, so bail.
-								if ($p.length == 0)
-									return;
+						// Couldn't find anything? Means this element's already at the top, so bail.
+						if ($p.length === 0) {
+							return;
+						}
 
 						// Move element to top of parent.
 							$e.prependTo($parent);
