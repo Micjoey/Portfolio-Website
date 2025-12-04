@@ -1,0 +1,1199 @@
+<!DOCTYPE HTML>
+<html>
+	<head>		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157870805-3"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-157870805-3');
+		</script>
+		<!--Google autotrack-->
+		<title>Macallan Savett's Profile</title>
+		<script src="assets/js/autoCalculateTime.js"></script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Macallan Savett - Software Engineer specializing in Python, Django, React, AWS, and AI/ML solutions" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Modern Enhancements */
+			@keyframes gradient-shift {
+				0% { background-position: 0% 50%; }
+				50% { background-position: 100% 50%; }
+				100% { background-position: 0% 50%; }
+			}
+
+			@keyframes float {
+				0%, 100% { transform: translateY(0px); }
+				50% { transform: translateY(-10px); }
+			}
+
+			@keyframes pulse {
+				0%, 100% { opacity: 1; }
+				50% { opacity: 0.7; }
+			}
+
+			@keyframes slideInUp {
+				from {
+					opacity: 0;
+					transform: translateY(30px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* Intro Section Enhancements */
+			#intro {
+				background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
+				background-size: 400% 400%;
+				animation: gradient-shift 15s ease infinite;
+				position: relative;
+				overflow: hidden;
+			}
+
+			#intro::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: radial-gradient(circle at 20% 50%, rgba(83, 52, 131, 0.3) 0%, transparent 50%),
+							radial-gradient(circle at 80% 80%, rgba(15, 52, 96, 0.3) 0%, transparent 50%);
+				pointer-events: none;
+			}
+
+			#intro .inner {
+				position: relative;
+				z-index: 1;
+			}
+
+			#intro h1 {
+				background: linear-gradient(135deg, #fff 0%, #a8d8ff 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				font-size: 3.5em;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				margin-bottom: 0.5em;
+				animation: slideInUp 0.8s ease-out;
+			}
+
+			#intro p {
+				font-size: 1.2em;
+				line-height: 1.8;
+				animation: slideInUp 0.8s ease-out 0.2s both;
+				color: rgba(255, 255, 255, 0.95);
+			}
+
+			/* Accessibility Improvements */
+			*:focus {
+				outline: 2px solid #a8d8ff;
+				outline-offset: 2px;
+			}
+
+			.button:focus,
+			a:focus {
+				outline: 2px solid #a8d8ff;
+				outline-offset: 3px;
+			}
+
+			/* Improved Readability */
+			p {
+				color: rgba(255, 255, 255, 0.9);
+				line-height: 1.8;
+			}
+
+			section p {
+				font-size: 1.05em;
+			}
+
+			/* Better contrast for text */
+			.project-card p {
+				color: rgba(255, 255, 255, 0.85);
+			}
+
+			/* Skip to main content link for screen readers */
+			.skip-link {
+				position: absolute;
+				top: -40px;
+				left: 0;
+				background: #533483;
+				color: white;
+				padding: 8px;
+				text-decoration: none;
+				z-index: 100;
+			}
+
+			.skip-link:focus {
+				top: 0;
+			}
+
+			/* Project Cards Enhancements */
+			.project-card {
+				position: relative;
+				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				border-radius: 12px;
+				overflow: hidden;
+			}
+
+			.project-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(135deg, rgba(83, 52, 131, 0.1) 0%, rgba(15, 52, 96, 0.1) 100%);
+				opacity: 0;
+				transition: opacity 0.4s ease;
+				pointer-events: none;
+			}
+
+			.project-card:hover {
+				transform: translateY(-8px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+			}
+
+			.project-card:hover::before {
+				opacity: 1;
+			}
+
+			.project-card .icon {
+				transition: all 0.4s ease;
+				animation: float 3s ease-in-out infinite;
+			}
+
+			.project-card:hover .icon {
+				transform: scale(1.1) rotate(5deg);
+				animation: none;
+			}
+
+			.project-card h3 {
+				transition: color 0.3s ease;
+			}
+
+			.project-card:hover h3 {
+				color: #a8d8ff;
+			}
+
+			.project-tech {
+				list-style: none;
+				padding: 0;
+				margin: 1em 0;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5em;
+			}
+
+			.project-tech li {
+				display: inline-block;
+				padding: 0.4em 0.9em;
+				background: linear-gradient(135deg, rgba(168, 216, 255, 0.15) 0%, rgba(83, 52, 131, 0.15) 100%);
+				border: 1px solid rgba(168, 216, 255, 0.3);
+				border-radius: 20px;
+				font-size: 0.85em;
+				color: inherit;
+				transition: all 0.3s ease;
+				backdrop-filter: blur(10px);
+			}
+
+			.project-card:hover .project-tech li {
+				background: linear-gradient(135deg, rgba(168, 216, 255, 0.25) 0%, rgba(83, 52, 131, 0.25) 100%);
+				border-color: rgba(168, 216, 255, 0.5);
+				transform: translateY(-2px);
+			}
+
+			.project-card .actions {
+				margin-top: 1.5em;
+			}
+
+			.project-card .button {
+				transition: all 0.3s ease;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.project-card .button::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0;
+				height: 0;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.2);
+				transform: translate(-50%, -50%);
+				transition: width 0.6s, height 0.6s;
+			}
+
+			.project-card .button:hover::before {
+				width: 300px;
+				height: 300px;
+			}
+
+			.project-card .button:hover {
+				transform: scale(1.05);
+				box-shadow: 0 10px 25px rgba(168, 216, 255, 0.4);
+			}
+
+			/* Work Experience Enhancements */
+			#six {
+				background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1419 100%) !important;
+			}
+
+			#work-experience {
+				background: rgba(10, 14, 39, 0.8);
+			}
+
+			#work-experience .content {
+				background: rgba(15, 20, 35, 0.6);
+				padding: 2em;
+				border-radius: 12px;
+			}
+
+			#work-experience h2 {
+				background: rgba(20, 25, 45, 0.9);
+				padding: 0.5em 1em;
+				border-radius: 8px;
+				display: inline-block;
+				border: 1px solid rgba(100, 120, 150, 0.3);
+			}
+
+			.work-experience-container {
+				position: relative;
+				padding-left: 1.5em;
+				margin-bottom: 1em;
+			}
+
+			.work-experience-container::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0.5em;
+				width: 4px;
+				height: calc(100% - 0.5em);
+				background: linear-gradient(180deg, #2d4a6b 0%, #1a2f4a 100%);
+				border-radius: 2px;
+			}
+
+			.work-experience-container h3 {
+				color: #e8f0f8;
+				margin-bottom: 0.3em;
+				font-weight: 600;
+			}
+
+			.work-experience-container h4 {
+				color: rgba(200, 210, 220, 0.8);
+				font-weight: 400;
+			}
+
+			#work-experience ul {
+				list-style: none;
+				padding-left: 0;
+			}
+
+			#work-experience ul li {
+				position: relative;
+				padding-left: 1.5em;
+				margin-bottom: 0.8em;
+				transition: all 0.3s ease;
+				list-style: none;
+			}
+
+			#work-experience ul li {
+				color: rgba(220, 230, 240, 0.9);
+			}
+
+			#work-experience ul li::before {
+				content: '▸';
+				position: absolute;
+				left: 0;
+				color: #5a7fa3;
+				font-weight: bold;
+				transition: all 0.3s ease;
+			}
+
+			#work-experience ul li:hover {
+				padding-left: 2em;
+				color: #b8d4f0;
+			}
+
+			#work-experience ul li:hover::before {
+				left: 0.5em;
+				color: #7aa3c7;
+			}
+
+			/* Technologies Section */
+			#technologies .feature-icons li {
+				transition: all 0.3s ease;
+				padding: 0.5em;
+				border-radius: 8px;
+			}
+
+			#technologies .feature-icons li:hover {
+				background: rgba(168, 216, 255, 0.1);
+				transform: translateX(5px);
+				color: #a8d8ff;
+			}
+
+			/* About Me Section */
+			#about-me {
+				display: flex !important;
+				align-items: center;
+				gap: 3em;
+				padding: 3em 2em;
+			}
+
+			#about-me .image {
+				flex: 0 0 350px;
+				position: relative;
+				min-width: 350px;
+				display: block !important;
+				visibility: visible !important;
+			}
+
+			#about-me .image::before {
+				content: '';
+				position: absolute;
+				top: -10px;
+				left: -10px;
+				right: -10px;
+				bottom: -10px;
+				background: linear-gradient(135deg, rgba(45, 74, 107, 0.6) 0%, rgba(26, 47, 74, 0.6) 100%);
+				border-radius: 50%;
+				z-index: -1;
+				opacity: 0.5;
+			}
+
+			#about-me .image img {
+				width: 350px !important;
+				height: 350px !important;
+				object-fit: cover;
+				border-radius: 50%;
+				border: 4px solid rgba(90, 127, 163, 0.4);
+				box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 
+							0 0 0 8px rgba(15, 20, 35, 0.3),
+							0 0 60px rgba(90, 127, 163, 0.2);
+				transition: all 0.5s ease;
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
+			}
+
+			#about-me:hover .image img {
+				transform: scale(1.02);
+				border-color: rgba(122, 163, 199, 0.6);
+				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+							0 0 0 8px rgba(15, 20, 35, 0.4),
+							0 0 80px rgba(122, 163, 199, 0.3);
+			}
+
+			#about-me .content {
+				flex: 1;
+			}
+
+			#about-me .content .inner {
+				padding-left: 2em;
+			}
+
+			#about-me h2 {
+				text-align: left;
+				margin-bottom: 1.5em;
+			}
+
+			#about-me h3 {
+				color: #b8d4f0;
+				margin-top: 1.5em;
+				margin-bottom: 0.5em;
+				font-size: 1.3em;
+				font-weight: 600;
+			}
+
+			#about-me p {
+				color: rgba(220, 230, 240, 0.9);
+				line-height: 1.8;
+				margin-bottom: 1em;
+			}
+
+			@media (max-width: 968px) {
+				#about-me {
+					flex-direction: column;
+					text-align: center;
+				}
+
+				#about-me .image {
+					flex: 0 0 auto;
+					max-width: 280px;
+					margin: 0 auto;
+				}
+
+				#about-me .content .inner {
+					padding-left: 0;
+				}
+
+				#about-me h2 {
+					text-align: center;
+				}
+			}
+
+			/* Social Icons */
+			.links a,
+			.icons a {
+				transition: all 0.3s ease;
+				display: inline-block;
+			}
+
+			.links a:hover,
+			.icons a:hover {
+				transform: translateY(-5px) scale(1.1);
+				color: #a8d8ff;
+			}
+
+			/* Buttons */
+			.button {
+				position: relative;
+				overflow: hidden;
+				transition: all 0.3s ease;
+			}
+
+			.button:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 8px 20px rgba(168, 216, 255, 0.3);
+			}
+
+			/* Sidebar Enhancements */
+			#sidebar {
+				backdrop-filter: blur(10px);
+				background: rgba(26, 26, 46, 0.9);
+			}
+
+			#sidebar nav ul li a {
+				transition: all 0.3s ease;
+				position: relative;
+			}
+
+			#sidebar nav ul li a::before {
+				content: '';
+				position: absolute;
+				left: -10px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 0;
+				height: 2px;
+				background: linear-gradient(90deg, #533483 0%, #a8d8ff 100%);
+				transition: width 0.3s ease;
+			}
+
+			#sidebar nav ul li a:hover::before {
+				width: 8px;
+			}
+
+			#sidebar nav ul li a:hover {
+				padding-left: 1.2em;
+				color: #a8d8ff;
+			}
+
+			/* Education Section */
+			.education-div {
+				background: rgba(255, 255, 255, 0.05);
+				padding: 1.5em;
+				border-radius: 12px;
+				margin-bottom: 1.5em;
+				border-left: 4px solid #533483;
+				transition: all 0.3s ease;
+			}
+
+			.education-div:hover {
+				background: rgba(255, 255, 255, 0.08);
+				transform: translateX(5px);
+				border-left-color: #a8d8ff;
+			}
+
+			/* Smooth Scroll */
+			html {
+				scroll-behavior: smooth;
+			}
+
+			/* Section Transitions */
+			section {
+				animation: fadeIn 0.8s ease-out;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+
+			/* Contact Section */
+			#five {
+				background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+			}
+
+			/* Footer */
+			#footer {
+				background: rgba(26, 26, 46, 0.95);
+				backdrop-filter: blur(10px);
+			}
+
+			/* AI Section Styling */
+			#ai .features {
+				margin-top: 2em;
+				gap: 3em;
+			}
+
+			#ai .project-card {
+				background: rgba(255, 255, 255, 0.03);
+				border: 1px solid rgba(168, 216, 255, 0.1);
+				margin-bottom: 2em;
+			}
+
+			#ai .project-card:first-child {
+				margin-top: 2em;
+			}
+
+			#ai .project-card:hover {
+				background: rgba(255, 255, 255, 0.06);
+				border-color: rgba(168, 216, 255, 0.3);
+			}
+
+			/* Projects Section - First Tile Margin */
+			#two .features .project-card:first-child {
+				margin-top: 2em;
+			}
+
+			/* Technologies Grid Improvements */
+			#technologies h3 {
+				font-size: 1.5em;
+				margin-bottom: 1em;
+				padding-bottom: 0.5em;
+				border-bottom: 2px solid rgba(168, 216, 255, 0.3);
+			}
+
+			#technologies .feature-icons li {
+				font-size: 1em;
+				padding: 0.6em;
+			}
+
+			/* Improved text readability */
+			h2, h3 {
+				line-height: 1.3;
+			}
+
+			/* Ensure all headings are readable */
+			h2 {
+				color: #ffffff !important;
+				text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 216, 255, 0.3);
+				font-weight: 600;
+			}
+
+			h2[style*="color: #a8d8ff"] {
+				color: #ffffff !important;
+			}
+
+			/* Override gradient text for better readability */
+			h2[style*="background-clip"] {
+				-webkit-text-fill-color: #ffffff !important;
+				color: #ffffff !important;
+				background: none !important;
+			}
+
+			section p {
+				max-width: 70ch;
+			}
+
+			/* Better contrast for links */
+			a {
+				color: #a8d8ff;
+				text-decoration: underline;
+				text-decoration-color: rgba(168, 216, 255, 0.5);
+				transition: all 0.3s ease;
+			}
+
+			a:hover {
+				color: #ffffff;
+				text-decoration-color: #a8d8ff;
+			}
+
+			/* Reduce motion for users who prefer it */
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+					transition-duration: 0.01ms !important;
+				}
+			}
+
+			/* Responsive Enhancements */
+			@media (max-width: 768px) {
+				#intro h1 {
+					font-size: 2.5em;
+				}
+
+				.project-card:hover {
+					transform: translateY(-4px);
+				}
+
+				#technologies [style*="grid-template-columns"] {
+					grid-template-columns: 1fr !important;
+				}
+			}
+		</style>
+		<link rel="apple-touch-icon" sizes="57x57" href="images/Favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="images/Favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="images/Favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="images/Favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="images/Favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="images/Favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="images/Favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="images/Favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="images/Favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="images/Favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="images/Favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="images/Favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="images/Favicon/favicon-16x16.png">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+	</head>
+	<body class="is-preload">
+		<a href="#main-content" class="skip-link">Skip to main content</a>
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<a class="" id="personal-logo-container" href="#intro" aria-label="Return to top of page">
+						<img src="images/transparent email.png" class="logo-image" alt="Macallan Savett Logo" />
+					</a>
+					<nav>
+						<ul>
+							<li>
+								<a href="#intro">Welcome</a>
+							</li>
+							<li>
+								<a href="#one" data-event-category="About Me"
+								  data-event-action="click">About Me</a>
+							</li>
+							<li>
+								<a href="#six" data-event-category="Work Experience"
+								  data-event-action="click">Work Experience</a>
+							</li>
+							<li>
+								<a href="#ai" data-event-category="AI"
+								data-event-action="click">AI & Machine Learning</a>
+							</li>
+							<li>
+								<a href="#two" data-event-category="Projects"
+								data-event-action="click">Projects</a>
+							</li>
+							<li>
+								<a href="#three" data-event-category="Education"
+								data-event-action="click">Education</a>
+							</li>
+							<li>
+								<a href="#four" data-event-category="Technologies"
+								data-event-action="click">Technologies</a>
+							</li>
+							<li>
+								<a href="#five" data-event-category="Get In Touch"
+								data-event-action="click">Get in touch/Resume</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<main id="main-content">
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner" style="text-align: center;">
+							<h1 style="text-align: center;">Macallan Savett</h1>
+							<p style="font-size: 1.5em; font-weight: 300; margin-bottom: 1em; color: rgba(255, 255, 255, 0.9); text-align: center;">
+								<span style="color: #a8d8ff;">Software Engineer</span> | Building scalable solutions with modern technology
+							</p>
+							<p style="font-size: 1.1em; line-height: 1.8; color: rgba(255, 255, 255, 0.8); max-width: 800px; margin: 0 auto 2em; text-align: center;">
+								Expertise in <strong style="color: #a8d8ff;">Python</strong>, <strong style="color: #a8d8ff;">Django</strong>, <strong style="color: #a8d8ff;">React</strong>, and <strong style="color: #a8d8ff;">AWS</strong>. 
+								Merging diverse experience with cutting-edge tech to craft seamless digital solutions. 
+								Driven by innovation and a passion for continuous learning.
+							</p>
+
+							<ul class="actions">
+								<li><a href="#one" class="button scrolly" id="about-me-button" data-event-category="About Me"
+									data-event-action="click">About Me</a></li>
+								<li><a href="#six" class="button scrolly" id="about-me-button" data-event-category="Work Experience"
+									data-event-action="click">Work Experience</a></li>
+								<li><a href="#two" class="button scrolly" id="projects-button"data-event-category="Projects"
+									data-event-action="click">Projects</a></li>
+								<li><a href="#five" class="button scrolly" id="get-in-touch-button" data-event-category="Get In Touch"
+									data-event-action="click">Get in Touch</a></li>
+							</ul>
+							<p>
+							<div class="links">
+								<a href="https://github.com/micjoey" class="icon brands fa-github" target="_blank" data-event-category="Work-Github"
+									data-event-action="click" ><span class="label">Work GitHub</span></a>
+								<a href="https://www.instagram.com/Peoples.reality/" class="icon brands fa-instagram" target="_blank" data-event-category="Instagram"
+									data-event-action="click"><span
+										class="label">Instagram</span></a>
+								<a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="_blank" data-event-category="LinkedIn"
+  data-event-action="click"><span class="label">LinkedIn</span></a>
+							</div>
+							</br>
+							<div class="inner" id="intro-info-resume">
+								<div class="resume-email">
+									<div>
+										<h3>Resume</h3>
+										<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" data-event-category="Resume" data-event-action="click">
+											<p class='defined-font'>Link to PDF Resume</p>
+										</a>
+									</div>
+									<div>
+										<h3 class="email-me-at">Email me at:</h3>
+										<p id="intro-email">
+											<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" data-event-category="Email" data-event-action="click" class='defined-font'>Jsavett@gmail.com</a>
+										</p>
+									</div>
+									<div>
+										<h3>Get in touch</h3>
+										<p>Please feel free to add me on <a href="https://bit.ly/3izBUZc" target="_blank" data-event-category="LinkedIn" data-event-action="click"><span class="label-2 defined-font">LinkedIn.</span>
+											</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							</p>
+						</div>
+					</section>
+					</section>
+
+				<!-- One -->
+				<section id="one" class="wrapper style2 spotlights" style="background: linear-gradient(135deg, #0f1419 0%, #1a1f3a 50%, #0a0e27 100%);">
+					<section id="about-me">
+						<div class="image">
+							<img src="images/portrait.jpeg" alt="Portrait of Macallan Savett, Software Engineer" data-position="center center" class="self-image"/>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h2 style="font-size: 2.5em; margin-bottom: 1em; color: #ffffff; font-weight: 600; text-align: center;">About Me</h2>
+								<div>
+									<p>
+										I'm a Software Engineer at Skilljar, building scalable applications with Python, Django, React, and AWS. I focus on full-stack development, system architecture, and integrating AI/ML capabilities into production systems.
+									</p>
+									<h3>Background</h3>
+									<p>
+										I transitioned to software engineering from real estate, where I managed databases and complex negotiations. That experience taught me to balance analytical thinking with practical problem-solving. I bring that same approach to engineering: understanding requirements, designing robust solutions, and delivering reliable systems.
+									</p>
+									<h3>Engineering Focus</h3>
+									<p>
+										I specialize in building maintainable, scalable systems. This includes architecting frontend applications, designing RESTful APIs, implementing CI/CD pipelines, and integrating AI capabilities. I'm particularly interested in how AI can enhance developer productivity and improve code quality through automated analysis and feedback.
+									</p>
+									<h3>Outside of Work</h3>
+									<p>
+										I coach youth soccer, which has strengthened my leadership and communication skills. I'm also a runner—recently completed a half marathon and training for another. These activities help me maintain balance and bring fresh perspectives to technical challenges.
+									</p>
+									<h3>Connect</h3>
+									<p>
+										I'm always open to discussing engineering challenges, AI/ML applications, or potential collaborations. Reach out at <a href="mailto:jsavett@gmail.com">jsavett@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/macallan-savett/" target="_blank">LinkedIn</a>.
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>                  
+				</section>				
+
+				<!-- Six -->
+				<section id="six" class="wrapper style2 spotlights">
+					<section id="work-experience">
+					  <div class="content">
+						<div class="inner" style="text-align: center;">
+						  <h2 style="font-size: 2.5em; margin-bottom: 1em; color: #ffffff; font-weight: 700; text-align: center; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(168, 216, 255, 0.5);">Work Experience</h2>
+						  <div style="text-align: left; max-width: 900px; margin: 0 auto;">
+							<!-- Software Engineer II - Skilljar -->
+							<div class='work-experience-container'>
+							  <h3>Software Engineer II - Skilljar powered by Gainsight, Seattle, WA</h3>
+							  <h4>August 2022 – Present</h4>
+							</div>
+							<ul>
+							  <li>Led development of scalable frontend architecture, streamlining development and deployment, resulting in 40% faster feature releases.</li>
+							  <li>Spearheaded QA improvements by implementing Cypress, reducing production issues by 30% and increasing code reliability.</li>
+							  <li>Optimized AWS architecture (S3, CloudFront, Lambda), decreasing latency by 30%.</li>
+							  <li>Architected CI/CD pipelines with Docker, AWS, and Node.js, reducing deployment times by 40% and supporting multi-region deployments.</li>
+							  <li>Designed custom authentication workflows using SAML and OAuth, reducing login times by 15% and improving security.</li>
+							  <li>Mentored 5 engineers, focusing on system design best practices, resulting in one promotion.</li>
+							  <li>Developed a churn analysis tool using AWS Lambda, reducing data processing times by 20%.</li>
+							  <li>Implemented logging and monitoring solutions that improved response times by 20%.</li>
+							  <li>Redesigned accessibility features to meet WCAG 2.1 standards, boosting customer satisfaction by 25%.</li>
+							</ul>
+							
+							<!-- Software Engineer I - Skilljar -->
+							<div class='work-experience-container'>
+							  <h3>Software Engineer I - Skilljar powered by Gainsight, Seattle, WA</h3>
+							  <h4>January 2021 – August 2022</h4>
+							</div>
+							<ul>
+							  <li>Built and maintained scalable frontends in JavaScript, Vue.js, and HTML, improving page load times by 15%.</li>
+							  <li>Integrated APIs and enhanced client authentication systems.</li>
+							  <li>Led AWS migrations, reducing latency by 30% and operational costs by 20%.</li>
+							  <li>Implemented continuous integration with PyTest and Django, improving test coverage by 40%.</li>
+							  <li>Developed PII compliance tools, automating data processing and reducing manual compliance efforts by 50%.</li>
+							  <li>Led automation tools for employee onboarding/offboarding, cutting manual work by 50%.</li>
+							</ul>
+						  </div>
+						</div>
+					  </div>
+					</section>
+				  </section>
+
+				<!-- AI Section -->
+				<section id="ai" class="wrapper style2 fade-up" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+					<div class="inner">
+						<h2 style="font-size: 2.5em; margin-bottom: 0.5em; color: #ffffff; font-weight: 600; text-align: center;">AI & Machine Learning</h2>
+						<p style="font-size: 1.1em; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto 2em; text-align: center;">
+							Technical capabilities in AI/ML engineering and implementation
+						</p>
+						
+						<div class="features">
+							<section class="project-card">
+								<span class="icon solid major fa-brain"></span>
+								<h3>LLM Integration & API Development</h3>
+								<p>Production experience integrating OpenAI GPT and Anthropic Claude APIs. Built RESTful services with structured output parsing, error handling, and rate limiting. Implemented prompt engineering patterns for consistent, reliable responses.</p>
+								<ul class="project-tech">
+									<li>OpenAI API</li>
+									<li>Anthropic Claude</li>
+									<li>Structured Outputs</li>
+									<li>Rate Limiting</li>
+								</ul>
+							</section>
+
+							<section class="project-card">
+								<span class="icon solid major fa-code"></span>
+								<h3>Multi-Agent Code Review Systems</h3>
+								<p>Architected and implemented a multi-agent system for automated code review. Five specialized agents analyze code for correctness, architecture, readability, performance, and educational value. Built with FastAPI, async processing, and structured JSON output parsing.</p>
+								<ul class="project-tech">
+									<li>Multi-Agent Architecture</li>
+									<li>FastAPI</li>
+									<li>Async Processing</li>
+									<li>JSON Schema Validation</li>
+								</ul>
+							</section>
+
+							<section class="project-card">
+								<span class="icon solid major fa-microphone"></span>
+								<h3>Speech-to-Text & NLP Pipelines</h3>
+								<p>Developed end-to-end voice processing pipeline: audio transcription, text extraction, NLP analysis, and summarization. Integrated with Django backend, implemented batch processing for audio files, and built data models for storing transcriptions and insights.</p>
+								<ul class="project-tech">
+									<li>Speech-to-Text APIs</li>
+									<li>NLP Processing</li>
+									<li>Text Summarization</li>
+									<li>Batch Processing</li>
+								</ul>
+							</section>
+
+							<section class="project-card">
+								<span class="icon solid major fa-file-code"></span>
+								<h3>Content Generation & Document Processing</h3>
+								<p>Built automated content generation systems using LLMs with context injection and template management. Implemented document parsing, text extraction, and structured data generation. Designed systems for generating personalized content at scale.</p>
+								<ul class="project-tech">
+									<li>Template Systems</li>
+									<li>Document Parsing</li>
+									<li>Context Injection</li>
+									<li>Batch Generation</li>
+								</ul>
+							</section>
+
+							<section class="project-card">
+								<span class="icon solid major fa-chart-bar"></span>
+								<h3>Data Processing & Analysis</h3>
+								<p>Built data analysis tools using AWS Lambda for processing and aggregating customer data. Developed churn analysis tool that processes large datasets efficiently, reducing processing times by 20%. Implemented data transformation pipelines and automated reporting workflows.</p>
+								<ul class="project-tech">
+									<li>AWS Lambda</li>
+									<li>Data Processing</li>
+									<li>Data Aggregation</li>
+									<li>Automated Reporting</li>
+								</ul>
+							</section>
+
+							<section class="project-card">
+								<span class="icon solid major fa-key"></span>
+								<h3>API Security & Configuration</h3>
+								<p>Implemented secure API key management for AI services using AWS Secrets Manager. Built configuration systems for managing LLM API credentials and settings. Designed error handling and retry logic for API integrations to ensure reliability.</p>
+								<ul class="project-tech">
+									<li>AWS Secrets Manager</li>
+									<li>API Configuration</li>
+									<li>Error Handling</li>
+									<li>Retry Logic</li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</section>
+				<!-- AI Section -->
+				  
+				
+				<!-- Two -->
+				<section id="two" class="wrapper style3 fade-up">
+					<div class="inner">
+						<h2 style="font-size: 2.5em; margin-bottom: 0.5em; color: #ffffff; font-weight: 600; text-align: center;">Projects</h2>
+						<p style="font-size: 1.1em; color: rgba(255, 255, 255, 0.8); max-width: 700px; margin: 0 auto 3em;">
+							A collection of full-stack applications, tools, and platforms I've built. Each project demonstrates different aspects of software engineering, from real-time systems to AI-powered solutions.
+						</p>
+						
+						<div class="features">
+							<!-- DailyVoice-Log -->
+							<section class="project-card">
+								<span class="icon solid major fa-microphone"></span>
+								<h3>DailyVoice-Log</h3>
+								<p>AI-powered productivity app that sends daily email prompts for audio logs, then analyzes and compiles them into actionable summaries. Built with React, Django, and AI integration for voice-to-text processing.</p>
+								<ul class="project-tech">
+									<li>React</li>
+									<li>Django</li>
+									<li>AI/ML</li>
+									<li>Email Automation</li>
+								</ul>
+								<ul class="actions">
+									<li><a href="https://github.com/micjoey/DailyVoiceLog" class="button" target="_blank">View on GitHub</a></li>
+								</ul>
+							</section>
+
+							<!-- TavernMaster -->
+							<section class="project-card">
+								<span class="icon solid major fa-dice-d20"></span>
+								<h3>TavernMaster</h3>
+								<p>Full-stack campaign management platform for tabletop RPGs. Features real-time chat via WebSocket, character management, campaign dashboards, and role-based access for DMs and players.</p>
+								<ul class="project-tech">
+									<li>React</li>
+									<li>Django REST</li>
+									<li>WebSocket</li>
+									<li>JWT Auth</li>
+								</ul>
+								<ul class="actions">
+									<li><a href="https://github.com/micjoey/TavernMaster" class="button" target="_blank">View on GitHub</a></li>
+								</ul>
+							</section>
+
+							<!-- AI Review -->
+							<section class="project-card">
+								<span class="icon solid major fa-robot"></span>
+								<h3>AI Review</h3>
+								<p>Personal learning tool that reviews code with five specialized AI agents (correctness, architecture, readability, performance, teaching). Built with FastAPI, designed to improve engineering reasoning through structured feedback.</p>
+								<ul class="project-tech">
+									<li>FastAPI</li>
+									<li>Next.js</li>
+									<li>LLM Integration</li>
+									<li>AWS Secrets Manager</li>
+								</ul>
+								<ul class="actions">
+									<li><a href="https://github.com/micjoey/AI_Review" class="button" target="_blank">View on GitHub</a></li>
+								</ul>
+							</section>
+
+							<!-- Workout App -->
+							<section class="project-card">
+								<span class="icon solid major fa-dumbbell"></span>
+								<h3>Adaptive Workout App</h3>
+								<p>Full-stack fitness tracking application with adaptive workout planning. Features workout logging, plan generation, and analytics. Built with Next.js and FastAPI, following accessibility standards (WCAG AA).</p>
+								<ul class="project-tech">
+									<li>Next.js</li>
+									<li>FastAPI</li>
+									<li>SQLModel</li>
+									<li>Tailwind CSS</li>
+								</ul>
+								<ul class="actions">
+									<li><a href="https://github.com/micjoey/workout-app" class="button" target="_blank">View on GitHub</a></li>
+								</ul>
+							</section>
+
+							<!-- Cover Letter Helper -->
+							<section class="project-card">
+								<span class="icon solid major fa-file-alt"></span>
+								<h3>Unique Cover Letter Helper</h3>
+								<p>AI-powered tool that generates personalized cover letters tailored to specific job applications. Combines Django backend with React frontend for seamless user experience.</p>
+								<ul class="project-tech">
+									<li>React</li>
+									<li>Django</li>
+									<li>AI Integration</li>
+									<li>Heroku</li>
+								</ul>
+								<ul class="actions">
+									<li><a href="https://github.com/micjoey/Unique-Cover-Letter-Helper" class="button" target="_blank">View on GitHub</a></li>
+								</ul>
+							</section>
+
+							<!-- Soccer Website -->
+							<section class="project-card">
+								<span class="icon solid major fa-futbol"></span>
+								<h3>Soccer Team Management</h3>
+								<p>Team management platform for soccer clubs. Features availability tracking, scheduling, and team coordination. Built with React/TypeScript frontend and Node.js backend.</p>
+								<ul class="project-tech">
+									<li>React</li>
+									<li>TypeScript</li>
+									<li>Node.js</li>
+									<li>Google OAuth</li>
+								</ul>
+								<ul class="actions">
+									<li><a href="https://github.com/micjoey/soccer-website" class="button" target="_blank">View on GitHub</a></li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</section>
+  
+				<!-- three -->
+				<section id="three" class="wrapper style4 fade-up" style="background-color:  rgb(0, 40, 9);">
+					<div class="inner " id="Education">
+						<h2 style="font-size: 2.5em; margin-bottom: 1em; color: #ffffff; font-weight: 600; text-align: center;">Education</h2>
+						<div class="education-div">
+							<p><h3>App Academy - Class of Feb 2020</h3></p>
+							<p>Immersive software development course with focus on full-stack web development | Winter 2019</p> 
+								<!-- <br> -->
+						</div>
+						<br>
+						<div class="education-div">
+							<p><h3>Oberlin College - Class of 2016</h3></p>
+							<p>Bachelor's in Economics with a focus on Real Estate</p>
+						</div>
+				</section>
+				<!-- three -->
+
+				<!-- Four -->
+				<section id="four" class="wrapper style3 fade-up" style="background-color: rgb(128, 15, 15);">
+					<div class="inner" id='technologies'>
+						<h2 style="font-size: 2.5em; margin-bottom: 1em; color: #ffffff; font-weight: 600; text-align: center;">Technologies</h2>
+						<p style="font-size: 1.1em; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto 2em; text-align: center;">
+							Technologies and tools I use to build scalable, modern applications
+						</p>
+						
+						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2em; margin-top: 2em;">
+							<div>
+								<h3 style="color: #a8d8ff; margin-bottom: 1em; font-size: 1.5em;">Frontend</h3>
+								<ul class="feature-icons" style="list-style: none; padding: 0;">
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-code-slash"></i> JavaScript</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-puzzle"></i> React</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-filetype-tsx"></i> TypeScript</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-braces"></i> Vue.js</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-filetype-html"></i> HTML5</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-filetype-css"></i> CSS3 / SCSS</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-cpu"></i> Webpack</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-cpu"></i> Babel</li>
+								</ul>
+							</div>
+							
+							<div>
+								<h3 style="color: #a8d8ff; margin-bottom: 1em; font-size: 1.5em;">Backend</h3>
+								<ul class="feature-icons" style="list-style: none; padding: 0;">
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-file-earmark-code"></i> Python</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-server"></i> Django</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-filetype-node"></i> Node.js</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-filetype-sql"></i> PostgreSQL</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-filetype-sql"></i> MySQL</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-database"></i> MongoDB</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-diagram-3-fill"></i> RESTful APIs</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-plug"></i> GraphQL</li>
+								</ul>
+							</div>
+							
+							<div>
+								<h3 style="color: #a8d8ff; margin-bottom: 1em; font-size: 1.5em;">Cloud & DevOps</h3>
+								<ul class="feature-icons" style="list-style: none; padding: 0;">
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-cloud"></i> AWS</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-cloud-arrow-down"></i> Azure</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-box-seam"></i> Docker</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-diagram-3"></i> Kubernetes</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-diagram-2-fill"></i> Terraform</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-git"></i> Git / GitHub</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-arrows-fullscreen"></i> CI/CD</li>
+								</ul>
+							</div>
+							
+							<div>
+								<h3 style="color: #a8d8ff; margin-bottom: 1em; font-size: 1.5em;">Testing & Tools</h3>
+								<ul class="feature-icons" style="list-style: none; padding: 0;">
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-check-circle"></i> PyTest</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-check2-circle"></i> Cypress</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-check2-square"></i> Selenium</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-check2-all"></i> Jest</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-kanban"></i> Jira</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-layout-sidebar"></i> Figma</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-lock"></i> OAuth / SSO</li>
+									<li class="icon" style="margin-bottom: 0.8em;"><i class="bi bi-card-checklist"></i> WCAG 2.1</li>
+								</ul>
+							</div>
+						</div>
+					</div>					  
+				</section>
+				<!-- Four -->
+
+
+				<!-- five -->
+				<section id="five" class="wrapper style1 fade-up">
+					<div class="inner">
+						<h2 style="font-size: 2.5em; margin-bottom: 1em; color: #ffffff; font-weight: 600; text-align: center;">Get in Touch</h2>
+						<p>Please feel free to add me on <a href="https://bit.ly/3izBUZc" target="_blank" data-event-category="LinkedIn" data-event-action="click"><span class="label-2 defined-font">LinkedIn.</span>
+						</a>
+						</p>
+							<section>
+								<ul class="contact">
+									<div class="inner" id="Resume">
+										<h3>Resume</h3>
+										<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" data-event-category="Resume" data-event-action="click">
+											<p class='defined-font'>Link to PDF Resume</p>
+										</a>
+									</div>
+									<li>
+										<h3 class="email-me-at">Email me at:</h3>
+										<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" class='defined-font'>Jsavett@gmail.com</a>
+									</li>
+									<li>
+										<h3>Social</h3>
+										<ul class="icons">
+											<li><a href="https://github.com/micjoey" class="icon brands fa-github" target="_blank" data-event-category="Work-Github"
+												data-event-action="click" ><span class="label">GitHub</span></a></li>
+											<li><a href="https://www.instagram.com/Peoples.reality/" class="icon brands fa-instagram" target="
+												_blank" data-event-category="Instagram" data-event-action="click"><span class="label">Instagram</span></a></li>
+											<li><a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="
+												_blank" data-event-category="LinkedIn" data-event-action="click"><span class="label">LinkedIn</span></a></li>
+										</ul>
+									</li>
+								</ul>
+							</section>
+					</div>
+				</section>
+				<!-- five -->
+				</main>
+			</div>
+		<!-- Footer -->
+		
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="logo">
+					<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website"
+						data-event-category="Email" data-event-action="click">
+						<img src="images/transparent email.png" alt="Logo" class="logo-image">
+					</a>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
