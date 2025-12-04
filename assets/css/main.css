@@ -3602,10 +3602,6 @@ input, select, textarea {
 
 /* Footer */
 
-	#sidebar + #wrapper + #footer {
-		margin-left: 18em;
-	}
-
 		@media screen and (max-width: 1280px) {
 
 			#sidebar + #wrapper + #footer {
@@ -4021,7 +4017,6 @@ input, select, textarea {
 		}
 
 #technologies {
-	background-color: rgb(92, 85, 0);
 	width: 100%;
 }
 
