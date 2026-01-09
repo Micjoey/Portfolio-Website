@@ -1,0 +1,41 @@
+{
+  "animation-patterns": {
+    "hero-section": {
+      "description": "Hero section uses GSAP timeline with staggered text reveals",
+      "implementation": "assets/js/animations.js - initHeroAnimations()",
+      "dependencies": ["GSAP", "ScrollTrigger"]
+    },
+    "scroll-animations": {
+      "description": "Scroll-triggered fade-in animations for cards and sections",
+      "implementation": "assets/js/animations.js - initScrollAnimations()",
+      "trigger": "ScrollTrigger with 'top 85%' start point"
+    },
+    "svg-icons": {
+      "description": "Animated SVG icons replace emojis with CSS animations",
+      "location": "assets/images/svg-icons/",
+      "styling": "index.html - .svg-icon class with will-change optimization"
+    }
+  },
+  "styling-patterns": {
+    "modern-card": {
+      "description": "Glassmorphism card design with backdrop-filter",
+      "css-class": ".modern-card",
+      "features": ["backdrop-filter: blur(10px)", "border-radius: 16px", "hover transforms"]
+    },
+    "tech-badge": {
+      "description": "Animated tech badges with hover effects",
+      "css-class": ".tech-badge",
+      "animation": "Scale and translateY on hover"
+    }
+  },
+  "performance-patterns": {
+    "will-change": {
+      "description": "Use will-change for animated elements, remove after animation",
+      "implementation": "assets/js/animations.js - optimizeForAnimation()"
+    },
+    "reduced-motion": {
+      "description": "All animations respect prefers-reduced-motion",
+      "check": "window.matchMedia('(prefers-reduced-motion: reduce)')"
+    }
+  }
+}

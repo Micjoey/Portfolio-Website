@@ -92,9 +92,12 @@
 				right: 0;
 				bottom: 0;
 				background: 
+					url('assets/images/hero-animation.svg') center/cover no-repeat,
 					radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
 					radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
 				pointer-events: none;
+				opacity: 0.6;
+				animation: gradient-shift 15s ease infinite;
 			}
 
 			#intro .inner {
@@ -211,6 +214,7 @@
 				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 				border-radius: 12px;
 				overflow: hidden;
+				will-change: transform;
 			}
 
 			.project-card::before {
@@ -666,6 +670,22 @@
 				color: #a8d8ff;
 			}
 
+			/* Footer social icons */
+			#five .icon.brands {
+				transition: all 0.3s ease;
+			}
+
+			#five .icon.brands:hover {
+				transform: translateY(-5px) scale(1.2);
+				color: var(--primary) !important;
+			}
+
+			#five .icon.brands:focus {
+				outline: 2px solid var(--primary);
+				outline-offset: 2px;
+				border-radius: 4px;
+			}
+
 			/* Modern Buttons */
 			.button {
 				position: relative;
@@ -837,6 +857,49 @@
 				text-decoration-color: #a8d8ff;
 			}
 
+			/* SVG Icon Animations */
+			.svg-icon {
+				width: 3rem;
+				height: 3rem;
+				color: var(--primary);
+				display: inline-block;
+				margin-bottom: 1rem;
+				transition: all 0.3s ease;
+				will-change: transform;
+			}
+
+			.svg-icon:hover {
+				transform: scale(1.1) rotate(5deg);
+				color: var(--secondary);
+			}
+
+			#ai .svg-icon {
+				color: var(--secondary);
+			}
+
+			#ai .svg-icon:hover {
+				color: var(--primary);
+			}
+
+			/* Contact section icons - larger and more prominent */
+			#five .svg-icon {
+				width: 4rem;
+				height: 4rem;
+				margin-bottom: 1.5rem;
+				color: var(--primary);
+				transition: all 0.3s ease;
+			}
+
+			#five .svg-icon svg {
+				stroke: currentColor;
+			}
+
+			#five .svg-icon:hover {
+				transform: scale(1.15) translateY(-5px);
+				color: var(--secondary);
+				filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3));
+			}
+
 			/* Reduce motion for users who prefer it */
 			@media (prefers-reduced-motion: reduce) {
 				*,
@@ -846,9 +909,23 @@
 					animation-iteration-count: 1 !important;
 					transition-duration: 0.01ms !important;
 				}
+				
+				.svg-icon {
+					animation: none !important;
+				}
 			}
 
 			/* Modern Header Navigation */
+			#modern-header nav a {
+				position: relative;
+			}
+
+			#modern-header nav a:focus {
+				outline: 2px solid var(--primary);
+				outline-offset: 2px;
+				border-radius: 4px;
+			}
+
 			#modern-header nav a:hover {
 				color: var(--primary) !important;
 			}
@@ -856,6 +933,11 @@
 			#modern-header nav a[style*="background"]:hover {
 				background: var(--primary-dark) !important;
 				transform: translateY(-2px);
+			}
+
+			#modern-header nav a[style*="background"]:focus {
+				outline: 2px solid white;
+				outline-offset: 2px;
 			}
 
 			/* Modern Section Styling */
@@ -1001,6 +1083,12 @@
 				#modern-header nav ul {
 					flex-wrap: wrap;
 					justify-content: center;
+					gap: 1rem;
+				}
+
+				#modern-header nav a[style*="background"] {
+					padding: 0.4rem 1rem !important;
+					font-size: 0.9rem;
 				}
 
 				#intro h1 {
@@ -1045,11 +1133,14 @@
 	<body class="is-preload">
 		<a href="#main-content" class="skip-link">Skip to main content</a>
 
+		<!-- Scroll Progress Indicator -->
+		<div id="scroll-progress" style="position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--primary), var(--secondary)); width: 0%; z-index: 1001; transition: width 0.1s ease-out;"></div>
+
 		<!-- Modern Sticky Header -->
 		<header id="modern-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 14, 39, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; transition: all 0.3s ease;">
 			<nav style="display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto;">
-				<a href="#intro" aria-label="Return to top of page" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-					<img src="images/transparent email.png" alt="Macallan Savett logo" style="height: 40px; width: auto;" />
+				<a href="#intro" aria-label="Return to top of page" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 0.25rem; transition: opacity 0.3s;">
+					<img src="images/transparent email.png" alt="Macallan Savett logo" style="height: 40px; width: auto; display: block;" loading="eager" />
 					<span>Macallan Savett</span>
 				</a>
 				<ul role="list" style="display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; align-items: center;">
@@ -1156,7 +1247,6 @@
 							</div>
 							</p>
 						</div>
-					</section>
 					</section>
 
 				<!-- One -->
@@ -1308,7 +1398,7 @@
 						
 						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Brain icon representing AI and machine learning">🧠</div>
+								<img src="assets/images/svg-icons/brain.svg" alt="Brain icon" class="svg-icon" role="img" aria-label="Brain icon representing AI and machine learning" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">LLM Integration & API Development</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Production experience integrating OpenAI GPT and Anthropic Claude APIs. Built RESTful services with structured output parsing, error handling, and rate limiting. Implemented prompt engineering patterns for consistent, reliable responses.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1320,7 +1410,7 @@
 							</div>
 
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Computer icon representing code and development">💻</div>
+								<img src="assets/images/svg-icons/computer.svg" alt="Computer icon" class="svg-icon" role="img" aria-label="Computer icon representing code and development" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Multi-Agent Code Review Systems</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Architected and implemented a multi-agent system for automated code review. Five specialized agents analyze code for correctness, architecture, readability, performance, and educational value. Built with FastAPI, async processing, and structured JSON output parsing.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1332,7 +1422,7 @@
 							</div>
 
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Microphone icon representing speech and audio processing">🎤</div>
+								<img src="assets/images/svg-icons/microphone.svg" alt="Microphone icon" class="svg-icon" role="img" aria-label="Microphone icon representing speech and audio processing" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Speech-to-Text & NLP Pipelines</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Developed end-to-end voice processing pipeline: audio transcription, text extraction, NLP analysis, and summarization. Integrated with Django backend, implemented batch processing for audio files, and built data models for storing transcriptions and insights.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1344,7 +1434,7 @@
 							</div>
 
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Document icon representing content and document processing">📝</div>
+								<img src="assets/images/svg-icons/document.svg" alt="Document icon" class="svg-icon" role="img" aria-label="Document icon representing content and document processing" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Content Generation & Document Processing</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Built automated content generation systems using LLMs with context injection and template management. Implemented document parsing, text extraction, and structured data generation. Designed systems for generating personalized content at scale.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1356,7 +1446,7 @@
 							</div>
 
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Chart icon representing data analysis">📊</div>
+								<img src="assets/images/svg-icons/chart.svg" alt="Chart icon" class="svg-icon" role="img" aria-label="Chart icon representing data analysis" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Data Processing & Analysis</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Built data analysis tools using AWS Lambda for processing and aggregating customer data. Developed churn analysis tool that processes large datasets efficiently, reducing processing times by 20%. Implemented data transformation pipelines and automated reporting workflows.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1368,7 +1458,7 @@
 							</div>
 
 							<div class="modern-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary);" role="img" aria-label="Lock icon representing security">🔐</div>
+								<img src="assets/images/svg-icons/lock.svg" alt="Lock icon" class="svg-icon" role="img" aria-label="Lock icon representing security" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">API Security & Configuration</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Implemented secure API key management for AI services using AWS Secrets Manager. Built configuration systems for managing LLM API credentials and settings. Designed error handling and retry logic for API integrations to ensure reliability.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1396,7 +1486,7 @@
 						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
 							<!-- DailyVoice-Log -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Microphone icon representing voice logging">🎤</div>
+								<img src="assets/images/svg-icons/microphone.svg" alt="Microphone icon" class="svg-icon" role="img" aria-label="Microphone icon representing voice logging" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">DailyVoice-Log</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">AI-powered productivity app that sends daily email prompts for audio logs, then analyzes and compiles them into actionable summaries. Built with React, Django, and AI integration for voice-to-text processing.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1410,7 +1500,7 @@
 
 							<!-- TavernMaster -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Dice icon representing tabletop gaming">🎲</div>
+								<img src="assets/images/svg-icons/dice.svg" alt="Dice icon" class="svg-icon" role="img" aria-label="Dice icon representing tabletop gaming" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">TavernMaster</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Full-stack campaign management platform for tabletop RPGs. Features real-time chat via WebSocket, character management, campaign dashboards, and role-based access for DMs and players.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1424,7 +1514,7 @@
 
 							<!-- AI Review -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Robot icon representing AI">🤖</div>
+								<img src="assets/images/svg-icons/robot.svg" alt="Robot icon" class="svg-icon" role="img" aria-label="Robot icon representing AI" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">AI Review</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Personal learning tool that reviews code with five specialized AI agents (correctness, architecture, readability, performance, teaching). Built with FastAPI, designed to improve engineering reasoning through structured feedback.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1438,7 +1528,7 @@
 
 							<!-- Workout App -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Flexed bicep icon representing fitness">💪</div>
+								<img src="assets/images/svg-icons/fitness.svg" alt="Fitness icon" class="svg-icon" role="img" aria-label="Fitness icon representing workout app" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Adaptive Workout App</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Full-stack fitness tracking application with adaptive workout planning. Features workout logging, plan generation, and analytics. Built with Next.js and FastAPI, following accessibility standards (WCAG AA).</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1452,7 +1542,7 @@
 
 							<!-- Cover Letter Helper -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Document icon representing cover letters">📄</div>
+								<img src="assets/images/svg-icons/document.svg" alt="Document icon" class="svg-icon" role="img" aria-label="Document icon representing cover letters" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Unique Cover Letter Helper</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">AI-powered tool that generates personalized cover letters tailored to specific job applications. Combines Django backend with React frontend for seamless user experience.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1466,7 +1556,7 @@
 
 							<!-- Soccer Website -->
 							<div class="modern-card project-card">
-								<div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);" role="img" aria-label="Soccer ball icon representing team management">⚽</div>
+								<img src="assets/images/svg-icons/soccer.svg" alt="Soccer ball icon" class="svg-icon" role="img" aria-label="Soccer ball icon representing team management" />
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Soccer Team Management</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Team management platform for soccer clubs. Features availability tracking, scheduling, and team coordination. Built with React/TypeScript frontend and Node.js backend.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -1645,17 +1735,35 @@
 						</p>
 						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
 							<div class="modern-card" style="text-align: center;">
-								<div style="font-size: 3rem; margin-bottom: 1rem;" role="img" aria-label="Email icon">📧</div>
+								<div class="svg-icon" style="width: 4rem; height: 4rem; margin: 0 auto 1.5rem; color: var(--primary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+										<polyline points="22,6 12,13 2,6"></polyline>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Email</h3>
 								<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" style="color: var(--primary); text-decoration: none; font-size: 1.1rem; font-weight: 600;">jsavett@gmail.com</a>
 							</div>
 							<div class="modern-card" style="text-align: center;">
-								<div style="font-size: 3rem; margin-bottom: 1rem;" role="img" aria-label="Document icon">📄</div>
+								<div class="svg-icon" style="width: 4rem; height: 4rem; margin: 0 auto 1.5rem; color: var(--primary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+										<polyline points="14 2 14 8 20 8"></polyline>
+										<line x1="16" y1="13" x2="8" y2="13"></line>
+										<line x1="16" y1="17" x2="8" y2="17"></line>
+										<polyline points="10 9 9 9 8 9"></polyline>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Resume</h3>
 								<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View Macallan Savett's resume PDF (opens in new tab)" style="color: var(--primary); text-decoration: none; font-size: 1.1rem; font-weight: 600;">View PDF Resume</a>
 							</div>
 							<div class="modern-card" style="text-align: center;">
-								<div style="font-size: 3rem; margin-bottom: 1rem;" role="img" aria-label="Link icon">🔗</div>
+								<div class="svg-icon" style="width: 4rem; height: 4rem; margin: 0 auto 1.5rem; color: var(--primary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+										<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Connect</h3>
 								<div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;" role="list">
 									<a href="https://github.com/micjoey" class="icon brands fa-github" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's GitHub profile (opens in new tab)" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">GitHub</span></a>
@@ -1687,7 +1795,11 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<!-- GSAP Animation Library -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/animations.js"></script>
 			
 			<!-- Previous Experience Collapse Script -->
 			<script>
