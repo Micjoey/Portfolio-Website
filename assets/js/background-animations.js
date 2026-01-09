@@ -32,8 +32,10 @@
 		intersectionThreshold: 0.3, // 30% of section visible
 		scrollDebounce: 100, // Debounce rapid scroll events
 		scrollFadeDelay: 1200, // Delay before fading scroll effect (ms)
-		warpIntensity: 1.0, // Intensity of warp effect
-		warpFadeDuration: 1000 // Duration to fade out warp (ms)
+		energyFadeDuration: 1000, // Duration to fade out energy effect (ms)
+		particleSpawnRate: 50, // Milliseconds between particle spawns
+		baseBlur: 2, // Base motion blur intensity
+		maxBlur: 2.5 // Maximum motion blur (subtle increase)
 	};
 
 	// State management
@@ -52,7 +54,10 @@
 			scrollDirection: 0, // -1 down, 1 up
 			fadeTimeout: null,
 			scrollVelocity: 0,
-			animationContainer: null
+			animationContainer: null,
+			energyOverlay: null,
+			particles: [],
+			lastParticleTime: 0
 		}
 	};
 
@@ -315,13 +320,13 @@
 		// Determine scroll direction
 		state.scrollState.scrollDirection = scrollDelta > 0 ? 1 : -1;
 
-		// Start warp effect if not already scrolling
+		// Start energy field effect if not already scrolling
 		if (!state.scrollState.isScrolling) {
-			startWarpEffect();
+			startEnergyEffect();
 		}
 
-		// Update warp intensity based on scroll velocity
-		updateWarpEffect();
+		// Update energy field intensity based on scroll velocity (subtle changes)
+		updateEnergyEffect();
 
 		// Mark as scrolling
 		state.scrollState.isScrolling = true;
@@ -332,16 +337,16 @@
 			clearTimeout(state.scrollState.fadeTimeout);
 		}
 
-		// Set timeout to fade out warp effect
+		// Set timeout to fade out energy effect
 		state.scrollState.fadeTimeout = setTimeout(() => {
-			fadeOutWarpEffect();
+			fadeOutEnergyEffect();
 		}, config.scrollFadeDelay);
 	}
 
 	/**
-	 * Start the warp effect - pause all animations
+	 * Start the energy field effect - pause all animations
 	 */
-	function startWarpEffect() {
+	function startEnergyEffect() {
 		const container = state.scrollState.animationContainer;
 		if (container) {
 			container.classList.add('scrolling');
@@ -350,75 +355,166 @@
 		// Pause all CSS animations in the current container
 		const currentContainer = state.containers[state.current];
 		if (currentContainer) {
-			// Add warp class
-			currentContainer.classList.add('bg-animation-warp');
-			
 			// Pause all child animations
 			const animatedElements = currentContainer.querySelectorAll('.wave-layer, .particle, .geometric-shape, .gradient-layer, .mesh-blob, .wave-background');
 			animatedElements.forEach(el => {
 				el.style.animationPlayState = 'paused';
 			});
 		}
-	}
 
-	/**
-	 * Update warp effect based on scroll direction and velocity
-	 */
-	function updateWarpEffect() {
-		const currentContainer = state.containers[state.current];
-		if (!currentContainer) return;
-
-		const direction = state.scrollState.scrollDirection;
-		const velocity = Math.min(state.scrollState.scrollVelocity / 8, 1.5); // Normalize velocity with higher max
-		const intensity = config.warpIntensity * velocity;
-
-		// Remove previous direction classes
-		currentContainer.classList.remove('bg-animation-warp-up', 'bg-animation-warp-down');
-		
-		// Apply direction-based warp
-		if (direction > 0) {
-			// Scrolling down
-			currentContainer.classList.add('bg-animation-warp-down');
-		} else {
-			// Scrolling up
-			currentContainer.classList.add('bg-animation-warp-up');
+		// Create energy overlay if it doesn't exist
+		if (!state.scrollState.energyOverlay) {
+			const overlay = document.createElement('div');
+			overlay.className = 'scroll-energy-overlay';
+			overlay.setAttribute('aria-hidden', 'true');
+			document.body.appendChild(overlay);
+			state.scrollState.energyOverlay = overlay;
 		}
 
-		// Adjust intensity based on velocity for more dramatic effect
-		const baseScale = 1.2;
-		const scale = baseScale + (intensity * 0.1);
-		const blur = 15 + (intensity * 5);
-		const translateY = direction * (40 + intensity * 20);
-		const brightness = 1.4 + (intensity * 0.2);
-		const contrast = 1.2 + (intensity * 0.1);
-		const opacity = Math.max(0.85, 0.95 - (intensity * 0.1));
-		
-		currentContainer.style.transform = `scale(${scale}) translateY(${translateY}px) translateZ(0)`;
-		currentContainer.style.filter = `blur(${blur}px) brightness(${brightness}) contrast(${contrast})`;
-		currentContainer.style.opacity = opacity;
+		// Show overlay
+		state.scrollState.energyOverlay.classList.add('active');
+		state.scrollState.lastParticleTime = Date.now();
 	}
 
 	/**
-	 * Fade out warp effect and resume normal animations
+	 * Update energy field effect based on scroll direction and velocity (subtle changes)
 	 */
-	function fadeOutWarpEffect() {
+	function updateEnergyEffect() {
+		const container = state.scrollState.animationContainer;
+		if (!container) return;
+
+		const direction = state.scrollState.scrollDirection;
+		const velocity = Math.min(state.scrollState.scrollVelocity / 10, 1.0); // Normalize velocity, cap at 1.0
+		
+		// Subtle intensity changes (1.0x to 1.1x max)
+		const intensityMultiplier = 1.0 + (velocity * 0.1); // Max 1.1x
+
+		// Update container direction class
+		container.classList.remove('scroll-up', 'scroll-down');
+		if (direction > 0) {
+			container.classList.add('scroll-down');
+		} else {
+			container.classList.add('scroll-up');
+		}
+
+		// Subtle blur adjustment (base 2px, max 2.5px)
+		const blurAmount = config.baseBlur + (velocity * (config.maxBlur - config.baseBlur));
+		
+		const currentContainer = state.containers[state.current];
+		if (currentContainer) {
+			currentContainer.style.filter = `blur(${blurAmount}px)`;
+		}
+
+		// Spawn energy particles based on scroll velocity
+		const now = Date.now();
+		const spawnRate = config.particleSpawnRate / intensityMultiplier; // Faster scrolling = more particles
+		
+		if (now - state.scrollState.lastParticleTime >= spawnRate) {
+			spawnEnergyParticle(direction);
+			state.scrollState.lastParticleTime = now;
+		}
+
+		// Clean up old particles
+		cleanupParticles();
+	}
+
+	/**
+	 * Spawn an energy particle
+	 */
+	function spawnEnergyParticle(direction) {
+		const overlay = state.scrollState.energyOverlay;
+		if (!overlay) return;
+
+		const particle = document.createElement('div');
+		const size = Math.random() < 0.5 ? 'medium' : Math.random() < 0.7 ? 'large' : 'small';
+		particle.className = `energy-particle ${size}`;
+		
+		// Random horizontal position
+		const left = Math.random() * 100;
+		// Start position based on scroll direction
+		const startY = direction > 0 ? -20 : window.innerHeight + 20;
+		const endY = direction > 0 ? window.innerHeight + 20 : -20;
+		
+		particle.style.left = `${left}%`;
+		particle.style.top = `${startY}px`;
+		particle.style.opacity = '0';
+		
+		// Animate particle
+		const duration = 1.5 + (Math.random() * 0.5);
+		particle.style.transition = `opacity 0.2s ease-out, transform ${duration}s linear`;
+		
+		// Force reflow
+		overlay.appendChild(particle);
+		particle.offsetHeight;
+		
+		// Animate
+		particle.style.opacity = '1';
+		particle.style.transform = `translateY(${endY - startY}px)`;
+		
+		state.scrollState.particles.push({
+			element: particle,
+			spawnTime: Date.now(),
+			duration: duration * 1000
+		});
+
+		// Remove particle after animation
+		setTimeout(() => {
+			if (particle.parentNode) {
+				particle.style.opacity = '0';
+				setTimeout(() => {
+					if (particle.parentNode) {
+						particle.parentNode.removeChild(particle);
+					}
+				}, 200);
+			}
+		}, duration * 1000);
+	}
+
+	/**
+	 * Clean up old particles
+	 */
+	function cleanupParticles() {
+		const now = Date.now();
+		state.scrollState.particles = state.scrollState.particles.filter(particle => {
+			if (now - particle.spawnTime > particle.duration + 500) {
+				if (particle.element.parentNode) {
+					particle.element.parentNode.removeChild(particle.element);
+				}
+				return false;
+			}
+			return true;
+		});
+	}
+
+	/**
+	 * Fade out energy field effect and resume normal animations
+	 */
+	function fadeOutEnergyEffect() {
 		state.scrollState.isScrolling = false;
 		
 		const container = state.scrollState.animationContainer;
 		if (container) {
-			container.classList.remove('scrolling');
+			container.classList.remove('scrolling', 'scroll-up', 'scroll-down');
+		}
+
+		// Fade out energy overlay
+		const overlay = state.scrollState.energyOverlay;
+		if (overlay) {
+			overlay.classList.remove('active');
+			// Clean up particles after fade completes
+			setTimeout(() => {
+				if (overlay && overlay.parentNode) {
+					overlay.innerHTML = '';
+					state.scrollState.particles = [];
+				}
+			}, config.energyFadeDuration);
 		}
 
 		const currentContainer = state.containers[state.current];
 		if (currentContainer) {
-			// Remove warp classes
-			currentContainer.classList.remove('bg-animation-warp', 'bg-animation-warp-up', 'bg-animation-warp-down');
-			
-			// Smoothly transition back to normal
-			currentContainer.style.transition = `transform ${config.warpFadeDuration}ms cubic-bezier(0.4, 0, 0.2, 1), filter ${config.warpFadeDuration}ms cubic-bezier(0.4, 0, 0.2, 1), opacity ${config.warpFadeDuration}ms cubic-bezier(0.4, 0, 0.2, 1)`;
-			currentContainer.style.transform = 'scale(1) translateY(0) translateZ(0)';
-			currentContainer.style.filter = 'blur(0) brightness(1) contrast(1)';
-			currentContainer.style.opacity = '1';
+			// Smoothly transition blur back to normal
+			currentContainer.style.transition = `filter ${config.energyFadeDuration}ms cubic-bezier(0.4, 0, 0.2, 1)`;
+			currentContainer.style.filter = 'blur(0)';
 			
 			// Resume all child animations after transition
 			setTimeout(() => {
@@ -427,7 +523,7 @@
 					el.style.animationPlayState = 'running';
 				});
 				
-				// Re-evaluate section after warp ends to transition to correct animation
+				// Re-evaluate section after energy effect ends to transition to correct animation
 				if (state.observer) {
 					const sections = document.querySelectorAll('section[id]');
 					sections.forEach(section => {
@@ -442,7 +538,7 @@
 						}
 					});
 				}
-			}, config.warpFadeDuration);
+			}, config.energyFadeDuration);
 		}
 	}
 

@@ -206,24 +206,87 @@
 	animation-play-state: paused !important;
 }
 
-/* Warp effect classes */
-.bg-animation-warp {
-	transform: scale(1.1) translateZ(0);
-	filter: blur(8px) brightness(1.2) contrast(1.1);
-	transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-	opacity: 0.95;
+/* Scroll energy field overlay */
+.scroll-energy-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 1;
+	opacity: 0;
+	transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+	overflow: hidden;
 }
 
-.bg-animation-warp-up {
-	transform: scale(1.2) translateY(-40px) translateZ(0);
-	filter: blur(15px) brightness(1.4) contrast(1.2);
-	opacity: 0.9;
+.scroll-energy-overlay.active {
+	opacity: 1;
 }
 
-.bg-animation-warp-down {
-	transform: scale(1.2) translateY(40px) translateZ(0);
-	filter: blur(15px) brightness(1.4) contrast(1.2);
-	opacity: 0.9;
+/* Energy particles */
+.energy-particle {
+	position: absolute;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(147, 197, 253, 0.9) 0%, rgba(147, 197, 253, 0) 70%);
+	box-shadow: 0 0 8px rgba(147, 197, 253, 0.6), 0 0 16px rgba(196, 181, 253, 0.4);
+	will-change: transform, opacity;
+}
+
+.energy-particle.medium {
+	width: 6px;
+	height: 6px;
+	background: radial-gradient(circle, rgba(196, 181, 253, 0.9) 0%, rgba(196, 181, 253, 0) 70%);
+	box-shadow: 0 0 10px rgba(196, 181, 253, 0.6), 0 0 20px rgba(165, 243, 252, 0.4);
+}
+
+.energy-particle.large {
+	width: 8px;
+	height: 8px;
+	background: radial-gradient(circle, rgba(165, 243, 252, 0.9) 0%, rgba(165, 243, 252, 0) 70%);
+	box-shadow: 0 0 12px rgba(165, 243, 252, 0.6), 0 0 24px rgba(125, 211, 252, 0.4);
+}
+
+/* Energy trail effect */
+.energy-trail {
+	position: absolute;
+	width: 2px;
+	height: 60px;
+	background: linear-gradient(to bottom,
+		rgba(147, 197, 253, 0.8) 0%,
+		rgba(196, 181, 253, 0.6) 50%,
+		rgba(165, 243, 252, 0) 100%);
+	box-shadow: 0 0 4px rgba(147, 197, 253, 0.5);
+	transform-origin: top center;
+	will-change: transform, opacity;
+}
+
+/* Subtle motion blur during scroll */
+.bg-animation-container.scrolling .bg-animation-waves,
+.bg-animation-container.scrolling .bg-animation-particles,
+.bg-animation-container.scrolling .bg-animation-geometric,
+.bg-animation-container.scrolling .bg-animation-gradient,
+.bg-animation-container.scrolling .bg-animation-mesh {
+	filter: blur(2px);
+	transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-animation-container.scrolling.scroll-up .bg-animation-waves,
+.bg-animation-container.scrolling.scroll-up .bg-animation-particles,
+.bg-animation-container.scrolling.scroll-up .bg-animation-geometric,
+.bg-animation-container.scrolling.scroll-up .bg-animation-gradient,
+.bg-animation-container.scrolling.scroll-up .bg-animation-mesh {
+	filter: blur(2.5px);
+}
+
+.bg-animation-container.scrolling.scroll-down .bg-animation-waves,
+.bg-animation-container.scrolling.scroll-down .bg-animation-particles,
+.bg-animation-container.scrolling.scroll-down .bg-animation-geometric,
+.bg-animation-container.scrolling.scroll-down .bg-animation-gradient,
+.bg-animation-container.scrolling.scroll-down .bg-animation-mesh {
+	filter: blur(2.5px);
 }
 
 /* ============================================
