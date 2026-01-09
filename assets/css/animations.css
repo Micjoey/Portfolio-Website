@@ -1,0 +1,55 @@
+/* ============================================
+   ANIMATION UTILITIES
+   Polished, professional animations
+   ============================================ */
+
+/* Animation Data Attributes - Initial States */
+[data-animate] {
+	opacity: 0;
+	will-change: transform, opacity;
+}
+
+[data-animate="fade-up"] {
+	transform: translateY(40px);
+}
+
+[data-animate="fade-down"] {
+	transform: translateY(-40px);
+}
+
+[data-animate="fade-left"] {
+	transform: translateX(-40px);
+}
+
+[data-animate="fade-right"] {
+	transform: translateX(40px);
+}
+
+[data-animate="scale-in"] {
+	transform: scale(0.9);
+}
+
+[data-animate="slide-in-left"] {
+	transform: translateX(-60px);
+}
+
+[data-animate="slide-in-right"] {
+	transform: translateX(60px);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+	[data-animate] {
+		opacity: 1;
+		transform: none !important;
+	}
+	
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

@@ -1,208 +1,210 @@
 /*
- * Animation Controller for Portfolio Website
- * Uses GSAP for smooth, performant animations
+ * Animation Controller
+ * Polished GSAP animations with professional effects
  */
 
 (function() {
 	'use strict';
 
-	// Register GSAP plugins
-	if (typeof gsap !== 'undefined') {
-		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+	// Wait for GSAP
+	if (typeof gsap === 'undefined') {
+		console.warn('GSAP not loaded');
+		return;
 	}
 
-	// Check for reduced motion preference
+	// Register plugins
+	if (typeof ScrollTrigger !== 'undefined') {
+		gsap.registerPlugin(ScrollTrigger);
+	}
+	if (typeof ScrollToPlugin !== 'undefined') {
+		gsap.registerPlugin(ScrollToPlugin);
+	}
+
+	// Check reduced motion
 	const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-	// Animation configuration - smoother eases
+	// Animation config
 	const config = {
 		duration: prefersReducedMotion ? 0.1 : 0.8,
-		ease: prefersReducedMotion ? 'none' : 'power1.out',
-		stagger: prefersReducedMotion ? 0 : 0.08,
-		scrollEase: prefersReducedMotion ? 'none' : 'power2.inOut'
+		ease: prefersReducedMotion ? 'none' : 'power2.out',
+		stagger: prefersReducedMotion ? 0 : 0.1
 	};
 
-	// Performance optimization: Use will-change for animated elements
-	function optimizeForAnimation(elements) {
-		if (prefersReducedMotion) return;
-		
-		elements.forEach(el => {
-			if (el) {
-				el.style.willChange = 'transform, opacity';
-				// Remove will-change after animation completes to free resources
-				setTimeout(() => {
-					el.style.willChange = 'auto';
-				}, 2000);
-			}
-		});
-	}
-
-	// Smooth scroll to element
-	function smoothScrollTo(target, offset = 0) {
-		if (prefersReducedMotion) {
-			window.scrollTo({ top: target.offsetTop - offset, behavior: 'auto' });
-			return;
-		}
-
-		gsap.to(window, {
-			duration: 1.2,
-			scrollTo: { y: target, offsetY: offset },
-			ease: config.scrollEase
-		});
-	}
-
-	// Initialize smooth scroll for anchor links
-	function initSmoothScroll() {
-		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-			anchor.addEventListener('click', function(e) {
-				const href = this.getAttribute('href');
-				if (href === '#' || href === '#intro') {
-					smoothScrollTo(document.body, 0);
-					e.preventDefault();
-					return;
-				}
-
-				const target = document.querySelector(href);
-				if (target) {
-					e.preventDefault();
-					const headerOffset = 80;
-					smoothScrollTo(target, headerOffset);
-				}
-			});
-		});
-	}
-
-	// Initialize animations when DOM is ready
+	/**
+	 * Initialize all animations
+	 */
 	function initAnimations() {
-		initSmoothScroll();
-		
 		if (prefersReducedMotion) {
-			// Minimal animations for reduced motion
+			// Remove animation attributes
+			document.querySelectorAll('[data-animate]').forEach(el => {
+				el.style.opacity = '1';
+				el.style.transform = 'none';
+			});
 			return;
 		}
 
 		initHeroAnimations();
 		initScrollAnimations();
-		initScrollProgress();
-		initHeaderScrollAnimation();
 		initMicroInteractions();
-		initAboutMeAnimations();
-		initWorkExperienceTimeline();
 	}
 
-	// Hero Section Animations
+	/**
+	 * Hero section animations
+	 */
 	function initHeroAnimations() {
-		const heroSection = document.getElementById('intro');
-		if (!heroSection) return;
-
-		const heroContent = heroSection.querySelector('.inner');
-		const heroTitle = heroSection.querySelector('h1');
-		const heroSubtitle = heroSection.querySelector('p');
-		const heroButtons = heroSection.querySelectorAll('.button');
-		const socialLinks = heroSection.querySelectorAll('.links a');
+		const heroTitle = document.querySelector('.hero-title');
+		const heroSubtitle = document.querySelector('.hero-subtitle');
+		const heroActions = document.querySelectorAll('.hero-actions .button');
+		const heroSocial = document.querySelectorAll('.hero-social .social-link');
+		const heroInfo = document.querySelector('.hero-info');
 
 		// Set initial states
-		gsap.set([heroTitle, heroSubtitle, ...heroButtons, ...socialLinks], {
-			opacity: 0,
-			y: 30
+		gsap.set([heroTitle, heroSubtitle, ...heroActions, ...heroSocial, heroInfo], {
+			opacity: 0
 		});
 
-		// Optimize hero elements for animation
-		optimizeForAnimation([heroTitle, heroSubtitle, ...heroButtons, ...socialLinks]);
+		// Create timeline
+		const tl = gsap.timeline({ delay: 0.3 });
 
-		// Create timeline for hero animations
-		const heroTimeline = gsap.timeline({ delay: 0.3 });
+		// Animate title
+		if (heroTitle) {
+			tl.to(heroTitle, {
+				opacity: 1,
+				y: 0,
+				duration: config.duration,
+				ease: 'power3.out'
+			});
+		}
 
-			heroTimeline
-			.to(heroTitle, {
+		// Animate subtitle
+		if (heroSubtitle) {
+			tl.to(heroSubtitle, {
 				opacity: 1,
 				y: 0,
 				duration: config.duration,
-				ease: 'expo.out'
-			})
-			.to(heroSubtitle, {
+				ease: 'power2.out'
+			}, '-=0.4');
+		}
+
+		// Animate buttons
+		if (heroActions.length > 0) {
+			tl.to(heroActions, {
 				opacity: 1,
 				y: 0,
 				duration: config.duration,
-				ease: 'expo.out'
-			}, '-=0.4')
-			.to(heroButtons, {
-				opacity: 1,
-				y: 0,
-				duration: config.duration,
-				stagger: 0.08,
-				ease: 'power1.out'
-			}, '-=0.3')
-			.to(socialLinks, {
-				opacity: 1,
-				y: 0,
-				duration: config.duration,
-				stagger: 0.08,
-				ease: 'power1.out',
-				rotation: 0
+				stagger: config.stagger,
+				ease: 'power2.out'
 			}, '-=0.3');
+		}
 
-		// Initial state for social icons (rotate in)
-		gsap.set(socialLinks, { rotation: -180 });
+		// Animate social links
+		if (heroSocial.length > 0) {
+			gsap.set(heroSocial, { opacity: 0, y: 20, scale: 0.9 });
+			tl.to(heroSocial, {
+				opacity: 1,
+				y: 0,
+				scale: 1,
+				duration: config.duration,
+				stagger: config.stagger * 2,
+				ease: 'power3.out'
+			}, '-=0.3');
+		}
+
+		// Animate info
+		if (heroInfo) {
+			tl.to(heroInfo, {
+				opacity: 1,
+				y: 0,
+				duration: config.duration,
+				ease: 'power2.out'
+			}, '-=0.2');
+		}
 	}
 
-	// Scroll-triggered animations for sections
+	/**
+	 * Scroll-triggered animations
+	 */
 	function initScrollAnimations() {
-		// Animate project cards
-		const projectCards = document.querySelectorAll('#two .project-card');
-		if (projectCards.length > 0) {
-			optimizeForAnimation(Array.from(projectCards));
-			gsap.utils.toArray(projectCards).forEach((card, index) => {
-				gsap.fromTo(card, {
-					opacity: 0,
-					y: 50,
-					scale: 0.95
-				}, {
-					opacity: 1,
-					y: 0,
-					scale: 1,
-					duration: config.duration,
-					ease: config.ease,
-					scrollTrigger: {
-						trigger: card,
-						start: 'top 85%',
-						toggleActions: 'play none none reverse',
-						refreshPriority: -1
-					}
-				});
-			});
-		}
+		// Animate elements with data-animate
+		document.querySelectorAll('[data-animate]').forEach(element => {
+			const animateType = element.getAttribute('data-animate');
+			const delay = parseFloat(element.getAttribute('data-delay')) || 0;
 
-		// Animate tech section cards
-		const techCards = document.querySelectorAll('#technologies .modern-card');
-		if (techCards.length > 0) {
-			gsap.utils.toArray(techCards).forEach((card, index) => {
-				const direction = index % 2 === 0 ? -50 : 50;
-				gsap.fromTo(card, {
-					opacity: 0,
-					x: direction,
-					scale: 0.95
-				}, {
-					opacity: 1,
-					x: 0,
-					scale: 1,
-					duration: config.duration,
-					ease: 'power1.out',
-					scrollTrigger: {
-						trigger: card,
-						start: 'top 85%',
-						toggleActions: 'play none none reverse',
-						refreshPriority: -1
-					}
-				});
-			});
-		}
+			let fromVars = { opacity: 0 };
+			let toVars = {
+				opacity: 1,
+				duration: config.duration,
+				ease: config.ease
+			};
 
-		// Animate tech badges with stagger
-		const techBadges = document.querySelectorAll('.tech-badge');
-		if (techBadges.length > 0) {
-			techBadges.forEach((badgeContainer) => {
-				const badges = badgeContainer.parentElement.querySelectorAll('.tech-badge');
+			switch(animateType) {
+				case 'fade-up':
+					fromVars.y = 40;
+					toVars.y = 0;
+					break;
+				case 'fade-down':
+					fromVars.y = -40;
+					toVars.y = 0;
+					break;
+				case 'fade-left':
+					fromVars.x = -40;
+					toVars.x = 0;
+					break;
+				case 'fade-right':
+					fromVars.x = 40;
+					toVars.x = 0;
+					break;
+				case 'scale-in':
+					fromVars.scale = 0.9;
+					toVars.scale = 1;
+					toVars.ease = 'back.out(1.2)';
+					break;
+				case 'slide-in-left':
+					fromVars.x = -60;
+					toVars.x = 0;
+					break;
+				case 'slide-in-right':
+					fromVars.x = 60;
+					toVars.x = 0;
+					break;
+			}
+
+			gsap.fromTo(element, fromVars, {
+				...toVars,
+				delay: delay,
+				scrollTrigger: {
+					trigger: element,
+					start: 'top 85%',
+					toggleActions: 'play none none reverse'
+				}
+			});
+		});
+
+		// Animate cards
+		const cards = document.querySelectorAll('.card');
+		cards.forEach((card, index) => {
+			gsap.fromTo(card, {
+				opacity: 0,
+				y: 50,
+				scale: 0.95
+			}, {
+				opacity: 1,
+				y: 0,
+				scale: 1,
+				duration: config.duration,
+				ease: config.ease,
+				scrollTrigger: {
+					trigger: card,
+					start: 'top 85%',
+					toggleActions: 'play none none reverse'
+				}
+			});
+		});
+
+		// Animate badges with stagger
+		document.querySelectorAll('.project-badges').forEach(container => {
+			const badges = container.querySelectorAll('.badge');
+			if (badges.length > 0) {
 				gsap.fromTo(badges, {
 					opacity: 0,
 					scale: 0.8
@@ -210,209 +212,73 @@
 					opacity: 1,
 					scale: 1,
 					duration: 0.4,
-					stagger: 0.04,
-					ease: 'back.out(1.4)',
+					stagger: 0.05,
+					ease: 'back.out(1.2)',
 					scrollTrigger: {
-						trigger: badgeContainer.parentElement,
+						trigger: container,
 						start: 'top 85%',
-						toggleActions: 'play none none reverse',
-						refreshPriority: -1
+						toggleActions: 'play none none reverse'
 					}
 				});
-			});
-		}
-
-		// Animate AI section cards
-		const aiCards = document.querySelectorAll('#ai .modern-card');
-		if (aiCards.length > 0) {
-			gsap.utils.toArray(aiCards).forEach((card) => {
-			gsap.fromTo(card, {
-				opacity: 0,
-				y: 40
-			}, {
-				opacity: 1,
-				y: 0,
-				duration: config.duration,
-				ease: 'power1.out',
-				scrollTrigger: {
-					trigger: card,
-					start: 'top 85%',
-					toggleActions: 'play none none reverse',
-					refreshPriority: -1
-				}
-			});
-			});
-		}
-
-		// Animate work experience cards
-		const workCards = document.querySelectorAll('#work-experience .modern-card');
-		if (workCards.length > 0) {
-			gsap.utils.toArray(workCards).forEach((card, index) => {
-				gsap.fromTo(card, {
-					opacity: 0,
-					x: index % 2 === 0 ? -30 : 30,
-					y: 20
-				}, {
-					opacity: 1,
-					x: 0,
-					y: 0,
-					duration: config.duration,
-					ease: 'power1.out',
-					scrollTrigger: {
-						trigger: card,
-						start: 'top 85%',
-						toggleActions: 'play none none reverse',
-						refreshPriority: -1
-					}
-				});
-			});
-		}
-
-		// Animate contact section cards
-		const contactCards = document.querySelectorAll('#five .modern-card');
-		if (contactCards.length > 0) {
-			gsap.fromTo(contactCards, {
-				opacity: 0,
-				scale: 0.8,
-				y: 30
-			}, {
-				opacity: 1,
-				scale: 1,
-				y: 0,
-				duration: config.duration,
-				stagger: 0.12,
-				ease: 'back.out(1.4)',
-				scrollTrigger: {
-					trigger: '#five',
-					start: 'top 80%',
-					toggleActions: 'play none none reverse',
-					refreshPriority: -1
-				}
-			});
-		}
-
-		// Animate section headings
-		const sectionHeadings = document.querySelectorAll('section h2');
-		sectionHeadings.forEach((heading) => {
-			gsap.fromTo(heading, {
-				opacity: 0,
-				y: -20
-			}, {
-				opacity: 1,
-				y: 0,
-				duration: config.duration,
-				ease: 'power1.out',
-				scrollTrigger: {
-					trigger: heading,
-					start: 'top 90%',
-					toggleActions: 'play none none reverse',
-					refreshPriority: -1
-				}
-			});
+			}
 		});
 	}
 
-	// Scroll progress indicator
-	function initScrollProgress() {
-		const progressBar = document.getElementById('scroll-progress');
-		if (!progressBar) return;
-
-		// Respect reduced motion preference
-		if (prefersReducedMotion) {
-			progressBar.style.display = 'none';
-			return;
-		}
-
-		let ticking = false;
-
-		function updateProgress() {
-			const windowHeight = window.innerHeight;
-			const documentHeight = document.documentElement.scrollHeight;
-			const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-			
-			// Handle edge case: page shorter than viewport
-			const maxScroll = Math.max(0, documentHeight - windowHeight);
-			const scrollPercent = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
-			
-			// Clamp between 0 and 100
-			const clampedPercent = Math.min(100, Math.max(0, scrollPercent));
-			progressBar.style.width = clampedPercent + '%';
-			
-			ticking = false;
-		}
-
-		function requestUpdate() {
-			if (!ticking) {
-				window.requestAnimationFrame(updateProgress);
-				ticking = true;
-			}
-		}
-
-		window.addEventListener('scroll', requestUpdate, { passive: true });
-		window.addEventListener('resize', requestUpdate, { passive: true });
-		updateProgress(); // Initial state
-	}
-
-	// Header scroll animation
-	function initHeaderScrollAnimation() {
-		const header = document.getElementById('modern-header');
-		if (!header) return;
-
-		if (prefersReducedMotion) {
-			// Keep header static for reduced motion
-			return;
-		}
-
-		let ticking = false;
-		let isScrolled = false;
-
-		function updateHeader() {
-			const scrollY = window.scrollY;
-			const shouldBeScrolled = scrollY > 100;
-			
-			// Only animate if state changed
-			if (shouldBeScrolled !== isScrolled) {
-				isScrolled = shouldBeScrolled;
-				
-				if (shouldBeScrolled) {
-					gsap.to(header, {
-						padding: '0.75rem 2rem',
-						background: 'rgba(10, 14, 39, 0.98)',
-						boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
-						duration: 0.3,
-						ease: 'power2.out'
-					});
-				} else {
-					gsap.to(header, {
-						padding: '1rem 2rem',
-						background: 'rgba(10, 14, 39, 0.95)',
-						boxShadow: 'none',
-						duration: 0.3,
-						ease: 'power2.out'
-					});
-				}
-			}
-
-			ticking = false;
-		}
-
-		window.addEventListener('scroll', function() {
-			if (!ticking) {
-				window.requestAnimationFrame(updateHeader);
-				ticking = true;
-			}
-		}, { passive: true });
-	}
-
-	// Micro-interactions
+	/**
+	 * Micro-interactions
+	 */
 	function initMicroInteractions() {
-		// Button ripple effects
+		if (prefersReducedMotion) return;
+
+		// Card hover effects
+		const cards = document.querySelectorAll('.card');
+		cards.forEach(card => {
+			card.addEventListener('mouseenter', function() {
+				gsap.to(card, {
+					y: -4,
+					duration: 0.3,
+					ease: 'power2.out'
+				});
+			});
+
+			card.addEventListener('mouseleave', function() {
+				gsap.to(card, {
+					y: 0,
+					duration: 0.3,
+					ease: 'power2.out'
+				});
+			});
+		});
+
+		// Badge hover
+		const badges = document.querySelectorAll('.badge');
+		badges.forEach(badge => {
+			badge.addEventListener('mouseenter', function() {
+				gsap.to(badge, {
+					scale: 1.1,
+					y: -3,
+					duration: 0.2,
+					ease: 'power2.out'
+				});
+			});
+
+			badge.addEventListener('mouseleave', function() {
+				gsap.to(badge, {
+					scale: 1,
+					y: 0,
+					duration: 0.2,
+					ease: 'power2.out'
+				});
+			});
+		});
+
+		// Button ripple effect
 		const buttons = document.querySelectorAll('.button');
-		buttons.forEach((button) => {
+		buttons.forEach(button => {
 			button.addEventListener('click', function(e) {
 				const ripple = document.createElement('span');
 				const rect = button.getBoundingClientRect();
-				const size = Math.max(rect.width, rect.height);
+				const size = Math.max(rect.width, rect.height) * 2;
 				const x = e.clientX - rect.left - size / 2;
 				const y = e.clientY - rect.top - size / 2;
 
@@ -433,223 +299,12 @@
 				button.appendChild(ripple);
 
 				gsap.to(ripple, {
-					scale: 2,
+					scale: 1,
 					opacity: 0,
 					duration: 0.6,
 					ease: 'power2.out',
 					onComplete: () => ripple.remove()
 				});
-			});
-		});
-
-		// Card hover animations (subtle scale only, no tilt)
-		const projectCards = document.querySelectorAll('.project-card');
-		projectCards.forEach((card) => {
-			card.addEventListener('mouseenter', function() {
-				if (prefersReducedMotion) return;
-				gsap.to(card, {
-					scale: 1.02,
-					duration: 0.3,
-					ease: 'power1.out'
-				});
-			});
-
-			card.addEventListener('mouseleave', function() {
-				gsap.to(card, {
-					scale: 1,
-					duration: 0.3,
-					ease: 'power1.out'
-				});
-			});
-		});
-
-		// Tech badge hover animations
-		const techBadges = document.querySelectorAll('.tech-badge');
-		techBadges.forEach((badge) => {
-			badge.addEventListener('mouseenter', function() {
-				gsap.to(badge, {
-					scale: 1.1,
-					y: -3,
-					duration: 0.2,
-					ease: 'power2.out'
-				});
-			});
-
-			badge.addEventListener('mouseleave', function() {
-				gsap.to(badge, {
-					scale: 1,
-					y: 0,
-					duration: 0.2,
-					ease: 'power2.out'
-				});
-			});
-		});
-
-		// Social icon animations
-		const socialIcons = document.querySelectorAll('.links a, .icons a');
-		socialIcons.forEach((icon) => {
-			icon.addEventListener('mouseenter', function() {
-				gsap.to(icon, {
-					scale: 1.2,
-					rotation: 10,
-					duration: 0.3,
-					ease: 'back.out(1.7)'
-				});
-			});
-
-			icon.addEventListener('mouseleave', function() {
-				gsap.to(icon, {
-					scale: 1,
-					rotation: 0,
-					duration: 0.3,
-					ease: 'power2.out'
-				});
-			});
-		});
-	}
-
-	// About Me section animations
-	function initAboutMeAnimations() {
-		const aboutSection = document.getElementById('one');
-		if (!aboutSection) return;
-
-		const aboutImage = aboutSection.querySelector('#about-me .image img');
-		const aboutContent = aboutSection.querySelector('#about-me .content');
-		const paragraphs = aboutSection.querySelectorAll('#about-me .content p');
-		const headings = aboutSection.querySelectorAll('#about-me .content h3');
-
-		if (!aboutImage || !aboutContent) return;
-
-		// Subtle scale effect for image (no parallax)
-		if (aboutImage) {
-			gsap.fromTo(aboutImage, {
-				scale: 0.95
-			}, {
-				scale: 1,
-				scrollTrigger: {
-					trigger: aboutImage,
-					start: 'top 85%',
-					toggleActions: 'play none none reverse',
-					refreshPriority: -1
-				}
-			});
-		}
-
-		// Animate image entrance
-		gsap.fromTo(aboutImage, {
-			opacity: 0,
-			scale: 0.9,
-			rotation: -2
-		}, {
-			opacity: 1,
-			scale: 1,
-			rotation: 0,
-			duration: 1,
-			ease: 'power1.out',
-			scrollTrigger: {
-				trigger: aboutImage,
-				start: 'top 85%',
-				toggleActions: 'play none none reverse',
-				refreshPriority: -1
-			}
-		});
-
-		// Stagger text content animations
-		const textElements = [...paragraphs, ...headings];
-		gsap.fromTo(textElements, {
-			opacity: 0,
-			y: 30
-		}, {
-			opacity: 1,
-			y: 0,
-			duration: 0.8,
-			stagger: 0.1,
-			ease: 'power1.out',
-			scrollTrigger: {
-				trigger: aboutContent,
-				start: 'top 85%',
-				toggleActions: 'play none none reverse',
-				refreshPriority: -1
-			}
-		});
-	}
-
-	// Work experience timeline animation
-	function initWorkExperienceTimeline() {
-		const workExperience = document.getElementById('work-experience');
-		const workCards = document.querySelectorAll('#work-experience .modern-card');
-		if (workCards.length === 0 || !workExperience) return;
-
-		// Animate timeline line
-		gsap.fromTo(workExperience, {}, {
-			onComplete: () => {
-				workExperience.classList.add('timeline-active');
-			},
-			scrollTrigger: {
-				trigger: workExperience,
-				start: 'top 70%',
-				toggleActions: 'play none none reverse',
-				refreshPriority: -1
-			}
-		});
-
-		// Animate cards and timeline nodes
-		workCards.forEach((card, index) => {
-			// Optimize card for animation
-			gsap.set(card, { force3D: true });
-			
-			// Animate card entrance with smoother easing
-			gsap.fromTo(card, {
-				opacity: 0,
-				x: index % 2 === 0 ? -50 : 50,
-				y: 30
-			}, {
-				opacity: 1,
-				x: 0,
-				y: 0,
-				duration: 1.0,
-				ease: 'power2.out',
-				force3D: true,
-				scrollTrigger: {
-					trigger: card,
-					start: 'top 85%',
-					toggleActions: 'play none none reverse',
-					refreshPriority: -1,
-					onEnter: () => {
-						card.classList.add('visible');
-					}
-				}
-			});
-
-			// Animate list items sequentially with smoother animation
-			const listItems = card.querySelectorAll('ul li');
-			listItems.forEach((item) => {
-				gsap.set(item, { force3D: true });
-			});
-			
-			gsap.fromTo(listItems, {
-				opacity: 0,
-				x: -20
-			}, {
-				opacity: 1,
-				x: 0,
-				duration: 0.7,
-				stagger: 0.1,
-				ease: 'power2.out',
-				force3D: true,
-				scrollTrigger: {
-					trigger: card,
-					start: 'top 80%',
-					toggleActions: 'play none none reverse',
-					refreshPriority: -1,
-					onEnter: () => {
-						listItems.forEach((item, i) => {
-							setTimeout(() => {
-								item.classList.add('visible');
-							}, i * 100);
-						});
-					}
-				}
 			});
 		});
 	}
@@ -660,5 +315,16 @@
 	} else {
 		initAnimations();
 	}
+
+	// Refresh ScrollTrigger on resize
+	let resizeTimer;
+	window.addEventListener('resize', () => {
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout(() => {
+			if (typeof ScrollTrigger !== 'undefined') {
+				ScrollTrigger.refresh();
+			}
+		}, 250);
+	}, { passive: true });
 
 })();

@@ -1,2396 +1,749 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-	<head>		
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157870805-3"></script>
-		<script>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Macallan Savett - Software Engineer specializing in Python, Django, React, AWS, and AI/ML solutions">
+	<title>Macallan Savett - Software Engineer</title>
+	
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="assets/css/design-system.css">
+	<link rel="stylesheet" href="assets/css/components.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+	<link rel="stylesheet" href="assets/css/sections.css">
+	<link rel="stylesheet" href="assets/css/animations.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+	
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="57x57" href="images/Favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/Favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/Favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/Favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/Favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/Favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/Favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/Favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/Favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="images/Favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/Favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/Favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/Favicon/favicon-16x16.png">
+	
+	<!-- Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157870805-3"></script>
+	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
-
 		gtag('config', 'UA-157870805-3');
-		</script>
-		<!--Google autotrack-->
-		<title>Macallan Savett's Profile</title>
-		<script src="assets/js/autoCalculateTime.js"></script>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="Macallan Savett - Software Engineer specializing in Python, Django, React, AWS, and AI/ML solutions" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			/* ============================================
-			   MODERN PORTFOLIO DESIGN SYSTEM
-			   ============================================ */
-			
-			:root {
-				--primary: #3b82f6;
-				--primary-dark: #2563eb;
-				--secondary: #8b5cf6;
-				--accent: #06b6d4;
-				--text-primary: #ffffff;
-				--text-secondary: rgba(255, 255, 255, 0.95);
-				--text-muted: rgba(255, 255, 255, 0.85);
-				--bg-dark: #0f172a;
-				--bg-card: rgba(30, 41, 59, 0.7);
-				--border: rgba(148, 163, 184, 0.3);
-				--shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-				--shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
-			}
-
-			* {
-				box-sizing: border-box;
-			}
-
-			body {
-				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-				line-height: 1.6;
-				color: var(--text-primary);
-				background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #1a1f3a 60%, #1e293b 100%);
-				background-size: 400% 400%;
-				animation: bodyGradientShift 25s ease infinite;
-				position: relative;
-			}
-
-			body::before {
-				content: '';
-				position: fixed;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: 
-					radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-					radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-					radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
-				background-size: 200% 200%;
-				animation: radialPulse 20s ease infinite;
-				pointer-events: none;
-				z-index: 0;
-			}
-
-			@keyframes bodyGradientShift {
-				0% {
-					background-position: 0% 50%;
-				}
-				50% {
-					background-position: 100% 50%;
-				}
-				100% {
-					background-position: 0% 50%;
-				}
-			}
-
-			@keyframes radialPulse {
-				0%, 100% {
-					background-position: 0% 0%, 100% 100%, 50% 50%;
-					opacity: 1;
-				}
-				50% {
-					background-position: 100% 100%, 0% 0%, 50% 50%;
-					opacity: 0.7;
-				}
-			}
-
-			@keyframes headerGradientShift {
-				0% {
-					background-position: 0% 50%;
-				}
-				50% {
-					background-position: 100% 50%;
-				}
-				100% {
-					background-position: 0% 50%;
-				}
-			}
-
-			/* Animated section backgrounds - Each section has unique animation */
-			.animated-section {
-				position: relative;
-			}
-
-			/* Intro/Hero Section - Slow radial pulse */
-			#intro {
-				animation: introGradientShift 30s ease-in-out infinite !important;
-			}
-
-			@keyframes introGradientShift {
-				0%, 100% {
-					background-position: 0% 50%;
-				}
-				50% {
-					background-position: 100% 50%;
-				}
-			}
-
-			/* About Me - Horizontal flow */
-			#one.animated-section {
-				animation: aboutMeGradientShift 25s ease-in-out infinite !important;
-			}
-
-			@keyframes aboutMeGradientShift {
-				0% {
-					background-position: 0% 50%;
-				}
-				50% {
-					background-position: 100% 50%;
-				}
-				100% {
-					background-position: 0% 50%;
-				}
-			}
-
-			/* Work Experience - Vertical flow */
-			#six.animated-section {
-				animation: workExpGradientShift 22s ease-in-out infinite !important;
-			}
-
-			@keyframes workExpGradientShift {
-				0% {
-					background-position: 50% 0%;
-				}
-				50% {
-					background-position: 50% 100%;
-				}
-				100% {
-					background-position: 50% 0%;
-				}
-			}
-
-			/* Previous Experience - Diagonal flow */
-			#previous-experience.animated-section {
-				animation: prevExpGradientShift 24s ease-in-out infinite !important;
-			}
-
-			@keyframes prevExpGradientShift {
-				0% {
-					background-position: 0% 0%;
-				}
-				50% {
-					background-position: 100% 100%;
-				}
-				100% {
-					background-position: 0% 0%;
-				}
-			}
-
-			/* AI & Machine Learning - Circular flow */
-			#ai.animated-section {
-				animation: aiGradientShift 28s ease-in-out infinite !important;
-			}
-
-			@keyframes aiGradientShift {
-				0% {
-					background-position: 0% 50%;
-				}
-				25% {
-					background-position: 100% 0%;
-				}
-				50% {
-					background-position: 100% 100%;
-				}
-				75% {
-					background-position: 0% 100%;
-				}
-				100% {
-					background-position: 0% 50%;
-				}
-			}
-
-			/* Projects - Reverse horizontal */
-			#two.animated-section {
-				animation: projectsGradientShift 26s ease-in-out infinite !important;
-			}
-
-			@keyframes projectsGradientShift {
-				0% {
-					background-position: 100% 50%;
-				}
-				50% {
-					background-position: 0% 50%;
-				}
-				100% {
-					background-position: 100% 50%;
-				}
-			}
-
-			/* Technologies - Diagonal reverse */
-			#four.animated-section {
-				animation: techGradientShift 23s ease-in-out infinite !important;
-			}
-
-			@keyframes techGradientShift {
-				0% {
-					background-position: 100% 0%;
-				}
-				50% {
-					background-position: 0% 100%;
-				}
-				100% {
-					background-position: 100% 0%;
-				}
-			}
-
-			/* Education - Slow vertical */
-			#three.animated-section {
-				animation: educationGradientShift 27s ease-in-out infinite !important;
-			}
-
-			@keyframes educationGradientShift {
-				0% {
-					background-position: 50% 100%;
-				}
-				50% {
-					background-position: 50% 0%;
-				}
-				100% {
-					background-position: 50% 100%;
-				}
-			}
-
-			/* Contact - Fast horizontal */
-			#five.animated-section {
-				animation: contactGradientShift 20s ease-in-out infinite !important;
-			}
-
-			@keyframes contactGradientShift {
-				0% {
-					background-position: 0% 50%;
-				}
-				50% {
-					background-position: 100% 50%;
-				}
-				100% {
-					background-position: 0% 50%;
-				}
-			}
-
-			/* Header animated background overlay */
-			#modern-header::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: 
-					radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
-				pointer-events: none;
-				z-index: -1;
-			}
-
-			/* Main content animated background */
-			#main-content::before {
-				content: '';
-				position: fixed;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: 
-					radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
-				pointer-events: none;
-				z-index: 0;
-				animation: mainContentPulse 15s ease infinite;
-			}
-
-			@keyframes mainContentPulse {
-				0%, 100% {
-					opacity: 0.5;
-					transform: scale(1);
-				}
-				50% {
-					opacity: 0.8;
-					transform: scale(1.1);
-				}
-			}
-
-			@media (prefers-reduced-motion: reduce) {
-				body {
-					animation: none;
-					background: var(--bg-dark);
-				}
-				body::before {
-					display: none;
-				}
-				.animated-section {
-					animation: none;
-				}
-				#modern-header {
-					animation: none;
-					background: rgba(30, 41, 59, 0.95);
-				}
-				#modern-header::before {
-					display: none;
-				}
-				#main-content::before {
-					display: none;
-				}
-			}
-
-			/* Modern Enhancements */
-			@keyframes gradient-shift {
-				0% { background-position: 0% 50%; }
-				50% { background-position: 100% 50%; }
-				100% { background-position: 0% 50%; }
-			}
-
-			@keyframes float {
-				0%, 100% { transform: translateY(0px); }
-				50% { transform: translateY(-10px); }
-			}
-
-			@keyframes pulse {
-				0%, 100% { opacity: 1; }
-				50% { opacity: 0.7; }
-			}
-
-			@keyframes slideInUp {
-				from {
-					opacity: 0;
-					transform: translateY(30px);
-				}
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-
-			/* Modern Intro/Hero Section */
-			#intro {
-				background: linear-gradient(135deg, #1e293b 0%, #334155 30%, #1e293b 60%, #334155 100%);
-				background-size: 300% 300%;
-				animation: heroGradientShift 18s ease infinite;
-				position: relative;
-				overflow: hidden;
-			}
-
-			#intro::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: 
-					url('assets/images/hero-animation.svg') center/cover no-repeat,
-					radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
-					radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.25) 0%, transparent 50%);
-				background-size: 200% 200%, 150% 150%, 150% 150%;
-				pointer-events: none;
-				opacity: 0.8;
-				animation: heroRadialShift 20s ease infinite, gradient-shift 15s ease infinite;
-			}
-
-			@keyframes heroGradientShift {
-				0% {
-					background-position: 0% 50%;
-				}
-				50% {
-					background-position: 100% 50%;
-				}
-				100% {
-					background-position: 0% 50%;
-				}
-			}
-
-			@keyframes heroRadialShift {
-				0%, 100% {
-					background-position: center center, 0% 0%, 100% 100%;
-				}
-				50% {
-					background-position: center center, 100% 100%, 0% 0%;
-				}
-			}
-
-			#intro .inner {
-				position: relative;
-				z-index: 1;
-				text-align: center;
-			}
-
-			#intro h1 {
-				font-size: clamp(2.5rem, 5vw, 4rem);
-				font-weight: 800;
-				letter-spacing: -0.03em;
-				margin-bottom: 1.5rem;
-				color: var(--text-primary);
-				line-height: 1.1;
-				text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-			}
-
-			#intro p {
-				font-size: clamp(1.1rem, 2vw, 1.25rem);
-				line-height: 1.8;
-				color: var(--text-secondary);
-				max-width: 700px;
-				margin: 0 auto 2rem;
-			}
-
-			#intro .actions {
-				display: flex;
-				justify-content: center;
-				flex-wrap: wrap;
-				gap: 1rem;
-				list-style: none;
-				padding: 0;
-				margin: 2rem auto;
-			}
-
-			#intro .links {
-				display: flex;
-				justify-content: center;
-				gap: 1.5rem;
-				margin: 2rem auto;
-			}
-
-			#intro-info-resume {
-				text-align: center;
-				margin: 2rem auto;
-			}
-
-			#intro-info-resume .resume-email {
-				display: flex;
-				justify-content: center;
-				flex-wrap: wrap;
-				gap: 2rem;
-				margin: 0 auto;
-			}
-
-			#intro-info-resume .resume-email > div {
-				text-align: center;
-			}
-
-			/* Accessibility Improvements */
-			*:focus {
-				outline: 2px solid #a8d8ff;
-				outline-offset: 2px;
-			}
-
-			.button:focus,
-			a:focus,
-			button:focus {
-				outline: 2px solid #a8d8ff;
-				outline-offset: 3px;
-			}
-
-			/* Ensure focus is visible */
-			.skip-link:focus {
-				top: 0;
-				background: #533483;
-				color: white;
-			}
-
-			/* Improved Readability */
-			p {
-				color: rgba(255, 255, 255, 0.95);
-				line-height: 1.8;
-			}
-
-			section p {
-				font-size: 1.05em;
-			}
-
-			/* Better contrast for text */
-			.project-card p {
-				color: rgba(255, 255, 255, 0.9);
-			}
-
-			/* Skip to main content link for screen readers */
-			.skip-link {
-				position: absolute;
-				top: -40px;
-				left: 0;
-				background: #533483;
-				color: white;
-				padding: 8px;
-				text-decoration: none;
-				z-index: 100;
-			}
-
-			.skip-link:focus {
-				top: 0;
-			}
-
-			/* Project Cards Enhancements */
-			.project-card {
-				position: relative;
-				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-				border-radius: 12px;
-				overflow: hidden;
-				will-change: transform;
-			}
-
-			.project-card::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: linear-gradient(135deg, rgba(83, 52, 131, 0.1) 0%, rgba(15, 52, 96, 0.1) 100%);
-				opacity: 0;
-				transition: opacity 0.4s ease;
-				pointer-events: none;
-			}
-
-			.project-card:hover {
-				transform: translateY(-8px);
-				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-			}
-
-			.project-card:hover::before {
-				opacity: 1;
-			}
-
-			.project-card .icon {
-				transition: all 0.4s ease;
-				animation: float 3s ease-in-out infinite;
-			}
-
-			.project-card:hover .icon {
-				transform: scale(1.1) rotate(5deg);
-				animation: none;
-			}
-
-			.project-card h3 {
-				transition: color 0.3s ease;
-			}
-
-			.project-card:hover h3 {
-				color: #a8d8ff;
-			}
-
-			.project-tech {
-				list-style: none;
-				padding: 0;
-				margin: 1em 0;
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.5em;
-			}
-
-			.project-tech li {
-				display: inline-block;
-				padding: 0.4em 0.9em;
-				background: linear-gradient(135deg, rgba(168, 216, 255, 0.15) 0%, rgba(83, 52, 131, 0.15) 100%);
-				border: 1px solid rgba(168, 216, 255, 0.3);
-				border-radius: 20px;
-				font-size: 0.85em;
-				color: inherit;
-				transition: all 0.3s ease;
-				backdrop-filter: blur(10px);
-			}
-
-			.project-card:hover .project-tech li {
-				background: linear-gradient(135deg, rgba(168, 216, 255, 0.25) 0%, rgba(83, 52, 131, 0.25) 100%);
-				border-color: rgba(168, 216, 255, 0.5);
-				transform: translateY(-2px);
-			}
-
-			.project-card .actions {
-				margin-top: 1.5em;
-			}
-
-			.project-card .button {
-				transition: all 0.3s ease;
-				position: relative;
-				overflow: hidden;
-			}
-
-			.project-card .button::before {
-				content: '';
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				width: 0;
-				height: 0;
-				border-radius: 50%;
-				background: rgba(255, 255, 255, 0.2);
-				transform: translate(-50%, -50%);
-				transition: width 0.6s, height 0.6s;
-			}
-
-			.project-card .button:hover::before {
-				width: 300px;
-				height: 300px;
-			}
-
-			.project-card .button:hover {
-				transform: scale(1.05);
-				box-shadow: 0 10px 25px rgba(168, 216, 255, 0.4);
-			}
-
-			/* Work Experience Enhancements */
-			#six {
-				background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1a1f3a 100%) !important;
-				position: relative;
-				overflow: hidden;
-			}
-
-			#work-experience {
-				position: relative;
-				padding: 2rem 0;
-			}
-
-			/* Timeline visualization */
-			#work-experience::before {
-				content: '';
-				position: absolute;
-				left: 2rem;
-				top: 0;
-				bottom: 0;
-				width: 3px;
-				background: linear-gradient(180deg, 
-					var(--primary) 0%, 
-					rgba(59, 130, 246, 0.5) 50%,
-					var(--secondary) 100%);
-				border-radius: 2px;
-				opacity: 0;
-				transform: scaleY(0);
-				transform-origin: top;
-			}
-
-			#work-experience.timeline-active::before {
-				opacity: 1;
-				transform: scaleY(1);
-				transition: transform 1.5s ease-out, opacity 0.5s ease;
-			}
-
-			#work-experience .modern-card {
-				position: relative;
-				margin-left: 4rem;
-				margin-bottom: 3rem;
-			}
-
-			#work-experience .modern-card::before {
-				content: '';
-				position: absolute;
-				left: -4.5rem;
-				top: 1.5rem;
-				width: 16px;
-				height: 16px;
-				border-radius: 50%;
-				background: var(--primary);
-				border: 3px solid var(--bg-dark);
-				box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3),
-							0 0 20px rgba(59, 130, 246, 0.5);
-				opacity: 0;
-				transform: scale(0);
-			}
-
-			#work-experience .modern-card.visible::before {
-				opacity: 1;
-				transform: scale(1);
-				transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.3s;
-			}
-
-			#work-experience .modern-card h3 {
-				font-size: 1.75rem;
-				font-weight: 700;
-				color: var(--text-primary);
-				margin-bottom: 0.75rem;
-				display: flex;
-				align-items: center;
-				gap: 0.75rem;
-			}
-
-			#work-experience .modern-card .company-name {
-				color: var(--primary);
-				font-weight: 600;
-				font-size: 1.1rem;
-				margin-bottom: 0.25rem;
-			}
-
-			#work-experience .modern-card .location {
-				color: var(--text-muted);
-				font-size: 0.95rem;
-			}
-
-			#work-experience .modern-card .date-badge {
-				display: inline-block;
-				padding: 0.4rem 1rem;
-				background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
-				border: 1px solid rgba(59, 130, 246, 0.3);
-				border-radius: 20px;
-				font-size: 0.9rem;
-				color: var(--primary);
-				font-weight: 500;
-				white-space: nowrap;
-			}
-
-			#work-experience .modern-card ul {
-				list-style: none;
-				padding: 0;
-				margin: 1.5rem 0 0 0;
-				display: grid;
-				gap: 0.75rem;
-			}
-
-			#work-experience .modern-card ul li {
-				position: relative;
-				padding-left: 1.75rem;
-				color: var(--text-secondary);
-				line-height: 1.8;
-				opacity: 0;
-				transform: translateX(-10px);
-			}
-
-			#work-experience .modern-card ul li.visible {
-				opacity: 1;
-				transform: translateX(0);
-				transition: opacity 0.4s ease, transform 0.4s ease;
-			}
-
-			#work-experience .modern-card ul li::before {
-				content: '▹';
-				position: absolute;
-				left: 0;
-				color: var(--primary);
-				font-weight: bold;
-				font-size: 1.2em;
-			}
-
-			@media (max-width: 768px) {
-				#work-experience::before {
-					left: 1rem;
-				}
-
-				#work-experience .modern-card {
-					margin-left: 2.5rem;
-				}
-
-				#work-experience .modern-card::before {
-					left: -3rem;
-					width: 12px;
-					height: 12px;
-				}
-			}
-
-			/* Technologies Section - Enhanced */
-			#four {
-				position: relative;
-				overflow: hidden;
-			}
-
-			#four::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: 
-					radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-					radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
-				pointer-events: none;
-				z-index: 0;
-			}
-
-			#technologies {
-				position: relative;
-				z-index: 1;
-			}
-
-			#technologies .modern-card {
-				background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(30, 41, 59, 0.4) 100%);
-				border: 1px solid rgba(59, 130, 246, 0.2);
-				backdrop-filter: blur(20px);
-				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-				position: relative;
-				overflow: hidden;
-			}
-
-			#technologies .modern-card::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: -100%;
-				width: 100%;
-				height: 100%;
-				background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-				transition: left 0.5s ease;
-			}
-
-			#technologies .modern-card:hover::before {
-				left: 100%;
-			}
-
-			#technologies .modern-card:hover {
-				border-color: rgba(59, 130, 246, 0.5);
-				transform: translateY(-6px) scale(1.02);
-				box-shadow: 
-					0 20px 40px rgba(0, 0, 0, 0.3),
-					0 0 0 1px rgba(59, 130, 246, 0.1),
-					0 0 60px rgba(59, 130, 246, 0.15);
-				background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
-			}
-
-			#technologies .tech-badge {
-				display: inline-block;
-				padding: 0.6rem 1.2rem;
-				background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
-				border: 1px solid rgba(59, 130, 246, 0.25);
-				border-radius: 10px;
-				font-size: 0.875rem;
-				color: var(--primary);
-				transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-				font-weight: 500;
-				position: relative;
-				overflow: hidden;
-				cursor: default;
-			}
-
-			#technologies .tech-badge::before {
-				content: '';
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				width: 0;
-				height: 0;
-				border-radius: 50%;
-				background: rgba(59, 130, 246, 0.2);
-				transform: translate(-50%, -50%);
-				transition: width 0.4s ease, height 0.4s ease;
-			}
-
-			#technologies .tech-badge:hover::before {
-				width: 200px;
-				height: 200px;
-			}
-
-			#technologies .tech-badge:hover {
-				background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
-				border-color: rgba(59, 130, 246, 0.5);
-				transform: translateY(-3px) scale(1.05);
-				box-shadow: 
-					0 8px 20px rgba(59, 130, 246, 0.3),
-					0 0 0 2px rgba(59, 130, 246, 0.1);
-				color: #60a5fa;
-			}
-
-			#technologies .tech-badge span {
-				position: relative;
-				z-index: 1;
-			}
-
-			#technologies .tech-category-header {
-				position: relative;
-				padding-bottom: 1rem;
-				margin-bottom: 1.5rem;
-				border-bottom: 2px solid rgba(59, 130, 246, 0.2);
-			}
-
-			#technologies .modern-card:hover .tech-category-header {
-				border-bottom-color: rgba(59, 130, 246, 0.4);
-			}
-
-			#technologies .tech-icon {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				width: 48px;
-				height: 48px;
-				border-radius: 12px;
-				background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
-				border: 1px solid rgba(59, 130, 246, 0.2);
-				transition: all 0.3s ease;
-			}
-
-			#technologies .modern-card:hover .tech-icon {
-				background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.15) 100%);
-				border-color: rgba(59, 130, 246, 0.4);
-				transform: rotate(5deg) scale(1.1);
-				box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-			}
-
-			#technologies .modern-card h3 {
-				color: var(--primary);
-				border-bottom-color: rgba(59, 130, 246, 0.3);
-			}
-
-			#technologies .modern-card ul li {
-				position: relative;
-				padding-left: 1.5rem;
-				transition: all 0.3s ease;
-			}
-
-			#technologies .modern-card ul li::before {
-				content: '▹';
-				position: absolute;
-				left: 0;
-				color: var(--primary);
-				opacity: 0.5;
-				transition: all 0.3s ease;
-			}
-
-			#technologies .modern-card ul li:hover {
-				background: rgba(59, 130, 246, 0.1);
-				color: var(--primary);
-				transform: translateX(5px);
-				padding-left: 1.75rem;
-			}
-
-			#technologies .modern-card ul li:hover::before {
-				opacity: 1;
-				transform: translateX(3px);
-			}
-
-			/* About Me Section */
-			#about-me {
-				display: flex !important;
-				flex-direction: column;
-				align-items: center;
-				gap: 3rem;
-				margin-top: 3rem;
-				position: relative;
-			}
-
-			#about-me .image {
-				max-width: 280px;
-				width: 100%;
-				display: block !important;
-				visibility: visible !important;
-				will-change: transform;
-				background: transparent !important;
-			}
-
-			#about-me .image::before {
-				display: none;
-			}
-
-			#about-me .image img {
-				width: 100% !important;
-				height: auto !important;
-				object-fit: cover;
-				border-radius: 20px;
-				border: 3px solid var(--border);
-				box-shadow: var(--shadow-lg);
-				transition: all 0.5s ease;
-				display: block !important;
-				visibility: visible !important;
-				opacity: 1 !important;
-				will-change: transform;
-			}
-
-			#about-me:hover .image img {
-				transform: scale(1.02) translateY(-5px);
-				border-color: rgba(59, 130, 246, 0.6);
-				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
-							0 0 0 8px rgba(59, 130, 246, 0.2),
-							0 0 80px rgba(59, 130, 246, 0.2);
-			}
-
-			#about-me .content {
-				position: relative;
-				max-width: 700px;
-				width: 100%;
-			}
-
-			#about-me .content {
-				flex: 1;
-			}
-
-			#about-me .content .inner {
-				padding-left: 2em;
-			}
-
-			#about-me h2 {
-				text-align: left;
-				margin-bottom: 1.5em;
-			}
-
-			#about-me h3 {
-				color: #b8d4f0;
-				margin-top: 1.5em;
-				margin-bottom: 0.5em;
-				font-size: 1.3em;
-				font-weight: 600;
-			}
-
-			#about-me p {
-				color: rgba(220, 230, 240, 0.9);
-				line-height: 1.8;
-				margin-bottom: 1em;
-			}
-
-			@media (max-width: 768px) {
-				#about-me {
-					gap: 2rem;
-				}
-
-				#about-me .image {
-					max-width: 240px;
-				}
-
-				#about-me .content {
-					max-width: 100%;
-				}
-			}
-
-			/* Social Icons */
-			.links a,
-			.icons a {
-				transition: all 0.3s ease;
-				display: inline-block;
-			}
-
-			.links a:hover,
-			.icons a:hover {
-				transform: translateY(-5px) scale(1.1);
-				color: #a8d8ff;
-			}
-
-			/* Footer social icons */
-			#five .icon.brands {
-				transition: all 0.3s ease;
-			}
-
-			#five .icon.brands:hover {
-				transform: translateY(-5px) scale(1.2);
-				color: var(--primary) !important;
-			}
-
-			#five .icon.brands:focus {
-				outline: 2px solid var(--primary);
-				outline-offset: 2px;
-				border-radius: 4px;
-			}
-
-			/* Modern Buttons */
-			.button {
-				position: relative;
-				overflow: hidden;
-				transition: all 0.3s ease;
-			}
-
-			.button:hover {
-				transform: translateY(-3px);
-				box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-			}
-
-			.button[style*="background: var(--primary)"]:hover {
-				background: var(--primary-dark) !important;
-			}
-
-			.button[style*="border: 2px solid"]:hover {
-				background: var(--primary) !important;
-				color: white !important;
-			}
-
-			/* Sidebar Enhancements */
-			#sidebar {
-				backdrop-filter: blur(10px);
-				background: rgba(26, 26, 46, 0.9);
-			}
-
-			#sidebar + #wrapper {
-				margin-left: 0;
-			}
-
-			#sidebar nav ul li a {
-				transition: all 0.3s ease;
-				position: relative;
-			}
-
-			#sidebar nav ul li a::before {
-				content: '';
-				position: absolute;
-				left: -10px;
-				top: 50%;
-				transform: translateY(-50%);
-				width: 0;
-				height: 2px;
-				background: linear-gradient(90deg, #533483 0%, #a8d8ff 100%);
-				transition: width 0.3s ease;
-			}
-
-			#sidebar nav ul li a:hover::before {
-				width: 8px;
-			}
-
-			#sidebar nav ul li a:hover {
-				padding-left: 1.2em;
-				color: #a8d8ff;
-			}
-
-			/* Education Section */
-			.education-div {
-				background: rgba(255, 255, 255, 0.05);
-				padding: 1.5em;
-				border-radius: 12px;
-				margin-bottom: 1.5em;
-				border-left: 4px solid #533483;
-				transition: all 0.3s ease;
-			}
-
-			.education-div:hover {
-				background: rgba(255, 255, 255, 0.08);
-				transform: translateX(5px);
-				border-left-color: #a8d8ff;
-			}
-
-			/* Smooth Scroll */
-			html {
-				scroll-behavior: smooth;
-			}
-
-			@media (prefers-reduced-motion: reduce) {
-				html {
-					scroll-behavior: auto;
-				}
-			}
-
-			/* Smooth scroll with momentum */
-			* {
-				-webkit-overflow-scrolling: touch;
-			}
-
-			/* Section Transitions */
-			section {
-				animation: fadeIn 0.8s ease-out;
-			}
-
-			@keyframes fadeIn {
-				from {
-					opacity: 0;
-				}
-				to {
-					opacity: 1;
-				}
-			}
-
-			/* Contact Section */
-			#five {
-				background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-			}
-
-			/* Footer */
-			#footer {
-				background: rgba(26, 26, 46, 0.95);
-				backdrop-filter: blur(10px);
-			}
-
-			/* AI Section Styling */
-			#ai .features {
-				margin-top: 2em;
-				gap: 3em;
-			}
-
-			#ai .project-card {
-				background: rgba(255, 255, 255, 0.03);
-				border: 1px solid rgba(168, 216, 255, 0.1);
-				margin-bottom: 2em;
-			}
-
-			#ai .project-card:first-child {
-				margin-top: 2em;
-			}
-
-			#ai .project-card:hover {
-				background: rgba(255, 255, 255, 0.06);
-				border-color: rgba(168, 216, 255, 0.3);
-			}
-
-			/* Projects Section - First Tile Margin */
-			#two .features .project-card:first-child {
-				margin-top: 2em;
-			}
-
-
-			/* Improved text readability */
-			h2, h3 {
-				line-height: 1.3;
-			}
-
-			/* Ensure all headings are readable */
-			h2 {
-				color: #ffffff !important;
-				text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 216, 255, 0.3);
-				font-weight: 600;
-			}
-
-			h2[style*="color: #a8d8ff"] {
-				color: #ffffff !important;
-			}
-
-			/* Override gradient text for better readability */
-			h2[style*="background-clip"] {
-				-webkit-text-fill-color: #ffffff !important;
-				color: #ffffff !important;
-				background: none !important;
-			}
-
-			section p {
-				max-width: 70ch;
-			}
-
-			/* Better contrast for links */
-			a {
-				color: #a8d8ff;
-				text-decoration: underline;
-				text-decoration-color: rgba(168, 216, 255, 0.5);
-				transition: all 0.3s ease;
-			}
-
-			a:hover,
-			a:focus {
-				color: #ffffff;
-				text-decoration-color: #a8d8ff;
-			}
-
-			/* SVG Icon Animations */
-			.svg-icon {
-				width: 3rem;
-				height: 3rem;
-				color: var(--primary);
-				display: inline-block;
-				margin-bottom: 1rem;
-				transition: all 0.3s ease;
-				will-change: transform;
-			}
-
-			.svg-icon:hover {
-				transform: scale(1.1) rotate(5deg);
-				color: var(--secondary);
-			}
-
-			#ai .svg-icon {
-				color: var(--secondary);
-			}
-
-			#ai .svg-icon:hover {
-				color: var(--primary);
-			}
-
-			/* Contact section icons - larger and more prominent */
-			#five .svg-icon {
-				width: 4rem;
-				height: 4rem;
-				margin-bottom: 1.5rem;
-				color: var(--primary);
-				transition: all 0.3s ease;
-			}
-
-			#five .svg-icon svg {
-				stroke: currentColor;
-			}
-
-			#five .svg-icon:hover {
-				transform: scale(1.15) translateY(-5px);
-				color: var(--secondary);
-				filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3));
-			}
-
-			/* Reduce motion for users who prefer it */
-			@media (prefers-reduced-motion: reduce) {
-				*,
-				*::before,
-				*::after {
-					animation-duration: 0.01ms !important;
-					animation-iteration-count: 1 !important;
-					transition-duration: 0.01ms !important;
-				}
-				
-				.svg-icon {
-					animation: none !important;
-				}
-			}
-
-			/* Modern Header Navigation */
-			#modern-header nav a {
-				position: relative;
-			}
-
-			#modern-header nav a:focus {
-				outline: 2px solid var(--primary);
-				outline-offset: 2px;
-				border-radius: 4px;
-			}
-
-			#modern-header nav a:hover {
-				color: var(--primary) !important;
-			}
-
-			#modern-header nav a[style*="background"]:hover {
-				background: var(--primary-dark) !important;
-				transform: translateY(-2px);
-			}
-
-			#modern-header nav a[style*="background"]:focus {
-				outline: 2px solid white;
-				outline-offset: 2px;
-			}
-
-			/* Modern Section Styling */
-			section {
-				padding: 5rem 2rem;
-				max-width: 1400px;
-				margin: 0 auto;
-			}
-
-			section h2 {
-				font-size: 3rem;
-				font-weight: 700;
-				margin-bottom: 3rem;
-				text-align: center;
-				text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-				letter-spacing: -0.02em;
-			}
-
-			/* Modern Card Design */
-			.modern-card {
-				background: var(--bg-card);
-				border: 1px solid var(--border);
-				border-radius: 16px;
-				padding: 2rem;
-				backdrop-filter: blur(10px);
-				transition: all 0.3s ease;
-				position: relative;
-			}
-
-			.modern-card::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-				border-radius: 16px;
-				opacity: 0;
-				transition: opacity 0.3s ease;
-				pointer-events: none;
-				z-index: 0;
-			}
-
-			.modern-card:hover::before {
-				opacity: 1;
-			}
-
-			.modern-card:hover {
-				transform: translateY(-4px);
-				box-shadow: 0 15px 50px rgba(59, 130, 246, 0.2), var(--shadow-lg);
-				border-color: rgba(59, 130, 246, 0.4);
-			}
-
-			.modern-card > * {
-				position: relative;
-				z-index: 1;
-			}
-
-			/* Align buttons at bottom of project cards */
-			.modern-card.project-card {
-				display: flex;
-				flex-direction: column;
-				height: 100%;
-			}
-
-			.modern-card.project-card > a.button {
-				margin-top: auto;
-				align-self: flex-start;
-			}
-
-
-			/* Contact section icon hover */
-			#five .icon:hover {
-				color: var(--primary) !important;
-				transform: scale(1.2) translateY(-3px);
-			}
-
-			/* Previous Experience Collapsible */
-			#previous-exp-toggle {
-				background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.8) 100%) !important;
-				backdrop-filter: blur(10px);
-				border: 1px solid rgba(59, 130, 246, 0.3) !important;
-				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-			}
-
-			#previous-exp-toggle:hover {
-				background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%) !important;
-				border-color: var(--primary) !important;
-				box-shadow: 0 6px 30px rgba(59, 130, 246, 0.2), 0 4px 20px rgba(0, 0, 0, 0.4);
-				transform: translateY(-2px);
-			}
-
-			#previous-exp-toggle:active {
-				transform: translateY(0);
-			}
-
-			#previous-exp-toggle:focus {
-				outline: 2px solid var(--primary);
-				outline-offset: 2px;
-			}
-
-			#previous-exp-toggle h2 {
-				text-transform: none !important;
-				letter-spacing: 0.02em;
-			}
-
-			#previous-exp-icon {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 32px;
-				height: 32px;
-				border-radius: 50%;
-				background: rgba(59, 130, 246, 0.15);
-				transition: all 0.3s ease;
-			}
-
-			#previous-exp-toggle:hover #previous-exp-icon {
-				background: rgba(59, 130, 246, 0.25);
-				transform: scale(1.1);
-			}
-
-			#previous-exp-icon.expanded {
-				transform: rotate(180deg);
-			}
-
-			#previous-exp-content {
-				animation: slideDown 0.3s ease-out;
-			}
-
-			@keyframes slideDown {
-				from {
-					opacity: 0;
-					transform: translateY(-10px);
-				}
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-
-			#previous-exp-icon.expanded {
-				transform: rotate(180deg);
-			}
-
-			/* Responsive Enhancements */
-			@media (max-width: 968px) {
-				#modern-header nav ul {
-					gap: 1rem;
-					font-size: 0.9rem;
-				}
-
-				#modern-header nav ul li:last-child a {
-					padding: 0.4rem 1rem;
-				}
-			}
-
-			@media (max-width: 768px) {
-				#modern-header {
-					padding: 1rem;
-				}
-
-				#modern-header nav {
-					flex-direction: column;
-					gap: 1rem;
-				}
-
-				#modern-header nav ul {
-					flex-wrap: wrap;
-					justify-content: center;
-					gap: 1rem;
-				}
-
-				#modern-header nav a[style*="background"] {
-					padding: 0.4rem 1rem !important;
-					font-size: 0.9rem;
-				}
-
-				#intro h1 {
-					font-size: 2.5em;
-				}
-
-				.project-card:hover {
-					transform: translateY(-4px);
-				}
-
-				#technologies [style*="grid-template-columns"] {
-					grid-template-columns: 1fr !important;
-				}
-
-				section {
-					padding: 3rem 1rem;
-				}
-
-				section h2 {
-					font-size: 2rem;
-				}
-			}
-		</style>
-		<link rel="apple-touch-icon" sizes="57x57" href="images/Favicon/apple-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="images/Favicon/apple-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="images/Favicon/apple-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="images/Favicon/apple-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="images/Favicon/apple-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="images/Favicon/apple-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="images/Favicon/apple-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="images/Favicon/apple-icon-152x152.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="images/Favicon/apple-icon-180x180.png">
-		<link rel="icon" type="image/png" sizes="192x192"  href="images/Favicon/android-icon-192x192.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="images/Favicon/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="96x96" href="images/Favicon/favicon-96x96.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="images/Favicon/favicon-16x16.png">
-		<link rel="manifest" href="/manifest.json">
-		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-		<meta name="theme-color" content="#ffffff">
-	</head>
-	<body class="is-preload">
-		<a href="#main-content" class="skip-link">Skip to main content</a>
-
-		<!-- Scroll Progress Indicator -->
-		<div id="scroll-progress" style="position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--primary), var(--secondary)); width: 0%; z-index: 1001; transition: width 0.1s ease-out;"></div>
-
-		<!-- Modern Sticky Header -->
-		<header id="modern-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 50%, rgba(15, 23, 42, 0.95) 100%); background-size: 300% 300%; animation: headerGradientShift 20s ease infinite; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; transition: all 0.3s ease;">
-			<nav style="display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto;">
-				<a href="#intro" aria-label="Return to top of page" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 0.25rem; transition: opacity 0.3s;">
-					<img src="images/transparent email.png" alt="Macallan Savett logo" style="height: 40px; width: auto; display: block;" loading="eager" />
+	</script>
+</head>
+<body>
+	<a href="#main-content" class="skip-link">Skip to main content</a>
+
+	<!-- Header Navigation -->
+	<header class="header" role="banner">
+		<nav class="nav" role="navigation" aria-label="Main navigation">
+			<div class="nav-container">
+				<a href="#intro" class="nav-logo" aria-label="Return to top">
+					<img src="images/transparent email.png" alt="Macallan Savett" class="logo-image">
 					<span>Macallan Savett</span>
 				</a>
-				<ul role="list" style="display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; align-items: center;">
-					<li><a href="#intro" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">Home</a></li>
-					<li><a href="#one" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">About</a></li>
-					<li><a href="#six" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">Experience</a></li>
-					<li><a href="#ai" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">AI/ML</a></li>
-					<li><a href="#two" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500;">Projects</a></li>
-					<li><a href="#five" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500; padding: 0.5rem 1.5rem; background: var(--primary); border-radius: 8px; color: white !important;">Contact</a></li>
+				<ul class="nav-list" role="list">
+					<li><a href="#intro" class="nav-link" data-section="intro">Home</a></li>
+					<li><a href="#about" class="nav-link" data-section="about">About</a></li>
+					<li><a href="#work" class="nav-link" data-section="work">Experience</a></li>
+					<li><a href="#ai" class="nav-link" data-section="ai">AI/ML</a></li>
+					<li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+					<li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
 				</ul>
-			</nav>
-		</header>
-
-		<!-- Sidebar (Hidden, keeping for compatibility) -->
-			<section id="sidebar" style="display: none;">
-				<div class="inner">
-					<a class="" id="personal-logo-container" href="#intro" aria-label="Return to top of page">
-						<img src="images/transparent email.png" class="logo-image" alt="Macallan Savett Logo" />
-					</a>
-					<nav>
-						<ul>
-							<li>
-								<a href="#intro">Welcome</a>
-							</li>
-							<li>
-								<a href="#one" data-event-category="About Me"
-								  data-event-action="click">About Me</a>
-							</li>
-							<li>
-								<a href="#six" data-event-category="Work Experience"
-								  data-event-action="click">Work Experience</a>
-							</li>
-							<li>
-								<a href="#ai" data-event-category="AI"
-								data-event-action="click">AI & Machine Learning</a>
-							</li>
-							<li>
-								<a href="#two" data-event-category="Projects"
-								data-event-action="click">Projects</a>
-							</li>
-							<li>
-								<a href="#three" data-event-category="Education"
-								data-event-action="click">Education</a>
-							</li>
-							<li>
-								<a href="#four" data-event-category="Technologies"
-								data-event-action="click">Technologies</a>
-							</li>
-							<li>
-								<a href="#five" data-event-category="Get In Touch"
-								data-event-action="click">Get in touch/Resume</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</section>
-
-		<!-- Wrapper -->
-			<div id="wrapper" style="padding-top: 80px;">
-				<main id="main-content">
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem;">
-						<div class="inner" style="text-align: center;">
-							<h1 style="text-align: center;">Macallan Savett</h1>
-							<p style="font-size: 1.5em; font-weight: 300; margin-bottom: 1em; color: rgba(255, 255, 255, 0.9); text-align: center;">
-								<span style="color: #a8d8ff;">Software Engineer</span> | Building scalable applications with <strong style="color: #a8d8ff;">Python</strong>, <strong style="color: #a8d8ff;">Django</strong>, <strong style="color: #a8d8ff;">React</strong>, and <strong style="color: #a8d8ff;">AWS</strong>.
-							</p>
-
-							<div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0;">
-								<a href="#one" class="button scrolly" style="background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; display: inline-block; border: none;">About Me</a>
-								<a href="#six" class="button scrolly" style="background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; display: inline-block; border: none;">Work Experience</a>
-								<a href="#two" class="button scrolly" style="background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; display: inline-block; border: none;">Projects</a>
-								<a href="#five" class="button scrolly" style="background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; display: inline-block; border: none;">Get in Touch</a>
-							</div>
-							<p>
-							<div class="links" role="list">
-								<a href="https://github.com/micjoey" class="icon brands fa-github" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's GitHub profile (opens in new tab)" data-event-category="Work-Github"
-									data-event-action="click" ><span class="label">Work GitHub</span></a>
-								<a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's LinkedIn profile (opens in new tab)" data-event-category="LinkedIn"
-  data-event-action="click"><span class="label">LinkedIn</span></a>
-							</div>
-							</br>
-							<div class="inner" id="intro-info-resume">
-								<div class="resume-email">
-									<div>
-										<h3>Resume</h3>
-										<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View Macallan Savett's resume PDF (opens in new tab)" data-event-category="Resume" data-event-action="click">
-											<p class='defined-font'>Link to PDF Resume</p>
-										</a>
-									</div>
-									<div>
-										<h3 class="email-me-at">Email me at:</h3>
-										<p id="intro-email">
-											<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" data-event-category="Email" data-event-action="click" class='defined-font'>Jsavett@gmail.com</a>
-										</p>
-									</div>
-									<div>
-										<h3>Get in touch</h3>
-										<p>Please feel free to add me on <a href="https://bit.ly/3izBUZc" target="_blank" rel="noopener noreferrer" aria-label="Connect with Macallan Savett on LinkedIn (opens in new tab)" data-event-category="LinkedIn" data-event-action="click"><span class="label-2 defined-font">LinkedIn.</span>
-											</a>
-										</p>
-									</div>
-								</div>
-							</div>
-							</p>
-						</div>
-					</section>
-
-				<!-- One -->
-				<section id="one" class="animated-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #1a1f3a 80%, #1e293b 100%); background-size: 300% 300%;">
-					<div style="max-width: 900px; margin: 0 auto; padding: 0 2rem;">
-						<h2>About Me</h2>
-						<div id="about-me" style="display: flex; flex-direction: column; align-items: center; gap: 3rem; margin-top: 3rem;">
-							<div class="image" style="max-width: 280px; width: 100%;">
-								<img src="images/portrait.jpeg" alt="Portrait of Macallan Savett, Software Engineer" style="width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow-lg); border: 3px solid var(--border);"/>
-							</div>
-							<div class="content" style="max-width: 700px; width: 100%;">
-								<div class="inner">
-									<p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-										Software Engineer at Skilljar. I build scalable applications with Python, Django, React, and AWS. Focus on full-stack development, system architecture, and AI/ML integration.
-									</p>
-									<h3 style="color: var(--primary); margin-bottom: 1rem;">Background</h3>
-									<p style="line-height: 1.8; margin-bottom: 2rem;">
-										Transitioned to software engineering from real estate, where I managed databases and complex negotiations. That experience taught me to balance analytical thinking with practical problem-solving. I apply the same approach to engineering: understand requirements, design robust solutions, deliver reliable systems.
-									</p>
-									<h3 style="color: var(--primary); margin-bottom: 1rem;">Engineering Focus</h3>
-									<p style="line-height: 1.8; margin-bottom: 2rem;">
-										I build maintainable, scalable systems. This includes frontend architecture, RESTful API design, CI/CD pipelines, and AI integration. I'm interested in how AI can enhance developer productivity through automated analysis and feedback.
-									</p>
-									<h3 style="color: var(--primary); margin-bottom: 1rem;">Outside of Work</h3>
-									<p style="line-height: 1.8; margin-bottom: 2rem;">
-										Outside of work, I stay active through a mix of endurance sports, skill-based hobbies, and seasonal activities. I train for half marathons during the summer, which reinforces consistency, long-term planning, and mental resilience. I also referee and play soccer, which keeps me sharp in fast-paced, high-pressure decision making.
-									</p>
-									<p style="line-height: 1.8; margin-bottom: 2rem;">
-										I am deeply involved in West Coast Swing dancing, a practice that rewards precision, adaptability, and continuous learning. In the winter, I ski and snowboard. Year-round, I golf. These activities give me space to reset, think clearly, and return to technical problems with better perspective and focus.
-									</p>
-									<h3 style="color: var(--primary); margin-bottom: 1rem;">Connect</h3>
-									<p style="line-height: 1.8;">
-										Open to discussing engineering challenges, AI/ML applications, or collaborations. Reach out at <a href="mailto:jsavett@gmail.com" style="color: var(--primary);">jsavett@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/macallan-savett/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Macallan Savett on LinkedIn (opens in new tab)" style="color: var(--primary);">LinkedIn</a>.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>				
-
-				<!-- Six -->
-				<section id="six" class="animated-section" style="background: linear-gradient(135deg, #1e293b 0%, #334155 30%, #1e293b 60%, #334155 100%); background-size: 300% 300%;">
-					<div style="max-width: 1000px; margin: 0 auto;">
-						<h2>Work Experience</h2>
-						<div id="work-experience" style="display: flex; flex-direction: column; gap: 3rem; margin-top: 3rem; position: relative;">
-							<!-- Software Engineer II - Skilljar -->
-							<div class="modern-card work-experience-card">
-								<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
-									<div style="flex: 1;">
-										<h3 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">Software Engineer II</h3>
-										<p class="company-name" style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin: 0 0 0.25rem 0;">Skilljar powered by Gainsight</p>
-										<p class="location" style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Seattle, WA</p>
-									</div>
-									<span class="date-badge" style="display: inline-block; padding: 0.4rem 1rem; background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.9rem; color: var(--primary); font-weight: 500; white-space: nowrap;">August 2022 – Present</span>
-								</div>
-								<ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem;">
-							  <li>Led development of scalable frontend architecture, streamlining development and deployment, resulting in 40% faster feature releases.</li>
-							  <li>Spearheaded QA improvements by implementing Cypress, reducing production issues by 30% and increasing code reliability.</li>
-							  <li>Optimized AWS architecture (S3, CloudFront, Lambda), decreasing latency by 30%.</li>
-							  <li>Architected CI/CD pipelines with Docker, AWS, and Node.js, reducing deployment times by 40% and supporting multi-region deployments.</li>
-							  <li>Designed custom authentication workflows using SAML and OAuth, reducing login times by 15% and improving security.</li>
-							  <li>Mentored 5 engineers, focusing on system design best practices, resulting in one promotion.</li>
-							  <li>Developed a churn analysis tool using AWS Lambda, reducing data processing times by 20%.</li>
-							  <li>Implemented logging and monitoring solutions that improved response times by 20%.</li>
-							  <li>Redesigned accessibility features to meet WCAG 2.1 standards, boosting customer satisfaction by 25%.</li>
-								</ul>
-							</div>
-							
-							<!-- Software Engineer I - Skilljar -->
-							<div class="modern-card work-experience-card">
-								<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
-									<div style="flex: 1;">
-										<h3 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">Software Engineer I</h3>
-										<p class="company-name" style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin: 0 0 0.25rem 0;">Skilljar powered by Gainsight</p>
-										<p class="location" style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Seattle, WA</p>
-									</div>
-									<span class="date-badge" style="display: inline-block; padding: 0.4rem 1rem; background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.9rem; color: var(--primary); font-weight: 500; white-space: nowrap;">January 2021 – August 2022</span>
-								</div>
-								<ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem;">
-							  <li>Built and maintained scalable frontends in JavaScript, Vue.js, and HTML, improving page load times by 15%.</li>
-							  <li>Integrated APIs and enhanced client authentication systems.</li>
-							  <li>Led AWS migrations, reducing latency by 30% and operational costs by 20%.</li>
-							  <li>Implemented continuous integration with PyTest and Django, improving test coverage by 40%.</li>
-							  <li>Developed PII compliance tools, automating data processing and reducing manual compliance efforts by 50%.</li>
-							  <li>Led automation tools for employee onboarding/offboarding, cutting manual work by 50%.</li>
-							</ul>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<!-- Previous Experience (Collapsible) -->
-				<section id="previous-experience" class="animated-section" style="background: linear-gradient(135deg, #1e293b 0%, #334155 30%, #1e293b 60%, #334155 100%); background-size: 300% 300%; padding-top: 0;">
-					<div style="max-width: 1000px; margin: 0 auto; padding: 4rem 2rem;">
-						<button id="previous-exp-toggle" type="button" aria-expanded="false" aria-controls="previous-exp-content" style="width: 100%; border-radius: 16px; padding: 1.75rem 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; margin-bottom: 0;">
-							<h2 style="margin: 0; color: var(--text-primary); font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em;">Previous Experience</h2>
-							<span id="previous-exp-icon" aria-hidden="true" style="font-size: 1.25rem; color: var(--primary); font-weight: bold;">▼</span>
-						</button>
-						<div id="previous-exp-content" role="region" aria-labelledby="previous-exp-toggle" style="display: none; padding-top: 2rem;">
-							<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
-								
-								<!-- Colliers International -->
-								<div class="modern-card">
-									<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Research Analyst</h3>
-									<p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Colliers International</p>
-									<p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">San Francisco, CA | Jan 2018 - Aug 2019</p>
-									<ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem; list-style-type: disc;">
-										<li>Customized and migrated a Salesforce-based database containing over 70,000 informational points for a team earning over $100 Million in 2018 through RPA and backend Salesforce APIs</li>
-										<li>Generated $100,000 within the first three months by analyzing 94 properties owned by one of the largest Multifamily clients in San Francisco</li>
-										<li>Created and managed multiple offering memorandums and buyer Opinion of Values for 12 brokers, leading to the team earning over $100 Million</li>
-									</ul>
-								</div>
-
-								<!-- Aspen Skiing Company -->
-								<div class="modern-card">
-									<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Product Sales and Services</h3>
-									<p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Aspen Skiing Company</p>
-									<p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Aspen, CO | Oct 2016 - Dec 2017</p>
-									<ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem; list-style-type: disc;">
-										<li>Drove cross-selling of products per client specifications to better streamline operations</li>
-										<li>Resolved conflicts and negotiated mutually beneficial agreements between parties</li>
-										<li>Communicated with team members and management to obtain current information on venue attractions and related logistics</li>
-									</ul>
-								</div>
-
-								<!-- Ritz Carlton -->
-								<div class="modern-card">
-									<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Bartender</h3>
-									<p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Ritz Carlton</p>
-									<p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Santa Barbara, CA | May 2016 - Sep 2016</p>
-									<ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem; list-style-type: disc;">
-										<li>Worked in a high-paced environment while serving over 100+ people</li>
-										<li>Kept alcoholic beverages well-stocked and organized to meet expected demands</li>
-										<li>Organized bar inventory and storage procedures to keep stock within optimal levels and meet expected customer demands</li>
-									</ul>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- Previous Experience -->
-
-				<!-- AI Section -->
-				<section id="ai" class="animated-section" style="background: linear-gradient(135deg, #1e293b 0%, #334155 25%, #1e293b 50%, #334155 75%, #1e293b 100%); background-size: 300% 300%;">
-					<div style="max-width: 1400px; margin: 0 auto;">
-						<h2>AI & Machine Learning</h2>
-						<p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 4rem; text-align: center; line-height: 1.8;">
-							Technical capabilities in AI/ML engineering and implementation
-						</p>
-						
-						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
-							<div class="modern-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44L2.5 20.5a2.5 2.5 0 0 1 0-5l4.04-1.06A2.5 2.5 0 0 1 9.5 2z"></path>
-										<path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44L21.5 20.5a2.5 2.5 0 0 0 0-5l-4.04-1.06A2.5 2.5 0 0 0 14.5 2z"></path>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">LLM Integration & API Development</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Production experience integrating OpenAI GPT and Anthropic Claude APIs. Built RESTful services with structured output parsing, error handling, and rate limiting. Implemented prompt engineering patterns for consistent, reliable responses.</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">OpenAI API</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Anthropic Claude</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Structured Outputs</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">⏱️ Rate Limiting</span>
-								</div>
-							</div>
-
-							<div class="modern-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-										<line x1="8" y1="21" x2="16" y2="21"></line>
-										<line x1="12" y1="17" x2="12" y2="21"></line>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Multi-Agent Code Review Systems</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Architected and implemented a multi-agent system for automated code review. Five specialized agents analyze code for correctness, architecture, readability, performance, and educational value. Built with FastAPI, async processing, and structured JSON output parsing.</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Multi-Agent Architecture</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">FastAPI</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Async Processing</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">JSON Schema</span>
-								</div>
-							</div>
-
-							<div class="modern-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
-										<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-										<line x1="12" y1="19" x2="12" y2="23"></line>
-										<line x1="8" y1="23" x2="16" y2="23"></line>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Speech-to-Text & NLP Pipelines</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Developed end-to-end voice processing pipeline: audio transcription, text extraction, NLP analysis, and summarization. Integrated with Django backend, implemented batch processing for audio files, and built data models for storing transcriptions and insights.</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Speech-to-Text</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">NLP Processing</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Text Summarization</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Batch Processing</span>
-								</div>
-							</div>
-
-							<div class="modern-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-										<polyline points="14 2 14 8 20 8"></polyline>
-										<line x1="16" y1="13" x2="8" y2="13"></line>
-										<line x1="16" y1="17" x2="8" y2="17"></line>
-										<polyline points="10 9 9 9 8 9"></polyline>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Content Generation & Document Processing</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Built automated content generation systems using LLMs with context injection and template management. Implemented document parsing, text extraction, and structured data generation. Designed systems for generating personalized content at scale.</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Template Systems</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Document Parsing</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Context Injection</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Batch Generation</span>
-								</div>
-							</div>
-
-							<div class="modern-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<line x1="18" y1="20" x2="18" y2="10"></line>
-										<line x1="12" y1="20" x2="12" y2="4"></line>
-										<line x1="6" y1="20" x2="6" y2="14"></line>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Data Processing & Analysis</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Built data analysis tools using AWS Lambda for processing and aggregating customer data. Developed churn analysis tool that processes large datasets efficiently, reducing processing times by 20%. Implemented data transformation pipelines and automated reporting workflows.</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">AWS Lambda</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Data Processing</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Data Aggregation</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Automated Reporting</span>
-								</div>
-							</div>
-
-							<div class="modern-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-										<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">API Security & Configuration</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Implemented secure API key management for AI services using AWS Secrets Manager. Built configuration systems for managing LLM API credentials and settings. Designed error handling and retry logic for API integrations to ensure reliability.</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">AWS Secrets Manager</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">API Configuration</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Error Handling</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">Retry Logic</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--secondary);">🚫 Unverify</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- AI Section -->
-				  
-				
-				<!-- Two -->
-				<section id="two" class="animated-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 35%, #1a1f3a 70%, #1e293b 100%); background-size: 300% 300%;">
-					<div style="max-width: 1400px; margin: 0 auto;">
-						<h2>Projects</h2>
-						<p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 4rem; text-align: center; line-height: 1.8;">
-							A collection of full-stack applications, tools, and platforms I've built. Each project demonstrates different aspects of software engineering, from real-time systems to AI-powered solutions.
-						</p>
-						
-						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
-							<!-- Personal Modular App -->
-							<div class="modern-card project-card" style="border: 2px solid var(--primary); box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;">
-										<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-										<line x1="9" y1="3" x2="9" y2="21"></line>
-										<line x1="15" y1="3" x2="15" y2="21"></line>
-										<line x1="3" y1="9" x2="21" y2="9"></line>
-										<line x1="3" y1="15" x2="21" y2="15"></line>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Personal Modular App Hub</h3>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
-									<strong style="color: var(--primary);">My flagship project</strong> — A comprehensive, secure personal web application hub built with Next.js 15 and TypeScript. This modular platform serves as a centralized dashboard connecting 15+ specialized mini-apps, each designed as self-contained modules with their own components, database schemas, and API routes.
-								</p>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
-									The architecture emphasizes <strong>reusability and scalability</strong>, with a shared common library of components, hooks, and utilities. Features include secure authentication (email/password + optional MFA with TOTP and WebAuthn), AI-powered workflows with multi-provider support (OpenAI, Anthropic), progressive web app capabilities, and a sophisticated AI development team system for iterative code generation and review.
-								</p>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
-									<strong>Key Modules Include:</strong> Recipe & Meal Planning (AI chat-driven), Calendar Management, Executive Assistant (AI-powered profile management), Gift Tracking, Habit & Goal Tracker, Knowledge Management, Daily Voice Log, Soccer Availability, Social Sync, and more. Each module follows strict mobile-first design principles and integrates seamlessly with the central authentication and AI infrastructure.
-								</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">Next.js 15</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">TypeScript</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">MongoDB</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">Modular Architecture</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">PWA</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">AI Integration</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">MFA Auth</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">15+ Modules</span>
-								</div>
-								<p style="color: var(--text-muted); font-size: 0.9rem; font-style: italic; margin-bottom: 1rem;">
-									Private repository — This is my personal productivity platform and primary development focus.
-								</p>
-							</div>
-
-							<!-- DailyVoice-Log -->
-							<div class="modern-card project-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
-										<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-										<line x1="12" y1="19" x2="12" y2="23"></line>
-										<line x1="8" y1="23" x2="16" y2="23"></line>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">DailyVoice-Log</h3>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
-									<strong style="color: var(--primary);">AI-powered productivity platform</strong> that automates daily email prompts for audio log recordings. The system processes voice recordings through a complete AI pipeline: speech-to-text transcription, NLP analysis for content extraction, and intelligent summarization that compiles daily activities into actionable insights.
-								</p>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
-									Built with a Django REST API backend that handles email automation, batch audio processing, and data model management for storing transcriptions and insights. The React frontend provides an intuitive interface for reviewing periodic summaries and tracking productivity patterns over time. The architecture supports scalable processing of multiple users' daily logs with efficient database queries and background task processing.
-								</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Django</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">AI/ML</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Email Automation</span>
-								</div>
-								<a href="https://github.com/micjoey/DailyVoiceLog" class="button" target="_blank" rel="noopener noreferrer" aria-label="View DailyVoice-Log project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
-							</div>
-
-							<!-- TavernMaster -->
-							<div class="modern-card project-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-										<circle cx="8" cy="8" r="1.5"></circle>
-										<circle cx="16" cy="8" r="1.5"></circle>
-										<circle cx="8" cy="16" r="1.5"></circle>
-										<circle cx="16" cy="16" r="1.5"></circle>
-										<circle cx="12" cy="12" r="1.5"></circle>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">TavernMaster</h3>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
-									<strong style="color: var(--primary);">Full-stack campaign management platform</strong> for tabletop RPGs featuring real-time collaboration tools. The platform provides comprehensive campaign and character management with CRUD operations, role-based dashboards for Dungeon Masters and players, and an invitation system for campaign coordination.
-								</p>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
-									Built with React frontend and Django REST API backend, featuring WebSocket integration for real-time chat during campaign sessions. The architecture includes JWT authentication, modular SASS-styled UI components, and a WebSocket server with message throttling for optimal performance. The system supports both DM and player perspectives with role-based access control, ensuring appropriate permissions for campaign editing, character management, and chat moderation.
-								</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Django REST</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">WebSocket</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">JWT Auth</span>
-								</div>
-								<a href="https://github.com/micjoey/TavernMaster" class="button" target="_blank" rel="noopener noreferrer" aria-label="View TavernMaster project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
-							</div>
-
-							<!-- AI Review -->
-							<div class="modern-card project-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<rect x="3" y="11" width="18" height="10" rx="2"></rect>
-										<circle cx="12" cy="5" r="2"></circle>
-										<path d="M12 7v4"></path>
-										<line x1="8" y1="11" x2="8" y2="16"></line>
-										<line x1="16" y1="11" x2="16" y2="16"></line>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">AI Review</h3>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
-									<strong style="color: var(--primary);">Personal learning platform</strong> that enhances engineering reasoning through structured AI feedback. The system presents three design options before coding, requires justification for the chosen approach, and then reviews code diffs with five specialized agents: correctness, architecture, readability, performance, and teaching.
-								</p>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
-									Built with FastAPI backend featuring clean modular architecture, async processing for agent reviews, and structured JSON output parsing. The Next.js frontend provides forms for problem summaries, diff uploads, and displays for design options, justifications, and agent feedback. Integrated with AWS Secrets Manager for secure API key management, the platform focuses on learning from structured feedback rather than storing code, maintaining privacy while improving code quality through iterative review cycles.
-								</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">FastAPI</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Next.js</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">LLM Integration</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">AWS Secrets</span>
-								</div>
-								<a href="https://github.com/micjoey/AI_Review" class="button" target="_blank" rel="noopener noreferrer" aria-label="View AI Review project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
-							</div>
-
-							<!-- Workout App -->
-							<div class="modern-card project-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<path d="M6.5 6.5h11v11h-11z"></path>
-										<path d="M6.5 6.5L12 12l5.5-5.5"></path>
-										<path d="M12 12v6"></path>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Adaptive Workout App</h3>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
-									<strong style="color: var(--primary);">Full-stack fitness tracking platform</strong> with intelligent adaptive workout planning. The application features comprehensive workout logging with support for both numeric rep counts and time-based values (e.g., "30s" or "1:00"), adaptive plan generation that adjusts based on performance history, and analytics for tracking progress over time.
-								</p>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
-									Built with Next.js frontend and FastAPI backend using SQLModel for database architecture, following single responsibility principles with modular organization. The UI meets WCAG AA accessibility standards with semantic HTML, proper ARIA labels, visible focus styles, and sufficient color contrast. Features include editable workout logs with kebab menu actions, database seeding scripts, and a feature-based component structure that separates workouts, logs, and plans into distinct modules.
-								</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Next.js</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">FastAPI</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">SQLModel</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Tailwind CSS</span>
-								</div>
-								<a href="https://github.com/micjoey/workout-app" class="button" target="_blank" rel="noopener noreferrer" aria-label="View Adaptive Workout App project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
-							</div>
-
-							<!-- Cover Letter Helper -->
-							<div class="modern-card project-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-										<polyline points="14 2 14 8 20 8"></polyline>
-										<line x1="16" y1="13" x2="8" y2="13"></line>
-										<line x1="16" y1="17" x2="8" y2="17"></line>
-										<polyline points="10 9 9 9 8 9"></polyline>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Unique Cover Letter Helper</h3>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
-									<strong style="color: var(--primary);">AI-powered personalization engine</strong> that generates tailored cover letters for specific job applications. The system analyzes job descriptions and user profiles to create unique, context-aware cover letters that highlight relevant skills and experiences.
-								</p>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
-									Built with Django REST API backend that handles job application matching, AI integration for content generation, and form processing. The React frontend provides an intuitive interface for inputting job details, reviewing generated content, and managing multiple cover letter versions. Deployed on Heroku with optimized performance for handling concurrent requests and seamless user experience across devices.
-								</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Django</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">AI Integration</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Heroku</span>
-								</div>
-								<a href="https://github.com/micjoey/Unique-Cover-Letter-Helper" class="button" target="_blank" rel="noopener noreferrer" aria-label="View Unique Cover Letter Helper project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
-							</div>
-
-							<!-- Soccer Website -->
-							<div class="modern-card project-card">
-								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<circle cx="12" cy="12" r="10"></circle>
-										<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-										<path d="M2 12h20"></path>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Soccer Team Management</h3>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
-									<strong style="color: var(--primary);">Comprehensive team management platform</strong> for soccer clubs featuring availability tracking, game scheduling, and team coordination tools. The system enables players to mark availability for upcoming games, view schedules, and manage team rosters with administrative controls.
-								</p>
-								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
-									Built with React and TypeScript frontend providing type-safe components and modern UI patterns, paired with a Node.js backend handling authentication, scheduling logic, and data persistence. Integrated with Google OAuth for secure user authentication, the platform supports both player and administrator roles with appropriate permissions for managing games, tracking availability, and coordinating team activities.
-								</p>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">TypeScript</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Node.js</span>
-									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Google OAuth</span>
-								</div>
-								<a href="https://github.com/micjoey/soccer-website" class="button" target="_blank" rel="noopener noreferrer" aria-label="View Soccer Team Management project on GitHub (opens in new tab)" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View on GitHub →</a>
-							</div>
-						</div>
-					</div>
-				</section>
-  
-				<!-- Four -->
-				<section id="four" class="animated-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #1a1f3a 60%, #1e293b 100%); background-size: 300% 300%;">
-					<div style="max-width: 1400px; margin: 0 auto; padding: 5rem 2rem;" id='technologies'>
-						<div style="text-align: center; margin-bottom: 4rem;">
-							<h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.3));">Technologies</h2>
-							<p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.8;">
-								Technologies and tools I use to build scalable, modern applications
-							</p>
-						</div>
-						
-						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
-							<!-- Frontend -->
-							<div class="modern-card" style="padding: 2.5rem;">
-								<div class="tech-category-header">
-									<div style="display: flex; align-items: center; gap: 1.25rem;">
-										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Palette icon representing frontend design">🎨</div>
-										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">Frontend</h3>
-									</div>
-								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-									<span class="tech-badge"><span>JavaScript</span></span>
-									<span class="tech-badge"><span>React</span></span>
-									<span class="tech-badge"><span>TypeScript</span></span>
-									<span class="tech-badge"><span>Next.js</span></span>
-									<span class="tech-badge"><span>Vue.js</span></span>
-									<span class="tech-badge"><span>Redux</span></span>
-									<span class="tech-badge"><span>HTML5 / CSS3</span></span>
-									<span class="tech-badge"><span>Tailwind CSS</span></span>
-									<span class="tech-badge"><span>Webpack / Babel</span></span>
-								</div>
-							</div>
-							
-							<!-- Backend -->
-							<div class="modern-card" style="padding: 2.5rem;">
-								<div class="tech-category-header">
-									<div style="display: flex; align-items: center; gap: 1.25rem;">
-										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Gear icon representing backend systems">⚙️</div>
-										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">Backend</h3>
-									</div>
-								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-									<span class="tech-badge"><span>Python</span></span>
-									<span class="tech-badge"><span>Django</span></span>
-									<span class="tech-badge"><span>FastAPI</span></span>
-									<span class="tech-badge"><span>Node.js</span></span>
-									<span class="tech-badge"><span>Ruby on Rails</span></span>
-									<span class="tech-badge"><span>PostgreSQL</span></span>
-									<span class="tech-badge"><span>MySQL</span></span>
-									<span class="tech-badge"><span>MongoDB</span></span>
-									<span class="tech-badge"><span>SQLModel</span></span>
-									<span class="tech-badge"><span>RESTful APIs</span></span>
-									<span class="tech-badge"><span>GraphQL</span></span>
-									<span class="tech-badge"><span>WebSocket</span></span>
-								</div>
-							</div>
-							
-							<!-- Cloud & DevOps -->
-							<div class="modern-card" style="padding: 2.5rem;">
-								<div class="tech-category-header">
-									<div style="display: flex; align-items: center; gap: 1.25rem;">
-										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Cloud icon representing cloud computing">☁️</div>
-										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">Cloud & DevOps</h3>
-									</div>
-								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-									<span class="tech-badge"><span>AWS</span></span>
-									<span class="tech-badge"><span>S3 / CloudFront</span></span>
-									<span class="tech-badge"><span>Lambda</span></span>
-									<span class="tech-badge"><span>Secrets Manager</span></span>
-									<span class="tech-badge"><span>Azure</span></span>
-									<span class="tech-badge"><span>Docker</span></span>
-									<span class="tech-badge"><span>Kubernetes</span></span>
-									<span class="tech-badge"><span>Terraform</span></span>
-									<span class="tech-badge"><span>CI/CD Pipelines</span></span>
-									<span class="tech-badge"><span>Git / GitHub</span></span>
-								</div>
-							</div>
-							
-							<!-- AI & Integration -->
-							<div class="modern-card" style="padding: 2.5rem;">
-								<div class="tech-category-header">
-									<div style="display: flex; align-items: center; gap: 1.25rem;">
-										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Robot icon representing AI">🤖</div>
-										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">AI & Integration</h3>
-									</div>
-								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-									<span class="tech-badge"><span>OpenAI API</span></span>
-									<span class="tech-badge"><span>Anthropic Claude</span></span>
-									<span class="tech-badge"><span>LLM Integration</span></span>
-									<span class="tech-badge"><span>Speech-to-Text</span></span>
-									<span class="tech-badge"><span>NLP Processing</span></span>
-									<span class="tech-badge"><span>Structured Outputs</span></span>
-								</div>
-							</div>
-							
-							<!-- Testing & Tools -->
-							<div class="modern-card" style="padding: 2.5rem;">
-								<div class="tech-category-header">
-									<div style="display: flex; align-items: center; gap: 1.25rem;">
-										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Test tube icon representing testing">🧪</div>
-										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">Testing & Tools</h3>
-									</div>
-								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-									<span class="tech-badge"><span>PyTest</span></span>
-									<span class="tech-badge"><span>Cypress</span></span>
-									<span class="tech-badge"><span>Selenium</span></span>
-									<span class="tech-badge"><span>Jest</span></span>
-									<span class="tech-badge"><span>Jira</span></span>
-									<span class="tech-badge"><span>Figma</span></span>
-								</div>
-							</div>
-							
-							<!-- Security & Standards -->
-							<div class="modern-card" style="padding: 2.5rem;">
-								<div class="tech-category-header">
-									<div style="display: flex; align-items: center; gap: 1.25rem;">
-										<div class="tech-icon" style="font-size: 1.75rem;" role="img" aria-label="Lock icon representing security">🔐</div>
-										<h3 style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--text-primary); letter-spacing: -0.02em;">Security & Standards</h3>
-									</div>
-								</div>
-								<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-									<span class="tech-badge"><span>OAuth</span></span>
-									<span class="tech-badge"><span>SAML</span></span>
-									<span class="tech-badge"><span>SSO</span></span>
-									<span class="tech-badge"><span>JWT Auth</span></span>
-									<span class="tech-badge"><span>WCAG 2.1</span></span>
-								</div>
-							</div>
-						</div>
-					</div>					  
-				</section>
-				<!-- Four -->
-
-				<!-- three -->
-				<section id="three" class="animated-section" style="background: linear-gradient(135deg, #1a1f3a 0%, #1e293b 35%, #0f172a 70%, #1e293b 100%); background-size: 300% 300%;">
-					<div style="max-width: 1000px; margin: 0 auto;">
-						<h2>Education</h2>
-						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-top: 3rem;">
-							<div class="modern-card">
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">App Academy</h3>
-								<p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Class of Feb 2020</p>
-								<p style="color: var(--text-secondary); line-height: 1.7;">Immersive software development course with focus on full-stack web development | Winter 2019</p>
-							</div>
-							<div class="modern-card">
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Oberlin College</h3>
-								<p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Class of 2016</p>
-								<p style="color: var(--text-secondary); line-height: 1.7;">Bachelor's in Economics with a focus on Real Estate</p>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- three -->
-
-				<!-- five -->
-				<section id="five" class="animated-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #1a1f3a 80%, #1e293b 100%); background-size: 300% 300%;">
-					<div style="max-width: 1000px; margin: 0 auto;">
-						<h2>Get in Touch</h2>
-						<p style="font-size: 1.2rem; color: var(--text-secondary); text-align: center; margin-bottom: 3rem;">
-							Let's connect and discuss opportunities
-						</p>
-						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-							<div class="modern-card" style="text-align: center;">
-								<div class="svg-icon" style="width: 4rem; height: 4rem; margin: 0 auto 1.5rem; color: var(--primary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-										<polyline points="22,6 12,13 2,6"></polyline>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Email</h3>
-								<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" style="color: var(--primary); text-decoration: none; font-size: 1.1rem; font-weight: 600;">jsavett@gmail.com</a>
-							</div>
-							<div class="modern-card" style="text-align: center;">
-								<div class="svg-icon" style="width: 4rem; height: 4rem; margin: 0 auto 1.5rem; color: var(--primary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-										<polyline points="14 2 14 8 20 8"></polyline>
-										<line x1="16" y1="13" x2="8" y2="13"></line>
-										<line x1="16" y1="17" x2="8" y2="17"></line>
-										<polyline points="10 9 9 9 8 9"></polyline>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Resume</h3>
-								<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View Macallan Savett's resume PDF (opens in new tab)" style="color: var(--primary); text-decoration: none; font-size: 1.1rem; font-weight: 600;">View PDF Resume</a>
-							</div>
-							<div class="modern-card" style="text-align: center;">
-								<div class="svg-icon" style="width: 4rem; height: 4rem; margin: 0 auto 1.5rem; color: var(--primary);">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
-										<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-										<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-									</svg>
-								</div>
-								<h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Connect</h3>
-								<div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;" role="list">
-									<a href="https://github.com/micjoey" class="icon brands fa-github" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's GitHub profile (opens in new tab)" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">GitHub</span></a>
-									<a href="https://bit.ly/3izBUZc" class="icon brands fa-linkedin-in" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's LinkedIn profile (opens in new tab)" style="font-size: 2rem; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: inline-block;"><span class="label">LinkedIn</span></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- five -->
-				</main>
 			</div>
-		<!-- Footer -->
-		
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="logo">
-					<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website"
-						aria-label="Email Macallan Savett"
-						data-event-category="Email" data-event-action="click">
-						<img src="images/transparent email.png" alt="Macallan Savett logo" class="logo-image">
-					</a>
+		</nav>
+	</header>
+
+	<!-- Main Content -->
+	<main id="main-content" class="main">
+		<!-- Hero Section -->
+		<section id="intro" class="section section-hero">
+			<div class="container">
+				<div class="hero-content">
+					<h1 class="hero-title">Macallan Savett</h1>
+					<p class="hero-subtitle">
+						<span class="highlight">Software Engineer</span> | Building scalable applications with <strong class="highlight">Python</strong>, <strong class="highlight">Django</strong>, <strong class="highlight">React</strong>, and <strong class="highlight">AWS</strong>.
+					</p>
+					<div class="hero-actions">
+						<a href="#about" class="button button-primary">About Me</a>
+						<a href="#work" class="button button-primary">Work Experience</a>
+						<a href="#projects" class="button button-primary">Projects</a>
+						<a href="#contact" class="button button-primary">Get in Touch</a>
+					</div>
+					<div class="hero-social" role="list">
+						<a href="https://github.com/micjoey" class="social-link social-link-github" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's GitHub profile (opens in new tab)">
+							<i class="fab fa-github" aria-hidden="true"></i>
+							<span class="social-label">GitHub</span>
+						</a>
+						<a href="https://bit.ly/3izBUZc" class="social-link social-link-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's LinkedIn profile (opens in new tab)">
+							<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+							<span class="social-label">LinkedIn</span>
+						</a>
+					</div>
+					<div class="hero-info">
+						<div class="info-grid">
+							<div class="info-item">
+								<h3>Resume</h3>
+								<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="link">View PDF Resume</a>
+							</div>
+							<div class="info-item">
+								<h3>Email</h3>
+								<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" class="link">jsavett@gmail.com</a>
+							</div>
+							<div class="info-item">
+								<h3>Connect</h3>
+								<a href="https://bit.ly/3izBUZc" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
+							</div>
+						</div>
+					</div>
 				</div>
-			</footer>
+			</div>
+		</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!-- GSAP Animation Library -->
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/animations.js"></script>
-			
-			<!-- Previous Experience Collapse Script -->
-			<script>
-				document.addEventListener('DOMContentLoaded', function() {
-					const toggle = document.getElementById('previous-exp-toggle');
-					const content = document.getElementById('previous-exp-content');
-					const icon = document.getElementById('previous-exp-icon');
+		<!-- About Section -->
+		<section id="about" class="section">
+			<div class="container">
+				<h2 class="section-title">About Me</h2>
+				<div class="about-content">
+					<div class="about-image">
+						<img src="images/portrait.jpeg" alt="Portrait of Macallan Savett, Software Engineer">
+					</div>
+					<div class="about-text">
+						<p class="about-intro">
+							Software Engineer at Skilljar. I build scalable applications with Python, Django, React, and AWS. Focus on full-stack development, system architecture, and AI/ML integration.
+						</p>
+						<h3 class="about-heading">Background</h3>
+						<p>
+							Transitioned to software engineering from real estate, where I managed databases and complex negotiations. That experience taught me to balance analytical thinking with practical problem-solving. I apply the same approach to engineering: understand requirements, design robust solutions, deliver reliable systems.
+						</p>
+						<h3 class="about-heading">Engineering Focus</h3>
+						<p>
+							I build maintainable, scalable systems. This includes frontend architecture, RESTful API design, CI/CD pipelines, and AI integration. I'm interested in how AI can enhance developer productivity through automated analysis and feedback.
+						</p>
+						<h3 class="about-heading">Outside of Work</h3>
+						<p>
+							Outside of work, I stay active through a mix of endurance sports, skill-based hobbies, and seasonal activities. I train for half marathons during the summer, which reinforces consistency, long-term planning, and mental resilience. I also referee and play soccer, which keeps me sharp in fast-paced, high-pressure decision making.
+						</p>
+						<p>
+							I am deeply involved in West Coast Swing dancing, a practice that rewards precision, adaptability, and continuous learning. In the winter, I ski and snowboard. Year-round, I golf. These activities give me space to reset, think clearly, and return to technical problems with better perspective and focus.
+						</p>
+						<h3 class="about-heading">Connect</h3>
+						<p>
+							Open to discussing engineering challenges, AI/ML applications, or collaborations. Reach out at <a href="mailto:jsavett@gmail.com" class="link">jsavett@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/macallan-savett/" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Work Experience Section -->
+		<section id="work" class="section">
+			<div class="container">
+				<h2 class="section-title">Work Experience</h2>
+				<div class="work-timeline">
+					<div class="card work-card">
+						<div class="work-header">
+							<div class="work-title-group">
+								<h3>Software Engineer II</h3>
+								<p class="work-company">Skilljar powered by Gainsight</p>
+								<p class="work-location">Seattle, WA</p>
+							</div>
+							<span class="badge">August 2022 – Present</span>
+						</div>
+						<ul class="work-list">
+							<li>Led development of scalable frontend architecture, streamlining development and deployment, resulting in 40% faster feature releases.</li>
+							<li>Spearheaded QA improvements by implementing Cypress, reducing production issues by 30% and increasing code reliability.</li>
+							<li>Optimized AWS architecture (S3, CloudFront, Lambda), decreasing latency by 30%.</li>
+							<li>Architected CI/CD pipelines with Docker, AWS, and Node.js, reducing deployment times by 40% and supporting multi-region deployments.</li>
+							<li>Designed custom authentication workflows using SAML and OAuth, reducing login times by 15% and improving security.</li>
+							<li>Mentored 5 engineers, focusing on system design best practices, resulting in one promotion.</li>
+							<li>Developed a churn analysis tool using AWS Lambda, reducing data processing times by 20%.</li>
+							<li>Implemented logging and monitoring solutions that improved response times by 20%.</li>
+							<li>Redesigned accessibility features to meet WCAG 2.1 standards, boosting customer satisfaction by 25%.</li>
+						</ul>
+					</div>
 					
-					if (toggle && content && icon) {
-						toggle.addEventListener('click', function() {
-							const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-							
-							if (isExpanded) {
-								content.style.display = 'none';
-								icon.classList.remove('expanded');
-								toggle.setAttribute('aria-expanded', 'false');
-							} else {
-								content.style.display = 'block';
-								icon.classList.add('expanded');
-								toggle.setAttribute('aria-expanded', 'true');
-							}
-						});
-						
-						// Keyboard support
-						toggle.addEventListener('keydown', function(e) {
-							if (e.key === 'Enter' || e.key === ' ') {
-								e.preventDefault();
-								toggle.click();
-							}
-						});
-					}
-				});
-			</script>
+					<div class="card work-card">
+						<div class="work-header">
+							<div class="work-title-group">
+								<h3>Software Engineer I</h3>
+								<p class="work-company">Skilljar powered by Gainsight</p>
+								<p class="work-location">Seattle, WA</p>
+							</div>
+							<span class="badge">January 2021 – August 2022</span>
+						</div>
+						<ul class="work-list">
+							<li>Built and maintained scalable frontends in JavaScript, Vue.js, and HTML, improving page load times by 15%.</li>
+							<li>Integrated APIs and enhanced client authentication systems.</li>
+							<li>Led AWS migrations, reducing latency by 30% and operational costs by 20%.</li>
+							<li>Implemented continuous integration with PyTest and Django, improving test coverage by 40%.</li>
+							<li>Developed PII compliance tools, automating data processing and reducing manual compliance efforts by 50%.</li>
+							<li>Led automation tools for employee onboarding/offboarding, cutting manual work by 50%.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
 
-	</body>
+		<!-- Previous Experience Section -->
+		<section id="previous-experience" class="section">
+			<div class="container">
+				<button id="previous-exp-toggle" type="button" class="previous-exp-toggle" aria-expanded="false" aria-controls="previous-exp-content">
+					<h2 class="toggle-title">Previous Experience</h2>
+					<span id="previous-exp-icon" class="toggle-icon" aria-hidden="true">▼</span>
+				</button>
+				<div id="previous-exp-content" class="previous-exp-content" role="region" aria-labelledby="previous-exp-toggle">
+					<div class="previous-exp-grid">
+						<div class="card">
+							<h3>Research Analyst</h3>
+							<p class="work-company">Colliers International</p>
+							<p class="work-location">San Francisco, CA | Jan 2018 - Aug 2019</p>
+							<ul class="work-list">
+								<li>Customized and migrated a Salesforce-based database containing over 70,000 informational points for a team earning over $100 Million in 2018 through RPA and backend Salesforce APIs</li>
+								<li>Generated $100,000 within the first three months by analyzing 94 properties owned by one of the largest Multifamily clients in San Francisco</li>
+								<li>Created and managed multiple offering memorandums and buyer Opinion of Values for 12 brokers, leading to the team earning over $100 Million</li>
+							</ul>
+						</div>
+
+						<div class="card">
+							<h3>Product Sales and Services</h3>
+							<p class="work-company">Aspen Skiing Company</p>
+							<p class="work-location">Aspen, CO | Oct 2016 - Dec 2017</p>
+							<ul class="work-list">
+								<li>Drove cross-selling of products per client specifications to better streamline operations</li>
+								<li>Resolved conflicts and negotiated mutually beneficial agreements between parties</li>
+								<li>Communicated with team members and management to obtain current information on venue attractions and related logistics</li>
+							</ul>
+						</div>
+
+						<div class="card">
+							<h3>Bartender</h3>
+							<p class="work-company">Ritz Carlton</p>
+							<p class="work-location">Santa Barbara, CA | May 2016 - Sep 2016</p>
+							<ul class="work-list">
+								<li>Worked in a high-paced environment while serving over 100+ people</li>
+								<li>Kept alcoholic beverages well-stocked and organized to meet expected demands</li>
+								<li>Organized bar inventory and storage procedures to keep stock within optimal levels and meet expected customer demands</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- AI & Machine Learning Section -->
+		<section id="ai" class="section">
+			<div class="container">
+				<h2 class="section-title">AI & Machine Learning</h2>
+				<p class="section-subtitle">
+					Technical capabilities in AI/ML engineering and implementation
+				</p>
+				<div class="ai-grid">
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44L2.5 20.5a2.5 2.5 0 0 1 0-5l4.04-1.06A2.5 2.5 0 0 1 9.5 2z"></path>
+								<path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44L21.5 20.5a2.5 2.5 0 0 0 0-5l-4.04-1.06A2.5 2.5 0 0 0 14.5 2z"></path>
+							</svg>
+						</div>
+						<h3>LLM Integration & API Development</h3>
+						<p>Production experience integrating OpenAI GPT and Anthropic Claude APIs. Built RESTful services with structured output parsing, error handling, and rate limiting. Implemented prompt engineering patterns for consistent, reliable responses.</p>
+						<div class="project-badges">
+							<span class="badge">OpenAI API</span>
+							<span class="badge">Anthropic Claude</span>
+							<span class="badge">Structured Outputs</span>
+							<span class="badge">Rate Limiting</span>
+						</div>
+					</div>
+
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+								<line x1="8" y1="21" x2="16" y2="21"></line>
+								<line x1="12" y1="17" x2="12" y2="21"></line>
+							</svg>
+						</div>
+						<h3>Multi-Agent Code Review Systems</h3>
+						<p>Architected and implemented a multi-agent system for automated code review. Five specialized agents analyze code for correctness, architecture, readability, performance, and educational value. Built with FastAPI, async processing, and structured JSON output parsing.</p>
+						<div class="project-badges">
+							<span class="badge">Multi-Agent Architecture</span>
+							<span class="badge">FastAPI</span>
+							<span class="badge">Async Processing</span>
+							<span class="badge">JSON Schema</span>
+						</div>
+					</div>
+
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+								<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+								<line x1="12" y1="19" x2="12" y2="23"></line>
+								<line x1="8" y1="23" x2="16" y2="23"></line>
+							</svg>
+						</div>
+						<h3>Speech-to-Text & NLP Pipelines</h3>
+						<p>Developed end-to-end voice processing pipeline: audio transcription, text extraction, NLP analysis, and summarization. Integrated with Django backend, implemented batch processing for audio files, and built data models for storing transcriptions and insights.</p>
+						<div class="project-badges">
+							<span class="badge">Speech-to-Text</span>
+							<span class="badge">NLP Processing</span>
+							<span class="badge">Text Summarization</span>
+							<span class="badge">Batch Processing</span>
+						</div>
+					</div>
+
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+								<polyline points="14 2 14 8 20 8"></polyline>
+								<line x1="16" y1="13" x2="8" y2="13"></line>
+								<line x1="16" y1="17" x2="8" y2="17"></line>
+								<polyline points="10 9 9 9 8 9"></polyline>
+							</svg>
+						</div>
+						<h3>Content Generation & Document Processing</h3>
+						<p>Built automated content generation systems using LLMs with context injection and template management. Implemented document parsing, text extraction, and structured data generation. Designed systems for generating personalized content at scale.</p>
+						<div class="project-badges">
+							<span class="badge">Template Systems</span>
+							<span class="badge">Document Parsing</span>
+							<span class="badge">Context Injection</span>
+							<span class="badge">Batch Generation</span>
+						</div>
+					</div>
+
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<line x1="18" y1="20" x2="18" y2="10"></line>
+								<line x1="12" y1="20" x2="12" y2="4"></line>
+								<line x1="6" y1="20" x2="6" y2="14"></line>
+							</svg>
+						</div>
+						<h3>Data Processing & Analysis</h3>
+						<p>Built data analysis tools using AWS Lambda for processing and aggregating customer data. Developed churn analysis tool that processes large datasets efficiently, reducing processing times by 20%. Implemented data transformation pipelines and automated reporting workflows.</p>
+						<div class="project-badges">
+							<span class="badge">AWS Lambda</span>
+							<span class="badge">Data Processing</span>
+							<span class="badge">Data Aggregation</span>
+							<span class="badge">Automated Reporting</span>
+						</div>
+					</div>
+
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+								<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+							</svg>
+						</div>
+						<h3>API Security & Configuration</h3>
+						<p>Implemented secure API key management for AI services using AWS Secrets Manager. Built configuration systems for managing LLM API credentials and settings. Designed error handling and retry logic for API integrations to ensure reliability.</p>
+						<div class="project-badges">
+							<span class="badge">AWS Secrets Manager</span>
+							<span class="badge">API Configuration</span>
+							<span class="badge">Error Handling</span>
+							<span class="badge">Retry Logic</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects Section -->
+		<section id="projects" class="section">
+			<div class="container">
+				<h2 class="section-title">Projects</h2>
+				<p class="section-subtitle">
+					A collection of full-stack applications, tools, and platforms I've built. Each project demonstrates different aspects of software engineering, from real-time systems to AI-powered solutions.
+				</p>
+				<div class="projects-grid">
+					<!-- Personal Modular App -->
+					<div class="card project-card project-featured">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+								<line x1="9" y1="3" x2="9" y2="21"></line>
+								<line x1="15" y1="3" x2="15" y2="21"></line>
+								<line x1="3" y1="9" x2="21" y2="9"></line>
+								<line x1="3" y1="15" x2="21" y2="15"></line>
+							</svg>
+						</div>
+						<h3>Personal Modular App Hub</h3>
+						<p>
+							<strong class="highlight">My flagship project</strong> — A comprehensive, secure personal web application hub built with Next.js 15 and TypeScript. This modular platform serves as a centralized dashboard connecting 15+ specialized mini-apps, each designed as self-contained modules with their own components, database schemas, and API routes.
+						</p>
+						<p>
+							The architecture emphasizes <strong>reusability and scalability</strong>, with a shared common library of components, hooks, and utilities. Features include secure authentication (email/password + optional MFA with TOTP and WebAuthn), AI-powered workflows with multi-provider support (OpenAI, Anthropic), progressive web app capabilities, and a sophisticated AI development team system for iterative code generation and review.
+						</p>
+						<p>
+							<strong>Key Modules Include:</strong> Recipe & Meal Planning (AI chat-driven), Calendar Management, Executive Assistant (AI-powered profile management), Gift Tracking, Habit & Goal Tracker, Knowledge Management, Daily Voice Log, Soccer Availability, Social Sync, and more. Each module follows strict mobile-first design principles and integrates seamlessly with the central authentication and AI infrastructure.
+						</p>
+						<div class="project-badges">
+							<span class="badge">Next.js 15</span>
+							<span class="badge">TypeScript</span>
+							<span class="badge">MongoDB</span>
+							<span class="badge">Modular Architecture</span>
+							<span class="badge">PWA</span>
+							<span class="badge">AI Integration</span>
+							<span class="badge">MFA Auth</span>
+							<span class="badge">15+ Modules</span>
+						</div>
+						<p class="project-note">
+							Private repository — This is my personal productivity platform and primary development focus.
+						</p>
+					</div>
+
+					<!-- DailyVoice-Log -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+								<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+								<line x1="12" y1="19" x2="12" y2="23"></line>
+								<line x1="8" y1="23" x2="16" y2="23"></line>
+							</svg>
+						</div>
+						<h3>DailyVoice-Log</h3>
+						<p>
+							<strong class="highlight">AI-powered productivity platform</strong> that automates daily email prompts for audio log recordings. The system processes voice recordings through a complete AI pipeline: speech-to-text transcription, NLP analysis for content extraction, and intelligent summarization that compiles daily activities into actionable insights.
+						</p>
+						<p>
+							Built with a Django REST API backend that handles email automation, batch audio processing, and data model management for storing transcriptions and insights. The React frontend provides an intuitive interface for reviewing periodic summaries and tracking productivity patterns over time. The architecture supports scalable processing of multiple users' daily logs with efficient database queries and background task processing.
+						</p>
+						<div class="project-badges">
+							<span class="badge">React</span>
+							<span class="badge">Django</span>
+							<span class="badge">AI/ML</span>
+							<span class="badge">Email Automation</span>
+						</div>
+						<a href="https://github.com/micjoey/DailyVoiceLog" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View DailyVoice-Log project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+
+					<!-- TavernMaster -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+								<circle cx="8" cy="8" r="1.5"></circle>
+								<circle cx="16" cy="8" r="1.5"></circle>
+								<circle cx="8" cy="16" r="1.5"></circle>
+								<circle cx="16" cy="16" r="1.5"></circle>
+								<circle cx="12" cy="12" r="1.5"></circle>
+							</svg>
+						</div>
+						<h3>TavernMaster</h3>
+						<p>
+							<strong class="highlight">Full-stack campaign management platform</strong> for tabletop RPGs featuring real-time collaboration tools. The platform provides comprehensive campaign and character management with CRUD operations, role-based dashboards for Dungeon Masters and players, and an invitation system for campaign coordination.
+						</p>
+						<p>
+							Built with React frontend and Django REST API backend, featuring WebSocket integration for real-time chat during campaign sessions. The architecture includes JWT authentication, modular SASS-styled UI components, and a WebSocket server with message throttling for optimal performance. The system supports both DM and player perspectives with role-based access control, ensuring appropriate permissions for campaign editing, character management, and chat moderation.
+						</p>
+						<div class="project-badges">
+							<span class="badge">React</span>
+							<span class="badge">Django REST</span>
+							<span class="badge">WebSocket</span>
+							<span class="badge">JWT Auth</span>
+						</div>
+						<a href="https://github.com/micjoey/TavernMaster" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View TavernMaster project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+
+					<!-- AI Review -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="3" y="11" width="18" height="10" rx="2"></rect>
+								<circle cx="12" cy="5" r="2"></circle>
+								<path d="M12 7v4"></path>
+								<line x1="8" y1="11" x2="8" y2="16"></line>
+								<line x1="16" y1="11" x2="16" y2="16"></line>
+							</svg>
+						</div>
+						<h3>AI Review</h3>
+						<p>
+							<strong class="highlight">Personal learning platform</strong> that enhances engineering reasoning through structured AI feedback. The system presents three design options before coding, requires justification for the chosen approach, and then reviews code diffs with five specialized agents: correctness, architecture, readability, performance, and teaching.
+						</p>
+						<p>
+							Built with FastAPI backend featuring clean modular architecture, async processing for agent reviews, and structured JSON output parsing. The Next.js frontend provides forms for problem summaries, diff uploads, and displays for design options, justifications, and agent feedback. Integrated with AWS Secrets Manager for secure API key management, the platform focuses on learning from structured feedback rather than storing code, maintaining privacy while improving code quality through iterative review cycles.
+						</p>
+						<div class="project-badges">
+							<span class="badge">FastAPI</span>
+							<span class="badge">Next.js</span>
+							<span class="badge">LLM Integration</span>
+							<span class="badge">AWS Secrets</span>
+						</div>
+						<a href="https://github.com/micjoey/AI_Review" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View AI Review project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+
+					<!-- Workout App -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M6.5 6.5h11v11h-11z"></path>
+								<path d="M6.5 6.5L12 12l5.5-5.5"></path>
+								<path d="M12 12v6"></path>
+							</svg>
+						</div>
+						<h3>Adaptive Workout App</h3>
+						<p>
+							<strong class="highlight">Full-stack fitness tracking platform</strong> with intelligent adaptive workout planning. The application features comprehensive workout logging with support for both numeric rep counts and time-based values (e.g., "30s" or "1:00"), adaptive plan generation that adjusts based on performance history, and analytics for tracking progress over time.
+						</p>
+						<p>
+							Built with Next.js frontend and FastAPI backend using SQLModel for database architecture, following single responsibility principles with modular organization. The UI meets WCAG AA accessibility standards with semantic HTML, proper ARIA labels, visible focus styles, and sufficient color contrast. Features include editable workout logs with kebab menu actions, database seeding scripts, and a feature-based component structure that separates workouts, logs, and plans into distinct modules.
+						</p>
+						<div class="project-badges">
+							<span class="badge">Next.js</span>
+							<span class="badge">FastAPI</span>
+							<span class="badge">SQLModel</span>
+							<span class="badge">Tailwind CSS</span>
+						</div>
+						<a href="https://github.com/micjoey/workout-app" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View Adaptive Workout App project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+
+					<!-- Cover Letter Helper -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+								<polyline points="14 2 14 8 20 8"></polyline>
+								<line x1="16" y1="13" x2="8" y2="13"></line>
+								<line x1="16" y1="17" x2="8" y2="17"></line>
+								<polyline points="10 9 9 9 8 9"></polyline>
+							</svg>
+						</div>
+						<h3>Unique Cover Letter Helper</h3>
+						<p>
+							<strong class="highlight">AI-powered personalization engine</strong> that generates tailored cover letters for specific job applications. The system analyzes job descriptions and user profiles to create unique, context-aware cover letters that highlight relevant skills and experiences.
+						</p>
+						<p>
+							Built with Django REST API backend that handles job application matching, AI integration for content generation, and form processing. The React frontend provides an intuitive interface for inputting job details, reviewing generated content, and managing multiple cover letter versions. Deployed on Heroku with optimized performance for handling concurrent requests and seamless user experience across devices.
+						</p>
+						<div class="project-badges">
+							<span class="badge">React</span>
+							<span class="badge">Django</span>
+							<span class="badge">AI Integration</span>
+							<span class="badge">Heroku</span>
+						</div>
+						<a href="https://github.com/micjoey/Unique-Cover-Letter-Helper" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View Unique Cover Letter Helper project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+
+					<!-- Soccer Website -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="10"></circle>
+								<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+								<path d="M2 12h20"></path>
+							</svg>
+						</div>
+						<h3>Soccer Team Management</h3>
+						<p>
+							<strong class="highlight">Comprehensive team management platform</strong> for soccer clubs featuring availability tracking, game scheduling, and team coordination tools. The system enables players to mark availability for upcoming games, view schedules, and manage team rosters with administrative controls.
+						</p>
+						<p>
+							Built with React and TypeScript frontend providing type-safe components and modern UI patterns, paired with a Node.js backend handling authentication, scheduling logic, and data persistence. Integrated with Google OAuth for secure user authentication, the platform supports both player and administrator roles with appropriate permissions for managing games, tracking availability, and coordinating team activities.
+						</p>
+						<div class="project-badges">
+							<span class="badge">React</span>
+							<span class="badge">TypeScript</span>
+							<span class="badge">Node.js</span>
+							<span class="badge">Google OAuth</span>
+						</div>
+						<a href="https://github.com/micjoey/soccer-website" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View Soccer Team Management project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Technologies Section -->
+		<section id="technologies" class="section">
+			<div class="container">
+				<h2 class="section-title">Technologies</h2>
+				<p class="section-subtitle">
+					Technologies and tools I use to build scalable, modern applications
+				</p>
+				<div class="technologies-grid">
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">🎨</div>
+							<h3>Frontend</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">JavaScript</span>
+							<span class="badge">React</span>
+							<span class="badge">TypeScript</span>
+							<span class="badge">Next.js</span>
+							<span class="badge">Vue.js</span>
+							<span class="badge">Redux</span>
+							<span class="badge">HTML5 / CSS3</span>
+							<span class="badge">Tailwind CSS</span>
+							<span class="badge">Webpack / Babel</span>
+						</div>
+					</div>
+					
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">⚙️</div>
+							<h3>Backend</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">Python</span>
+							<span class="badge">Django</span>
+							<span class="badge">FastAPI</span>
+							<span class="badge">Node.js</span>
+							<span class="badge">Ruby on Rails</span>
+							<span class="badge">PostgreSQL</span>
+							<span class="badge">MySQL</span>
+							<span class="badge">MongoDB</span>
+							<span class="badge">SQLModel</span>
+							<span class="badge">RESTful APIs</span>
+							<span class="badge">GraphQL</span>
+							<span class="badge">WebSocket</span>
+						</div>
+					</div>
+					
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">☁️</div>
+							<h3>Cloud & DevOps</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">AWS</span>
+							<span class="badge">S3 / CloudFront</span>
+							<span class="badge">Lambda</span>
+							<span class="badge">Secrets Manager</span>
+							<span class="badge">Azure</span>
+							<span class="badge">Docker</span>
+							<span class="badge">Kubernetes</span>
+							<span class="badge">Terraform</span>
+							<span class="badge">CI/CD Pipelines</span>
+							<span class="badge">Git / GitHub</span>
+						</div>
+					</div>
+					
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">🤖</div>
+							<h3>AI & Integration</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">OpenAI API</span>
+							<span class="badge">Anthropic Claude</span>
+							<span class="badge">LLM Integration</span>
+							<span class="badge">Speech-to-Text</span>
+							<span class="badge">NLP Processing</span>
+							<span class="badge">Structured Outputs</span>
+						</div>
+					</div>
+					
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">🧪</div>
+							<h3>Testing & Tools</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">PyTest</span>
+							<span class="badge">Cypress</span>
+							<span class="badge">Selenium</span>
+							<span class="badge">Jest</span>
+							<span class="badge">Jira</span>
+							<span class="badge">Figma</span>
+						</div>
+					</div>
+					
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">🔐</div>
+							<h3>Security & Standards</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">OAuth</span>
+							<span class="badge">SAML</span>
+							<span class="badge">SSO</span>
+							<span class="badge">JWT Auth</span>
+							<span class="badge">WCAG 2.1</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Education Section -->
+		<section id="education" class="section">
+			<div class="container">
+				<h2 class="section-title">Education</h2>
+				<div class="education-grid">
+					<div class="card">
+						<h3>App Academy</h3>
+						<p class="work-company">Class of Feb 2020</p>
+						<p>Immersive software development course with focus on full-stack web development | Winter 2019</p>
+					</div>
+					<div class="card">
+						<h3>Oberlin College</h3>
+						<p class="work-company">Class of 2016</p>
+						<p>Bachelor's in Economics with a focus on Real Estate</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="section">
+			<div class="container">
+				<h2 class="section-title">Get in Touch</h2>
+				<p class="section-subtitle">
+					Let's connect and discuss opportunities
+				</p>
+				<div class="contact-grid">
+					<div class="card contact-card">
+						<h3>Email</h3>
+						<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" class="link">jsavett@gmail.com</a>
+					</div>
+					<div class="card contact-card">
+						<h3>Resume</h3>
+						<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="link">View PDF Resume</a>
+					</div>
+					<div class="card contact-card">
+						<h3>Connect</h3>
+						<div class="contact-social" role="list">
+							<a href="https://github.com/micjoey" class="social-link social-link-github" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's GitHub profile (opens in new tab)">
+								<i class="fab fa-github" aria-hidden="true"></i>
+								<span class="social-label">GitHub</span>
+							</a>
+							<a href="https://bit.ly/3izBUZc" class="social-link social-link-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's LinkedIn profile (opens in new tab)">
+								<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+								<span class="social-label">LinkedIn</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer" role="contentinfo">
+		<div class="container">
+			<div class="footer-content">
+				<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" aria-label="Email Macallan Savett">
+					<img src="images/transparent email.png" alt="Macallan Savett logo" class="footer-logo">
+				</a>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/animations.js"></script>
+</body>
 </html>

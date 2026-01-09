@@ -1,0 +1,231 @@
+/* ============================================
+   DESIGN SYSTEM - Foundation
+   Modern & Bold Dark Theme
+   ============================================ */
+
+/* Color System */
+:root {
+	/* Primary Colors - Bold Blue */
+	--color-primary: #3b82f6;
+	--color-primary-dark: #2563eb;
+	--color-primary-light: #60a5fa;
+	--color-primary-lighter: #93c5fd;
+	
+	/* Secondary Colors - Bold Purple */
+	--color-secondary: #8b5cf6;
+	--color-secondary-dark: #7c3aed;
+	--color-secondary-light: #a78bfa;
+	
+	/* Accent Colors */
+	--color-accent: #06b6d4;
+	--color-accent-dark: #0891b2;
+	--color-accent-light: #22d3ee;
+	
+	/* Neutral Colors - Dark Theme */
+	--color-bg-primary: #0a0a0f;
+	--color-bg-secondary: #111118;
+	--color-bg-tertiary: #1a1a24;
+	
+	/* Text Colors */
+	--color-text-primary: #ffffff;
+	--color-text-secondary: #e5e7eb;
+	--color-text-tertiary: #9ca3af;
+	--color-text-muted: #6b7280;
+	
+	/* Semantic Colors */
+	--color-success: #10b981;
+	--color-warning: #f59e0b;
+	--color-error: #ef4444;
+	--color-info: #3b82f6;
+	
+	/* Border Colors */
+	--color-border-primary: rgba(59, 130, 246, 0.2);
+	--color-border-secondary: rgba(139, 92, 246, 0.2);
+	--color-border-muted: rgba(255, 255, 255, 0.1);
+	
+	/* Shadow Colors */
+	--color-shadow-sm: rgba(0, 0, 0, 0.3);
+	--color-shadow-md: rgba(0, 0, 0, 0.4);
+	--color-shadow-lg: rgba(0, 0, 0, 0.5);
+	--color-shadow-glow: rgba(59, 130, 246, 0.3);
+	
+	/* Spacing Scale */
+	--space-xs: 0.25rem;   /* 4px */
+	--space-sm: 0.5rem;    /* 8px */
+	--space-md: 1rem;      /* 16px */
+	--space-lg: 1.5rem;    /* 24px */
+	--space-xl: 2rem;      /* 32px */
+	--space-2xl: 3rem;     /* 48px */
+	--space-3xl: 4rem;     /* 64px */
+	--space-4xl: 6rem;     /* 96px */
+	
+	/* Container Widths */
+	--container-sm: 640px;
+	--container-md: 768px;
+	--container-lg: 1024px;
+	--container-xl: 1280px;
+	--container-2xl: 1400px;
+	
+	/* Typography Scale */
+	--font-size-xs: 0.75rem;    /* 12px */
+	--font-size-sm: 0.875rem;   /* 14px */
+	--font-size-base: 1rem;     /* 16px */
+	--font-size-lg: 1.125rem;   /* 18px */
+	--font-size-xl: 1.25rem;    /* 20px */
+	--font-size-2xl: 1.5rem;    /* 24px */
+	--font-size-3xl: 1.875rem;  /* 30px */
+	--font-size-4xl: 2.25rem;   /* 36px */
+	--font-size-5xl: 3rem;      /* 48px */
+	--font-size-6xl: 3.75rem;   /* 60px */
+	
+	/* Line Heights */
+	--line-height-tight: 1.25;
+	--line-height-snug: 1.375;
+	--line-height-normal: 1.5;
+	--line-height-relaxed: 1.625;
+	--line-height-loose: 2;
+	
+	/* Letter Spacing */
+	--letter-spacing-tighter: -0.05em;
+	--letter-spacing-tight: -0.025em;
+	--letter-spacing-normal: 0;
+	--letter-spacing-wide: 0.025em;
+	--letter-spacing-wider: 0.05em;
+	
+	/* Border Radius */
+	--radius-sm: 0.25rem;   /* 4px */
+	--radius-md: 0.5rem;    /* 8px */
+	--radius-lg: 0.75rem;   /* 12px */
+	--radius-xl: 1rem;      /* 16px */
+	--radius-2xl: 1.5rem;   /* 24px */
+	--radius-full: 9999px;
+	
+	/* Transitions */
+	--transition-fast: 150ms ease;
+	--transition-base: 250ms ease;
+	--transition-slow: 350ms ease;
+	--transition-slower: 500ms ease;
+	
+	/* Z-Index Scale */
+	--z-base: 1;
+	--z-dropdown: 100;
+	--z-sticky: 200;
+	--z-fixed: 300;
+	--z-modal: 400;
+	--z-tooltip: 500;
+	--z-toast: 600;
+}
+
+/* Typography System */
+:root {
+	/* Font Family - System Font Stack */
+	--font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	--font-family-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
+	
+	/* Font Weights */
+	--font-weight-light: 300;
+	--font-weight-normal: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+	--font-weight-extrabold: 800;
+}
+
+/* Base Typography */
+body {
+	font-family: var(--font-family-sans);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-relaxed);
+	font-weight: var(--font-weight-normal);
+	color: var(--color-text-primary);
+	background: var(--color-bg-primary);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: var(--font-weight-bold);
+	line-height: var(--line-height-tight);
+	letter-spacing: var(--letter-spacing-tight);
+	color: var(--color-text-primary);
+	margin: 0;
+}
+
+h1 {
+	font-size: var(--font-size-5xl);
+	font-weight: var(--font-weight-extrabold);
+	letter-spacing: var(--letter-spacing-tighter);
+}
+
+h2 {
+	font-size: var(--font-size-4xl);
+	font-weight: var(--font-weight-bold);
+}
+
+h3 {
+	font-size: var(--font-size-3xl);
+	font-weight: var(--font-weight-bold);
+}
+
+h4 {
+	font-size: var(--font-size-2xl);
+	font-weight: var(--font-weight-semibold);
+}
+
+h5 {
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-semibold);
+}
+
+h6 {
+	font-size: var(--font-size-lg);
+	font-weight: var(--font-weight-semibold);
+}
+
+/* Body Text */
+p {
+	margin: 0;
+	color: var(--color-text-secondary);
+	line-height: var(--line-height-relaxed);
+}
+
+/* Links */
+a {
+	color: var(--color-primary);
+	text-decoration: none;
+	transition: color var(--transition-base);
+}
+
+a:hover {
+	color: var(--color-primary-light);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+	h1 {
+		font-size: var(--font-size-4xl);
+	}
+	
+	h2 {
+		font-size: var(--font-size-3xl);
+	}
+	
+	h3 {
+		font-size: var(--font-size-2xl);
+	}
+}
+
+@media (max-width: 480px) {
+	h1 {
+		font-size: var(--font-size-3xl);
+	}
+	
+	h2 {
+		font-size: var(--font-size-2xl);
+	}
+	
+	h3 {
+		font-size: var(--font-size-xl);
+	}
+}

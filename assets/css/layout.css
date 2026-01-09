@@ -1,0 +1,273 @@
+/* ============================================
+   LAYOUT SYSTEM
+   Containers, Grid, Responsive Utilities
+   ============================================ */
+
+/* Reset */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+/* Skip Link */
+.skip-link {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	background: var(--color-primary);
+	color: var(--color-text-primary);
+	padding: var(--space-sm) var(--space-md);
+	text-decoration: none;
+	z-index: var(--z-toast);
+	border-radius: 0 0 var(--radius-md) 0;
+}
+
+.skip-link:focus {
+	top: 0;
+}
+
+/* Container System */
+.container {
+	width: 100%;
+	max-width: var(--container-2xl);
+	margin: 0 auto;
+	padding: 0 var(--space-xl);
+}
+
+.container-sm {
+	max-width: var(--container-sm);
+}
+
+.container-md {
+	max-width: var(--container-md);
+}
+
+.container-lg {
+	max-width: var(--container-lg);
+}
+
+.container-xl {
+	max-width: var(--container-xl);
+}
+
+/* Section Base */
+.section {
+	padding: var(--space-4xl) 0;
+	position: relative;
+}
+
+/* Header */
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: var(--z-fixed);
+	background: rgba(10, 10, 15, 0.8);
+	backdrop-filter: blur(20px);
+	border-bottom: 1px solid var(--color-border-muted);
+	transition: all var(--transition-base);
+}
+
+.nav {
+	padding: var(--space-md) 0;
+}
+
+.nav-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: var(--container-2xl);
+	margin: 0 auto;
+	padding: 0 var(--space-xl);
+}
+
+.nav-logo {
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
+	font-size: var(--font-size-lg);
+	font-weight: var(--font-weight-bold);
+	color: var(--color-text-primary);
+	text-decoration: none;
+	transition: opacity var(--transition-base);
+}
+
+.nav-logo:hover {
+	opacity: 0.8;
+}
+
+.logo-image {
+	height: 40px;
+	width: auto;
+}
+
+.nav-list {
+	display: flex;
+	align-items: center;
+	gap: var(--space-xl);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-link {
+	color: var(--color-text-secondary);
+	text-decoration: none;
+	font-weight: var(--font-weight-medium);
+	transition: color var(--transition-base);
+	position: relative;
+}
+
+.nav-link::after {
+	content: '';
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: var(--color-primary);
+	transition: width var(--transition-base);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+	color: var(--color-primary);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+	width: 100%;
+}
+
+.nav-link.active {
+	color: var(--color-primary);
+}
+
+.nav-link.active::after {
+	width: 100%;
+}
+
+/* Main Content */
+.main {
+	padding-top: 80px;
+}
+
+/* Grid System */
+.grid {
+	display: grid;
+	gap: var(--space-xl);
+}
+
+.grid-2 {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-auto {
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Flex Utilities */
+.flex {
+	display: flex;
+}
+
+.flex-col {
+	flex-direction: column;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.gap-sm {
+	gap: var(--space-sm);
+}
+
+.gap-md {
+	gap: var(--space-md);
+}
+
+.gap-lg {
+	gap: var(--space-lg);
+}
+
+.gap-xl {
+	gap: var(--space-xl);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+	.container {
+		padding: 0 var(--space-lg);
+	}
+	
+	.nav-container {
+		padding: 0 var(--space-lg);
+	}
+}
+
+@media (max-width: 768px) {
+	.container {
+		padding: 0 var(--space-md);
+	}
+	
+	.nav-container {
+		padding: 0 var(--space-md);
+		flex-direction: column;
+		gap: var(--space-md);
+	}
+	
+	.nav-list {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--space-md);
+	}
+	
+	.section {
+		padding: var(--space-3xl) 0;
+	}
+	
+	.grid-2,
+	.grid-3 {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		padding: 0 var(--space-sm);
+	}
+	
+	.nav-container {
+		padding: 0 var(--space-sm);
+	}
+	
+	.section {
+		padding: var(--space-2xl) 0;
+	}
+}

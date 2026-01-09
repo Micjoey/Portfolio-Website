@@ -1,169 +1,144 @@
 /*
-	Macallan Savett's Profile
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+ * Main JavaScript
+ * Core functionality: navigation, toggles, smooth scroll
+ */
 
-(function($) {
+(function() {
+	'use strict';
 
-	var	$window = $(window),
-		$body = $('body'),
-		$sidebar = $('#sidebar');
+	// Smooth scroll for anchor links
+	function initSmoothScroll() {
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function(e) {
+				const href = this.getAttribute('href');
+				if (href === '#' || href === '#intro') {
+					window.scrollTo({ top: 0, behavior: 'smooth' });
+					e.preventDefault();
+					return;
+				}
 
-	// Constants
-	var ANIMATION_DELAY = 100;
-	var SCROLL_SPEED = 1000;
-	var SCROLL_OFFSET_TOP = '-20vh';
-	var SCROLL_OFFSET_BOTTOM = '-20vh';
-	var SPOTLIGHT_OFFSET_TOP = '-10vh';
-	var SPOTLIGHT_OFFSET_BOTTOM = '-10vh';
+				const target = document.querySelector(href);
+				if (target) {
+					e.preventDefault();
+					const headerOffset = 80;
+					const elementPosition = target.getBoundingClientRect().top;
+					const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-	// Breakpoints.
-	breakpoints({
-		xlarge:   [ '1281px',  '1680px' ],
-		large:    [ '981px',   '1280px' ],
-		medium:   [ '737px',   '980px'  ],
-		small:    [ '481px',   '736px'  ],
-		xsmall:   [ null,      '480px'  ]
-	});
-
-	// Enable IE flexbox workarounds.
-	if (browser.name === 'ie') {
-		$body.addClass('is-ie');
+					window.scrollTo({
+						top: offsetPosition,
+						behavior: 'smooth'
+					});
+				}
+			});
+		});
 	}
 
-	// Play initial animations on page load.
-	$window.on('load', function() {
-		window.setTimeout(function() {
-			$body.removeClass('is-preload');
-		}, ANIMATION_DELAY);
-	});
+	// Update active nav link on scroll
+	function updateActiveNavLink() {
+		const scrollPos = window.scrollY + 100;
+		const navLinks = document.querySelectorAll('.nav-link[data-section]');
 
-	// Forms: Activate non-input submits.
-	$('form').on('click', '.submit', function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-		$(this).parents('form').submit();
-	});
+		navLinks.forEach(link => {
+			const sectionId = link.getAttribute('data-section');
+			const section = document.getElementById(sectionId);
 
-	// Sidebar navigation.
-	if ($sidebar.length > 0) {
-		var $sidebar_a = $sidebar.find('a');
+			if (section) {
+				const sectionTop = section.offsetTop;
+				const sectionBottom = sectionTop + section.offsetHeight;
 
-		$sidebar_a
-			.addClass('scrolly')
-			.on('click', function() {
-				var $this = $(this);
-				var href = $this.attr('href');
-
-				// External link? Bail.
-				if (!href || href.charAt(0) !== '#') {
-					return;
+				if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+					navLinks.forEach(l => l.classList.remove('active'));
+					link.classList.add('active');
 				}
+			}
+		});
+	}
 
-				// Deactivate all links.
-				$sidebar_a.removeClass('active');
+	// Throttle scroll handler
+	function throttle(func, wait) {
+		let timeout;
+		return function executedFunction(...args) {
+			const later = () => {
+				clearTimeout(timeout);
+				func(...args);
+			};
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+		};
+	}
 
-				// Activate link and lock it (so Scrollex doesn't try to activate other links).
-				$this
-					.addClass('active')
-					.addClass('active-locked');
-			})
-			.each(function() {
-				var $this = $(this);
-				var id = $this.attr('href');
-				var $section = $(id);
+	// Previous Experience Toggle
+	function initPreviousExpToggle() {
+		const toggle = document.getElementById('previous-exp-toggle');
+		const content = document.getElementById('previous-exp-content');
+		const icon = document.getElementById('previous-exp-icon');
 
-				// No section for this link? Bail.
-				if ($section.length < 1) {
-					return;
+		if (toggle && content && icon) {
+			toggle.addEventListener('click', function() {
+				const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+				
+				if (isExpanded) {
+					content.style.display = 'none';
+					icon.classList.remove('expanded');
+					toggle.setAttribute('aria-expanded', 'false');
+				} else {
+					content.style.display = 'block';
+					icon.classList.add('expanded');
+					toggle.setAttribute('aria-expanded', 'true');
 				}
+			});
 
-				// Scrollex.
-				$section.scrollex({
-					mode: 'middle',
-					top: SCROLL_OFFSET_TOP,
-					bottom: SCROLL_OFFSET_BOTTOM,
-					initialize: function() {
-						$section.addClass('inactive');
-					},
-					enter: function() {
-						$section.removeClass('inactive');
+			// Keyboard support
+			toggle.addEventListener('keydown', function(e) {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					toggle.click();
+				}
+			});
+		}
+	}
 
-						// No locked links? Deactivate all links and activate this section's one.
-						if ($sidebar_a.filter('.active-locked').length === 0) {
-							$sidebar_a.removeClass('active');
-							$this.addClass('active');
-						}
-						// Otherwise, if this section's link is the one that's locked, unlock it.
-						else if ($this.hasClass('active-locked')) {
-							$this.removeClass('active-locked');
+	// Lazy load images
+	function initLazyLoading() {
+		if ('IntersectionObserver' in window) {
+			const imageObserver = new IntersectionObserver((entries, observer) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const img = entry.target;
+						if (img.dataset.src) {
+							img.src = img.dataset.src;
+							img.removeAttribute('data-src');
+							observer.unobserve(img);
 						}
 					}
 				});
 			});
+
+			document.querySelectorAll('img[data-src]').forEach(img => {
+				imageObserver.observe(img);
+			});
+		}
 	}
 
-	// Scrolly smooth scrolling.
-	$('.scrolly').scrolly({
-		speed: SCROLL_SPEED,
-		offset: function() {
-			// If <=large, >small, and sidebar is present, use its height as the offset.
-			if (breakpoints.active('<=large')
-				&& !breakpoints.active('<=small')
-				&& $sidebar.length > 0) {
-				return $sidebar.height();
-			}
-			return 0;
-		}
-	});
+	// Initialize everything
+	function init() {
+		initSmoothScroll();
+		initPreviousExpToggle();
+		initLazyLoading();
+		
+		// Update nav on scroll
+		const throttledUpdateNav = throttle(updateActiveNavLink, 100);
+		window.addEventListener('scroll', throttledUpdateNav, { passive: true });
+		
+		// Initial nav update
+		updateActiveNavLink();
+	}
 
-	// Spotlights.
-	$('.spotlights > section')
-		.scrollex({
-			mode: 'middle',
-			top: SPOTLIGHT_OFFSET_TOP,
-			bottom: SPOTLIGHT_OFFSET_BOTTOM,
-			initialize: function() {
-				$(this).addClass('inactive');
-			},
-			enter: function() {
-				$(this).removeClass('inactive');
-			}
-		})
-		.each(function() {
-			var $this = $(this);
-			var $image = $this.find('.image');
-			var $img = $image.find('img');
-			var imageSrc = $img.attr('src');
-			var position = $img.data('position');
+	// Run on DOM ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
+	}
 
-			// Assign image.
-			if (imageSrc) {
-				$image.css('background-image', 'url(' + imageSrc + ')');
-			}
-
-			// Set background position.
-			if (position) {
-				$image.css('background-position', position);
-			}
-
-			// Hide <img>.
-			$img.hide();
-		});
-
-	// Features.
-	$('.features')
-		.scrollex({
-			mode: 'middle',
-			top: SCROLL_OFFSET_TOP,
-			bottom: SCROLL_OFFSET_BOTTOM,
-			initialize: function() {
-				$(this).addClass('inactive');
-			},
-			enter: function() {
-				$(this).removeClass('inactive');
-			}
-		});
-
-})(jQuery);
+})();
