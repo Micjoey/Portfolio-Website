@@ -29,11 +29,11 @@
 				--secondary: #8b5cf6;
 				--accent: #06b6d4;
 				--text-primary: #ffffff;
-			--text-secondary: rgba(255, 255, 255, 0.9);
-			--text-muted: rgba(255, 255, 255, 0.75);
-				--bg-dark: #0a0e27;
-				--bg-card: rgba(15, 23, 42, 0.6);
-				--border: rgba(148, 163, 184, 0.2);
+				--text-secondary: rgba(255, 255, 255, 0.95);
+				--text-muted: rgba(255, 255, 255, 0.85);
+				--bg-dark: #0f172a;
+				--bg-card: rgba(30, 41, 59, 0.7);
+				--border: rgba(148, 163, 184, 0.3);
 				--shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 				--shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
 			}
@@ -46,7 +46,143 @@
 				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 				line-height: 1.6;
 				color: var(--text-primary);
-				background: var(--bg-dark);
+				background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #1a1f3a 60%, #1e293b 100%);
+				background-size: 400% 400%;
+				animation: bodyGradientShift 25s ease infinite;
+				position: relative;
+			}
+
+			body::before {
+				content: '';
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: 
+					radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+					radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+					radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+				background-size: 200% 200%;
+				animation: radialPulse 20s ease infinite;
+				pointer-events: none;
+				z-index: 0;
+			}
+
+			@keyframes bodyGradientShift {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+
+			@keyframes radialPulse {
+				0%, 100% {
+					background-position: 0% 0%, 100% 100%, 50% 50%;
+					opacity: 1;
+				}
+				50% {
+					background-position: 100% 100%, 0% 0%, 50% 50%;
+					opacity: 0.7;
+				}
+			}
+
+			@keyframes headerGradientShift {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+
+			/* Animated section backgrounds */
+			.animated-section {
+				position: relative;
+				animation: sectionGradientShift 20s ease infinite;
+			}
+
+			@keyframes sectionGradientShift {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+
+			/* Header animated background overlay */
+			#modern-header::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: 
+					radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+				pointer-events: none;
+				z-index: -1;
+			}
+
+			/* Main content animated background */
+			#main-content::before {
+				content: '';
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: 
+					radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+				pointer-events: none;
+				z-index: 0;
+				animation: mainContentPulse 15s ease infinite;
+			}
+
+			@keyframes mainContentPulse {
+				0%, 100% {
+					opacity: 0.5;
+					transform: scale(1);
+				}
+				50% {
+					opacity: 0.8;
+					transform: scale(1.1);
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				body {
+					animation: none;
+					background: var(--bg-dark);
+				}
+				body::before {
+					display: none;
+				}
+				.animated-section {
+					animation: none;
+				}
+				#modern-header {
+					animation: none;
+					background: rgba(30, 41, 59, 0.95);
+				}
+				#modern-header::before {
+					display: none;
+				}
+				#main-content::before {
+					display: none;
+				}
 			}
 
 			/* Modern Enhancements */
@@ -79,7 +215,9 @@
 
 			/* Modern Intro/Hero Section */
 			#intro {
-				background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+				background: linear-gradient(135deg, #1e293b 0%, #334155 30%, #1e293b 60%, #334155 100%);
+				background-size: 300% 300%;
+				animation: heroGradientShift 18s ease infinite;
 				position: relative;
 				overflow: hidden;
 			}
@@ -93,11 +231,33 @@
 				bottom: 0;
 				background: 
 					url('assets/images/hero-animation.svg') center/cover no-repeat,
-					radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-					radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+					radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
+					radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.25) 0%, transparent 50%);
+				background-size: 200% 200%, 150% 150%, 150% 150%;
 				pointer-events: none;
-				opacity: 0.6;
-				animation: gradient-shift 15s ease infinite;
+				opacity: 0.8;
+				animation: heroRadialShift 20s ease infinite, gradient-shift 15s ease infinite;
+			}
+
+			@keyframes heroGradientShift {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+
+			@keyframes heroRadialShift {
+				0%, 100% {
+					background-position: center center, 0% 0%, 100% 100%;
+				}
+				50% {
+					background-position: center center, 100% 100%, 0% 0%;
+				}
 			}
 
 			#intro .inner {
@@ -113,6 +273,7 @@
 				margin-bottom: 1.5rem;
 				color: var(--text-primary);
 				line-height: 1.1;
+				text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 			}
 
 			#intro p {
@@ -319,73 +480,148 @@
 
 			/* Work Experience Enhancements */
 			#six {
-				background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1419 100%) !important;
+				background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1a1f3a 100%) !important;
+				position: relative;
+				overflow: hidden;
 			}
 
 			#work-experience {
-				background: rgba(10, 14, 39, 0.8);
-			}
-
-			#work-experience .content {
-				background: rgba(15, 20, 35, 0.6);
-				padding: 2em;
-				border-radius: 12px;
-			}
-
-			#work-experience h2 {
-				background: rgba(20, 25, 45, 0.9);
-				padding: 0.5em 1em;
-				border-radius: 8px;
-				display: inline-block;
-				border: 1px solid rgba(100, 120, 150, 0.3);
-			}
-
-			.work-experience-container {
 				position: relative;
-				padding-left: 1.5em;
-				margin-bottom: 1em;
+				padding: 2rem 0;
 			}
 
-			.work-experience-container::before {
+			/* Timeline visualization */
+			#work-experience::before {
 				content: '';
 				position: absolute;
-				left: 0;
-				top: 0.5em;
-				width: 4px;
-				height: calc(100% - 0.5em);
-				background: linear-gradient(180deg, #2d4a6b 0%, #1a2f4a 100%);
+				left: 2rem;
+				top: 0;
+				bottom: 0;
+				width: 3px;
+				background: linear-gradient(180deg, 
+					var(--primary) 0%, 
+					rgba(59, 130, 246, 0.5) 50%,
+					var(--secondary) 100%);
 				border-radius: 2px;
+				opacity: 0;
+				transform: scaleY(0);
+				transform-origin: top;
 			}
 
-			.work-experience-container h3 {
-				color: #e8f0f8;
-				margin-bottom: 0.3em;
+			#work-experience.timeline-active::before {
+				opacity: 1;
+				transform: scaleY(1);
+				transition: transform 1.5s ease-out, opacity 0.5s ease;
+			}
+
+			#work-experience .modern-card {
+				position: relative;
+				margin-left: 4rem;
+				margin-bottom: 3rem;
+			}
+
+			#work-experience .modern-card::before {
+				content: '';
+				position: absolute;
+				left: -4.5rem;
+				top: 1.5rem;
+				width: 16px;
+				height: 16px;
+				border-radius: 50%;
+				background: var(--primary);
+				border: 3px solid var(--bg-dark);
+				box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3),
+							0 0 20px rgba(59, 130, 246, 0.5);
+				opacity: 0;
+				transform: scale(0);
+			}
+
+			#work-experience .modern-card.visible::before {
+				opacity: 1;
+				transform: scale(1);
+				transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.3s;
+			}
+
+			#work-experience .modern-card h3 {
+				font-size: 1.75rem;
+				font-weight: 700;
+				color: var(--text-primary);
+				margin-bottom: 0.75rem;
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+			}
+
+			#work-experience .modern-card .company-name {
+				color: var(--primary);
 				font-weight: 600;
+				font-size: 1.1rem;
+				margin-bottom: 0.25rem;
 			}
 
-			.work-experience-container h4 {
-				color: rgba(200, 210, 220, 0.8);
-				font-weight: 400;
+			#work-experience .modern-card .location {
+				color: var(--text-muted);
+				font-size: 0.95rem;
 			}
 
-			#work-experience ul {
+			#work-experience .modern-card .date-badge {
+				display: inline-block;
+				padding: 0.4rem 1rem;
+				background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+				border: 1px solid rgba(59, 130, 246, 0.3);
+				border-radius: 20px;
+				font-size: 0.9rem;
+				color: var(--primary);
+				font-weight: 500;
+				white-space: nowrap;
+			}
+
+			#work-experience .modern-card ul {
 				list-style: none;
-				padding-left: 0;
+				padding: 0;
+				margin: 1.5rem 0 0 0;
+				display: grid;
+				gap: 0.75rem;
 			}
 
 			#work-experience .modern-card ul li {
 				position: relative;
 				padding-left: 1.75rem;
 				color: var(--text-secondary);
-				line-height: 1.7;
+				line-height: 1.8;
+				opacity: 0;
+				transform: translateX(-10px);
+			}
+
+			#work-experience .modern-card ul li.visible {
+				opacity: 1;
+				transform: translateX(0);
+				transition: opacity 0.4s ease, transform 0.4s ease;
 			}
 
 			#work-experience .modern-card ul li::before {
-				content: '→';
+				content: '▹';
 				position: absolute;
 				left: 0;
 				color: var(--primary);
 				font-weight: bold;
+				font-size: 1.2em;
+			}
+
+			@media (max-width: 768px) {
+				#work-experience::before {
+					left: 1rem;
+				}
+
+				#work-experience .modern-card {
+					margin-left: 2.5rem;
+				}
+
+				#work-experience .modern-card::before {
+					left: -3rem;
+					width: 12px;
+					height: 12px;
+				}
 			}
 
 			/* Technologies Section - Enhanced */
@@ -560,53 +796,52 @@
 			/* About Me Section */
 			#about-me {
 				display: flex !important;
+				flex-direction: column;
 				align-items: center;
-				gap: 3em;
-				padding: 3em 2em;
+				gap: 3rem;
+				margin-top: 3rem;
+				position: relative;
 			}
 
 			#about-me .image {
-				flex: 0 0 350px;
-				position: relative;
-				min-width: 350px;
+				max-width: 280px;
+				width: 100%;
 				display: block !important;
 				visibility: visible !important;
+				will-change: transform;
+				background: transparent !important;
 			}
 
 			#about-me .image::before {
-				content: '';
-				position: absolute;
-				top: -10px;
-				left: -10px;
-				right: -10px;
-				bottom: -10px;
-				background: linear-gradient(135deg, rgba(45, 74, 107, 0.6) 0%, rgba(26, 47, 74, 0.6) 100%);
-				border-radius: 50%;
-				z-index: -1;
-				opacity: 0.5;
+				display: none;
 			}
 
 			#about-me .image img {
-				width: 350px !important;
-				height: 350px !important;
+				width: 100% !important;
+				height: auto !important;
 				object-fit: cover;
-				border-radius: 50%;
-				border: 4px solid rgba(90, 127, 163, 0.4);
-				box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 
-							0 0 0 8px rgba(15, 20, 35, 0.3),
-							0 0 60px rgba(90, 127, 163, 0.2);
+				border-radius: 20px;
+				border: 3px solid var(--border);
+				box-shadow: var(--shadow-lg);
 				transition: all 0.5s ease;
 				display: block !important;
 				visibility: visible !important;
 				opacity: 1 !important;
+				will-change: transform;
 			}
 
 			#about-me:hover .image img {
-				transform: scale(1.02);
-				border-color: rgba(122, 163, 199, 0.6);
+				transform: scale(1.02) translateY(-5px);
+				border-color: rgba(59, 130, 246, 0.6);
 				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
-							0 0 0 8px rgba(15, 20, 35, 0.4),
-							0 0 80px rgba(122, 163, 199, 0.3);
+							0 0 0 8px rgba(59, 130, 246, 0.2),
+							0 0 80px rgba(59, 130, 246, 0.2);
+			}
+
+			#about-me .content {
+				position: relative;
+				max-width: 700px;
+				width: 100%;
 			}
 
 			#about-me .content {
@@ -636,24 +871,17 @@
 				margin-bottom: 1em;
 			}
 
-			@media (max-width: 968px) {
+			@media (max-width: 768px) {
 				#about-me {
-					flex-direction: column;
-					text-align: center;
+					gap: 2rem;
 				}
 
 				#about-me .image {
-					flex: 0 0 auto;
-					max-width: 280px;
-					margin: 0 auto;
+					max-width: 240px;
 				}
 
-				#about-me .content .inner {
-					padding-left: 0;
-				}
-
-				#about-me h2 {
-					text-align: center;
+				#about-me .content {
+					max-width: 100%;
 				}
 			}
 
@@ -762,6 +990,17 @@
 			/* Smooth Scroll */
 			html {
 				scroll-behavior: smooth;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				html {
+					scroll-behavior: auto;
+				}
+			}
+
+			/* Smooth scroll with momentum */
+			* {
+				-webkit-overflow-scrolling: touch;
 			}
 
 			/* Section Transitions */
@@ -952,6 +1191,7 @@
 				font-weight: 700;
 				margin-bottom: 3rem;
 				text-align: center;
+				text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 				letter-spacing: -0.02em;
 			}
 
@@ -963,12 +1203,37 @@
 				padding: 2rem;
 				backdrop-filter: blur(10px);
 				transition: all 0.3s ease;
+				position: relative;
+			}
+
+			.modern-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+				border-radius: 16px;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				pointer-events: none;
+				z-index: 0;
+			}
+
+			.modern-card:hover::before {
+				opacity: 1;
 			}
 
 			.modern-card:hover {
 				transform: translateY(-4px);
-				box-shadow: var(--shadow-lg);
-				border-color: var(--primary);
+				box-shadow: 0 15px 50px rgba(59, 130, 246, 0.2), var(--shadow-lg);
+				border-color: rgba(59, 130, 246, 0.4);
+			}
+
+			.modern-card > * {
+				position: relative;
+				z-index: 1;
 			}
 
 			/* Align buttons at bottom of project cards */
@@ -999,7 +1264,7 @@
 			}
 
 			#previous-exp-toggle:hover {
-				background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%) !important;
+				background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%) !important;
 				border-color: var(--primary) !important;
 				box-shadow: 0 6px 30px rgba(59, 130, 246, 0.2), 0 4px 20px rgba(0, 0, 0, 0.4);
 				transform: translateY(-2px);
@@ -1137,7 +1402,7 @@
 		<div id="scroll-progress" style="position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--primary), var(--secondary)); width: 0%; z-index: 1001; transition: width 0.1s ease-out;"></div>
 
 		<!-- Modern Sticky Header -->
-		<header id="modern-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 14, 39, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; transition: all 0.3s ease;">
+		<header id="modern-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 50%, rgba(15, 23, 42, 0.95) 100%); background-size: 300% 300%; animation: headerGradientShift 20s ease infinite; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; transition: all 0.3s ease;">
 			<nav style="display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto;">
 				<a href="#intro" aria-label="Return to top of page" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 0.25rem; transition: opacity 0.3s;">
 					<img src="images/transparent email.png" alt="Macallan Savett logo" style="height: 40px; width: auto; display: block;" loading="eager" />
@@ -1250,34 +1515,36 @@
 					</section>
 
 				<!-- One -->
-				<section id="one" style="background: var(--bg-dark);">
-					<div style="max-width: 1200px; margin: 0 auto;">
+				<section id="one" class="animated-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #1a1f3a 80%, #1e293b 100%); background-size: 300% 300%;">
+					<div style="max-width: 900px; margin: 0 auto; padding: 0 2rem;">
 						<h2>About Me</h2>
-						<div id="about-me" style="display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: start; margin-top: 3rem;">
-							<div class="image" style="position: sticky; top: 100px;">
+						<div id="about-me" style="display: flex; flex-direction: column; align-items: center; gap: 3rem; margin-top: 3rem;">
+							<div class="image" style="max-width: 280px; width: 100%;">
 								<img src="images/portrait.jpeg" alt="Portrait of Macallan Savett, Software Engineer" style="width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow-lg); border: 3px solid var(--border);"/>
 							</div>
-							<div class="content">
+							<div class="content" style="max-width: 700px; width: 100%;">
 								<div class="inner">
-								<div>
-									<p>
+									<p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
 										Software Engineer at Skilljar. I build scalable applications with Python, Django, React, and AWS. Focus on full-stack development, system architecture, and AI/ML integration.
 									</p>
-									<h3>Background</h3>
-									<p>
+									<h3 style="color: var(--primary); margin-bottom: 1rem;">Background</h3>
+									<p style="line-height: 1.8; margin-bottom: 2rem;">
 										Transitioned to software engineering from real estate, where I managed databases and complex negotiations. That experience taught me to balance analytical thinking with practical problem-solving. I apply the same approach to engineering: understand requirements, design robust solutions, deliver reliable systems.
 									</p>
-									<h3>Engineering Focus</h3>
-									<p>
+									<h3 style="color: var(--primary); margin-bottom: 1rem;">Engineering Focus</h3>
+									<p style="line-height: 1.8; margin-bottom: 2rem;">
 										I build maintainable, scalable systems. This includes frontend architecture, RESTful API design, CI/CD pipelines, and AI integration. I'm interested in how AI can enhance developer productivity through automated analysis and feedback.
 									</p>
-									<h3>Outside of Work</h3>
-									<p>
-										I coach youth soccer and run. Recently completed a half marathon and training for another. These activities help maintain balance and bring fresh perspectives to technical challenges.
+									<h3 style="color: var(--primary); margin-bottom: 1rem;">Outside of Work</h3>
+									<p style="line-height: 1.8; margin-bottom: 2rem;">
+										Outside of work, I stay active through a mix of endurance sports, skill-based hobbies, and seasonal activities. I train for half marathons during the summer, which reinforces consistency, long-term planning, and mental resilience. I also referee and play soccer, which keeps me sharp in fast-paced, high-pressure decision making.
 									</p>
-									<h3>Connect</h3>
-									<p>
-										Open to discussing engineering challenges, AI/ML applications, or collaborations. Reach out at <a href="mailto:jsavett@gmail.com">jsavett@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/macallan-savett/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Macallan Savett on LinkedIn (opens in new tab)">LinkedIn</a>.
+									<p style="line-height: 1.8; margin-bottom: 2rem;">
+										I am deeply involved in West Coast Swing dancing, a practice that rewards precision, adaptability, and continuous learning. In the winter, I ski and snowboard. Year-round, I golf. These activities give me space to reset, think clearly, and return to technical problems with better perspective and focus.
+									</p>
+									<h3 style="color: var(--primary); margin-bottom: 1rem;">Connect</h3>
+									<p style="line-height: 1.8;">
+										Open to discussing engineering challenges, AI/ML applications, or collaborations. Reach out at <a href="mailto:jsavett@gmail.com" style="color: var(--primary);">jsavett@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/macallan-savett/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Macallan Savett on LinkedIn (opens in new tab)" style="color: var(--primary);">LinkedIn</a>.
 									</p>
 								</div>
 							</div>
@@ -1286,19 +1553,19 @@
 				</section>				
 
 				<!-- Six -->
-				<section id="six" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+				<section id="six" class="animated-section" style="background: linear-gradient(135deg, #1e293b 0%, #334155 30%, #1e293b 60%, #334155 100%); background-size: 300% 300%;">
 					<div style="max-width: 1000px; margin: 0 auto;">
 						<h2>Work Experience</h2>
-						<div id="work-experience" style="display: flex; flex-direction: column; gap: 3rem; margin-top: 3rem;">
+						<div id="work-experience" style="display: flex; flex-direction: column; gap: 3rem; margin-top: 3rem; position: relative;">
 							<!-- Software Engineer II - Skilljar -->
-							<div class="modern-card">
+							<div class="modern-card work-experience-card">
 								<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
-									<div>
-										<h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Software Engineer II</h3>
-										<p style="color: var(--primary); font-weight: 600; margin: 0;">Skilljar powered by Gainsight</p>
-										<p style="color: var(--text-muted); margin: 0.25rem 0 0 0;">Seattle, WA</p>
+									<div style="flex: 1;">
+										<h3 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">Software Engineer II</h3>
+										<p class="company-name" style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin: 0 0 0.25rem 0;">Skilljar powered by Gainsight</p>
+										<p class="location" style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Seattle, WA</p>
 									</div>
-									<span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;">August 2022 – Present</span>
+									<span class="date-badge" style="display: inline-block; padding: 0.4rem 1rem; background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.9rem; color: var(--primary); font-weight: 500; white-space: nowrap;">August 2022 – Present</span>
 								</div>
 								<ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem;">
 							  <li>Led development of scalable frontend architecture, streamlining development and deployment, resulting in 40% faster feature releases.</li>
@@ -1314,14 +1581,14 @@
 							</div>
 							
 							<!-- Software Engineer I - Skilljar -->
-							<div class="modern-card">
+							<div class="modern-card work-experience-card">
 								<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
-									<div>
-										<h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Software Engineer I</h3>
-										<p style="color: var(--primary); font-weight: 600; margin: 0;">Skilljar powered by Gainsight</p>
-										<p style="color: var(--text-muted); margin: 0.25rem 0 0 0;">Seattle, WA</p>
+									<div style="flex: 1;">
+										<h3 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">Software Engineer I</h3>
+										<p class="company-name" style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin: 0 0 0.25rem 0;">Skilljar powered by Gainsight</p>
+										<p class="location" style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Seattle, WA</p>
 									</div>
-									<span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;">January 2021 – August 2022</span>
+									<span class="date-badge" style="display: inline-block; padding: 0.4rem 1rem; background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.9rem; color: var(--primary); font-weight: 500; white-space: nowrap;">January 2021 – August 2022</span>
 								</div>
 								<ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem;">
 							  <li>Built and maintained scalable frontends in JavaScript, Vue.js, and HTML, improving page load times by 15%.</li>
@@ -1337,7 +1604,7 @@
 				</section>
 
 				<!-- Previous Experience (Collapsible) -->
-				<section id="previous-experience" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding-top: 0;">
+				<section id="previous-experience" class="animated-section" style="background: linear-gradient(135deg, #1e293b 0%, #334155 30%, #1e293b 60%, #334155 100%); background-size: 300% 300%; padding-top: 0;">
 					<div style="max-width: 1000px; margin: 0 auto; padding: 4rem 2rem;">
 						<button id="previous-exp-toggle" type="button" aria-expanded="false" aria-controls="previous-exp-content" style="width: 100%; border-radius: 16px; padding: 1.75rem 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; margin-bottom: 0;">
 							<h2 style="margin: 0; color: var(--text-primary); font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em;">Previous Experience</h2>
@@ -1389,7 +1656,7 @@
 				<!-- Previous Experience -->
 
 				<!-- AI Section -->
-				<section id="ai" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+				<section id="ai" class="animated-section" style="background: linear-gradient(135deg, #1e293b 0%, #334155 25%, #1e293b 50%, #334155 75%, #1e293b 100%); background-size: 300% 300%;">
 					<div style="max-width: 1400px; margin: 0 auto;">
 						<h2>AI & Machine Learning</h2>
 						<p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 4rem; text-align: center; line-height: 1.8;">
@@ -1398,7 +1665,12 @@
 						
 						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
 							<div class="modern-card">
-								<img src="assets/images/svg-icons/brain.svg" alt="Brain icon" class="svg-icon" role="img" aria-label="Brain icon representing AI and machine learning" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44L2.5 20.5a2.5 2.5 0 0 1 0-5l4.04-1.06A2.5 2.5 0 0 1 9.5 2z"></path>
+										<path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44L21.5 20.5a2.5 2.5 0 0 0 0-5l-4.04-1.06A2.5 2.5 0 0 0 14.5 2z"></path>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">LLM Integration & API Development</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Production experience integrating OpenAI GPT and Anthropic Claude APIs. Built RESTful services with structured output parsing, error handling, and rate limiting. Implemented prompt engineering patterns for consistent, reliable responses.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1410,7 +1682,13 @@
 							</div>
 
 							<div class="modern-card">
-								<img src="assets/images/svg-icons/computer.svg" alt="Computer icon" class="svg-icon" role="img" aria-label="Computer icon representing code and development" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+										<line x1="8" y1="21" x2="16" y2="21"></line>
+										<line x1="12" y1="17" x2="12" y2="21"></line>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Multi-Agent Code Review Systems</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Architected and implemented a multi-agent system for automated code review. Five specialized agents analyze code for correctness, architecture, readability, performance, and educational value. Built with FastAPI, async processing, and structured JSON output parsing.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1422,7 +1700,14 @@
 							</div>
 
 							<div class="modern-card">
-								<img src="assets/images/svg-icons/microphone.svg" alt="Microphone icon" class="svg-icon" role="img" aria-label="Microphone icon representing speech and audio processing" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+										<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+										<line x1="12" y1="19" x2="12" y2="23"></line>
+										<line x1="8" y1="23" x2="16" y2="23"></line>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Speech-to-Text & NLP Pipelines</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Developed end-to-end voice processing pipeline: audio transcription, text extraction, NLP analysis, and summarization. Integrated with Django backend, implemented batch processing for audio files, and built data models for storing transcriptions and insights.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1434,7 +1719,15 @@
 							</div>
 
 							<div class="modern-card">
-								<img src="assets/images/svg-icons/document.svg" alt="Document icon" class="svg-icon" role="img" aria-label="Document icon representing content and document processing" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+										<polyline points="14 2 14 8 20 8"></polyline>
+										<line x1="16" y1="13" x2="8" y2="13"></line>
+										<line x1="16" y1="17" x2="8" y2="17"></line>
+										<polyline points="10 9 9 9 8 9"></polyline>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Content Generation & Document Processing</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Built automated content generation systems using LLMs with context injection and template management. Implemented document parsing, text extraction, and structured data generation. Designed systems for generating personalized content at scale.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1446,7 +1739,13 @@
 							</div>
 
 							<div class="modern-card">
-								<img src="assets/images/svg-icons/chart.svg" alt="Chart icon" class="svg-icon" role="img" aria-label="Chart icon representing data analysis" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<line x1="18" y1="20" x2="18" y2="10"></line>
+										<line x1="12" y1="20" x2="12" y2="4"></line>
+										<line x1="6" y1="20" x2="6" y2="14"></line>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Data Processing & Analysis</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Built data analysis tools using AWS Lambda for processing and aggregating customer data. Developed churn analysis tool that processes large datasets efficiently, reducing processing times by 20%. Implemented data transformation pipelines and automated reporting workflows.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1458,7 +1757,12 @@
 							</div>
 
 							<div class="modern-card">
-								<img src="assets/images/svg-icons/lock.svg" alt="Lock icon" class="svg-icon" role="img" aria-label="Lock icon representing security" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--secondary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+										<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">API Security & Configuration</h3>
 								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Implemented secure API key management for AI services using AWS Secrets Manager. Built configuration systems for managing LLM API credentials and settings. Designed error handling and retry logic for API integrations to ensure reliability.</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -1476,7 +1780,7 @@
 				  
 				
 				<!-- Two -->
-				<section id="two" style="background: var(--bg-dark);">
+				<section id="two" class="animated-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 35%, #1a1f3a 70%, #1e293b 100%); background-size: 300% 300%;">
 					<div style="max-width: 1400px; margin: 0 auto;">
 						<h2>Projects</h2>
 						<p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 4rem; text-align: center; line-height: 1.8;">
@@ -1484,11 +1788,59 @@
 						</p>
 						
 						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+							<!-- Personal Modular App -->
+							<div class="modern-card project-card" style="border: 2px solid var(--primary); box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);">
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;">
+										<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+										<line x1="9" y1="3" x2="9" y2="21"></line>
+										<line x1="15" y1="3" x2="15" y2="21"></line>
+										<line x1="3" y1="9" x2="21" y2="9"></line>
+										<line x1="3" y1="15" x2="21" y2="15"></line>
+									</svg>
+								</div>
+								<h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Personal Modular App Hub</h3>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
+									<strong style="color: var(--primary);">My flagship project</strong> — A comprehensive, secure personal web application hub built with Next.js 15 and TypeScript. This modular platform serves as a centralized dashboard connecting 15+ specialized mini-apps, each designed as self-contained modules with their own components, database schemas, and API routes.
+								</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+									The architecture emphasizes <strong>reusability and scalability</strong>, with a shared common library of components, hooks, and utilities. Features include secure authentication (email/password + optional MFA with TOTP and WebAuthn), AI-powered workflows with multi-provider support (OpenAI, Anthropic), progressive web app capabilities, and a sophisticated AI development team system for iterative code generation and review.
+								</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+									<strong>Key Modules Include:</strong> Recipe & Meal Planning (AI chat-driven), Calendar Management, Executive Assistant (AI-powered profile management), Gift Tracking, Habit & Goal Tracker, Knowledge Management, Daily Voice Log, Soccer Availability, Social Sync, and more. Each module follows strict mobile-first design principles and integrates seamlessly with the central authentication and AI infrastructure.
+								</p>
+								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">Next.js 15</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">TypeScript</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">MongoDB</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">Modular Architecture</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">PWA</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">AI Integration</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">MFA Auth</span>
+									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; font-size: 0.85rem; color: var(--primary); font-weight: 600;">15+ Modules</span>
+								</div>
+								<p style="color: var(--text-muted); font-size: 0.9rem; font-style: italic; margin-bottom: 1rem;">
+									Private repository — This is my personal productivity platform and primary development focus.
+								</p>
+							</div>
+
 							<!-- DailyVoice-Log -->
 							<div class="modern-card project-card">
-								<img src="assets/images/svg-icons/microphone.svg" alt="Microphone icon" class="svg-icon" role="img" aria-label="Microphone icon representing voice logging" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+										<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+										<line x1="12" y1="19" x2="12" y2="23"></line>
+										<line x1="8" y1="23" x2="16" y2="23"></line>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">DailyVoice-Log</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">AI-powered productivity app that sends daily email prompts for audio logs, then analyzes and compiles them into actionable summaries. Built with React, Django, and AI integration for voice-to-text processing.</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
+									<strong style="color: var(--primary);">AI-powered productivity platform</strong> that automates daily email prompts for audio log recordings. The system processes voice recordings through a complete AI pipeline: speech-to-text transcription, NLP analysis for content extraction, and intelligent summarization that compiles daily activities into actionable insights.
+								</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+									Built with a Django REST API backend that handles email automation, batch audio processing, and data model management for storing transcriptions and insights. The React frontend provides an intuitive interface for reviewing periodic summaries and tracking productivity patterns over time. The architecture supports scalable processing of multiple users' daily logs with efficient database queries and background task processing.
+								</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Django</span>
@@ -1500,9 +1852,23 @@
 
 							<!-- TavernMaster -->
 							<div class="modern-card project-card">
-								<img src="assets/images/svg-icons/dice.svg" alt="Dice icon" class="svg-icon" role="img" aria-label="Dice icon representing tabletop gaming" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+										<circle cx="8" cy="8" r="1.5"></circle>
+										<circle cx="16" cy="8" r="1.5"></circle>
+										<circle cx="8" cy="16" r="1.5"></circle>
+										<circle cx="16" cy="16" r="1.5"></circle>
+										<circle cx="12" cy="12" r="1.5"></circle>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">TavernMaster</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Full-stack campaign management platform for tabletop RPGs. Features real-time chat via WebSocket, character management, campaign dashboards, and role-based access for DMs and players.</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
+									<strong style="color: var(--primary);">Full-stack campaign management platform</strong> for tabletop RPGs featuring real-time collaboration tools. The platform provides comprehensive campaign and character management with CRUD operations, role-based dashboards for Dungeon Masters and players, and an invitation system for campaign coordination.
+								</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+									Built with React frontend and Django REST API backend, featuring WebSocket integration for real-time chat during campaign sessions. The architecture includes JWT authentication, modular SASS-styled UI components, and a WebSocket server with message throttling for optimal performance. The system supports both DM and player perspectives with role-based access control, ensuring appropriate permissions for campaign editing, character management, and chat moderation.
+								</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Django REST</span>
@@ -1514,9 +1880,22 @@
 
 							<!-- AI Review -->
 							<div class="modern-card project-card">
-								<img src="assets/images/svg-icons/robot.svg" alt="Robot icon" class="svg-icon" role="img" aria-label="Robot icon representing AI" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<rect x="3" y="11" width="18" height="10" rx="2"></rect>
+										<circle cx="12" cy="5" r="2"></circle>
+										<path d="M12 7v4"></path>
+										<line x1="8" y1="11" x2="8" y2="16"></line>
+										<line x1="16" y1="11" x2="16" y2="16"></line>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">AI Review</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Personal learning tool that reviews code with five specialized AI agents (correctness, architecture, readability, performance, teaching). Built with FastAPI, designed to improve engineering reasoning through structured feedback.</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
+									<strong style="color: var(--primary);">Personal learning platform</strong> that enhances engineering reasoning through structured AI feedback. The system presents three design options before coding, requires justification for the chosen approach, and then reviews code diffs with five specialized agents: correctness, architecture, readability, performance, and teaching.
+								</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+									Built with FastAPI backend featuring clean modular architecture, async processing for agent reviews, and structured JSON output parsing. The Next.js frontend provides forms for problem summaries, diff uploads, and displays for design options, justifications, and agent feedback. Integrated with AWS Secrets Manager for secure API key management, the platform focuses on learning from structured feedback rather than storing code, maintaining privacy while improving code quality through iterative review cycles.
+								</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">FastAPI</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Next.js</span>
@@ -1528,9 +1907,20 @@
 
 							<!-- Workout App -->
 							<div class="modern-card project-card">
-								<img src="assets/images/svg-icons/fitness.svg" alt="Fitness icon" class="svg-icon" role="img" aria-label="Fitness icon representing workout app" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<path d="M6.5 6.5h11v11h-11z"></path>
+										<path d="M6.5 6.5L12 12l5.5-5.5"></path>
+										<path d="M12 12v6"></path>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Adaptive Workout App</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Full-stack fitness tracking application with adaptive workout planning. Features workout logging, plan generation, and analytics. Built with Next.js and FastAPI, following accessibility standards (WCAG AA).</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
+									<strong style="color: var(--primary);">Full-stack fitness tracking platform</strong> with intelligent adaptive workout planning. The application features comprehensive workout logging with support for both numeric rep counts and time-based values (e.g., "30s" or "1:00"), adaptive plan generation that adjusts based on performance history, and analytics for tracking progress over time.
+								</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+									Built with Next.js frontend and FastAPI backend using SQLModel for database architecture, following single responsibility principles with modular organization. The UI meets WCAG AA accessibility standards with semantic HTML, proper ARIA labels, visible focus styles, and sufficient color contrast. Features include editable workout logs with kebab menu actions, database seeding scripts, and a feature-based component structure that separates workouts, logs, and plans into distinct modules.
+								</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Next.js</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">FastAPI</span>
@@ -1542,9 +1932,22 @@
 
 							<!-- Cover Letter Helper -->
 							<div class="modern-card project-card">
-								<img src="assets/images/svg-icons/document.svg" alt="Document icon" class="svg-icon" role="img" aria-label="Document icon representing cover letters" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+										<polyline points="14 2 14 8 20 8"></polyline>
+										<line x1="16" y1="13" x2="8" y2="13"></line>
+										<line x1="16" y1="17" x2="8" y2="17"></line>
+										<polyline points="10 9 9 9 8 9"></polyline>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Unique Cover Letter Helper</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">AI-powered tool that generates personalized cover letters tailored to specific job applications. Combines Django backend with React frontend for seamless user experience.</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
+									<strong style="color: var(--primary);">AI-powered personalization engine</strong> that generates tailored cover letters for specific job applications. The system analyzes job descriptions and user profiles to create unique, context-aware cover letters that highlight relevant skills and experiences.
+								</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+									Built with Django REST API backend that handles job application matching, AI integration for content generation, and form processing. The React frontend provides an intuitive interface for inputting job details, reviewing generated content, and managing multiple cover letter versions. Deployed on Heroku with optimized performance for handling concurrent requests and seamless user experience across devices.
+								</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">Django</span>
@@ -1556,9 +1959,20 @@
 
 							<!-- Soccer Website -->
 							<div class="modern-card project-card">
-								<img src="assets/images/svg-icons/soccer.svg" alt="Soccer ball icon" class="svg-icon" role="img" aria-label="Soccer ball icon representing team management" />
+								<div class="svg-icon" style="width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--primary);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;" class="animated-icon">
+										<circle cx="12" cy="12" r="10"></circle>
+										<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+										<path d="M2 12h20"></path>
+									</svg>
+								</div>
 								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Soccer Team Management</h3>
-								<p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Team management platform for soccer clubs. Features availability tracking, scheduling, and team coordination. Built with React/TypeScript frontend and Node.js backend.</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
+									<strong style="color: var(--primary);">Comprehensive team management platform</strong> for soccer clubs featuring availability tracking, game scheduling, and team coordination tools. The system enables players to mark availability for upcoming games, view schedules, and manage team rosters with administrative controls.
+								</p>
+								<p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+									Built with React and TypeScript frontend providing type-safe components and modern UI patterns, paired with a Node.js backend handling authentication, scheduling logic, and data persistence. Integrated with Google OAuth for secure user authentication, the platform supports both player and administrator roles with appropriate permissions for managing games, tracking availability, and coordinating team activities.
+								</p>
 								<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">React</span>
 									<span style="padding: 0.4rem 0.9rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; font-size: 0.85rem; color: var(--primary);">TypeScript</span>
@@ -1572,10 +1986,10 @@
 				</section>
   
 				<!-- Four -->
-				<section id="four" style="background: var(--bg-dark);">
+				<section id="four" class="animated-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #1a1f3a 60%, #1e293b 100%); background-size: 300% 300%;">
 					<div style="max-width: 1400px; margin: 0 auto; padding: 5rem 2rem;" id='technologies'>
 						<div style="text-align: center; margin-bottom: 4rem;">
-							<h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Technologies</h2>
+							<h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.3));">Technologies</h2>
 							<p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.8;">
 								Technologies and tools I use to build scalable, modern applications
 							</p>
@@ -1707,7 +2121,7 @@
 				<!-- Four -->
 
 				<!-- three -->
-				<section id="three" style="background: var(--bg-dark);">
+				<section id="three" class="animated-section" style="background: linear-gradient(135deg, #1a1f3a 0%, #1e293b 35%, #0f172a 70%, #1e293b 100%); background-size: 300% 300%;">
 					<div style="max-width: 1000px; margin: 0 auto;">
 						<h2>Education</h2>
 						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-top: 3rem;">
@@ -1727,7 +2141,7 @@
 				<!-- three -->
 
 				<!-- five -->
-				<section id="five" style="background: var(--bg-dark);">
+				<section id="five" class="animated-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #1a1f3a 80%, #1e293b 100%); background-size: 300% 300%;">
 					<div style="max-width: 1000px; margin: 0 auto;">
 						<h2>Get in Touch</h2>
 						<p style="font-size: 1.2rem; color: var(--text-secondary); text-align: center; margin-bottom: 3rem;">
@@ -1798,6 +2212,7 @@
 			<!-- GSAP Animation Library -->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/animations.js"></script>
 			

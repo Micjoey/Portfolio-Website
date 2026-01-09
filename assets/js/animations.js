@@ -8,17 +8,18 @@
 
 	// Register GSAP plugins
 	if (typeof gsap !== 'undefined') {
-		gsap.registerPlugin(ScrollTrigger);
+		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 	}
 
 	// Check for reduced motion preference
 	const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-	// Animation configuration
+	// Animation configuration - smoother eases
 	const config = {
-		duration: prefersReducedMotion ? 0.1 : 0.6,
-		ease: 'power2.out',
-		stagger: prefersReducedMotion ? 0 : 0.1
+		duration: prefersReducedMotion ? 0.1 : 0.8,
+		ease: prefersReducedMotion ? 'none' : 'power1.out',
+		stagger: prefersReducedMotion ? 0 : 0.08,
+		scrollEase: prefersReducedMotion ? 'none' : 'power2.inOut'
 	};
 
 	// Performance optimization: Use will-change for animated elements
@@ -36,8 +37,45 @@
 		});
 	}
 
+	// Smooth scroll to element
+	function smoothScrollTo(target, offset = 0) {
+		if (prefersReducedMotion) {
+			window.scrollTo({ top: target.offsetTop - offset, behavior: 'auto' });
+			return;
+		}
+
+		gsap.to(window, {
+			duration: 1.2,
+			scrollTo: { y: target, offsetY: offset },
+			ease: config.scrollEase
+		});
+	}
+
+	// Initialize smooth scroll for anchor links
+	function initSmoothScroll() {
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function(e) {
+				const href = this.getAttribute('href');
+				if (href === '#' || href === '#intro') {
+					smoothScrollTo(document.body, 0);
+					e.preventDefault();
+					return;
+				}
+
+				const target = document.querySelector(href);
+				if (target) {
+					e.preventDefault();
+					const headerOffset = 80;
+					smoothScrollTo(target, headerOffset);
+				}
+			});
+		});
+	}
+
 	// Initialize animations when DOM is ready
 	function initAnimations() {
+		initSmoothScroll();
+		
 		if (prefersReducedMotion) {
 			// Minimal animations for reduced motion
 			return;
@@ -48,6 +86,7 @@
 		initScrollProgress();
 		initHeaderScrollAnimation();
 		initMicroInteractions();
+		initAboutMeAnimations();
 		initWorkExperienceTimeline();
 	}
 
@@ -74,34 +113,34 @@
 		// Create timeline for hero animations
 		const heroTimeline = gsap.timeline({ delay: 0.3 });
 
-		heroTimeline
+			heroTimeline
 			.to(heroTitle, {
 				opacity: 1,
 				y: 0,
 				duration: config.duration,
-				ease: config.ease
+				ease: 'expo.out'
 			})
 			.to(heroSubtitle, {
 				opacity: 1,
 				y: 0,
 				duration: config.duration,
-				ease: config.ease
-			}, '-=0.3')
+				ease: 'expo.out'
+			}, '-=0.4')
 			.to(heroButtons, {
 				opacity: 1,
 				y: 0,
 				duration: config.duration,
-				stagger: 0.1,
-				ease: config.ease
-			}, '-=0.2')
+				stagger: 0.08,
+				ease: 'power1.out'
+			}, '-=0.3')
 			.to(socialLinks, {
 				opacity: 1,
 				y: 0,
 				duration: config.duration,
-				stagger: 0.1,
-				ease: config.ease,
+				stagger: 0.08,
+				ease: 'power1.out',
 				rotation: 0
-			}, '-=0.2');
+			}, '-=0.3');
 
 		// Initial state for social icons (rotate in)
 		gsap.set(socialLinks, { rotation: -180 });
@@ -127,7 +166,8 @@
 					scrollTrigger: {
 						trigger: card,
 						start: 'top 85%',
-						toggleActions: 'play none none reverse'
+						toggleActions: 'play none none reverse',
+						refreshPriority: -1
 					}
 				});
 			});
@@ -147,11 +187,12 @@
 					x: 0,
 					scale: 1,
 					duration: config.duration,
-					ease: config.ease,
+					ease: 'power1.out',
 					scrollTrigger: {
 						trigger: card,
 						start: 'top 85%',
-						toggleActions: 'play none none reverse'
+						toggleActions: 'play none none reverse',
+						refreshPriority: -1
 					}
 				});
 			});
@@ -168,13 +209,14 @@
 				}, {
 					opacity: 1,
 					scale: 1,
-					duration: 0.3,
-					stagger: 0.05,
-					ease: 'back.out(1.7)',
+					duration: 0.4,
+					stagger: 0.04,
+					ease: 'back.out(1.4)',
 					scrollTrigger: {
 						trigger: badgeContainer.parentElement,
 						start: 'top 85%',
-						toggleActions: 'play none none reverse'
+						toggleActions: 'play none none reverse',
+						refreshPriority: -1
 					}
 				});
 			});
@@ -184,22 +226,21 @@
 		const aiCards = document.querySelectorAll('#ai .modern-card');
 		if (aiCards.length > 0) {
 			gsap.utils.toArray(aiCards).forEach((card) => {
-				gsap.fromTo(card, {
-					opacity: 0,
-					y: 40,
-					rotationX: 15
-				}, {
-					opacity: 1,
-					y: 0,
-					rotationX: 0,
-					duration: config.duration,
-					ease: config.ease,
-					scrollTrigger: {
-						trigger: card,
-						start: 'top 85%',
-						toggleActions: 'play none none reverse'
-					}
-				});
+			gsap.fromTo(card, {
+				opacity: 0,
+				y: 40
+			}, {
+				opacity: 1,
+				y: 0,
+				duration: config.duration,
+				ease: 'power1.out',
+				scrollTrigger: {
+					trigger: card,
+					start: 'top 85%',
+					toggleActions: 'play none none reverse',
+					refreshPriority: -1
+				}
+			});
 			});
 		}
 
@@ -216,11 +257,12 @@
 					x: 0,
 					y: 0,
 					duration: config.duration,
-					ease: config.ease,
+					ease: 'power1.out',
 					scrollTrigger: {
 						trigger: card,
 						start: 'top 85%',
-						toggleActions: 'play none none reverse'
+						toggleActions: 'play none none reverse',
+						refreshPriority: -1
 					}
 				});
 			});
@@ -238,12 +280,13 @@
 				scale: 1,
 				y: 0,
 				duration: config.duration,
-				stagger: 0.15,
-				ease: 'back.out(1.7)',
+				stagger: 0.12,
+				ease: 'back.out(1.4)',
 				scrollTrigger: {
 					trigger: '#five',
 					start: 'top 80%',
-					toggleActions: 'play none none reverse'
+					toggleActions: 'play none none reverse',
+					refreshPriority: -1
 				}
 			});
 		}
@@ -258,11 +301,12 @@
 				opacity: 1,
 				y: 0,
 				duration: config.duration,
-				ease: config.ease,
+				ease: 'power1.out',
 				scrollTrigger: {
 					trigger: heading,
 					start: 'top 90%',
-					toggleActions: 'play none none reverse'
+					toggleActions: 'play none none reverse',
+					refreshPriority: -1
 				}
 			});
 		});
@@ -398,35 +442,23 @@
 			});
 		});
 
-		// Card hover animations (3D tilt)
-		const cards = document.querySelectorAll('.project-card, .modern-card');
-		cards.forEach((card) => {
-			card.addEventListener('mousemove', function(e) {
+		// Card hover animations (subtle scale only, no tilt)
+		const projectCards = document.querySelectorAll('.project-card');
+		projectCards.forEach((card) => {
+			card.addEventListener('mouseenter', function() {
 				if (prefersReducedMotion) return;
-				
-				const rect = card.getBoundingClientRect();
-				const x = e.clientX - rect.left;
-				const y = e.clientY - rect.top;
-				const centerX = rect.width / 2;
-				const centerY = rect.height / 2;
-				const rotateX = (y - centerY) / 20;
-				const rotateY = (centerX - x) / 20;
-
 				gsap.to(card, {
-					rotationX: rotateX,
-					rotationY: rotateY,
-					transformPerspective: 1000,
+					scale: 1.02,
 					duration: 0.3,
-					ease: 'power2.out'
+					ease: 'power1.out'
 				});
 			});
 
 			card.addEventListener('mouseleave', function() {
 				gsap.to(card, {
-					rotationX: 0,
-					rotationY: 0,
-					duration: 0.5,
-					ease: 'power2.out'
+					scale: 1,
+					duration: 0.3,
+					ease: 'power1.out'
 				});
 			});
 		});
@@ -476,29 +508,138 @@
 		});
 	}
 
+	// About Me section animations
+	function initAboutMeAnimations() {
+		const aboutSection = document.getElementById('one');
+		if (!aboutSection) return;
+
+		const aboutImage = aboutSection.querySelector('#about-me .image img');
+		const aboutContent = aboutSection.querySelector('#about-me .content');
+		const paragraphs = aboutSection.querySelectorAll('#about-me .content p');
+		const headings = aboutSection.querySelectorAll('#about-me .content h3');
+
+		if (!aboutImage || !aboutContent) return;
+
+		// Subtle scale effect for image (no parallax)
+		if (aboutImage) {
+			gsap.fromTo(aboutImage, {
+				scale: 0.95
+			}, {
+				scale: 1,
+				scrollTrigger: {
+					trigger: aboutImage,
+					start: 'top 85%',
+					toggleActions: 'play none none reverse',
+					refreshPriority: -1
+				}
+			});
+		}
+
+		// Animate image entrance
+		gsap.fromTo(aboutImage, {
+			opacity: 0,
+			scale: 0.9,
+			rotation: -2
+		}, {
+			opacity: 1,
+			scale: 1,
+			rotation: 0,
+			duration: 1,
+			ease: 'power1.out',
+			scrollTrigger: {
+				trigger: aboutImage,
+				start: 'top 85%',
+				toggleActions: 'play none none reverse',
+				refreshPriority: -1
+			}
+		});
+
+		// Stagger text content animations
+		const textElements = [...paragraphs, ...headings];
+		gsap.fromTo(textElements, {
+			opacity: 0,
+			y: 30
+		}, {
+			opacity: 1,
+			y: 0,
+			duration: 0.8,
+			stagger: 0.1,
+			ease: 'power1.out',
+			scrollTrigger: {
+				trigger: aboutContent,
+				start: 'top 85%',
+				toggleActions: 'play none none reverse',
+				refreshPriority: -1
+			}
+		});
+	}
+
 	// Work experience timeline animation
 	function initWorkExperienceTimeline() {
+		const workExperience = document.getElementById('work-experience');
 		const workCards = document.querySelectorAll('#work-experience .modern-card');
-		if (workCards.length === 0) return;
+		if (workCards.length === 0 || !workExperience) return;
 
-		// Create timeline line effect
+		// Animate timeline line
+		gsap.fromTo(workExperience, {}, {
+			onComplete: () => {
+				workExperience.classList.add('timeline-active');
+			},
+			scrollTrigger: {
+				trigger: workExperience,
+				start: 'top 70%',
+				toggleActions: 'play none none reverse',
+				refreshPriority: -1
+			}
+		});
+
+		// Animate cards and timeline nodes
 		workCards.forEach((card, index) => {
-			const listItems = card.querySelectorAll('ul li');
-			
+			// Animate card entrance
+			gsap.fromTo(card, {
+				opacity: 0,
+				x: index % 2 === 0 ? -50 : 50,
+				y: 30
+			}, {
+				opacity: 1,
+				x: 0,
+				y: 0,
+				duration: 0.8,
+				ease: 'power1.out',
+				scrollTrigger: {
+					trigger: card,
+					start: 'top 85%',
+					toggleActions: 'play none none reverse',
+					refreshPriority: -1,
+					onEnter: () => {
+						card.classList.add('visible');
+					}
+				}
+			});
+
 			// Animate list items sequentially
+			const listItems = card.querySelectorAll('ul li');
 			gsap.fromTo(listItems, {
 				opacity: 0,
 				x: -20
 			}, {
 				opacity: 1,
 				x: 0,
-				duration: 0.4,
-				stagger: 0.1,
-				ease: 'power2.out',
+				duration: 0.5,
+				stagger: 0.08,
+				ease: 'power1.out',
 				scrollTrigger: {
 					trigger: card,
 					start: 'top 80%',
-					toggleActions: 'play none none reverse'
+					toggleActions: 'play none none reverse',
+					refreshPriority: -1,
+					onEnter: () => {
+						listItems.forEach((item, i) => {
+							setTimeout(() => {
+								item.classList.add('visible');
+							}, i * 80);
+						});
+					}
 				}
 			});
 		});
