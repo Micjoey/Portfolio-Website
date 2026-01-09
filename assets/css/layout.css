@@ -23,19 +23,7 @@ body {
 
 /* Skip Link */
 .skip-link {
-	position: absolute;
-	top: -40px;
-	left: 0;
-	background: var(--color-primary);
-	color: var(--color-text-primary);
-	padding: var(--space-sm) var(--space-md);
-	text-decoration: none;
-	z-index: var(--z-toast);
-	border-radius: 0 0 var(--radius-md) 0;
-}
-
-.skip-link:focus {
-	top: 0;
+	display: none;
 }
 
 /* Container System */

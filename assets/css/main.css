@@ -136,19 +136,7 @@ body.is-preload *::after {
 
 /* Skip Link */
 .skip-link {
-	position: absolute;
-	top: -40px;
-	left: 0;
-	background: var(--primary);
-	color: white;
-	padding: 8px 16px;
-	text-decoration: none;
-	z-index: 1000;
-	border-radius: 0 0 4px 0;
-}
-
-.skip-link:focus {
-	top: 0;
+	display: none;
 }
 
 /* Scroll Progress Indicator */
@@ -602,9 +590,21 @@ body.is-preload *::after {
 	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 8px rgba(59, 130, 246, 0.2);
 }
 
-.about-text {
+.about-sections {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
 	max-width: 700px;
 	width: 100%;
+}
+
+.about-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.about-section:first-child .about-heading {
+	margin-top: 0;
 }
 
 .about-intro {
@@ -618,21 +618,26 @@ body.is-preload *::after {
 	margin-bottom: 1rem;
 	font-size: var(--font-size-xl);
 	font-weight: 600;
+	margin-top: 2rem;
 }
 
-.about-text p {
+.about-section p {
 	line-height: 1.8;
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 	color: var(--text-secondary);
 }
 
-.about-text a {
+.about-section p:last-child {
+	margin-bottom: 0;
+}
+
+.about-section a {
 	color: var(--primary);
 	text-decoration: underline;
 	text-decoration-color: rgba(59, 130, 246, 0.5);
 }
 
-.about-text a:hover {
+.about-section a:hover {
 	color: var(--primary-light);
 	text-decoration-color: var(--primary);
 }
