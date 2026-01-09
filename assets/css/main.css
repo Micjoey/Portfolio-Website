@@ -96,7 +96,7 @@ body {
 	font-size: var(--font-size-base);
 	line-height: 1.6;
 	color: var(--text-primary);
-	background: transparent;
+	background: var(--bg-dark);
 	position: relative;
 	overflow-x: hidden;
 	-webkit-font-smoothing: antialiased;
@@ -269,10 +269,25 @@ body.is-preload *::after {
 	padding-top: 80px;
 }
 
-/* Ensure content is above floating background */
+/* Wave Background Container */
+.wave-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+/* Ensure content is above wave background */
+.main,
 .section,
 .modern-header,
-.scroll-progress {
+.header,
+.scroll-progress,
+.footer {
 	position: relative;
 	z-index: 1;
 }
@@ -816,11 +831,18 @@ body.is-preload *::after {
 
 .previous-exp-toggle:hover .toggle-icon {
 	background: rgba(59, 130, 246, 0.25);
+}
+
+.previous-exp-toggle:hover .toggle-icon:not(.expanded) {
 	transform: scale(1.1);
 }
 
 .toggle-icon.expanded {
 	transform: rotate(180deg);
+}
+
+.previous-exp-toggle:hover .toggle-icon.expanded {
+	transform: rotate(180deg) scale(1.1);
 }
 
 .previous-exp-content {

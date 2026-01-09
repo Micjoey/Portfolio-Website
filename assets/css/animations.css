@@ -37,11 +37,139 @@
 	transform: translateX(60px);
 }
 
+/* ============================================
+   WAVE BACKGROUND ANIMATIONS
+   ============================================ */
+
+/* Wave Container */
+.wave-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background: var(--bg-dark);
+}
+
+/* Wave Layer Base */
+.wave-layer {
+	position: absolute;
+	width: 300%;
+	height: 100%;
+	left: -100%;
+	bottom: 0;
+	will-change: transform;
+	transform-origin: center center;
+}
+
+/* Wave SVG Paths */
+.wave-layer svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+/* Wave Layer 1 - Light Blue, Slow */
+.wave-layer-1 {
+	opacity: 0.25;
+	animation: wave-animation-1 25s linear infinite;
+}
+
+/* Wave Layer 2 - Light Purple, Medium */
+.wave-layer-2 {
+	opacity: 0.2;
+	animation: wave-animation-2 20s linear infinite;
+	animation-delay: -3s;
+}
+
+/* Wave Layer 3 - Light Cyan, Fast */
+.wave-layer-3 {
+	opacity: 0.22;
+	animation: wave-animation-3 18s linear infinite;
+	animation-delay: -6s;
+}
+
+/* Wave Layer 4 - Light Blue, Reverse */
+.wave-layer-4 {
+	opacity: 0.18;
+	animation: wave-animation-4 22s linear infinite reverse;
+	animation-delay: -9s;
+}
+
+/* Wave Animation Keyframes - Continuous seamless looping */
+@keyframes wave-animation-1 {
+	0% {
+		transform: translateX(0) translateY(0);
+	}
+	33.33% {
+		transform: translateX(-33.33%) translateY(40px);
+	}
+	66.66% {
+		transform: translateX(-66.66%) translateY(20px);
+	}
+	100% {
+		transform: translateX(-100%) translateY(0);
+	}
+}
+
+@keyframes wave-animation-2 {
+	0% {
+		transform: translateX(0) translateY(0);
+	}
+	33.33% {
+		transform: translateX(33.33%) translateY(-30px);
+	}
+	66.66% {
+		transform: translateX(66.66%) translateY(-10px);
+	}
+	100% {
+		transform: translateX(100%) translateY(0);
+	}
+}
+
+@keyframes wave-animation-3 {
+	0% {
+		transform: translateX(0) translateY(0);
+	}
+	33.33% {
+		transform: translateX(-33.33%) translateY(25px);
+	}
+	66.66% {
+		transform: translateX(-66.66%) translateY(-15px);
+	}
+	100% {
+		transform: translateX(-100%) translateY(0);
+	}
+}
+
+@keyframes wave-animation-4 {
+	0% {
+		transform: translateX(0) translateY(0);
+	}
+	33.33% {
+		transform: translateX(33.33%) translateY(-40px);
+	}
+	66.66% {
+		transform: translateX(66.66%) translateY(-20px);
+	}
+	100% {
+		transform: translateX(100%) translateY(0);
+	}
+}
+
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
 	[data-animate] {
 		opacity: 1;
 		transform: none !important;
+	}
+	
+	.wave-layer {
+		animation: none !important;
+		opacity: 0.3;
 	}
 	
 	*,
