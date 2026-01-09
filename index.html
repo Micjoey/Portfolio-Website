@@ -39,27 +39,59 @@
 	</script>
 </head>
 <body>
-	<!-- Animated Wave Background -->
-	<div class="wave-background" aria-hidden="true">
-		<div class="wave-layer wave-layer-1">
-			<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M0,600 Q180,550 360,600 T720,600 T1080,600 T1440,600 Q1620,550 1800,600 T2160,600 Q2340,550 2520,600 T2880,600 L2880,900 L0,900 Z" fill="rgba(147, 197, 253, 0.3)"/>
-			</svg>
+	<!-- Multi-Animation Background System -->
+	<div class="bg-animation-container" aria-hidden="true">
+		<!-- Wave Animation -->
+		<div class="bg-animation-waves">
+			<div class="wave-background">
+				<div class="wave-layer wave-layer-1">
+					<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0,600 Q180,550 360,600 T720,600 T1080,600 T1440,600 Q1620,550 1800,600 T2160,600 Q2340,550 2520,600 T2880,600 L2880,900 L0,900 Z" fill="rgba(147, 197, 253, 0.3)"/>
+					</svg>
+				</div>
+				<div class="wave-layer wave-layer-2">
+					<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0,650 Q200,600 400,650 T800,650 T1200,650 T1600,650 Q1800,600 2000,650 T2400,650 Q2600,600 2800,650 T3200,650 L3200,900 L0,900 Z" fill="rgba(196, 181, 253, 0.25)"/>
+					</svg>
+				</div>
+				<div class="wave-layer wave-layer-3">
+					<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0,700 Q160,650 320,700 T640,700 T960,700 T1280,700 T1600,700 Q1760,650 1920,700 T2240,700 Q2400,650 2560,700 T2880,700 L2880,900 L0,900 Z" fill="rgba(165, 243, 252, 0.28)"/>
+					</svg>
+				</div>
+				<div class="wave-layer wave-layer-4">
+					<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0,550 Q220,500 440,550 T880,550 T1320,550 T1760,550 Q1980,500 2200,550 T2640,550 Q2860,500 3080,550 T3520,550 L3520,900 L0,900 Z" fill="rgba(125, 211, 252, 0.22)"/>
+					</svg>
+				</div>
+			</div>
 		</div>
-		<div class="wave-layer wave-layer-2">
-			<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M0,650 Q200,600 400,650 T800,650 T1200,650 T1600,650 Q1800,600 2000,650 T2400,650 Q2600,600 2800,650 T3200,650 L3200,900 L0,900 Z" fill="rgba(196, 181, 253, 0.25)"/>
-			</svg>
+
+		<!-- Particle System Animation -->
+		<div class="bg-animation-particles" id="particles-container"></div>
+
+		<!-- Geometric Shapes Animation -->
+		<div class="bg-animation-geometric">
+			<div class="geometric-shape geometric-circle" style="top: 10%; left: 15%; animation: geometric-move-1 20s ease-in-out infinite;"></div>
+			<div class="geometric-shape geometric-triangle" style="top: 60%; right: 20%; animation: geometric-move-2 25s ease-in-out infinite; animation-delay: -5s;"></div>
+			<div class="geometric-shape geometric-square" style="bottom: 15%; left: 30%; animation: geometric-move-3 22s ease-in-out infinite; animation-delay: -8s;"></div>
+			<div class="geometric-shape geometric-circle" style="top: 40%; right: 40%; width: 150px; height: 150px; animation: geometric-move-1 18s ease-in-out infinite; animation-delay: -12s;"></div>
+			<div class="geometric-shape geometric-triangle" style="bottom: 30%; right: 10%; animation: geometric-move-2 24s ease-in-out infinite; animation-delay: -15s;"></div>
 		</div>
-		<div class="wave-layer wave-layer-3">
-			<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M0,700 Q160,650 320,700 T640,700 T960,700 T1280,700 T1600,700 Q1760,650 1920,700 T2240,700 Q2400,650 2560,700 T2880,700 L2880,900 L0,900 Z" fill="rgba(165, 243, 252, 0.28)"/>
-			</svg>
+
+		<!-- Animated Gradient System -->
+		<div class="bg-animation-gradient">
+			<div class="gradient-layer gradient-layer-1"></div>
+			<div class="gradient-layer gradient-layer-2"></div>
+			<div class="gradient-layer gradient-layer-3"></div>
 		</div>
-		<div class="wave-layer wave-layer-4">
-			<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M0,550 Q220,500 440,550 T880,550 T1320,550 T1760,550 Q1980,500 2200,550 T2640,550 Q2860,500 3080,550 T3520,550 L3520,900 L0,900 Z" fill="rgba(125, 211, 252, 0.22)"/>
-			</svg>
+
+		<!-- Mesh Gradient / Blob Animation -->
+		<div class="bg-animation-mesh">
+			<div class="mesh-blob mesh-blob-1"></div>
+			<div class="mesh-blob mesh-blob-2"></div>
+			<div class="mesh-blob mesh-blob-3"></div>
+			<div class="mesh-blob mesh-blob-4"></div>
 		</div>
 	</div>
 
@@ -398,49 +430,85 @@
 			</div>
 		</section>
 
+		<!-- Flagship Project Section -->
+		<section id="flagship-project" class="section section-flagship">
+			<div class="container">
+				<div class="flagship-header">
+					<span class="flagship-badge">⭐ Flagship Project</span>
+					<h2 class="flagship-title">Personal Modular App Hub</h2>
+					<p class="flagship-subtitle">
+						My comprehensive, secure personal web application hub — a modular platform connecting 15+ specialized mini-apps
+					</p>
+				</div>
+				<div class="flagship-card">
+					<div class="flagship-card-inner">
+						<div class="flagship-icon-wrapper">
+							<div class="flagship-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+									<line x1="9" y1="3" x2="9" y2="21"></line>
+									<line x1="15" y1="3" x2="15" y2="21"></line>
+									<line x1="3" y1="9" x2="21" y2="9"></line>
+									<line x1="3" y1="15" x2="21" y2="15"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="flagship-content">
+							<div class="flagship-description">
+								<p class="flagship-intro">
+									Built with <strong class="highlight">Next.js 15</strong> and <strong class="highlight">TypeScript</strong>, this modular platform serves as a centralized dashboard connecting 15+ specialized mini-apps. Each module is designed as a self-contained unit with its own components, database schemas, and API routes.
+								</p>
+								<p>
+									The architecture emphasizes <strong>reusability and scalability</strong>, with a shared common library of components, hooks, and utilities. Features include secure authentication (email/password + optional MFA with TOTP and WebAuthn), AI-powered workflows with multi-provider support (OpenAI, Anthropic), progressive web app capabilities, and a sophisticated AI development team system for iterative code generation and review.
+								</p>
+								<div class="flagship-modules">
+									<h4>Key Modules Include:</h4>
+									<ul class="modules-list">
+										<li>Recipe & Meal Planning (AI chat-driven)</li>
+										<li>Calendar Management</li>
+										<li>Executive Assistant (AI-powered profile management)</li>
+										<li>Gift Tracking</li>
+										<li>Habit & Goal Tracker</li>
+										<li>Knowledge Management</li>
+										<li>Daily Voice Log</li>
+										<li>Soccer Availability</li>
+										<li>Social Sync</li>
+										<li>And more...</li>
+									</ul>
+									<p class="modules-note">
+										Each module follows strict mobile-first design principles and integrates seamlessly with the central authentication and AI infrastructure.
+									</p>
+								</div>
+							</div>
+							<div class="flagship-tech">
+								<div class="project-badges">
+									<span class="badge badge-featured">Next.js 15</span>
+									<span class="badge badge-featured">TypeScript</span>
+									<span class="badge badge-featured">MongoDB</span>
+									<span class="badge badge-featured">Modular Architecture</span>
+									<span class="badge badge-featured">PWA</span>
+									<span class="badge badge-featured">AI Integration</span>
+									<span class="badge badge-featured">MFA Auth</span>
+									<span class="badge badge-featured">15+ Modules</span>
+								</div>
+								<p class="flagship-note">
+									Private repository — This is my personal productivity platform and primary development focus.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- Projects Section -->
 		<section id="projects" class="section">
 			<div class="container">
-				<h2 class="section-title">Projects</h2>
+				<h2 class="section-title">Other Projects</h2>
 				<p class="section-subtitle">
 					A collection of full-stack applications, tools, and platforms I've built. Each project demonstrates different aspects of software engineering, from real-time systems to AI-powered solutions.
 				</p>
 				<div class="projects-grid">
-					<!-- Personal Modular App -->
-					<div class="card project-card project-featured">
-						<div class="project-icon">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-								<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-								<line x1="9" y1="3" x2="9" y2="21"></line>
-								<line x1="15" y1="3" x2="15" y2="21"></line>
-								<line x1="3" y1="9" x2="21" y2="9"></line>
-								<line x1="3" y1="15" x2="21" y2="15"></line>
-							</svg>
-						</div>
-						<h3>Personal Modular App Hub</h3>
-						<p>
-							<strong class="highlight">My flagship project</strong> — A comprehensive, secure personal web application hub built with Next.js 15 and TypeScript. This modular platform serves as a centralized dashboard connecting 15+ specialized mini-apps, each designed as self-contained modules with their own components, database schemas, and API routes.
-						</p>
-						<p>
-							The architecture emphasizes <strong>reusability and scalability</strong>, with a shared common library of components, hooks, and utilities. Features include secure authentication (email/password + optional MFA with TOTP and WebAuthn), AI-powered workflows with multi-provider support (OpenAI, Anthropic), progressive web app capabilities, and a sophisticated AI development team system for iterative code generation and review.
-						</p>
-						<p>
-							<strong>Key Modules Include:</strong> Recipe & Meal Planning (AI chat-driven), Calendar Management, Executive Assistant (AI-powered profile management), Gift Tracking, Habit & Goal Tracker, Knowledge Management, Daily Voice Log, Soccer Availability, Social Sync, and more. Each module follows strict mobile-first design principles and integrates seamlessly with the central authentication and AI infrastructure.
-						</p>
-						<div class="project-badges">
-							<span class="badge">Next.js 15</span>
-							<span class="badge">TypeScript</span>
-							<span class="badge">MongoDB</span>
-							<span class="badge">Modular Architecture</span>
-							<span class="badge">PWA</span>
-							<span class="badge">AI Integration</span>
-							<span class="badge">MFA Auth</span>
-							<span class="badge">15+ Modules</span>
-						</div>
-						<p class="project-note">
-							Private repository — This is my personal productivity platform and primary development focus.
-						</p>
-					</div>
 
 					<!-- DailyVoice-Log -->
 					<div class="card project-card">
@@ -783,6 +851,7 @@
 	<!-- Scripts -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<script src="assets/js/background-animations.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/animations.js"></script>
 </body>
