@@ -104,13 +104,156 @@
 				}
 			}
 
-			/* Animated section backgrounds */
+			/* Animated section backgrounds - Each section has unique animation */
 			.animated-section {
 				position: relative;
-				animation: sectionGradientShift 20s ease infinite;
 			}
 
-			@keyframes sectionGradientShift {
+			/* Intro/Hero Section - Slow radial pulse */
+			#intro {
+				animation: introGradientShift 30s ease-in-out infinite !important;
+			}
+
+			@keyframes introGradientShift {
+				0%, 100% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+			}
+
+			/* About Me - Horizontal flow */
+			#one.animated-section {
+				animation: aboutMeGradientShift 25s ease-in-out infinite !important;
+			}
+
+			@keyframes aboutMeGradientShift {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+
+			/* Work Experience - Vertical flow */
+			#six.animated-section {
+				animation: workExpGradientShift 22s ease-in-out infinite !important;
+			}
+
+			@keyframes workExpGradientShift {
+				0% {
+					background-position: 50% 0%;
+				}
+				50% {
+					background-position: 50% 100%;
+				}
+				100% {
+					background-position: 50% 0%;
+				}
+			}
+
+			/* Previous Experience - Diagonal flow */
+			#previous-experience.animated-section {
+				animation: prevExpGradientShift 24s ease-in-out infinite !important;
+			}
+
+			@keyframes prevExpGradientShift {
+				0% {
+					background-position: 0% 0%;
+				}
+				50% {
+					background-position: 100% 100%;
+				}
+				100% {
+					background-position: 0% 0%;
+				}
+			}
+
+			/* AI & Machine Learning - Circular flow */
+			#ai.animated-section {
+				animation: aiGradientShift 28s ease-in-out infinite !important;
+			}
+
+			@keyframes aiGradientShift {
+				0% {
+					background-position: 0% 50%;
+				}
+				25% {
+					background-position: 100% 0%;
+				}
+				50% {
+					background-position: 100% 100%;
+				}
+				75% {
+					background-position: 0% 100%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+
+			/* Projects - Reverse horizontal */
+			#two.animated-section {
+				animation: projectsGradientShift 26s ease-in-out infinite !important;
+			}
+
+			@keyframes projectsGradientShift {
+				0% {
+					background-position: 100% 50%;
+				}
+				50% {
+					background-position: 0% 50%;
+				}
+				100% {
+					background-position: 100% 50%;
+				}
+			}
+
+			/* Technologies - Diagonal reverse */
+			#four.animated-section {
+				animation: techGradientShift 23s ease-in-out infinite !important;
+			}
+
+			@keyframes techGradientShift {
+				0% {
+					background-position: 100% 0%;
+				}
+				50% {
+					background-position: 0% 100%;
+				}
+				100% {
+					background-position: 100% 0%;
+				}
+			}
+
+			/* Education - Slow vertical */
+			#three.animated-section {
+				animation: educationGradientShift 27s ease-in-out infinite !important;
+			}
+
+			@keyframes educationGradientShift {
+				0% {
+					background-position: 50% 100%;
+				}
+				50% {
+					background-position: 50% 0%;
+				}
+				100% {
+					background-position: 50% 100%;
+				}
+			}
+
+			/* Contact - Fast horizontal */
+			#five.animated-section {
+				animation: contactGradientShift 20s ease-in-out infinite !important;
+			}
+
+			@keyframes contactGradientShift {
 				0% {
 					background-position: 0% 50%;
 				}

@@ -595,7 +595,10 @@
 
 		// Animate cards and timeline nodes
 		workCards.forEach((card, index) => {
-			// Animate card entrance
+			// Optimize card for animation
+			gsap.set(card, { force3D: true });
+			
+			// Animate card entrance with smoother easing
 			gsap.fromTo(card, {
 				opacity: 0,
 				x: index % 2 === 0 ? -50 : 50,
@@ -604,8 +607,9 @@
 				opacity: 1,
 				x: 0,
 				y: 0,
-				duration: 0.8,
-				ease: 'power1.out',
+				duration: 1.0,
+				ease: 'power2.out',
+				force3D: true,
 				scrollTrigger: {
 					trigger: card,
 					start: 'top 85%',
@@ -617,17 +621,22 @@
 				}
 			});
 
-			// Animate list items sequentially
+			// Animate list items sequentially with smoother animation
 			const listItems = card.querySelectorAll('ul li');
+			listItems.forEach((item) => {
+				gsap.set(item, { force3D: true });
+			});
+			
 			gsap.fromTo(listItems, {
 				opacity: 0,
 				x: -20
 			}, {
 				opacity: 1,
 				x: 0,
-				duration: 0.5,
-				stagger: 0.08,
-				ease: 'power1.out',
+				duration: 0.7,
+				stagger: 0.1,
+				ease: 'power2.out',
+				force3D: true,
 				scrollTrigger: {
 					trigger: card,
 					start: 'top 80%',
@@ -637,7 +646,7 @@
 						listItems.forEach((item, i) => {
 							setTimeout(() => {
 								item.classList.add('visible');
-							}, i * 80);
+							}, i * 100);
 						});
 					}
 				}
