@@ -35,7 +35,7 @@ window.renderVariantB = function renderVariantB(root) {
           </p>
           <div class="vb-hero-actions">
             <a href="#projects" class="btn btn-primary">Browse work</a>
-            <a href="mailto:${d.profile.email}" class="btn btn-ghost">Say hi</a>
+            <a href="#contact" class="btn btn-ghost">Say hi</a>
           </div>
         </div>
       </div>
