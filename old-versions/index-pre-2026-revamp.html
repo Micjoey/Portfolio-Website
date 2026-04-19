@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Macallan Savett - Software Engineer specializing in Python, Django, React, AWS, and AI/ML solutions">
+	<title>Macallan Savett - Software Engineer</title>
+	
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="assets/css/design-system.css">
+	<link rel="stylesheet" href="assets/css/components.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+	<link rel="stylesheet" href="assets/css/sections.css">
+	<link rel="stylesheet" href="assets/css/animations.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+	
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="57x57" href="images/Favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/Favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/Favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/Favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/Favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/Favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/Favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/Favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/Favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="images/Favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/Favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/Favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/Favicon/favicon-16x16.png">
+	
+	<!-- Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157870805-3"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-157870805-3');
+	</script>
+</head>
+<body>
+	<!-- Multi-Animation Background System -->
+	<div class="bg-animation-container" aria-hidden="true">
+		<!-- Wave Animation -->
+		<div class="bg-animation-waves">
+			<div class="wave-background">
+				<div class="wave-layer wave-layer-1">
+					<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0,600 Q180,550 360,600 T720,600 T1080,600 T1440,600 Q1620,550 1800,600 T2160,600 Q2340,550 2520,600 T2880,600 L2880,900 L0,900 Z" fill="rgba(147, 197, 253, 0.3)"/>
+					</svg>
+				</div>
+				<div class="wave-layer wave-layer-2">
+					<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0,650 Q200,600 400,650 T800,650 T1200,650 T1600,650 Q1800,600 2000,650 T2400,650 Q2600,600 2800,650 T3200,650 L3200,900 L0,900 Z" fill="rgba(196, 181, 253, 0.25)"/>
+					</svg>
+				</div>
+				<div class="wave-layer wave-layer-3">
+					<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0,700 Q160,650 320,700 T640,700 T960,700 T1280,700 T1600,700 Q1760,650 1920,700 T2240,700 Q2400,650 2560,700 T2880,700 L2880,900 L0,900 Z" fill="rgba(165, 243, 252, 0.28)"/>
+					</svg>
+				</div>
+				<div class="wave-layer wave-layer-4">
+					<svg viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0,550 Q220,500 440,550 T880,550 T1320,550 T1760,550 Q1980,500 2200,550 T2640,550 Q2860,500 3080,550 T3520,550 L3520,900 L0,900 Z" fill="rgba(125, 211, 252, 0.22)"/>
+					</svg>
+				</div>
+			</div>
+		</div>
+
+		<!-- Particle System Animation -->
+		<div class="bg-animation-particles" id="particles-container"></div>
+
+		<!-- Geometric Shapes Animation -->
+		<div class="bg-animation-geometric">
+			<div class="geometric-shape geometric-circle" style="top: 10%; left: 15%; animation: geometric-move-1 20s ease-in-out infinite;"></div>
+			<div class="geometric-shape geometric-triangle" style="top: 60%; right: 20%; animation: geometric-move-2 25s ease-in-out infinite; animation-delay: -5s;"></div>
+			<div class="geometric-shape geometric-square" style="bottom: 15%; left: 30%; animation: geometric-move-3 22s ease-in-out infinite; animation-delay: -8s;"></div>
+			<div class="geometric-shape geometric-circle" style="top: 40%; right: 40%; width: 150px; height: 150px; animation: geometric-move-1 18s ease-in-out infinite; animation-delay: -12s;"></div>
+			<div class="geometric-shape geometric-triangle" style="bottom: 30%; right: 10%; animation: geometric-move-2 24s ease-in-out infinite; animation-delay: -15s;"></div>
+		</div>
+
+		<!-- Animated Gradient System -->
+		<div class="bg-animation-gradient">
+			<div class="gradient-layer gradient-layer-1"></div>
+			<div class="gradient-layer gradient-layer-2"></div>
+			<div class="gradient-layer gradient-layer-3"></div>
+		</div>
+
+		<!-- Mesh Gradient / Blob Animation -->
+		<div class="bg-animation-mesh">
+			<div class="mesh-blob mesh-blob-1"></div>
+			<div class="mesh-blob mesh-blob-2"></div>
+			<div class="mesh-blob mesh-blob-3"></div>
+			<div class="mesh-blob mesh-blob-4"></div>
+		</div>
+	</div>
+
+	<a href="#main-content" class="skip-link">Skip to main content</a>
+
+	<!-- Header Navigation -->
+	<header class="header" role="banner">
+		<nav class="nav" role="navigation" aria-label="Main navigation">
+			<div class="nav-container">
+				<a href="#intro" class="nav-logo" aria-label="Return to top">
+					<img src="images/transparent email.png" alt="Macallan Savett" class="logo-image">
+					<span>Macallan Savett</span>
+				</a>
+				<ul class="nav-list" role="list">
+					<li><a href="#intro" class="nav-link" data-section="intro">Home</a></li>
+					<li><a href="#about" class="nav-link" data-section="about">About</a></li>
+					<li><a href="#work" class="nav-link" data-section="work">Experience</a></li>
+					<li><a href="#ai" class="nav-link" data-section="ai">AI/ML</a></li>
+					<li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+					<li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Main Content -->
+	<main id="main-content" class="main">
+		<!-- Hero Section -->
+		<section id="intro" class="section section-hero">
+			<div class="container">
+				<div class="hero-content">
+					<h1 class="hero-title">Macallan Savett</h1>
+					<p class="hero-subtitle">
+						<span class="highlight">Software Engineer</span> | Building scalable applications with <strong class="highlight">Python</strong>, <strong class="highlight">Django</strong>, <strong class="highlight">React</strong>, and <strong class="highlight">AWS</strong>.
+					</p>
+					<div class="hero-actions">
+						<a href="#about" class="button button-primary">About Me</a>
+						<a href="#work" class="button button-primary">Work Experience</a>
+						<a href="#projects" class="button button-primary">Projects</a>
+						<a href="#contact" class="button button-primary">Get in Touch</a>
+					</div>
+					<div class="hero-social" role="list">
+						<a href="https://github.com/micjoey" class="social-link social-link-github" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's GitHub profile (opens in new tab)">
+							<i class="fab fa-github" aria-hidden="true"></i>
+							<span class="social-label">GitHub</span>
+						</a>
+						<a href="https://bit.ly/3izBUZc" class="social-link social-link-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's LinkedIn profile (opens in new tab)">
+							<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+							<span class="social-label">LinkedIn</span>
+						</a>
+					</div>
+					<div class="hero-info">
+						<div class="info-grid">
+							<div class="info-item">
+								<h3>Resume</h3>
+								<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="link">View PDF Resume</a>
+							</div>
+							<div class="info-item">
+								<h3>Email</h3>
+								<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" class="link">jsavett@gmail.com</a>
+							</div>
+							<div class="info-item">
+								<h3>Connect</h3>
+								<a href="https://bit.ly/3izBUZc" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section id="about" class="section">
+			<div class="container">
+				<h2 class="section-title">About Me</h2>
+				<div class="about-content">
+					<div class="about-image">
+						<img src="images/portrait.jpeg" alt="Portrait of Macallan Savett, Software Engineer">
+					</div>
+					<div class="about-sections">
+						<div class="about-section">
+							<h3 class="about-heading">Who I Am</h3>
+							<p>
+								Software Engineer at Skilljar. I build scalable applications with Python, Django, React, and AWS.
+							</p>
+							<p>
+								I started in real estate, managing databases and closing deals. The work was fast-paced and detail-oriented—tracking properties, negotiating contracts, and solving problems under pressure. When I discovered software engineering, I realized I was already doing the same thing: breaking down complex problems, finding elegant solutions, and shipping reliable systems. The transition felt natural. Now I build software with the same precision and pragmatism I brought to real estate, just with better tools and fewer spreadsheets.
+							</p>
+						</div>
+						<div class="about-section">
+							<h3 class="about-heading">What I Build</h3>
+							<p>
+								I build maintainable, scalable systems with a focus on modular architecture and AI integration. I've architected modular platforms connecting 15+ specialized applications, each with independent components and data models.
+							</p>
+							<p>
+								I design multi-agent AI systems for automated code review and productivity workflows, integrating LLMs with structured output parsing and async processing. I build real-time systems using WebSocket for collaborative features, optimize AWS infrastructure for performance, and implement CI/CD pipelines that reduce deployment times by 40%.
+							</p>
+							<p>
+								My work spans full-stack development across React, Next.js, Django, and FastAPI, with emphasis on reusable component libraries, RESTful API design, and production-ready deployments.
+							</p>
+						</div>
+						<div class="about-section">
+							<h3 class="about-heading">Beyond Code</h3>
+							<p>
+								Outside of work, I stay active through a mix of endurance sports, skill-based hobbies, and seasonal activities. I train for half marathons during the summer, which reinforces consistency, long-term planning, and mental resilience. I also referee and play soccer, which keeps me sharp in fast-paced, high-pressure decision making.
+							</p>
+							<p>
+								I am deeply involved in West Coast Swing dancing, a practice that rewards precision, adaptability, and continuous learning. In the winter, I ski and snowboard. Year-round, I golf. These activities give me space to reset, think clearly, and return to technical problems with better perspective and focus.
+							</p>
+							<p>
+								Open to discussing engineering challenges, AI/ML applications, or collaborations. Reach out at <a href="mailto:jsavett@gmail.com" class="link">jsavett@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/macallan-savett/" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Work Experience Section -->
+		<section id="work" class="section">
+			<div class="container">
+				<h2 class="section-title">Work Experience</h2>
+				<div class="work-timeline">
+					<div class="card work-card">
+						<div class="work-header">
+							<div class="work-title-group">
+								<h3>Software Engineer II</h3>
+								<p class="work-company">Skilljar powered by Gainsight</p>
+								<p class="work-location">Seattle, WA</p>
+							</div>
+							<span class="badge">August 2022 – Present</span>
+						</div>
+						<ul class="work-list">
+							<li>Led development of scalable frontend architecture, streamlining development and deployment, resulting in 40% faster feature releases.</li>
+							<li>Spearheaded QA improvements by implementing Cypress, reducing production issues by 30% and increasing code reliability.</li>
+							<li>Optimized AWS architecture (S3, CloudFront, Lambda), decreasing latency by 30%.</li>
+							<li>Architected CI/CD pipelines with Docker, AWS, and Node.js, reducing deployment times by 40% and supporting multi-region deployments.</li>
+							<li>Designed custom authentication workflows using SAML and OAuth, reducing login times by 15% and improving security.</li>
+							<li>Mentored 5 engineers, focusing on system design best practices, resulting in one promotion.</li>
+							<li>Developed a churn analysis tool using AWS Lambda, reducing data processing times by 20%.</li>
+							<li>Implemented logging and monitoring solutions that improved response times by 20%.</li>
+							<li>Redesigned accessibility features to meet WCAG 2.1 standards, boosting customer satisfaction by 25%.</li>
+						</ul>
+					</div>
+					
+					<div class="card work-card">
+						<div class="work-header">
+							<div class="work-title-group">
+								<h3>Software Engineer I</h3>
+								<p class="work-company">Skilljar powered by Gainsight</p>
+								<p class="work-location">Seattle, WA</p>
+							</div>
+							<span class="badge">January 2021 – August 2022</span>
+						</div>
+						<ul class="work-list">
+							<li>Built and maintained scalable frontends in JavaScript, Vue.js, and HTML, improving page load times by 15%.</li>
+							<li>Integrated APIs and enhanced client authentication systems.</li>
+							<li>Led AWS migrations, reducing latency by 30% and operational costs by 20%.</li>
+							<li>Implemented continuous integration with PyTest and Django, improving test coverage by 40%.</li>
+							<li>Developed PII compliance tools, automating data processing and reducing manual compliance efforts by 50%.</li>
+							<li>Led automation tools for employee onboarding/offboarding, cutting manual work by 50%.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Previous Experience Section -->
+		<section id="previous-experience" class="section">
+			<div class="container">
+				<button id="previous-exp-toggle" type="button" class="previous-exp-toggle" aria-expanded="false" aria-controls="previous-exp-content">
+					<h2 class="toggle-title">Previous Experience</h2>
+					<span id="previous-exp-icon" class="toggle-icon" aria-hidden="true">▼</span>
+				</button>
+				<div id="previous-exp-content" class="previous-exp-content" role="region" aria-labelledby="previous-exp-toggle">
+					<div class="previous-exp-grid">
+						<div class="card">
+							<h3>Research Analyst | Junior Broker | Junior Escrow Manager</h3>
+							<p class="work-company">Colliers International</p>
+							<p class="work-location">San Francisco, CA | Jan 2018 - Aug 2019</p>
+							<ul class="work-list">
+								<li>Customized and migrated a Salesforce-based database containing over 70,000 informational points for a team earning over $100 Million in 2018 through RPA and backend Salesforce APIs</li>
+								<li>Generated $100,000 within the first three months by analyzing 94 properties owned by one of the largest Multifamily clients in San Francisco</li>
+								<li>Created and managed multiple offering memorandums and buyer Opinion of Values for 12 brokers, leading to the team earning over $100 Million</li>
+								<li>Conducted comprehensive market research and property analysis, including comparable sales, rent rolls, and financial performance metrics to support investment decisions</li>
+								<li>Supported senior brokers in client relationship management, preparing presentations and proposals for high-value commercial real estate transactions</li>
+								<li>Assisted in deal origination and client prospecting by identifying investment opportunities and analyzing market trends in the San Francisco Bay Area</li>
+								<li>Managed escrow processes for commercial real estate transactions, coordinating between buyers, sellers, lenders, and title companies</li>
+								<li>Oversaw document preparation and review, ensuring compliance with contract terms and regulatory requirements throughout the transaction lifecycle</li>
+								<li>Facilitated communication between all parties during due diligence, inspection periods, and closing processes to ensure timely transaction completion</li>
+								<li>Maintained transaction files and tracking systems, monitoring critical dates and deadlines to prevent delays and ensure smooth closings</li>
+							</ul>
+						</div>
+
+						<div class="card">
+							<h3>Product Sales and Services</h3>
+							<p class="work-company">Aspen Skiing Company</p>
+							<p class="work-location">Aspen, CO | Oct 2016 - Dec 2017</p>
+							<ul class="work-list">
+								<li>Managed sales of lift tickets, equipment rentals, ski lessons, and resort services to guests and groups</li>
+								<li>Drove cross-selling of complementary products and services based on client needs, increasing average transaction value</li>
+								<li>Resolved customer conflicts and service issues by negotiating solutions that balanced guest satisfaction with operational constraints</li>
+								<li>Coordinated with multiple departments including ski school, rental shops, and dining venues to ensure seamless guest experiences</li>
+								<li>Maintained current knowledge of mountain conditions, trail availability, and resort amenities to provide accurate information to guests</li>
+								<li>Processed transactions and managed bookings for multi-day packages, group reservations, and special event coordination</li>
+								<li>Communicated daily with team members and management to stay informed about venue attractions, logistics, and operational changes</li>
+								<li>Handled customer inquiries and special requests, providing personalized recommendations based on skill level and preferences</li>
+							</ul>
+						</div>
+
+						<div class="card">
+							<h3>Barback</h3>
+							<p class="work-company">Ritz Carlton</p>
+							<p class="work-location">Santa Barbara, CA | May 2016 - Sep 2016</p>
+							<ul class="work-list">
+								<li>Supported bartenders in a high-volume environment, serving over 100+ guests during peak service periods</li>
+								<li>Maintained bar inventory by restocking alcoholic beverages, mixers, garnishes, and glassware to ensure seamless service flow</li>
+								<li>Organized and executed inventory management procedures, tracking stock levels and coordinating deliveries to maintain optimal supply levels</li>
+								<li>Prepared garnishes, fresh juices, and cocktail components ahead of service to reduce bartender preparation time</li>
+								<li>Cleaned and sanitized bar equipment, glassware, and workstations throughout service to meet health and safety standards</li>
+								<li>Assisted with bar setup and breakdown, ensuring all tools and supplies were properly organized and accessible</li>
+								<li>Managed storage areas and maintained organization systems to enable quick access to inventory during busy periods</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- AI & Machine Learning Section -->
+		<section id="ai" class="section">
+			<div class="container">
+				<h2 class="section-title">AI & Machine Learning</h2>
+				<p class="section-subtitle">
+					Technical capabilities in AI/ML engineering and implementation
+				</p>
+				<div class="ai-grid">
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44L2.5 20.5a2.5 2.5 0 0 1 0-5l4.04-1.06A2.5 2.5 0 0 1 9.5 2z"></path>
+								<path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44L21.5 20.5a2.5 2.5 0 0 0 0-5l-4.04-1.06A2.5 2.5 0 0 0 14.5 2z"></path>
+							</svg>
+						</div>
+						<h3>LLM Integration & API Development</h3>
+						<p>Production experience integrating OpenAI GPT and Anthropic Claude APIs. Built RESTful services with structured output parsing, error handling, and rate limiting. Implemented prompt engineering patterns for consistent, reliable responses.</p>
+						<div class="project-badges">
+							<span class="badge">OpenAI API</span>
+							<span class="badge">Anthropic Claude</span>
+							<span class="badge">Structured Outputs</span>
+							<span class="badge">Rate Limiting</span>
+						</div>
+					</div>
+
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+								<line x1="8" y1="21" x2="16" y2="21"></line>
+								<line x1="12" y1="17" x2="12" y2="21"></line>
+							</svg>
+						</div>
+						<h3>Multi-Agent Code Review Systems</h3>
+						<p>Architected and implemented a multi-agent system for automated code review. Five specialized agents analyze code for correctness, architecture, readability, performance, and educational value. Built with FastAPI, async processing, and structured JSON output parsing.</p>
+						<div class="project-badges">
+							<span class="badge">Multi-Agent Architecture</span>
+							<span class="badge">FastAPI</span>
+							<span class="badge">Async Processing</span>
+							<span class="badge">JSON Schema</span>
+						</div>
+					</div>
+
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+								<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+								<line x1="12" y1="19" x2="12" y2="23"></line>
+								<line x1="8" y1="23" x2="16" y2="23"></line>
+							</svg>
+						</div>
+						<h3>Speech-to-Text & NLP Pipelines</h3>
+						<p>Developed end-to-end voice processing pipeline: audio transcription, text extraction, NLP analysis, and summarization. Integrated with Django backend, implemented batch processing for audio files, and built data models for storing transcriptions and insights.</p>
+						<div class="project-badges">
+							<span class="badge">Speech-to-Text</span>
+							<span class="badge">NLP Processing</span>
+							<span class="badge">Text Summarization</span>
+							<span class="badge">Batch Processing</span>
+						</div>
+					</div>
+
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+								<polyline points="14 2 14 8 20 8"></polyline>
+								<line x1="16" y1="13" x2="8" y2="13"></line>
+								<line x1="16" y1="17" x2="8" y2="17"></line>
+								<polyline points="10 9 9 9 8 9"></polyline>
+							</svg>
+						</div>
+						<h3>Content Generation & Document Processing</h3>
+						<p>Built automated content generation systems using LLMs with context injection and template management. Implemented document parsing, text extraction, and structured data generation. Designed systems for generating personalized content at scale.</p>
+						<div class="project-badges">
+							<span class="badge">Template Systems</span>
+							<span class="badge">Document Parsing</span>
+							<span class="badge">Context Injection</span>
+							<span class="badge">Batch Generation</span>
+						</div>
+					</div>
+
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<line x1="18" y1="20" x2="18" y2="10"></line>
+								<line x1="12" y1="20" x2="12" y2="4"></line>
+								<line x1="6" y1="20" x2="6" y2="14"></line>
+							</svg>
+						</div>
+						<h3>Data Processing & Analysis</h3>
+						<p>Built data analysis tools using AWS Lambda for processing and aggregating customer data. Developed churn analysis tool that processes large datasets efficiently, reducing processing times by 20%. Implemented data transformation pipelines and automated reporting workflows.</p>
+						<div class="project-badges">
+							<span class="badge">AWS Lambda</span>
+							<span class="badge">Data Processing</span>
+							<span class="badge">Data Aggregation</span>
+							<span class="badge">Automated Reporting</span>
+						</div>
+					</div>
+
+					<div class="card ai-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+								<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+							</svg>
+						</div>
+						<h3>API Security & Configuration</h3>
+						<p>Implemented secure API key management for AI services using AWS Secrets Manager. Built configuration systems for managing LLM API credentials and settings. Designed error handling and retry logic for API integrations to ensure reliability.</p>
+						<div class="project-badges">
+							<span class="badge">AWS Secrets Manager</span>
+							<span class="badge">API Configuration</span>
+							<span class="badge">Error Handling</span>
+							<span class="badge">Retry Logic</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Flagship Project Section -->
+		<section id="flagship-project" class="section section-flagship">
+			<div class="container">
+				<div class="flagship-header">
+					<span class="flagship-badge">⭐ Flagship Project</span>
+					<h2 class="flagship-title">Personal Modular App Hub</h2>
+					<p class="flagship-subtitle">
+						My comprehensive, secure personal web application hub — a modular platform connecting 15+ specialized mini-apps
+					</p>
+				</div>
+				<div class="flagship-card">
+					<div class="flagship-card-inner">
+						<div class="flagship-icon-wrapper">
+							<div class="flagship-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+									<line x1="9" y1="3" x2="9" y2="21"></line>
+									<line x1="15" y1="3" x2="15" y2="21"></line>
+									<line x1="3" y1="9" x2="21" y2="9"></line>
+									<line x1="3" y1="15" x2="21" y2="15"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="flagship-content">
+							<div class="flagship-description">
+								<p class="flagship-intro">
+									A modular platform built with <strong class="highlight">Next.js 15</strong> and <strong class="highlight">TypeScript</strong>, connecting 15+ self-contained mini-apps, each with its own components, database schemas, and API routes.
+								</p>
+								<p>
+									Architecture emphasizes <strong>reusability and scalability</strong> with a shared component library. Features secure authentication (MFA with TOTP/WebAuthn), AI workflows (OpenAI, Anthropic), PWA capabilities, and an AI development team system for code generation and review.
+								</p>
+								<div class="flagship-modules">
+									<h4>Key Modules Include:</h4>
+									<ul class="modules-list">
+										<li>Recipe & Meal Planning (AI chat-driven)</li>
+										<li>Calendar Management</li>
+										<li>Executive Assistant (AI-powered profile management)</li>
+										<li>Gift Tracking</li>
+										<li>Habit & Goal Tracker</li>
+										<li>Knowledge Management</li>
+										<li>Daily Voice Log</li>
+										<li>Soccer Availability</li>
+										<li>Social Sync</li>
+										<li>And more...</li>
+									</ul>
+									<p class="modules-note">
+										Each module follows strict mobile-first design principles and integrates seamlessly with the central authentication and AI infrastructure.
+									</p>
+								</div>
+							</div>
+							<div class="flagship-tech">
+								<div class="project-badges">
+									<span class="badge badge-featured">Next.js 15</span>
+									<span class="badge badge-featured">TypeScript</span>
+									<span class="badge badge-featured">MongoDB</span>
+									<span class="badge badge-featured">Modular Architecture</span>
+									<span class="badge badge-featured">PWA</span>
+									<span class="badge badge-featured">AI Integration</span>
+									<span class="badge badge-featured">MFA Auth</span>
+									<span class="badge badge-featured">15+ Modules</span>
+								</div>
+								<p class="flagship-note">
+									Private repository — This is my personal productivity platform and primary development focus.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects Section -->
+		<section id="projects" class="section">
+			<div class="container">
+				<h2 class="section-title">Other Projects</h2>
+				<p class="section-subtitle">
+					A collection of full-stack applications, tools, and platforms I've built. Each project demonstrates different aspects of software engineering, from real-time systems to AI-powered solutions.
+				</p>
+				<div class="projects-grid">
+
+					<!-- DailyVoice-Log -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+								<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+								<line x1="12" y1="19" x2="12" y2="23"></line>
+								<line x1="8" y1="23" x2="16" y2="23"></line>
+							</svg>
+						</div>
+						<h3>DailyVoice-Log</h3>
+						<p>
+							<strong class="highlight">AI-powered productivity platform</strong> that automates daily email prompts for audio log recordings. The system processes voice recordings through a complete AI pipeline: speech-to-text transcription, NLP analysis for content extraction, and intelligent summarization that compiles daily activities into actionable insights.
+						</p>
+						<p>
+							Built with a Django REST API backend that handles email automation, batch audio processing, and data model management for storing transcriptions and insights. The React frontend provides an intuitive interface for reviewing periodic summaries and tracking productivity patterns over time. The architecture supports scalable processing of multiple users' daily logs with efficient database queries and background task processing.
+						</p>
+						<div class="project-badges">
+							<span class="badge">React</span>
+							<span class="badge">Django</span>
+							<span class="badge">AI/ML</span>
+							<span class="badge">Email Automation</span>
+						</div>
+						<a href="https://github.com/micjoey/DailyVoiceLog" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View DailyVoice-Log project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+
+					<!-- TavernMaster -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+								<circle cx="8" cy="8" r="1.5"></circle>
+								<circle cx="16" cy="8" r="1.5"></circle>
+								<circle cx="8" cy="16" r="1.5"></circle>
+								<circle cx="16" cy="16" r="1.5"></circle>
+								<circle cx="12" cy="12" r="1.5"></circle>
+							</svg>
+						</div>
+						<h3>TavernMaster</h3>
+						<p>
+							<strong class="highlight">Full-stack campaign management platform</strong> for tabletop RPGs featuring real-time collaboration tools. The platform provides comprehensive campaign and character management with CRUD operations, role-based dashboards for Dungeon Masters and players, and an invitation system for campaign coordination.
+						</p>
+						<p>
+							Built with React frontend and Django REST API backend, featuring WebSocket integration for real-time chat during campaign sessions. The architecture includes JWT authentication, modular SASS-styled UI components, and a WebSocket server with message throttling for optimal performance. The system supports both DM and player perspectives with role-based access control, ensuring appropriate permissions for campaign editing, character management, and chat moderation.
+						</p>
+						<div class="project-badges">
+							<span class="badge">React</span>
+							<span class="badge">Django REST</span>
+							<span class="badge">WebSocket</span>
+							<span class="badge">JWT Auth</span>
+						</div>
+						<a href="https://github.com/micjoey/TavernMaster" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View TavernMaster project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+
+					<!-- AI Review -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="3" y="11" width="18" height="10" rx="2"></rect>
+								<circle cx="12" cy="5" r="2"></circle>
+								<path d="M12 7v4"></path>
+								<line x1="8" y1="11" x2="8" y2="16"></line>
+								<line x1="16" y1="11" x2="16" y2="16"></line>
+							</svg>
+						</div>
+						<h3>AI Review</h3>
+						<p>
+							<strong class="highlight">Personal learning platform</strong> that enhances engineering reasoning through structured AI feedback. The system presents three design options before coding, requires justification for the chosen approach, and then reviews code diffs with five specialized agents: correctness, architecture, readability, performance, and teaching.
+						</p>
+						<p>
+							Built with FastAPI backend featuring clean modular architecture, async processing for agent reviews, and structured JSON output parsing. The Next.js frontend provides forms for problem summaries, diff uploads, and displays for design options, justifications, and agent feedback. Integrated with AWS Secrets Manager for secure API key management, the platform focuses on learning from structured feedback rather than storing code, maintaining privacy while improving code quality through iterative review cycles.
+						</p>
+						<div class="project-badges">
+							<span class="badge">FastAPI</span>
+							<span class="badge">Next.js</span>
+							<span class="badge">LLM Integration</span>
+							<span class="badge">AWS Secrets</span>
+						</div>
+						<a href="https://github.com/micjoey/AI_Review" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View AI Review project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+
+					<!-- Workout App -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M6.5 6.5h11v11h-11z"></path>
+								<path d="M6.5 6.5L12 12l5.5-5.5"></path>
+								<path d="M12 12v6"></path>
+							</svg>
+						</div>
+						<h3>Adaptive Workout App</h3>
+						<p>
+							<strong class="highlight">Full-stack fitness tracking platform</strong> with intelligent adaptive workout planning. The application features comprehensive workout logging with support for both numeric rep counts and time-based values (e.g., "30s" or "1:00"), adaptive plan generation that adjusts based on performance history, and analytics for tracking progress over time.
+						</p>
+						<p>
+							Built with Next.js frontend and FastAPI backend using SQLModel for database architecture, following single responsibility principles with modular organization. The UI meets WCAG AA accessibility standards with semantic HTML, proper ARIA labels, visible focus styles, and sufficient color contrast. Features include editable workout logs with kebab menu actions, database seeding scripts, and a feature-based component structure that separates workouts, logs, and plans into distinct modules.
+						</p>
+						<div class="project-badges">
+							<span class="badge">Next.js</span>
+							<span class="badge">FastAPI</span>
+							<span class="badge">SQLModel</span>
+							<span class="badge">Tailwind CSS</span>
+						</div>
+						<a href="https://github.com/micjoey/workout-app" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View Adaptive Workout App project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+
+					<!-- Cover Letter Helper -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+								<polyline points="14 2 14 8 20 8"></polyline>
+								<line x1="16" y1="13" x2="8" y2="13"></line>
+								<line x1="16" y1="17" x2="8" y2="17"></line>
+								<polyline points="10 9 9 9 8 9"></polyline>
+							</svg>
+						</div>
+						<h3>Unique Cover Letter Helper</h3>
+						<p>
+							<strong class="highlight">AI-powered personalization engine</strong> that generates tailored cover letters for specific job applications. The system analyzes job descriptions and user profiles to create unique, context-aware cover letters that highlight relevant skills and experiences.
+						</p>
+						<p>
+							Built with Django REST API backend that handles job application matching, AI integration for content generation, and form processing. The React frontend provides an intuitive interface for inputting job details, reviewing generated content, and managing multiple cover letter versions. Deployed on Heroku with optimized performance for handling concurrent requests and seamless user experience across devices.
+						</p>
+						<div class="project-badges">
+							<span class="badge">React</span>
+							<span class="badge">Django</span>
+							<span class="badge">AI Integration</span>
+							<span class="badge">Heroku</span>
+						</div>
+						<a href="https://github.com/micjoey/Unique-Cover-Letter-Helper" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View Unique Cover Letter Helper project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+
+					<!-- Soccer Website -->
+					<div class="card project-card">
+						<div class="project-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="10"></circle>
+								<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+								<path d="M2 12h20"></path>
+							</svg>
+						</div>
+						<h3>Soccer Team Management</h3>
+						<p>
+							<strong class="highlight">Comprehensive team management platform</strong> for soccer clubs featuring availability tracking, game scheduling, and team coordination tools. The system enables players to mark availability for upcoming games, view schedules, and manage team rosters with administrative controls.
+						</p>
+						<p>
+							Built with React and TypeScript frontend providing type-safe components and modern UI patterns, paired with a Node.js backend handling authentication, scheduling logic, and data persistence. Integrated with Google OAuth for secure user authentication, the platform supports both player and administrator roles with appropriate permissions for managing games, tracking availability, and coordinating team activities.
+						</p>
+						<div class="project-badges">
+							<span class="badge">React</span>
+							<span class="badge">TypeScript</span>
+							<span class="badge">Node.js</span>
+							<span class="badge">Google OAuth</span>
+						</div>
+						<a href="https://github.com/micjoey/soccer-website" class="button button-primary" target="_blank" rel="noopener noreferrer" aria-label="View Soccer Team Management project on GitHub (opens in new tab)">View on GitHub →</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Technologies Section -->
+		<section id="technologies" class="section">
+			<div class="container">
+				<h2 class="section-title">Technologies</h2>
+				<p class="section-subtitle">
+					Technologies and tools I use to build scalable, modern applications
+				</p>
+				<div class="technologies-grid">
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">🎨</div>
+							<h3>Frontend</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">JavaScript</span>
+							<span class="badge">React</span>
+							<span class="badge">TypeScript</span>
+							<span class="badge">Next.js</span>
+							<span class="badge">Vue.js</span>
+							<span class="badge">Redux</span>
+							<span class="badge">HTML5 / CSS3</span>
+							<span class="badge">Tailwind CSS</span>
+							<span class="badge">Webpack / Babel</span>
+						</div>
+					</div>
+					
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">⚙️</div>
+							<h3>Backend</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">Python</span>
+							<span class="badge">Django</span>
+							<span class="badge">FastAPI</span>
+							<span class="badge">Node.js</span>
+							<span class="badge">Ruby on Rails</span>
+							<span class="badge">PostgreSQL</span>
+							<span class="badge">MySQL</span>
+							<span class="badge">MongoDB</span>
+							<span class="badge">SQLModel</span>
+							<span class="badge">RESTful APIs</span>
+							<span class="badge">GraphQL</span>
+							<span class="badge">WebSocket</span>
+						</div>
+					</div>
+					
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">☁️</div>
+							<h3>Cloud & DevOps</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">AWS</span>
+							<span class="badge">S3 / CloudFront</span>
+							<span class="badge">Lambda</span>
+							<span class="badge">Secrets Manager</span>
+							<span class="badge">Azure</span>
+							<span class="badge">Docker</span>
+							<span class="badge">Kubernetes</span>
+							<span class="badge">Terraform</span>
+							<span class="badge">CI/CD Pipelines</span>
+							<span class="badge">Git / GitHub</span>
+						</div>
+					</div>
+					
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">🤖</div>
+							<h3>AI & Integration</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">OpenAI API</span>
+							<span class="badge">Anthropic Claude</span>
+							<span class="badge">LLM Integration</span>
+							<span class="badge">Speech-to-Text</span>
+							<span class="badge">NLP Processing</span>
+							<span class="badge">Structured Outputs</span>
+						</div>
+					</div>
+					
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">🧪</div>
+							<h3>Testing & Tools</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">PyTest</span>
+							<span class="badge">Cypress</span>
+							<span class="badge">Selenium</span>
+							<span class="badge">Jest</span>
+							<span class="badge">Jira</span>
+							<span class="badge">Figma</span>
+						</div>
+					</div>
+					
+					<div class="card tech-category">
+						<div class="tech-category-header">
+							<div class="tech-icon">🔐</div>
+							<h3>Security & Standards</h3>
+						</div>
+						<div class="project-badges">
+							<span class="badge">OAuth</span>
+							<span class="badge">SAML</span>
+							<span class="badge">SSO</span>
+							<span class="badge">JWT Auth</span>
+							<span class="badge">WCAG 2.1</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Education Section -->
+		<section id="education" class="section">
+			<div class="container">
+				<h2 class="section-title">Education</h2>
+				<div class="education-grid">
+					<div class="card">
+						<h3>App Academy</h3>
+						<p class="work-company">Class of Feb 2020</p>
+						<p>Immersive software development course with focus on full-stack web development | Winter 2019</p>
+					</div>
+					<div class="card">
+						<h3>Oberlin College</h3>
+						<p class="work-company">Class of 2016</p>
+						<p>Bachelor's in Economics with a focus on Real Estate</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="section">
+			<div class="container">
+				<h2 class="section-title">Get in Touch</h2>
+				<p class="section-subtitle">
+					Let's connect and discuss opportunities
+				</p>
+				<div class="contact-grid">
+					<div class="card contact-card">
+						<h3>Email</h3>
+						<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" class="link">jsavett@gmail.com</a>
+					</div>
+					<div class="card contact-card">
+						<h3>Resume</h3>
+						<a href="https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="link">View PDF Resume</a>
+					</div>
+					<div class="card contact-card">
+						<h3>Connect</h3>
+						<div class="contact-social" role="list">
+							<a href="https://github.com/micjoey" class="social-link social-link-github" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's GitHub profile (opens in new tab)">
+								<i class="fab fa-github" aria-hidden="true"></i>
+								<span class="social-label">GitHub</span>
+							</a>
+							<a href="https://bit.ly/3izBUZc" class="social-link social-link-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Visit Macallan Savett's LinkedIn profile (opens in new tab)">
+								<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+								<span class="social-label">LinkedIn</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer" role="contentinfo">
+		<div class="container">
+			<div class="footer-content">
+				<a href="mailto:jsavett@gmail.com?subject=Would love to get in touch with you - From Portfolio Website" aria-label="Email Macallan Savett">
+					<img src="images/transparent email.png" alt="Macallan Savett logo" class="footer-logo">
+				</a>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<script src="assets/js/background-animations.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/animations.js"></script>
+</body>
+</html>
