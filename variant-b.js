@@ -31,7 +31,7 @@ window.renderVariantB = function renderVariantB(root) {
         </h1>
         <div class="vb-hero-bottom reveal">
           <p class="vb-lede">
-            I'm <strong>Macallan Savett</strong>. Software Engineer II at Skilljar. I build modular Python / Django / React systems with AI glued into the parts that matter — and I care about the parts that don't feel like code.
+            I'm <strong>Macallan Savett</strong>, Engineering Manager at Skilljar. I lead the team I grew up on — shipping modular Python / Django / React systems with AI woven into the parts that matter, and protecting the parts that don't feel like code.
           </p>
           <div class="vb-hero-actions">
             <a href="#projects" class="btn btn-primary">Browse work</a>
@@ -47,7 +47,7 @@ window.renderVariantB = function renderVariantB(root) {
         <div class="vb-glance-grid">
           <div class="vb-glance-card reveal"><span class="vb-big">15+</span><span>mini-apps in personal hub</span></div>
           <div class="vb-glance-card reveal"><span class="vb-big">5</span><span>AI agents reviewing diffs</span></div>
-          <div class="vb-glance-card reveal"><span class="vb-big">40%</span><span>faster deploys shipped at Skilljar</span></div>
+          <div class="vb-glance-card reveal"><span class="vb-big">IC II → EM</span><span>promoted at Skilljar</span></div>
           <div class="vb-glance-card reveal"><span class="vb-big">~5yr</span><span>full-stack · Python + React</span></div>
         </div>
       </div>
@@ -63,9 +63,9 @@ window.renderVariantB = function renderVariantB(root) {
           </div>
           <div class="vb-about-body">
             <p class="eyebrow">About</p>
-            <h2 class="vb-h2">Real estate taught me the game; engineering taught me the tools.</h2>
-            <p class="vb-p">At Colliers SF I closed $100M+ deals, wrangled 70k-row Salesforce migrations, and learned that detail is leverage. When I moved into software, the reflexes came with me — now I ship production systems with the same care.</p>
-            <p class="vb-p">I design modular platforms, integrate LLMs where they actually move the needle, and keep AWS bills honest. Real-time features on WebSocket, CI/CD that actually deploys, auth that survives audits.</p>
+            <h2 class="vb-h2">Real estate taught me the game. Engineering taught me the tools. Leading a team taught me the stakes.</h2>
+            <p class="vb-p">At Colliers SF I closed $100M+ deals, wrangled 70k-row Salesforce migrations, and learned that detail is leverage. When I moved into software the reflexes came with me — and the same instinct now shapes how I run a team.</p>
+            <p class="vb-p">Today I'm an Engineering Manager at Skilljar, where I came up as an IC across the same codebase I now help steer. I own the roadmap, the team's health, and the bar for craft — but I'm still in the pull requests when it matters. My job is to make the people around me faster, calmer, and more proud of what they ship.</p>
           </div>
         </div>
       </div>
@@ -148,9 +148,11 @@ window.renderVariantB = function renderVariantB(root) {
                 <span class="vb-proj-toggle">+</span>
               </button>
               <div class="vb-proj-body">
-                <p>${p.body}</p>
-                <div class="vb-tags">${p.stack.map(t => `<span>${t}</span>`).join('')}</div>
-                <a href="${p.link}" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+                <div class="vb-proj-body-inner">
+                  <p>${p.body}</p>
+                  <div class="vb-tags">${p.stack.map(t => `<span>${t}</span>`).join('')}</div>
+                  <a href="${p.link}" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+                </div>
               </div>
             </article>
           `).join('')}

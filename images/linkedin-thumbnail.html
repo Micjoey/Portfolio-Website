@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>LinkedIn Thumbnail — macallan.space</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff6ef;
+    --bg-2: #ffeadd;
+    --ink: #1b1430;
+    --ink-soft: #5a4f72;
+    --line: #f0d8c6;
+    --accent: #ff5b6e;
+    --accent-2: #b26bff;
+    --accent-3: #ffb547;
+    --accent-4: #47d9b5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    width: 1200px; height: 627px;
+    margin: 0; padding: 0;
+    overflow: hidden;
+    font-family: 'Inter Tight', system-ui, sans-serif;
+  }
+
+  .thumb {
+    width: 1200px;
+    height: 627px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(620px circle at 18% 25%, #ff9aa2 0%, transparent 55%),
+      radial-gradient(520px circle at 82% 78%, #ffc78e 0%, transparent 55%),
+      radial-gradient(480px circle at 60% 15%, #c8aaff 0%, transparent 55%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    color: var(--ink);
+  }
+
+  .grain {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(0deg, transparent 95%, rgba(27,20,48,.04) 95%),
+      linear-gradient(90deg, transparent 95%, rgba(27,20,48,.04) 95%);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+
+  .frame {
+    position: absolute; inset: 48px 56px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    height: calc(627px - 96px);
+  }
+
+  /* TOP — brand */
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px; font-weight: 600;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .brand-dot {
+    width: 14px; height: 14px; border-radius: 999px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 0 4px rgba(255,91,110,.18);
+  }
+  .brand-sep { opacity: .35; }
+
+  /* CENTER — title */
+  .title {
+    font-size: 104px;
+    line-height: .98;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    max-width: 1000px;
+  }
+  .title .grad {
+    background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 50%, var(--accent-3) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .title .serif {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  /* BOTTOM — meta row */
+  .meta {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 40px;
+  }
+  .who {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .name {
+    font-size: 28px; font-weight: 700; letter-spacing: -0.01em;
+  }
+  .role {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--ink-soft);
+  }
+  .url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px; font-weight: 500;
+    color: var(--ink);
+    padding: 12px 22px;
+    background: rgba(255,255,255,.7);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+  }
+  .url::before { content: '→ '; color: var(--accent); }
+
+  /* tag chips */
+  .chips {
+    display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;
+  }
+  .chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.6);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+  }
+  .chip.accent { background: var(--accent); color: #fff; border-color: transparent; }
+</style>
+</head>
+<body>
+  <div class="thumb">
+    <div class="grain"></div>
+    <div class="frame">
+
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span>macallan.space</span>
+        <span class="brand-sep">/</span>
+        <span>portfolio</span>
+      </div>
+
+      <h1 class="title">
+        <span class="grad">ships, scales,</span><br/>
+        and stays <span class="serif">kind.</span>
+      </h1>
+
+      <div class="meta">
+        <div class="who">
+          <div class="name">Macallan Savett</div>
+          <div class="role">Engineering Manager · Skilljar (Gainsight)</div>
+          <div class="chips">
+            <span class="chip accent">Python</span>
+            <span class="chip">Django</span>
+            <span class="chip">React</span>
+            <span class="chip">AWS</span>
+            <span class="chip">AI / ML</span>
+          </div>
+        </div>
+        <div class="url">macallan.space</div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

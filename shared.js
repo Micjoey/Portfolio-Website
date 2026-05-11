@@ -21,11 +21,23 @@ window.SiteData = {
   ],
   experience: [
     {
+      role: "Engineering Manager",
+      company: "Skilljar (Gainsight)",
+      location: "Seattle, WA",
+      period: "Apr 2026 — Present",
+      current: true,
+      highlights: [
+        "Leading the team I grew up on — same product, new altitude",
+        "Owning roadmap, delivery cadence, and engineering health",
+        "Coaching ICs through promotion paths and system-design depth",
+        "Still close to the code where it matters most",
+      ],
+    },
+    {
       role: "Software Engineer II",
       company: "Skilljar (Gainsight)",
       location: "Seattle, WA",
-      period: "Aug 2022 — Present",
-      current: true,
+      period: "Aug 2022 — Apr 2026",
       highlights: [
         "Led scalable frontend architecture → 40% faster feature releases",
         "Implemented Cypress QA coverage → 30% fewer prod incidents",
@@ -199,3 +211,24 @@ window.mountNowStrip = function mountNowStrip(el) {
 // SCROLL REVEAL
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => Utils.reveal());
+
+// ============================================================
+// LIVE NOW DATA — pulled from /now.json (refreshed by GitHub Action)
+// Replaces the "Listening" entry with the most recent Spotify track.
+// ============================================================
+(async () => {
+  try {
+    const res = await fetch('now.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) return;
+    const data = await res.json();
+    const t = data?.listening;
+    if (!t) return;
+    const idx = SiteData.now.findIndex((n) => n.kind === 'Listening');
+    if (idx < 0) return;
+    SiteData.now[idx] = {
+      kind: 'Listening',
+      text: `${t.artist} · ${t.track}`,
+      icon: 'music',
+    };
+  } catch (e) { /* fall back to static entry */ }
+})();
