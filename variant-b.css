@@ -164,8 +164,18 @@
 [data-variant="b"] .vb-proj-head h3 { font-family: 'Instrument Serif', serif; font-size: 30px; font-weight: 400; margin-bottom: 6px; letter-spacing: -0.01em; }
 [data-variant="b"] .vb-proj-head p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
 [data-variant="b"] .vb-proj-toggle { width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; line-height: 1; }
-[data-variant="b"] .vb-proj-body { max-height: 0; overflow: hidden; transition: max-height .5s ease, margin-top .3s ease; position: relative; }
-[data-variant="b"] .vb-proj.open .vb-proj-body { max-height: 500px; margin-top: 16px; }
+[data-variant="b"] .vb-proj-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  opacity: 0;
+  position: relative;
+  transition: grid-template-rows .45s cubic-bezier(.4, 0, .2, 1),
+              margin-top .45s cubic-bezier(.4, 0, .2, 1),
+              opacity .35s ease;
+}
+[data-variant="b"] .vb-proj-body-inner { overflow: hidden; min-height: 0; }
+[data-variant="b"] .vb-proj.open .vb-proj-body { grid-template-rows: 1fr; margin-top: 16px; opacity: 1; }
 [data-variant="b"] .vb-proj-body p { font-size: 14px; line-height: 1.6; margin-bottom: 12px; }
 [data-variant="b"] .vb-proj-body .btn { margin-top: 12px; }
 
