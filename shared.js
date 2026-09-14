@@ -4,12 +4,12 @@
 window.SiteData = {
   profile: {
     name: "Macallan Savett",
-    role: "Software Engineer",
+    role: "Engineering Manager",
     city: "Seattle",
     email: "jsavett@gmail.com",
     linkedin: "https://bit.ly/3izBUZc",
     github: "https://github.com/micjoey",
-    resume: "https://drive.google.com/file/d/1olpkyksuJFzQpki623Pi-KtPLUGIBf8V/view?usp=sharing",
+    resume: "assets/Macallan_Savett_Resume.pdf",
   },
   now: [
     { kind: "Building", text: "Personal Modular App Hub (Next.js 15, 15+ modules)", icon: "hammer" },
